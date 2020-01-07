@@ -1,0 +1,5 @@
+---
+
+dependencies:
+  - {role: common, when: not (bitcoin_core_state is match('false|no|remove|quiesce|inactive'))}
+  - {role: gnu_tar, when: not (bitcoin_core_state is match('false|no|remove|quiesce|inactive'))}

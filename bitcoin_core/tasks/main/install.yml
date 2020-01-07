@@ -1,0 +1,176 @@
+---
+
+#-------------------------------------------------------------------------------
+# VARIABLES
+#-------------------------------------------------------------------------------
+
+- name: 'include variables'
+  include_vars: "{{item}}"
+  with_first_found:
+    - files:
+      - "vars/{{ansible_distribution_major_version}}.yml"
+      - 'vars/main.yml'
+      errors: 'ignore'
+  tags:
+    - install
+    - bitcoin_core
+
+#-------------------------------------------------------------------------------
+# SYSTEM
+#-------------------------------------------------------------------------------
+
+- name: 'group create bitcoind'
+  group:
+    state: 'present'
+    name: "{{group_name_bitcoind}}"
+    system: "{{group_system_bitcoind}}"
+  tags:
+    - install
+    - bitcoin_core
+
+- name: 'user create bitcoind'
+  user:
+    state: 'present'
+    name: "{{user_name_bitcoind}}"
+    comment: "{{user_comment_bitcoind}}"
+    group: "{{user_group_bitcoind}}"
+    append: "{{user_append_bitcoind}}"
+    createhome: "{{user_home_create_bitcoind}}"
+    move_home: "{{user_home_move_bitcoind}}"
+    remove: "{{user_home_remove_bitcoind}}"
+    force: "{{user_home_force_bitcoind}}"
+    password: "{{user_password_bitcoind}}"
+    update_password: "{{user_password_update_bitcoind}}"
+    shell: "{{user_shell_bitcoind}}"
+    system: "{{user_system_bitcoind}}"
+  tags:
+    - install
+    - bitcoin_core
+
+#-------------------------------------------------------------------------------
+# FILES
+#-------------------------------------------------------------------------------
+
+- name: 'file create bitcoind_app.dir'
+  file:
+    state: 'directory'
+    path: "{{file_dst_bitcoind_app_dir}}"
+    mode: "{{file_mode_bitcoind_app_dir}}"
+    owner: "{{file_owner_bitcoind_app_dir}}"
+    group: "{{file_group_bitcoind_app_dir}}"
+  tags:
+    - install
+    - bitcoin_core
+
+- name: 'file create bitcoind_data.dir'
+  file:
+    state: 'directory'
+    path: "{{file_dst_bitcoind_data_dir}}"
+    mode: "{{file_mode_bitcoind_data_dir}}"
+    owner: "{{file_owner_bitcoind_data_dir}}"
+    group: "{{file_group_bitcoind_data_dir}}"
+  tags:
+    - install
+    - bitcoin_core
+
+- name: 'file create bitcoind_log.dir'
+  file:
+    state: 'directory'
+    path: "{{file_dst_bitcoind_log_dir}}"
+    mode: "{{file_mode_bitcoind_log_dir}}"
+    owner: "{{file_owner_bitcoind_log_dir}}"
+    group: "{{file_group_bitcoind_log_dir}}"
+  tags:
+    - install
+    - bitcoin_core
+
+- name: 'file create bitcoind_src.dir'
+  file:
+    state: 'directory'
+    path: "{{file_dst_bitcoind_src_dir}}"
+    mode: "{{file_mode_bitcoind_src_dir}}"
+    owner: "{{file_owner_bitcoind_src_dir}}"
+    group: "{{file_group_bitcoind_src_dir}}"
+  tags:
+    - install
+    - bitcoin_core
+
+- name: 'file download bitcoin-core.tar.gz'
+  get_url:
+    url: "{{file_src_bitcoin_core_tar_gz}}"
+    dest: "{{file_dst_bitcoin_core_tar_gz}}"
+    mode: "{{file_mode_bitcoin_core_tar_gz}}"
+    owner: "{{file_owner_bitcoin_core_tar_gz}}"
+    group: "{{file_group_bitcoin_core_tar_gz}}"
+    checksum: "{{bitcoin_core_checksum_algorithm}}:{{bitcoin_core_checksum}}"
+  tags:
+    - install
+    - bitcoin_core
+
+- name: 'file unarchive bitcoin-core.tar.gz'
+  unarchive:
+    src: "{{file_src_bitcoin_core}}"
+    dest: "{{file_dst_bitcoin_core}}"
+    owner: "{{file_owner_bitcoin_core}}"
+    group: "{{file_group_bitcoin_core}}"
+    creates: "{{file_creates_bitcoin_core}}"
+    remote_src: 'yes'
+  tags:
+    - install
+    - bitcoin_core
+
+- name: 'file create bitcoin-current.link'
+  file:
+    state: 'link'
+    src: "{{file_src_bitcoin_current_link}}"
+    path: "{{file_dst_bitcoin_current_link}}"
+    owner: "{{file_owner_bitcoin_current_link}}"
+    group: "{{file_group_bitcoin_current_link}}"
+  tags:
+    - install
+    - bitcoin_core
+
+- name: 'file create debug.log'
+  copy:
+    content: ''
+    force: 'no'
+    dest: "{{file_dst_debug_log}}"
+    mode: "{{file_mode_debug_log}}"
+    owner: "{{file_owner_debug_log}}"
+    group: "{{file_group_debug_log}}"
+  tags:
+    - install
+    - bitcoin_core
+
+- name: 'file create bitcoind_conf.dir'
+  file:
+    state: 'directory'
+    path: "{{file_dst_bitcoind_conf_dir}}"
+    mode: "{{file_mode_bitcoind_conf_dir}}"
+    owner: "{{file_owner_bitcoind_conf_dir}}"
+    group: "{{file_group_bitcoind_conf_dir}}"
+  tags:
+    - install
+    - bitcoin_core
+
+- name: 'file create bitcoind.service'
+  template:
+    src: "{{file_src_bitcoind_service}}"
+    dest: "{{file_dst_bitcoind_service}}"
+    mode: "{{file_mode_bitcoind_service}}"
+    owner: "{{file_owner_bitcoind_service}}"
+    group: "{{file_group_bitcoind_service}}"
+  notify: 'command systemctl daemon-reload'
+  tags:
+    - install
+    - bitcoin_core
+
+#-------------------------------------------------------------------------------
+# META
+#-------------------------------------------------------------------------------
+
+- name: 'meta flush handlers'
+  meta: 'flush_handlers'
+  tags:
+    - install
+    - bitcoin_core

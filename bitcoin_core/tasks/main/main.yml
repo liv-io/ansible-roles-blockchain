@@ -1,0 +1,25 @@
+---
+
+- name: 'task include install'
+  import_tasks: install.yml
+  when: not (bitcoin_core_state is match('false|no|remove|quiesce|inactive'))
+  tags:
+    - bitcoin_core
+
+- name: 'task include enable'
+  import_tasks: enable.yml
+  when: (bitcoin_core_state is match('start|on|enable'))
+  tags:
+    - bitcoin_core
+
+- name: 'task include disable'
+  import_tasks: disable.yml
+  when: (bitcoin_core_state is match('stop|off|disable'))
+  tags:
+    - bitcoin_core
+
+- name: 'task include remove'
+  import_tasks: remove.yml
+  when: (bitcoin_core_state is match('false|no|remove'))
+  tags:
+    - bitcoin_core

@@ -1,0 +1,74 @@
+---
+
+#-------------------------------------------------------------------------------
+# VARIABLES
+#-------------------------------------------------------------------------------
+
+- name: 'include variables'
+  include_vars: "{{item}}"
+  with_first_found:
+    - files:
+      - "vars/{{ansible_distribution_major_version}}.yml"
+      - 'vars/main.yml'
+      errors: 'ignore'
+  tags:
+    - remove
+    - bitcoin_core
+
+#-------------------------------------------------------------------------------
+# SYSTEM
+#-------------------------------------------------------------------------------
+
+- name: 'user remove bitcoind'
+  user:
+    state: 'absent'
+    name: "{{user_name_bitcoind}}"
+    remove: "{{user_home_remove_bitcoind}}"
+    force: "{{user_home_force_bitcoind}}"
+  tags:
+    - remove
+    - bitcoin_core
+
+- name: 'group remove bitcoind'
+  group:
+    state: 'absent'
+    name: "{{group_name_bitcoind}}"
+  tags:
+    - remove
+    - bitcoin_core
+
+#-------------------------------------------------------------------------------
+# FILES
+#-------------------------------------------------------------------------------
+
+- name: 'file remove bitcoind.service'
+  file:
+    state: 'absent'
+    path: "{{file_dst_bitcoind_service}}"
+  tags:
+    - remove
+    - bitcoin_core
+
+- name: 'file remove bitcoind.sysconfig'
+  file:
+    state: 'absent'
+    path: "{{file_dst_bitcoind_sysconfig}}"
+  tags:
+    - remove
+    - bitcoin_core
+
+- name: 'file remove bitcoind_app.dir'
+  file:
+    state: 'absent'
+    path: "{{file_dst_bitcoind_src_dir}}"
+  tags:
+    - remove
+    - bitcoin_core
+
+- name: 'file remove bitcoind_src.dir'
+  file:
+    state: 'absent'
+    path: "{{file_dst_bitcoind_src_dir}}"
+  tags:
+    - remove
+    - bitcoin_core

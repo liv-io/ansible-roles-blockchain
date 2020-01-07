@@ -1,0 +1,15 @@
+---
+
+bitcoin_core_state: 'enable'
+
+bitcoin_core_checksum: '732cc96ae2e5e25603edf76b8c8af976fe518dd925f7e674710c6c8ee5189204'
+
+bitcoin_core_checksum_algorithm: 'sha256'
+
+bitcoin_core_rpc_allow_ip: '127.0.0.0/8'
+
+bitcoin_core_rpc_auth: ''
+
+bitcoin_core_rpc_bind: '127.0.0.1'
+
+bitcoin_core_version: '0.19.0.1'

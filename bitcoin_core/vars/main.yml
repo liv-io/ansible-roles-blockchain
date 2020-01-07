@@ -1,0 +1,115 @@
+---
+
+#-------------------------------------------------------------------------------
+# FILES
+#-------------------------------------------------------------------------------
+
+# bitcoind_app.dir
+file_dst_bitcoind_app_dir: "/{{common_app_dir}}/bitcoind"
+file_mode_bitcoind_app_dir: '0755'
+file_owner_bitcoind_app_dir: 'root'
+file_group_bitcoind_app_dir: 'root'
+
+# bitcoind_conf.dir
+file_dst_bitcoind_conf_dir: "/{{common_app_dir}}/bitcoind/bitcoin-{{bitcoin_core_version}}/conf"
+file_mode_bitcoind_conf_dir: '0750'
+file_owner_bitcoind_conf_dir: 'root'
+file_group_bitcoind_conf_dir: 'bitcoind'
+
+# bitcoind_data.dir
+file_dst_bitcoind_data_dir: "/{{common_data_dir}}/bitcoind"
+file_mode_bitcoind_data_dir: '0755'
+file_owner_bitcoind_data_dir: 'bitcoind'
+file_group_bitcoind_data_dir: 'bitcoind'
+
+# bitcoind_log.dir
+file_dst_bitcoind_log_dir: '/var/log/bitcoind'
+file_mode_bitcoind_log_dir: '0700'
+file_owner_bitcoind_log_dir: 'bitcoind'
+file_group_bitcoind_log_dir: 'bitcoind'
+
+# bitcoind_src.dir
+file_dst_bitcoind_src_dir: "/usr/local/src/bitcoind"
+file_mode_bitcoind_src_dir: '0755'
+file_owner_bitcoind_src_dir: 'root'
+file_group_bitcoind_src_dir: 'root'
+
+# bitcoin-core.tar.gz
+file_src_bitcoin_core_tar_gz: "https://bitcoin.org/bin/bitcoin-core-{{bitcoin_core_version}}/bitcoin-{{bitcoin_core_version}}-x86_64-linux-gnu.tar.gz"
+file_dst_bitcoin_core_tar_gz: "/usr/local/src/bitcoind/bitcoin-{{bitcoin_core_version}}-x86_64-linux-gnu.tar.gz"
+file_mode_bitcoin_core_tar_gz: '0644'
+file_owner_bitcoin_core_tar_gz: 'root'
+file_group_bitcoin_core_tar_gz: 'root'
+
+# bitcoin-current.link
+file_src_bitcoin_current_link: "/{{common_app_dir}}/bitcoind/bitcoin-{{bitcoin_core_version}}"
+file_dst_bitcoin_current_link: "/{{common_app_dir}}/bitcoind/current"
+file_owner_bitcoin_current_link: 'root'
+file_group_bitcoin_current_link: 'root'
+
+# bitcoin-core
+file_src_bitcoin_core: "/usr/local/src/bitcoind/bitcoin-{{bitcoin_core_version}}-x86_64-linux-gnu.tar.gz"
+file_dst_bitcoin_core: "/{{common_app_dir}}/bitcoind"
+file_creates_bitcoin_core: "/{{common_app_dir}}/bitcoind/bitcoin-{{bitcoin_core_version}}"
+file_mode_bitcoin_core: '0644'
+file_owner_bitcoin_core: 'root'
+file_group_bitcoin_core: 'root'
+
+# bitcoin.conf
+file_src_bitcoin_conf: 'templates/main/bitcoin.conf.j2'
+file_dst_bitcoin_conf: "/{{common_app_dir}}/bitcoind/bitcoin-{{bitcoin_core_version}}/conf/bitcoin.conf"
+file_mode_bitcoin_conf: '0640'
+file_owner_bitcoin_conf: 'root'
+file_group_bitcoin_conf: 'bitcoind'
+
+# bitcoind.service
+file_src_bitcoind_service: 'templates/main/bitcoind.service.j2'
+file_dst_bitcoind_service: '/usr/lib/systemd/system/bitcoind.service'
+file_mode_bitcoind_service: '0644'
+file_owner_bitcoind_service: 'root'
+file_group_bitcoind_service: 'root'
+
+# bitcoind.sysconfig
+file_src_bitcoind_sysconfig: 'templates/main/bitcoind.sysconfig.j2'
+file_dst_bitcoind_sysconfig: '/etc/sysconfig/bitcoind'
+file_mode_bitcoind_sysconfig: '0644'
+file_owner_bitcoind_sysconfig: 'root'
+file_group_bitcoind_sysconfig: 'root'
+
+# debug.log
+file_dst_debug_log: '/var/log/bitcoind/debug.log'
+file_mode_debug_log: '0600'
+file_owner_debug_log: 'bitcoind'
+file_group_debug_log: 'bitcoind'
+
+#-------------------------------------------------------------------------------
+# COMMANDS
+#-------------------------------------------------------------------------------
+
+# systemctl daemon-reload
+command_cmd_systemctl_daemon_reload: 'systemctl daemon-reload'
+
+#-------------------------------------------------------------------------------
+# SYSTEM
+#-------------------------------------------------------------------------------
+
+# bitcoind
+group_name_bitcoind: 'bitcoind'
+group_system_bitcoind: 'yes'
+
+# bitcoind
+user_name_bitcoind: 'bitcoind'
+user_comment_bitcoind: 'Bitcoin Core'
+user_group_bitcoind: 'bitcoind'
+user_append_bitcoind: 'yes'
+user_home_create_bitcoind: 'yes'
+user_home_move_bitcoind: 'no'
+user_home_remove_bitcoind: 'yes'
+user_home_force_bitcoind: 'no'
+user_password_bitcoind: '!'
+user_password_update_bitcoind: 'always'
+user_shell_bitcoind: '/sbin/nologin'
+user_system_bitcoind: 'yes'
+
+# bitcoind
+service_name_bitcoind: 'bitcoind'

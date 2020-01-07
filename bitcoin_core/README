@@ -1,0 +1,217 @@
+--------------------------------------------------------------------------------
+INFORMATION
+--------------------------------------------------------------------------------
+
+Name   : bitcoin_core
+Type   : Ansible role
+
+Authors: liv community
+License: Simplified BSD License
+
+--------------------------------------------------------------------------------
+DESCRIPTION
+--------------------------------------------------------------------------------
+
+Bitcoin is an experimental digital currency that enables instant payments to
+anyone, anywhere in the world. Bitcoin uses peer-to-peer technology to operate
+with no central authority: managing transactions and issuing money are carried
+out collectively by the network. Bitcoin Core is the name of open source
+software which enables the use of this currency.
+
+For more information on the usage and available configuration options,
+consult the following sections.
+
+--------------------------------------------------------------------------------
+USAGE
+--------------------------------------------------------------------------------
+
+INSTALL
+  - hosts: all
+    roles:
+      - role: bitcoin_core
+    vars:
+      bitcoin_core_state: 'install'
+
+ENABLE
+  - hosts: all
+    roles:
+      - role: bitcoin_core
+    vars:
+      bitcoin_core_state: 'enable'
+      bitcoin_core_rpc_allow_ip: '0.0.0.0/0'
+      bitcoin_core_rpc_auth: 'satoshi:63c20cd63c1eed39bfd8ecc04cf8d816$83340b182b07b1b2d55352797eab617b821f83c4f1c28bd3dfc40240e412ec7a'
+      bitcoin_core_rpc_bind: '0.0.0.0'
+
+DISABLE
+  - hosts: all
+    roles:
+      - role: bitcoin_core
+    vars:
+      bitcoin_core_state: 'disable'
+      bitcoin_core_rpc_allow_ip: '0.0.0.0/0'
+      bitcoin_core_rpc_auth: 'satoshi:63c20cd63c1eed39bfd8ecc04cf8d816$83340b182b07b1b2d55352797eab617b821f83c4f1c28bd3dfc40240e412ec7a'
+      bitcoin_core_rpc_bind: '0.0.0.0'
+
+REMOVE
+  - hosts: all
+    roles:
+      - role: bitcoin_core
+    vars:
+      bitcoin_core_state: 'remove'
+
+INACTIVE
+  - hosts: all
+    roles:
+      - role: bitcoin_core
+    vars:
+      bitcoin_core_state: 'inactive'
+
+--------------------------------------------------------------------------------
+PARAMETERS
+--------------------------------------------------------------------------------
+
+ROLE
+  bitcoin_core_state
+    Description: Control the state of the role.
+    Implemented: 0.1
+    Required   : False
+    Value      : Predetermined
+    Type       : String
+    Default    : 'enable'
+    Options    :
+      Install : 'true' | 'yes' | 'install'
+      Enable  : 'start' | 'on' | 'enable'
+      Disable : 'stop' | 'off' | 'disable'
+      Remove  : 'false' | 'no' | 'remove'
+      Inactive: 'quiesce' | 'inactive'
+
+  bitcoin_core_checksum
+    Description: Define the 'bitcoin_core_checksum' option.
+    Implemented: 0.1
+    Required   : False
+    Value      : Arbitrary
+    Type       : String
+    Default    : '732cc96ae2e5e25603edf76b8c8af976fe518dd925f7e674710c6c8ee5189204'
+    Options    :
+      Examples: '600d1db5e751fa85903e935a01a74f5cc57e1e7473c15fd3e17ed21e202cfe5a' | '5146ac5310133fbb01439666131588006543ab5364435b748ddfc95a8cb8d63f'
+
+  bitcoin_core_checksum_algorithm
+    Description: Define the 'bitcoin_core_checksum_algorithm' option.
+    Implemented: 0.1
+    Required   : False
+    Value      : Arbitrary
+    Type       : String
+    Default    : 'sha256'
+    Options    :
+      Examples: 'sha256' | 'sha512'
+
+  bitcoin_core_rpc_allow_ip
+    Description: Define the 'bitcoin_core_rpc_allow_ip' option.
+    Implemented: 0.1
+    Required   : False
+    Value      : Arbitrary
+    Type       : String
+    Default    : '127.0.0.0/8'
+    Options    :
+      Examples: '10.0.0.0/8' | '0.0.0.0/0'
+
+  bitcoin_core_rpc_auth
+    Description: Define the 'bitcoin_core_rpc_auth' option.
+                 For more information, visit:
+                 https://github.com/bitcoin/bitcoin/tree/master/share/rpcauth
+    Implemented: 0.1
+    Required   : False
+    Value      : Arbitrary
+    Type       : String
+    Default    : ''
+    Options    :
+      Examples: 'satoshi:d7316644b50aa7ea8792daf5c6b897e4$54194677335fcb771aa39533ddc2833927de9626b0d8fcb7940a7f56aa8a9569' |
+                'satoshi:63c20cd63c1eed39bfd8ecc04cf8d816$83340b182b07b1b2d55352797eab617b821f83c4f1c28bd3dfc40240e412ec7a'
+      None: ''
+
+  bitcoin_core_rpc_bind
+    Description: Define the 'bitcoin_core_rpc_bind' option.
+    Implemented: 0.1
+    Required   : False
+    Value      : Arbitrary
+    Type       : String
+    Default    : '127.0.0.1'
+    Options    :
+      Examples: '10.1.1.10' | '0.0.0.0'
+
+  bitcoin_core_version
+    Description: Define the 'bitcoin_core_version' option.
+    Implemented: 0.1
+    Required   : False
+    Value      : Arbitrary
+    Type       : String
+    Default    : '0.19.0.1'
+    Options    :
+      Examples: '0.18.1' | '0.18.0'
+
+--------------------------------------------------------------------------------
+CONFLICTS
+--------------------------------------------------------------------------------
+
+ROLES
+
+--------------------------------------------------------------------------------
+DEPENDENCIES
+--------------------------------------------------------------------------------
+
+PACKAGES
+  bitcoin-core
+
+ROLES
+  common
+
+  gnu_tar
+
+PARAMETERS
+
+--------------------------------------------------------------------------------
+REQUIREMENTS
+--------------------------------------------------------------------------------
+
+CONTROL MACHINE
+  Ansible
+    Version: >= 2.8
+
+  Python
+    Version: >= 2.4
+
+  Python-Crypto
+    Version: >= 2.0
+
+  Python-Jinja2
+    Version: >= 2.0
+
+  Python-Paramiko
+    Version: >= 1.0
+
+  Python-YAML
+    Version: >= 3.0
+
+  sshpass
+    Version: >= 1.0
+
+MANAGED NODE
+  Python
+    Version: >= 2.4
+
+--------------------------------------------------------------------------------
+SUPPORT
+--------------------------------------------------------------------------------
+
+OPERATING SYSTEMS
+  CentOS
+    Version: 7
+      Status: Stable
+
+  CentOS
+    Version: 8
+      Status: Stable
+
+--------------------------------------------------------------------------------
+OTHER
+--------------------------------------------------------------------------------

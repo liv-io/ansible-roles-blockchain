@@ -1,0 +1,57 @@
+---
+
+#-------------------------------------------------------------------------------
+# VARIABLES
+#-------------------------------------------------------------------------------
+
+- name: 'include variables'
+  include_vars: "{{item}}"
+  with_first_found:
+    - files:
+      - "vars/{{ansible_distribution_major_version}}.yml"
+      - 'vars/main.yml'
+      errors: 'ignore'
+  tags:
+    - install
+    - bitcoin_core
+
+#-------------------------------------------------------------------------------
+# FILES
+#-------------------------------------------------------------------------------
+
+- name: 'file create bitcoind.sysconfig'
+  template:
+    src: "{{file_src_bitcoind_sysconfig}}"
+    dest: "{{file_dst_bitcoind_sysconfig}}"
+    mode: "{{file_mode_bitcoind_sysconfig}}"
+    owner: "{{file_owner_bitcoind_sysconfig}}"
+    group: "{{file_group_bitcoind_sysconfig}}"
+  notify: 'service restart bitcoind'
+  tags:
+    - enable
+    - bitcoin_core
+
+- name: 'file create bitcoin.conf'
+  template:
+    src: "{{file_src_bitcoin_conf}}"
+    dest: "{{file_dst_bitcoin_conf}}"
+    mode: "{{file_mode_bitcoin_conf}}"
+    owner: "{{file_owner_bitcoin_conf}}"
+    group: "{{file_group_bitcoin_conf}}"
+  notify: 'service restart bitcoind'
+  tags:
+    - enable
+    - bitcoin_core
+
+#-------------------------------------------------------------------------------
+# SYSTEM
+#-------------------------------------------------------------------------------
+
+- name: 'service start bitcoind'
+  service:
+    state: 'started'
+    enabled: 'yes'
+    name: "{{service_name_bitcoind}}"
+  tags:
+    - enable
+    - bitcoin_core
