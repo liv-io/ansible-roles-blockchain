@@ -14,5 +14,12 @@ F: feature
 
 --------------------------------------------------------------------------------
 
+* Version 0.2.0 (2020-01-13)
+F: Add option to specify network bind address (bitcoin_core_network_bind)
+F: Add option to specify network port (bitcoin_core_network_port)
+F: Add option to specify RPC port (bitcoin_core_rpc_port)
+F: Add option to specify ZeroMQ bind address (bitcoin_core_zeromq_bind)
+F: Add option to specify ZeroMQ port (bitcoin_core_zeromq_port)
+
 * Version 0.1.0 (2020-01-07)
 F: Initial release

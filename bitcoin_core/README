@@ -41,6 +41,7 @@ ENABLE
       bitcoin_core_rpc_allow_ip: '0.0.0.0/0'
       bitcoin_core_rpc_auth: 'satoshi:63c20cd63c1eed39bfd8ecc04cf8d816$83340b182b07b1b2d55352797eab617b821f83c4f1c28bd3dfc40240e412ec7a'
       bitcoin_core_rpc_bind: '0.0.0.0'
+      bitcoin_core_zeromq_bind: '0.0.0.0'
 
 DISABLE
   - hosts: all
@@ -51,6 +52,7 @@ DISABLE
       bitcoin_core_rpc_allow_ip: '0.0.0.0/0'
       bitcoin_core_rpc_auth: 'satoshi:63c20cd63c1eed39bfd8ecc04cf8d816$83340b182b07b1b2d55352797eab617b821f83c4f1c28bd3dfc40240e412ec7a'
       bitcoin_core_rpc_bind: '0.0.0.0'
+      bitcoin_core_zeromq_bind: '0.0.0.0'
 
 REMOVE
   - hosts: all
@@ -105,6 +107,26 @@ ROLE
     Options    :
       Examples: 'sha256' | 'sha512'
 
+  bitcoin_core_network_bind
+    Description: Define the 'bitcoin_core_network_bind' option.
+    Implemented: 0.2
+    Required   : False
+    Value      : Arbitrary
+    Type       : String
+    Default    : '0.0.0.0'
+    Options    :
+      Examples: '10.1.1.10' | '0.0.0.0'
+
+  bitcoin_core_network_port
+    Description: Define the 'bitcoin_core_network_port' option.
+    Implemented: 0.2
+    Required   : False
+    Value      : Arbitrary
+    Type       : Integer, String
+    Default    : 8333
+    Options    :
+      Examples: 8333
+
   bitcoin_core_rpc_allow_ip
     Description: Define the 'bitcoin_core_rpc_allow_ip' option.
     Implemented: 0.1
@@ -139,6 +161,16 @@ ROLE
     Options    :
       Examples: '10.1.1.10' | '0.0.0.0'
 
+  bitcoin_core_rpc_port
+    Description: Define the 'bitcoin_core_rpc_port' option.
+    Implemented: 0.2
+    Required   : False
+    Value      : Arbitrary
+    Type       : Integer, String
+    Default    : 8332
+    Options    :
+      Examples: 8332
+
   bitcoin_core_version
     Description: Define the 'bitcoin_core_version' option.
     Implemented: 0.1
@@ -148,6 +180,26 @@ ROLE
     Default    : '0.19.0.1'
     Options    :
       Examples: '0.18.1' | '0.18.0'
+
+  bitcoin_core_zeromq_bind
+    Description: Define the 'bitcoin_core_zeromq_bind' option.
+    Implemented: 0.2
+    Required   : False
+    Value      : Arbitrary
+    Type       : String
+    Default    : '127.0.0.1'
+    Options    :
+      Examples: '10.1.1.10' | '0.0.0.0'
+
+  bitcoin_core_zeromq_port
+    Description: Define the 'bitcoin_core_zeromq_port' option.
+    Implemented: 0.2
+    Required   : False
+    Value      : Arbitrary
+    Type       : Integer, String
+    Default    : 5555
+    Options    :
+      Examples: 5555
 
 --------------------------------------------------------------------------------
 CONFLICTS

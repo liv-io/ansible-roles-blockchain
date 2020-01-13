@@ -39,23 +39,23 @@ txindex=1
 
 # [network]
 # Bind to given address and always listen on it. Use [host]:port notation for IPv6.
-bind=0.0.0.0
+bind={{bitcoin_core_network_bind}}
 # Support filtering of blocks and transactions with bloom filters.
 peerbloomfilters=0
 # Listen for incoming connections on non-default port.
-port=8333
+port={{bitcoin_core_network_port}}
 # Only connect to peers via IPV4
 onlynet=ipv4
 
 # [zeromq]
 # Enable publishing of block hashes to <address>.
-zmqpubhashblock=tcp://127.0.0.1:5555
+zmqpubhashblock=tcp://{{bitcoin_core_zeromq_bind}}:{{bitcoin_core_zeromq_port}}
 # Enable publishing of transaction hashes to <address>.
-zmqpubhashtx=tcp://127.0.0.1:5555
+zmqpubhashtx=tcp://{{bitcoin_core_zeromq_bind}}:{{bitcoin_core_zeromq_port}}
 # Enable publishing of raw block hex to <address>.
-zmqpubrawblock=tcp://127.0.0.1:5555
+zmqpubrawblock=tcp://{{bitcoin_core_zeromq_bind}}:{{bitcoin_core_zeromq_port}}
 # Enable publishing of raw transaction hex to <address>.
-zmqpubrawtx=tcp://127.0.0.1:5555
+zmqpubrawtx=tcp://{{bitcoin_core_zeromq_bind}}:{{bitcoin_core_zeromq_port}}
 
 
 # [debug]
@@ -74,7 +74,7 @@ rpcbind={{bitcoin_core_rpc_bind}}
 # Accept public REST requests.
 rest=1
 # Listen for JSON-RPC connections on this port
-rpcport=8332
+rpcport={{bitcoin_core_rpc_port}}
 # Username and hashed password for JSON-RPC connections. The field <userpw> comes in the format: <USERNAME>:<SALT>$<HASH>. RPC clients connect using rpcuser=<USERNAME>/rpcpassword=<PASSWORD> arguments. You can generate this value with the ./share/rpcauth/rpcauth.py script in the Bitcoin Core repository. This option can be specified multiple times.
 {% if not (bitcoin_core_rpc_auth == '') %}
 rpcauth={{bitcoin_core_rpc_auth}}
