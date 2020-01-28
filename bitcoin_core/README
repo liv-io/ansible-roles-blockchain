@@ -149,7 +149,7 @@ ROLE
     Options    :
       Examples: 'satoshi:d7316644b50aa7ea8792daf5c6b897e4$54194677335fcb771aa39533ddc2833927de9626b0d8fcb7940a7f56aa8a9569' |
                 'satoshi:63c20cd63c1eed39bfd8ecc04cf8d816$83340b182b07b1b2d55352797eab617b821f83c4f1c28bd3dfc40240e412ec7a'
-      None: ''
+      None    : ''
 
   bitcoin_core_rpc_bind
     Description: Define the 'bitcoin_core_rpc_bind' option.
