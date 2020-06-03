@@ -2,7 +2,7 @@
 
 bitcoin_core_state: 'enable'
 
-bitcoin_core_checksum: '5fcac9416e486d4960e1a946145566350ca670f9aaba99de6542080851122e4c'
+bitcoin_core_checksum: '35ec10f87b6bc1e44fd9cd1157e5dfa483eaf14d7d9a9c274774539e7824c427'
 
 bitcoin_core_checksum_algorithm: 'sha256'
 
@@ -18,7 +18,7 @@ bitcoin_core_rpc_bind: '127.0.0.1'
 
 bitcoin_core_rpc_port: 8332
 
-bitcoin_core_version: '0.19.1'
+bitcoin_core_version: '0.20.0'
 
 bitcoin_core_zeromq_bind: '127.0.0.1'
 

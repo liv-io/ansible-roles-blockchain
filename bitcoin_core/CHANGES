@@ -14,15 +14,19 @@ F: feature
 
 --------------------------------------------------------------------------------
 
-* Version 0.3.0 (2020-03-10)
+* Version 0.20.0-1 (2020-03-10)
+F: Update to version 0.20.0
+E: Follow upstream versioning
+
+* Version 0.19.1-1 (2020-03-10)
 F: Update to version 0.19.1
 
-* Version 0.2.0 (2020-01-13)
+* Version 0.19.0.1-2 (2020-01-13)
 F: Add option to specify network bind address (bitcoin_core_network_bind)
 F: Add option to specify network port (bitcoin_core_network_port)
 F: Add option to specify RPC port (bitcoin_core_rpc_port)
 F: Add option to specify ZeroMQ bind address (bitcoin_core_zeromq_bind)
 F: Add option to specify ZeroMQ port (bitcoin_core_zeromq_port)
 
-* Version 0.1.0 (2020-01-07)
+* Version 0.19.0.1-1 (2020-01-07)
 F: Initial release
