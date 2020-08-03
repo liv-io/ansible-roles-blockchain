@@ -5,19 +5,25 @@
 #-------------------------------------------------------------------------------
 
 # bitcoind_app.dir
-file_dst_bitcoind_app_dir: "/{{common_app_dir}}/bitcoind"
+file_dst_bitcoind_app_dir: '/app/bitcoind'
 file_mode_bitcoind_app_dir: '0755'
 file_owner_bitcoind_app_dir: 'root'
 file_group_bitcoind_app_dir: 'root'
 
-# bitcoind_conf.dir
-file_dst_bitcoind_conf_dir: "/{{common_app_dir}}/bitcoind/bitcoin-{{bitcoin_core_version}}/conf"
+# bitcoind_conf_dir
+file_dst_bitcoind_conf_dir: '/etc/bitcoind'
 file_mode_bitcoind_conf_dir: '0750'
 file_owner_bitcoind_conf_dir: 'root'
 file_group_bitcoind_conf_dir: 'bitcoind'
 
+# data.dir
+file_dst_data_dir: '/data'
+file_mode_data_dir: '0755'
+file_owner_data_dir: 'root'
+file_group_data_dir: 'root'
+
 # bitcoind_data.dir
-file_dst_bitcoind_data_dir: "/{{common_data_dir}}/bitcoind"
+file_dst_bitcoind_data_dir: '/data/bitcoind'
 file_mode_bitcoind_data_dir: '0755'
 file_owner_bitcoind_data_dir: 'bitcoind'
 file_group_bitcoind_data_dir: 'bitcoind'
@@ -29,7 +35,7 @@ file_owner_bitcoind_log_dir: 'bitcoind'
 file_group_bitcoind_log_dir: 'bitcoind'
 
 # bitcoind_src.dir
-file_dst_bitcoind_src_dir: "/usr/local/src/bitcoind"
+file_dst_bitcoind_src_dir: '/usr/local/src/bitcoind'
 file_mode_bitcoind_src_dir: '0755'
 file_owner_bitcoind_src_dir: 'root'
 file_group_bitcoind_src_dir: 'root'
@@ -42,22 +48,22 @@ file_owner_bitcoin_core_tar_gz: 'root'
 file_group_bitcoin_core_tar_gz: 'root'
 
 # bitcoin-current.link
-file_src_bitcoin_current_link: "/{{common_app_dir}}/bitcoind/bitcoin-{{bitcoin_core_version}}"
-file_dst_bitcoin_current_link: "/{{common_app_dir}}/bitcoind/current"
+file_src_bitcoin_current_link: '/app/bitcoind/bitcoin-{{bitcoin_core_version}}'
+file_dst_bitcoin_current_link: '/app/bitcoind/current'
 file_owner_bitcoin_current_link: 'root'
 file_group_bitcoin_current_link: 'root'
 
 # bitcoin-core
 file_src_bitcoin_core: "/usr/local/src/bitcoind/bitcoin-{{bitcoin_core_version}}-x86_64-linux-gnu.tar.gz"
-file_dst_bitcoin_core: "/{{common_app_dir}}/bitcoind"
-file_creates_bitcoin_core: "/{{common_app_dir}}/bitcoind/bitcoin-{{bitcoin_core_version}}"
+file_dst_bitcoin_core: '/app/bitcoind'
+file_creates_bitcoin_core: '/app/bitcoind/bitcoin-{{bitcoin_core_version}}'
 file_mode_bitcoin_core: '0644'
 file_owner_bitcoin_core: 'root'
 file_group_bitcoin_core: 'root'
 
 # bitcoin.conf
 file_src_bitcoin_conf: 'templates/main/bitcoin.conf.j2'
-file_dst_bitcoin_conf: "/{{common_app_dir}}/bitcoind/bitcoin-{{bitcoin_core_version}}/conf/bitcoin.conf"
+file_dst_bitcoin_conf: '/etc/bitcoind/bitcoin.conf'
 file_mode_bitcoin_conf: '0640'
 file_owner_bitcoin_conf: 'root'
 file_group_bitcoin_conf: 'bitcoind'
