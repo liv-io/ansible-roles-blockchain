@@ -22,4 +22,10 @@ bitcoin_core_version: '0.20.1'
 
 bitcoin_core_zeromq_bind: '127.0.0.1'
 
-bitcoin_core_zeromq_port: 5555
+bitcoin_core_zeromq_pub_hash_block_port: 5555
+
+bitcoin_core_zeromq_pub_hash_tx_port: 5556
+
+bitcoin_core_zeromq_pub_raw_block_port: 5557
+
+bitcoin_core_zeromq_pub_raw_tx_port: 5558

@@ -49,13 +49,13 @@ onlynet=ipv4
 
 # [zeromq]
 # Enable publishing of block hashes to <address>.
-zmqpubhashblock=tcp://{{bitcoin_core_zeromq_bind}}:{{bitcoin_core_zeromq_port}}
+zmqpubhashblock=tcp://{{bitcoin_core_zeromq_bind}}:{{bitcoin_core_zeromq_pub_hash_block_port}}
 # Enable publishing of transaction hashes to <address>.
-zmqpubhashtx=tcp://{{bitcoin_core_zeromq_bind}}:{{bitcoin_core_zeromq_port}}
+zmqpubhashtx=tcp://{{bitcoin_core_zeromq_bind}}:{{bitcoin_core_zeromq_pub_hash_tx_port}}
 # Enable publishing of raw block hex to <address>.
-zmqpubrawblock=tcp://{{bitcoin_core_zeromq_bind}}:{{bitcoin_core_zeromq_port}}
+zmqpubrawblock=tcp://{{bitcoin_core_zeromq_bind}}:{{bitcoin_core_zeromq_pub_raw_block_port}}
 # Enable publishing of raw transaction hex to <address>.
-zmqpubrawtx=tcp://{{bitcoin_core_zeromq_bind}}:{{bitcoin_core_zeromq_port}}
+zmqpubrawtx=tcp://{{bitcoin_core_zeromq_bind}}:{{bitcoin_core_zeromq_pub_raw_tx_port}}
 
 
 # [debug]

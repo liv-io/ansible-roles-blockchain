@@ -191,15 +191,45 @@ ROLE
     Options    :
       Examples: '10.1.1.10' | '0.0.0.0'
 
-  bitcoin_core_zeromq_port
-    Description: Define the 'bitcoin_core_zeromq_port' option.
-    Implemented: 0.19.0.1-2
+  bitcoin_core_zeromq_pub_hash_block_port
+    Description: Define the 'bitcoin_core_zeromq_pub_hash_block_port' option.
+    Implemented: 0.20.1-2
     Required   : False
     Value      : Arbitrary
     Type       : Integer, String
     Default    : 5555
     Options    :
       Examples: 5555
+
+  bitcoin_core_zeromq_pub_hash_tx_port
+    Description: Define the 'bitcoin_core_zeromq_pub_hash_tx_port' option.
+    Implemented: 0.20.1-2
+    Required   : False
+    Value      : Arbitrary
+    Type       : Integer, String
+    Default    : 5556
+    Options    :
+      Examples: 5556
+
+  bitcoin_core_zeromq_pub_raw_block_port
+    Description: Define the 'bitcoin_core_zeromq_pub_raw_block_port' option.
+    Implemented: 0.20.1-2
+    Required   : False
+    Value      : Arbitrary
+    Type       : Integer, String
+    Default    : 5557
+    Options    :
+      Examples: 5557
+
+  bitcoin_core_zeromq_pub_raw_tx_port
+    Description: Define the 'bitcoin_core_zeromq_pub_raw_tx_port' option.
+    Implemented: 0.20.1-2
+    Required   : False
+    Value      : Arbitrary
+    Type       : Integer, String
+    Default    : 5558
+    Options    :
+      Examples: 5558
 
 --------------------------------------------------------------------------------
 CONFLICTS

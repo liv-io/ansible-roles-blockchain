@@ -14,6 +14,13 @@ F: feature
 
 --------------------------------------------------------------------------------
 
+* Version 0.20.1-2 (2020-08-12)
+C: Remove option ZeroMQ port parameter (bitcoin_core_zeromq_port)
+F: Add option ZeroMQ block hashes port (bitcoin_core_zeromq_pub_hash_block_port)
+F: Add option ZeroMQ transaction hashes (bitcoin_core_zeromq_pub_hash_tx_port)
+F: Add option ZeroMQ raw block hex (bitcoin_core_zeromq_pub_raw_block_port)
+F: Add option ZeroMQ raw transaction hex (bitcoin_core_zeromq_pub_raw_tx_port)
+
 * Version 0.20.1-1 (2020-08-03)
 F: Update to version 0.20.1
 C: Move configuration directory
