@@ -4,13 +4,19 @@
 # FILES
 #-------------------------------------------------------------------------------
 
+# app.dir
+file_dst_app_dir: '/app'
+file_mode_app_dir: '0755'
+file_owner_app_dir: 'root'
+file_group_app_dir: 'root'
+
 # bitcoind_app.dir
 file_dst_bitcoind_app_dir: '/app/bitcoind'
 file_mode_bitcoind_app_dir: '0755'
 file_owner_bitcoind_app_dir: 'root'
 file_group_bitcoind_app_dir: 'root'
 
-# bitcoind_conf_dir
+# bitcoind_conf.dir
 file_dst_bitcoind_conf_dir: '/etc/bitcoind'
 file_mode_bitcoind_conf_dir: '0750'
 file_owner_bitcoind_conf_dir: 'root'

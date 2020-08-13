@@ -51,6 +51,17 @@
 # FILES
 #-------------------------------------------------------------------------------
 
+- name: 'file create app.dir'
+  file:
+    state: 'directory'
+    path: "{{file_dst_app_dir}}"
+    mode: "{{file_mode_app_dir}}"
+    owner: "{{file_owner_app_dir}}"
+    group: "{{file_group_app_dir}}"
+  tags:
+    - install
+    - bitcoin_core
+
 - name: 'file create bitcoind_app.dir'
   file:
     state: 'directory'
@@ -153,7 +164,7 @@
     - install
     - bitcoin_core
 
-- name: 'file create bitcoind_conf_dir'
+- name: 'file create bitcoind_conf.dir'
   file:
     state: 'directory'
     path: "{{file_dst_bitcoind_conf_dir}}"
