@@ -1,0 +1,74 @@
+---
+
+#-------------------------------------------------------------------------------
+# VARIABLES
+#-------------------------------------------------------------------------------
+
+- name: 'include variables'
+  include_vars: "{{item}}"
+  with_first_found:
+    - files:
+      - "vars/{{ansible_distribution_major_version}}.yml"
+      - 'vars/main.yml'
+      errors: 'ignore'
+  tags:
+    - remove
+    - lnd
+
+#-------------------------------------------------------------------------------
+# SYSTEM
+#-------------------------------------------------------------------------------
+
+- name: 'user remove lnd'
+  user:
+    state: 'absent'
+    name: "{{user_name_lnd}}"
+    remove: "{{user_home_remove_lnd}}"
+    force: "{{user_home_force_lnd}}"
+  tags:
+    - remove
+    - lnd
+
+- name: 'group remove lnd'
+  group:
+    state: 'absent'
+    name: "{{group_name_lnd}}"
+  tags:
+    - remove
+    - lnd
+
+#-------------------------------------------------------------------------------
+# FILES
+#-------------------------------------------------------------------------------
+
+- name: 'file remove lnd.service'
+  file:
+    state: 'absent'
+    path: "{{file_dst_lnd_service}}"
+  tags:
+    - remove
+    - lnd
+
+- name: 'file remove lnd.sysconfig'
+  file:
+    state: 'absent'
+    path: "{{file_dst_lnd_sysconfig}}"
+  tags:
+    - remove
+    - lnd
+
+- name: 'file remove lnd_app.dir'
+  file:
+    state: 'absent'
+    path: "{{file_dst_lnd_src_dir}}"
+  tags:
+    - remove
+    - lnd
+
+- name: 'file remove lnd_src.dir'
+  file:
+    state: 'absent'
+    path: "{{file_dst_lnd_src_dir}}"
+  tags:
+    - remove
+    - lnd

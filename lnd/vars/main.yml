@@ -1,0 +1,121 @@
+---
+
+#-------------------------------------------------------------------------------
+# FILES
+#-------------------------------------------------------------------------------
+
+# app.dir
+file_dst_app_dir: '/app'
+file_mode_app_dir: '0755'
+file_owner_app_dir: 'root'
+file_group_app_dir: 'root'
+
+# lnd_app.dir
+file_dst_lnd_app_dir: '/app/lnd'
+file_mode_lnd_app_dir: '0755'
+file_owner_lnd_app_dir: 'root'
+file_group_lnd_app_dir: 'root'
+
+# lnd_conf.dir
+file_dst_lnd_conf_dir: '/etc/lnd'
+file_mode_lnd_conf_dir: '0750'
+file_owner_lnd_conf_dir: 'root'
+file_group_lnd_conf_dir: 'lnd'
+
+# data.dir
+file_dst_data_dir: '/data'
+file_mode_data_dir: '0755'
+file_owner_data_dir: 'root'
+file_group_data_dir: 'root'
+
+# lnd_data.dir
+file_dst_lnd_data_dir: '/data/lnd'
+file_mode_lnd_data_dir: '0700'
+file_owner_lnd_data_dir: 'lnd'
+file_group_lnd_data_dir: 'lnd'
+
+# lnd_log.dir
+file_dst_lnd_log_dir: '/var/log/lnd'
+file_mode_lnd_log_dir: '0700'
+file_owner_lnd_log_dir: 'lnd'
+file_group_lnd_log_dir: 'lnd'
+
+# lnd_src.dir
+file_dst_lnd_src_dir: '/usr/local/src/lnd'
+file_mode_lnd_src_dir: '0755'
+file_owner_lnd_src_dir: 'root'
+file_group_lnd_src_dir: 'root'
+
+# lnd.tar.gz
+file_src_lnd_tar_gz: "https://github.com/lightningnetwork/lnd/releases/download/v{{lnd_version}}/lnd-linux-amd64-v{{lnd_version}}.tar.gz"
+file_dst_lnd_tar_gz: "/usr/local/src/lnd/lnd-linux-amd64-v{{lnd_version}}.tar.gz"
+file_mode_lnd_tar_gz: '0644'
+file_owner_lnd_tar_gz: 'root'
+file_group_lnd_tar_gz: 'root'
+
+# lnd-current.link
+file_src_lnd_current_link: "/app/lnd/lnd-linux-amd64-v{{lnd_version}}"
+file_dst_lnd_current_link: '/app/lnd/current'
+file_owner_lnd_current_link: 'root'
+file_group_lnd_current_link: 'root'
+
+# lnd
+file_src_lnd: "/usr/local/src/lnd/lnd-linux-amd64-v{{lnd_version}}.tar.gz"
+file_dst_lnd: '/app/lnd'
+file_creates_lnd: "/app/lnd/lnd-linux-amd64-v{{lnd_version}}"
+file_mode_lnd: '0644'
+file_owner_lnd: 'root'
+file_group_lnd: 'root'
+
+# lnd.conf
+file_src_lnd_conf: 'templates/main/lnd.conf.j2'
+file_dst_lnd_conf: '/etc/lnd/lnd.conf'
+file_mode_lnd_conf: '0640'
+file_owner_lnd_conf: 'root'
+file_group_lnd_conf: 'lnd'
+
+# lnd.service
+file_src_lnd_service: 'templates/main/lnd.service.j2'
+file_dst_lnd_service: '/usr/lib/systemd/system/lnd.service'
+file_mode_lnd_service: '0644'
+file_owner_lnd_service: 'root'
+file_group_lnd_service: 'root'
+
+# lnd.sysconfig
+file_src_lnd_sysconfig: 'templates/main/lnd.sysconfig.j2'
+file_dst_lnd_sysconfig: '/etc/sysconfig/lnd'
+file_mode_lnd_sysconfig: '0644'
+file_owner_lnd_sysconfig: 'root'
+file_group_lnd_sysconfig: 'root'
+
+#-------------------------------------------------------------------------------
+# COMMANDS
+#-------------------------------------------------------------------------------
+
+# systemctl daemon-reload
+command_cmd_systemctl_daemon_reload: 'systemctl daemon-reload'
+
+#-------------------------------------------------------------------------------
+# SYSTEM
+#-------------------------------------------------------------------------------
+
+# lnd
+group_name_lnd: 'lnd'
+group_system_lnd: 'yes'
+
+# lnd
+user_name_lnd: 'lnd'
+user_comment_lnd: 'Lightning Network Daemon'
+user_group_lnd: 'lnd'
+user_append_lnd: 'yes'
+user_home_create_lnd: 'yes'
+user_home_move_lnd: 'no'
+user_home_remove_lnd: 'yes'
+user_home_force_lnd: 'no'
+user_password_lnd: '!'
+user_password_update_lnd: 'always'
+user_shell_lnd: '/usr/bin/bash'
+user_system_lnd: 'yes'
+
+# lnd
+service_name_lnd: 'lnd'

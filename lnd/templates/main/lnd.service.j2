@@ -1,0 +1,34 @@
+#-------------------------------------------------------------------------------
+#                             ANSIBLE MANAGED FILE
+#-------------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------------
+# INFORMATION
+#-------------------------------------------------------------------------------
+#
+# Name   : lnd.service
+# Type   : systemd unit file
+# Role   : lnd
+#
+# Authors: liv community
+# License: Simplified BSD License
+#
+#-------------------------------------------------------------------------------
+
+[Install]
+WantedBy=multi-user.target
+
+[Unit]
+Description=Lightning Network Daemon
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=lnd
+Group=lnd
+EnvironmentFile=/etc/sysconfig/lnd
+ExecStart={{file_dst_lnd_current_link}}/lnd $OPTIONS
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target

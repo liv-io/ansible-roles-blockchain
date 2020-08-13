@@ -1,0 +1,35 @@
+---
+
+lnd_state: 'enable'
+
+lnd_alias: ''
+
+lnd_bitcoin_active: 'true'
+
+lnd_bitcoind_estimatemode: 'ECONOMICAL'
+
+lnd_bitcoind_rpchost: 'localhost:8332'
+
+lnd_bitcoind_rpcpass: ''
+
+lnd_bitcoind_rpcuser: ''
+
+lnd_bitcoind_zmqpubrawblock: 'tcp://localhost:5557'
+
+lnd_bitcoind_zmqpubrawtx: 'tcp://localhost:5558'
+
+lnd_checksum: 'abb94e1462cdd02927d6e3a3ac97cc377ad22ca5437290e04da4df05441c4f6f'
+
+lnd_checksum_algorithm: 'sha256'
+
+lnd_color: '#000000'
+
+lnd_externalip: ''
+
+lnd_listen: ['0.0.0.0:9735']
+
+lnd_restlisten: []
+
+lnd_rpclisten: []
+
+lnd_version: '0.11.0-beta.rc2'

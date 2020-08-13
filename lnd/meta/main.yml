@@ -1,0 +1,4 @@
+---
+
+dependencies:
+  - {role: gnu_tar, when: not (lnd_state is match('false|no|remove|quiesce|inactive'))}
