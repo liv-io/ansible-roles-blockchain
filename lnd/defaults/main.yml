@@ -18,7 +18,7 @@ lnd_bitcoind_zmqpubrawblock: 'tcp://localhost:5557'
 
 lnd_bitcoind_zmqpubrawtx: 'tcp://localhost:5558'
 
-lnd_checksum: 'abb94e1462cdd02927d6e3a3ac97cc377ad22ca5437290e04da4df05441c4f6f'
+lnd_checksum: 'b10712cbb59d01912183825117f1ec154448b90cafb5ed06e1d4bd858ccf1229'
 
 lnd_checksum_algorithm: 'sha256'
 
@@ -32,4 +32,4 @@ lnd_restlisten: []
 
 lnd_rpclisten: []
 
-lnd_version: '0.11.0-beta.rc2'
+lnd_version: '0.11.0-beta'

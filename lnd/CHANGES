@@ -14,5 +14,8 @@ F: feature
 
 --------------------------------------------------------------------------------
 
+* Version 0.11.0-beta-1 (2020-08-20)
+C: Update to upstream release 0.11.0-beta
+
 * Version 0.11.0-beta.rc2-1 (2020-08-13)
 F: Initial release

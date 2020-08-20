@@ -88,7 +88,7 @@ PARAMETERS
 ROLE
   lnd_state
     Description: Control the state of the role.
-    Implemented: 0.11.0-beta.rc2-1
+    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Predetermined
     Type       : String
@@ -103,7 +103,7 @@ ROLE
   lnd_alias
     Description: Define the 'lnd_alias' option.
                  Max. 32 UTF-8 characters.
-    Implemented: 0.11.0-beta.rc2-1
+    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -114,7 +114,7 @@ ROLE
 
   lnd_bitcoin_active
     Description: Control the 'lnd_bitcoin_active' option.
-    Implemented: 0.11.0-beta.rc2-1
+    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Predetermined
     Type       : String
@@ -125,7 +125,7 @@ ROLE
 
   lnd_bitcoind_estimatemode
     Description: Set the 'lnd_bitcoind_estimatemode' option.
-    Implemented: 0.11.0-beta.rc2-1
+    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Predetermined
     Type       : String
@@ -136,7 +136,7 @@ ROLE
 
   lnd_bitcoind_rpchost
     Description: Define the 'lnd_bitcoind_rpchost' option.
-    Implemented: 0.11.0-beta.rc2-1
+    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -147,7 +147,7 @@ ROLE
 
   lnd_bitcoind_rpcpass
     Description: Define the 'lnd_bitcoind_rpcpass' option.
-    Implemented: 0.11.0-beta.rc2-1
+    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -158,7 +158,7 @@ ROLE
 
   lnd_bitcoind_rpcuser
     Description: Define the 'lnd_bitcoind_rpcuser' option.
-    Implemented: 0.11.0-beta.rc2-1
+    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -169,7 +169,7 @@ ROLE
 
   lnd_bitcoind_zmqpubrawblock
     Description: Define the 'lnd_bitcoind_zmqpubrawblock' option.
-    Implemented: 0.11.0-beta.rc2-1
+    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -179,7 +179,7 @@ ROLE
 
   lnd_bitcoind_zmqpubrawtx
     Description: Define the 'lnd_bitcoind_zmqpubrawtx' option.
-    Implemented: 0.11.0-beta.rc2-1
+    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -189,17 +189,17 @@ ROLE
 
   lnd_checksum
     Description: Define the 'lnd_checksum' option.
-    Implemented: 0.11.0-beta.rc2-1
+    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : 'abb94e1462cdd02927d6e3a3ac97cc377ad22ca5437290e04da4df05441c4f6f'
+    Default    : 'b10712cbb59d01912183825117f1ec154448b90cafb5ed06e1d4bd858ccf1229'
     Options    :
       Examples: '600d1db5e751fa85903e935a01a74f5cc57e1e7473c15fd3e17ed21e202cfe5a' | '5146ac5310133fbb01439666131588006543ab5364435b748ddfc95a8cb8d63f'
 
   lnd_checksum_algorithm
     Description: Define the 'lnd_checksum_algorithm' option.
-    Implemented: 0.11.0-beta.rc2-1
+    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -209,7 +209,7 @@ ROLE
 
   lnd_color
     Description: Define the 'lnd_color' option.
-    Implemented: 0.11.0-beta.rc2-1
+    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -220,7 +220,7 @@ ROLE
 
   lnd_externalip
     Description: Define the 'lnd_externalip' option.
-    Implemented: 0.11.0-beta.rc2-1
+    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -231,7 +231,7 @@ ROLE
 
   lnd_listen
     Description: Define the 'lnd_listen' option.
-    Implemented: 0.11.0-beta.rc2-1
+    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : Array
@@ -242,7 +242,7 @@ ROLE
 
   lnd_restlisten
     Description: Define the 'lnd_restlisten' option.
-    Implemented: 0.11.0-beta.rc2-1
+    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : Array
@@ -253,7 +253,7 @@ ROLE
 
   lnd_rpclisten
     Description: Define the 'lnd_rpclisten' option.
-    Implemented: 0.11.0-beta.rc2-1
+    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : Array
@@ -264,11 +264,11 @@ ROLE
 
   lnd_version
     Description: Define the 'lnd_version' option.
-    Implemented: 0.11.0-beta.rc2-1
+    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : '0.11.0-beta.rc2'
+    Default    : '0.11.0-beta-1'
     Options    :
       Examples: '0.11.0-beta.rc1' | '0.10.4-beta'
 
