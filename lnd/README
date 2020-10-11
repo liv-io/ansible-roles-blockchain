@@ -193,7 +193,7 @@ ROLE
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : 'b10712cbb59d01912183825117f1ec154448b90cafb5ed06e1d4bd858ccf1229'
+    Default    : '68fc7536ccf5df02760f832a4e26dc0041e2713e011711ff4cea3398baf4aac4'
     Options    :
       Examples: '600d1db5e751fa85903e935a01a74f5cc57e1e7473c15fd3e17ed21e202cfe5a' | '5146ac5310133fbb01439666131588006543ab5364435b748ddfc95a8cb8d63f'
 
@@ -268,7 +268,7 @@ ROLE
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : '0.11.0-beta-1'
+    Default    : '0.11.1-beta-1'
     Options    :
       Examples: '0.11.0-beta.rc1' | '0.10.4-beta'
 
