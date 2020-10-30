@@ -124,7 +124,7 @@
     mode: "{{file_mode_lnd_tar_gz}}"
     owner: "{{file_owner_lnd_tar_gz}}"
     group: "{{file_group_lnd_tar_gz}}"
-    checksum: "{{lnd_checksum_algorithm}}:{{lnd_checksum}}"
+    checksum: "{{file_checksum_lnd_tar_gz}}"
   tags:
     - install
     - lnd

@@ -187,26 +187,6 @@ ROLE
     Options    :
       Examples: 'tcp://10.1.1.11:5558'
 
-  lnd_checksum
-    Description: Define the 'lnd_checksum' option.
-    Implemented: 0.11.0-beta-1
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : '68fc7536ccf5df02760f832a4e26dc0041e2713e011711ff4cea3398baf4aac4'
-    Options    :
-      Examples: '600d1db5e751fa85903e935a01a74f5cc57e1e7473c15fd3e17ed21e202cfe5a' | '5146ac5310133fbb01439666131588006543ab5364435b748ddfc95a8cb8d63f'
-
-  lnd_checksum_algorithm
-    Description: Define the 'lnd_checksum_algorithm' option.
-    Implemented: 0.11.0-beta-1
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : 'sha256'
-    Options    :
-      Examples: 'sha256' | 'sha512'
-
   lnd_color
     Description: Define the 'lnd_color' option.
     Implemented: 0.11.0-beta-1

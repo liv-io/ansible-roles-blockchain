@@ -14,6 +14,9 @@ F: feature
 
 --------------------------------------------------------------------------------
 
+* Version 0.11.1-beta-2 (2020-10-30)
+E: Simplify checksum verification
+
 * Version 0.11.1-beta-1 (2020-10-11)
 C: Update to upstream release 0.11.1-beta
 

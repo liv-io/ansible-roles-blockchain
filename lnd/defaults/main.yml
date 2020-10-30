@@ -18,10 +18,6 @@ lnd_bitcoind_zmqpubrawblock: 'tcp://localhost:5557'
 
 lnd_bitcoind_zmqpubrawtx: 'tcp://localhost:5558'
 
-lnd_checksum: '68fc7536ccf5df02760f832a4e26dc0041e2713e011711ff4cea3398baf4aac4'
-
-lnd_checksum_algorithm: 'sha256'
-
 lnd_color: '#000000'
 
 lnd_externalip: ''

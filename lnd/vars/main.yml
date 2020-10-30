@@ -52,6 +52,7 @@ file_dst_lnd_tar_gz: "/usr/local/src/lnd/lnd-linux-amd64-v{{lnd_version}}.tar.gz
 file_mode_lnd_tar_gz: '0644'
 file_owner_lnd_tar_gz: 'root'
 file_group_lnd_tar_gz: 'root'
+file_checksum_lnd_tar_gz: "sha256:https://github.com/lightningnetwork/lnd/releases/download/v{{lnd_version}}/manifest-v{{lnd_version}}.txt"
 
 # lnd-current.link
 file_src_lnd_current_link: "/app/lnd/lnd-linux-amd64-v{{lnd_version}}"
