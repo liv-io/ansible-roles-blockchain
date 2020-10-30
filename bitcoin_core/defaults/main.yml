@@ -2,10 +2,6 @@
 
 bitcoin_core_state: 'enable'
 
-bitcoin_core_checksum: '376194f06596ecfa40331167c39bc70c355f960280bd2a645fdbf18f66527397'
-
-bitcoin_core_checksum_algorithm: 'sha256'
-
 bitcoin_core_network_bind: '0.0.0.0'
 
 bitcoin_core_network_port: 8333

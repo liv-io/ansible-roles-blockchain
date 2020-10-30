@@ -52,6 +52,7 @@ file_dst_bitcoin_core_tar_gz: "/usr/local/src/bitcoind/bitcoin-{{bitcoin_core_ve
 file_mode_bitcoin_core_tar_gz: '0644'
 file_owner_bitcoin_core_tar_gz: 'root'
 file_group_bitcoin_core_tar_gz: 'root'
+file_checksum_bitcoin_core_tar_gz: "sha256:https://bitcoin.org/bin/bitcoin-core-{{bitcoin_core_version}}/SHA256SUMS.asc"
 
 # bitcoin-current.link
 file_src_bitcoin_current_link: '/app/bitcoind/bitcoin-{{bitcoin_core_version}}'

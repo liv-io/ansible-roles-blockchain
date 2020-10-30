@@ -124,7 +124,7 @@
     mode: "{{file_mode_bitcoin_core_tar_gz}}"
     owner: "{{file_owner_bitcoin_core_tar_gz}}"
     group: "{{file_group_bitcoin_core_tar_gz}}"
-    checksum: "{{bitcoin_core_checksum_algorithm}}:{{bitcoin_core_checksum}}"
+    checksum: "{{file_checksum_bitcoin_core_tar_gz}}"
   tags:
     - install
     - bitcoin_core
