@@ -69,21 +69,21 @@ file_owner_lnd: 'root'
 file_group_lnd: 'root'
 
 # lnd.conf
-file_src_lnd_conf: 'templates/main/lnd.conf.j2'
+file_src_lnd_conf: 'templates/main/lnd.conf'
 file_dst_lnd_conf: '/etc/lnd/lnd.conf'
 file_mode_lnd_conf: '0640'
 file_owner_lnd_conf: 'root'
 file_group_lnd_conf: 'lnd'
 
 # lnd.service
-file_src_lnd_service: 'templates/main/lnd.service.j2'
+file_src_lnd_service: 'templates/main/lnd.service'
 file_dst_lnd_service: '/usr/lib/systemd/system/lnd.service'
 file_mode_lnd_service: '0644'
 file_owner_lnd_service: 'root'
 file_group_lnd_service: 'root'
 
 # lnd.sysconfig
-file_src_lnd_sysconfig: 'templates/main/lnd.sysconfig.j2'
+file_src_lnd_sysconfig: 'templates/main/lnd.sysconfig'
 file_dst_lnd_sysconfig: '/etc/sysconfig/lnd'
 file_mode_lnd_sysconfig: '0644'
 file_owner_lnd_sysconfig: 'root'
