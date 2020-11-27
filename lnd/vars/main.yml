@@ -89,9 +89,25 @@ file_mode_lnd_sysconfig: '0644'
 file_owner_lnd_sysconfig: 'root'
 file_group_lnd_sysconfig: 'root'
 
+# monit.d
+file_dst_monit_d: '/etc/monit.d'
+file_mode_monit_d: '0750'
+file_owner_monit_d: 'root'
+file_group_monit_d: 'root'
+
+# lnd.cfg
+file_src_lnd_cfg: 'templates/main/lnd.cfg'
+file_dst_lnd_cfg: '/etc/monit.d/lnd.cfg'
+file_mode_lnd_cfg: '0640'
+file_owner_lnd_cfg: 'root'
+file_group_lnd_cfg: 'root'
+
 #-------------------------------------------------------------------------------
 # COMMANDS
 #-------------------------------------------------------------------------------
+
+# check service monit
+command_cmd_check_service_monit: 'systemctl cat monit.service > /dev/null 2>&1'
 
 # systemctl daemon-reload
 command_cmd_systemctl_daemon_reload: 'systemctl daemon-reload'
@@ -120,3 +136,6 @@ user_system_lnd: 'yes'
 
 # lnd
 service_name_lnd: 'lnd'
+
+# monit
+service_name_monit: 'monit'

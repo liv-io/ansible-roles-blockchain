@@ -24,6 +24,8 @@ lnd_externalip: ''
 
 lnd_listen: ['0.0.0.0:9735']
 
+lnd_monitor_monit_state: 'false'
+
 lnd_restlisten: []
 
 lnd_rpclisten: []

@@ -41,6 +41,15 @@
 # FILES
 #-------------------------------------------------------------------------------
 
+- name: 'file remove lnd.cfg'
+  file:
+    state: 'absent'
+    path: "{{file_dst_lnd_cfg}}"
+  notify: 'service reload monit'
+  tags:
+    - remove
+    - lnd
+
 - name: 'file remove lnd.service'
   file:
     state: 'absent'
