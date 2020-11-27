@@ -87,6 +87,17 @@ ROLE
       Remove  : 'false' | 'no' | 'remove'
       Inactive: 'quiesce' | 'inactive'
 
+  bitcoin_core_monitor_monit_state
+    Description: Control the 'bitcoin_core_monitor_monit_state' option.
+    Implemented: 0.20.1-6
+    Required   : False
+    Value      : Predetermined
+    Type       : String
+    Default    : 'false'
+    Options    :
+      Enable : 'true' | 'yes' | 'enable'
+      Disable: 'false' | 'no' | 'disable'
+
   bitcoin_core_network_bind
     Description: Define the 'bitcoin_core_network_bind' option.
     Implemented: 0.19.0.1-2

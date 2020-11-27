@@ -2,6 +2,8 @@
 
 bitcoin_core_state: 'enable'
 
+bitcoin_core_monitor_monit_state: 'false'
+
 bitcoin_core_network_bind: '0.0.0.0'
 
 bitcoin_core_network_port: 8333

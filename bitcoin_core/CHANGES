@@ -14,6 +14,9 @@ F: feature
 
 --------------------------------------------------------------------------------
 
+* Version 0.20.1-6 (2020-11-27)
+F: Add support for Monit service monitoring (bitcoin_core_monitor_monit_state)
+
 * Version 0.20.1-5 (2020-10-30)
 E: Simplify Ansible file header (ansible_managed)
 

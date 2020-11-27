@@ -95,9 +95,25 @@ file_mode_debug_log: '0600'
 file_owner_debug_log: 'bitcoind'
 file_group_debug_log: 'bitcoind'
 
+# monit.d
+file_dst_monit_d: '/etc/monit.d'
+file_mode_monit_d: '0750'
+file_owner_monit_d: 'root'
+file_group_monit_d: 'root'
+
+# bitcoind.cfg
+file_src_bitcoind_cfg: 'templates/main/bitcoind.cfg'
+file_dst_bitcoind_cfg: '/etc/monit.d/bitcoind.cfg'
+file_mode_bitcoind_cfg: '0640'
+file_owner_bitcoind_cfg: 'root'
+file_group_bitcoind_cfg: 'root'
+
 #-------------------------------------------------------------------------------
 # COMMANDS
 #-------------------------------------------------------------------------------
+
+# check service monit
+command_cmd_check_service_monit: 'systemctl cat monit.service > /dev/null 2>&1'
 
 # systemctl daemon-reload
 command_cmd_systemctl_daemon_reload: 'systemctl daemon-reload'
@@ -126,3 +142,6 @@ user_system_bitcoind: 'yes'
 
 # bitcoind
 service_name_bitcoind: 'bitcoind'
+
+# monit
+service_name_monit: 'monit'

@@ -41,6 +41,15 @@
 # FILES
 #-------------------------------------------------------------------------------
 
+- name: 'file remove bitcoind.cfg'
+  file:
+    state: 'absent'
+    path: "{{file_dst_bitcoind_cfg}}"
+  notify: 'service reload monit'
+  tags:
+    - remove
+    - bitcoin_core
+
 - name: 'file remove bitcoind.service'
   file:
     state: 'absent'
