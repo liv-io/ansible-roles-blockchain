@@ -37,12 +37,11 @@
 * Services can be monitored with Monit and exported via monit_exporter to Prometheus
 * Scripts support Email and Prometheus monitoring
 * Logs can be forwarded with syslog to Loki
+* Roles can proxy HTTP/HTTPS traffic through Squid forward proxy
+* Host-based firewall restricts ingress and egress traffic by default
+* Restic and rest-server are available as backup solution
 * Prometheus has built-in alerting rules and Grafana dashboards
 * Loki has built-in alerting rules and Grafana dashboards
-* Restic and rest-server can be used to backup machines
-* Time can be synchronized with NTP client
-* Host-based firewall restricts ingress and egress traffic by default
-* Roles can proxy HTTP/HTTPS traffic through Squid forward proxy
 * Parameters are documented with examples and marked when implemented
 * Changes adhere to semantic versioning guidelines
 * Roles contain changelog
@@ -56,10 +55,10 @@ The Ansible roles support the following operating systems:
 ### Dependencies
 
 The Ansible control machine depends on:
-* [Ansible](https://github.com/ansible/ansible) >= 2.8
+* [Ansible](https://github.com/ansible/ansible) >= 2.8.0
 
 The Ansible managed node depends on:
-* [Python](https://github.com/python/cpython) >= 2.7
+* [Python](https://github.com/python/cpython) >= 2.7.0
 
 ## Setup
 
