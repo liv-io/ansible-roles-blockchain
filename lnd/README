@@ -298,10 +298,6 @@ SUPPORT
 --------------------------------------------------------------------------------
 
 OPERATING SYSTEMS
-  CentOS
-    Version: 7
-      Status: Development
-
-  CentOS
-    Version: 8
+  Debian
+    Version: 10
       Status: Development

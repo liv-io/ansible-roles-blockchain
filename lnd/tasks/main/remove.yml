@@ -58,10 +58,10 @@
     - remove
     - lnd
 
-- name: 'file remove lnd.sysconfig'
+- name: 'file remove lnd.default'
   file:
     state: 'absent'
-    path: "{{file_dst_lnd_sysconfig}}"
+    path: "{{file_dst_lnd_default}}"
   tags:
     - remove
     - lnd

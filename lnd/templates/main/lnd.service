@@ -11,7 +11,7 @@ After=syslog.target network.target
 Type=simple
 User=lnd
 Group=lnd
-EnvironmentFile=/etc/sysconfig/lnd
+EnvironmentFile=/etc/default/lnd
 ExecStart={{file_dst_lnd_current_link}}/lnd $OPTIONS
 ExecReload=/bin/kill -HUP $MAINPID
 

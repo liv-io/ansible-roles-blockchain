@@ -19,13 +19,13 @@
 # FILES
 #-------------------------------------------------------------------------------
 
-- name: 'file create lnd.sysconfig'
+- name: 'file create lnd.default'
   template:
-    src: "{{file_src_lnd_sysconfig}}"
-    dest: "{{file_dst_lnd_sysconfig}}"
-    mode: "{{file_mode_lnd_sysconfig}}"
-    owner: "{{file_owner_lnd_sysconfig}}"
-    group: "{{file_group_lnd_sysconfig}}"
+    src: "{{file_src_lnd_default}}"
+    dest: "{{file_dst_lnd_default}}"
+    mode: "{{file_mode_lnd_default}}"
+    owner: "{{file_owner_lnd_default}}"
+    group: "{{file_group_lnd_default}}"
   notify: 'service restart lnd'
   tags:
     - enable

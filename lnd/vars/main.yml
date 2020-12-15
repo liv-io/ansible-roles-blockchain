@@ -75,19 +75,19 @@ file_mode_lnd_conf: '0640'
 file_owner_lnd_conf: 'root'
 file_group_lnd_conf: 'lnd'
 
+# lnd.default
+file_src_lnd_default: 'templates/main/lnd.default'
+file_dst_lnd_default: '/etc/default/lnd'
+file_mode_lnd_default: '0644'
+file_owner_lnd_default: 'root'
+file_group_lnd_default: 'root'
+
 # lnd.service
 file_src_lnd_service: 'templates/main/lnd.service'
 file_dst_lnd_service: '/usr/lib/systemd/system/lnd.service'
 file_mode_lnd_service: '0644'
 file_owner_lnd_service: 'root'
 file_group_lnd_service: 'root'
-
-# lnd.sysconfig
-file_src_lnd_sysconfig: 'templates/main/lnd.sysconfig'
-file_dst_lnd_sysconfig: '/etc/sysconfig/lnd'
-file_mode_lnd_sysconfig: '0644'
-file_owner_lnd_sysconfig: 'root'
-file_group_lnd_sysconfig: 'root'
 
 # monit.d
 file_dst_monit_d: '/etc/monit.d'
