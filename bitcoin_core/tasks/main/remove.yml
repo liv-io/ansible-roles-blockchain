@@ -58,10 +58,10 @@
     - remove
     - bitcoin_core
 
-- name: 'file remove bitcoind.sysconfig'
+- name: 'file remove bitcoind.default'
   file:
     state: 'absent'
-    path: "{{file_dst_bitcoind_sysconfig}}"
+    path: "{{file_dst_bitcoind_default}}"
   tags:
     - remove
     - bitcoin_core

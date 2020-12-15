@@ -19,13 +19,13 @@
 # FILES
 #-------------------------------------------------------------------------------
 
-- name: 'file create bitcoind.sysconfig'
+- name: 'file create bitcoind.default'
   template:
-    src: "{{file_src_bitcoind_sysconfig}}"
-    dest: "{{file_dst_bitcoind_sysconfig}}"
-    mode: "{{file_mode_bitcoind_sysconfig}}"
-    owner: "{{file_owner_bitcoind_sysconfig}}"
-    group: "{{file_group_bitcoind_sysconfig}}"
+    src: "{{file_src_bitcoind_default}}"
+    dest: "{{file_dst_bitcoind_default}}"
+    mode: "{{file_mode_bitcoind_default}}"
+    owner: "{{file_owner_bitcoind_default}}"
+    group: "{{file_group_bitcoind_default}}"
   tags:
     - disable
     - bitcoin_core

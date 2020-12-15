@@ -257,10 +257,6 @@ SUPPORT
 --------------------------------------------------------------------------------
 
 OPERATING SYSTEMS
-  CentOS
-    Version: 7
-      Status: Stable
-
-  CentOS
-    Version: 8
-      Status: Stable
+  Debian
+    Version: 10
+      Status: Testing

@@ -75,19 +75,19 @@ file_mode_bitcoin_conf: '0640'
 file_owner_bitcoin_conf: 'root'
 file_group_bitcoin_conf: 'bitcoind'
 
+# bitcoind.default
+file_src_bitcoind_default: 'templates/main/bitcoind.default'
+file_dst_bitcoind_default: '/etc/default/bitcoind'
+file_mode_bitcoind_default: '0644'
+file_owner_bitcoind_default: 'root'
+file_group_bitcoind_default: 'root'
+
 # bitcoind.service
 file_src_bitcoind_service: 'templates/main/bitcoind.service'
 file_dst_bitcoind_service: '/usr/lib/systemd/system/bitcoind.service'
 file_mode_bitcoind_service: '0644'
 file_owner_bitcoind_service: 'root'
 file_group_bitcoind_service: 'root'
-
-# bitcoind.sysconfig
-file_src_bitcoind_sysconfig: 'templates/main/bitcoind.sysconfig'
-file_dst_bitcoind_sysconfig: '/etc/sysconfig/bitcoind'
-file_mode_bitcoind_sysconfig: '0644'
-file_owner_bitcoind_sysconfig: 'root'
-file_group_bitcoind_sysconfig: 'root'
 
 # debug.log
 file_dst_debug_log: '/var/log/bitcoind/debug.log'
@@ -137,7 +137,7 @@ user_home_remove_bitcoind: 'yes'
 user_home_force_bitcoind: 'no'
 user_password_bitcoind: '!'
 user_password_update_bitcoind: 'always'
-user_shell_bitcoind: '/sbin/nologin'
+user_shell_bitcoind: '/usr/sbin/nologin'
 user_system_bitcoind: 'yes'
 
 # bitcoind
