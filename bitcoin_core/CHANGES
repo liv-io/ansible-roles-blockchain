@@ -14,6 +14,9 @@ F: feature
 
 --------------------------------------------------------------------------------
 
+* Version 0.21.0-1 (2021-01-15)
+F: Update to version 0.21.0
+
 * Version 0.20.1-7 (2020-12-15)
 C: Add support for Debian 10
 C: Drop support for CentOS 7, CentOS 8
