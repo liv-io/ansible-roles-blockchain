@@ -1,9 +1,5 @@
 ---
 
-#-------------------------------------------------------------------------------
-# VARIABLES
-#-------------------------------------------------------------------------------
-
 - name: 'include variables'
   include_vars: "{{item}}"
   with_first_found:
@@ -12,12 +8,7 @@
       - 'vars/main.yml'
       errors: 'ignore'
   tags:
-    - install
     - bitcoin_core
-
-#-------------------------------------------------------------------------------
-# SYSTEM
-#-------------------------------------------------------------------------------
 
 - name: 'group create bitcoind'
   group:
@@ -25,7 +16,6 @@
     name: "{{group_name_bitcoind}}"
     system: "{{group_system_bitcoind}}"
   tags:
-    - install
     - bitcoin_core
 
 - name: 'user create bitcoind'
@@ -44,12 +34,7 @@
     shell: "{{user_shell_bitcoind}}"
     system: "{{user_system_bitcoind}}"
   tags:
-    - install
     - bitcoin_core
-
-#-------------------------------------------------------------------------------
-# FILES
-#-------------------------------------------------------------------------------
 
 - name: 'file create app.dir'
   file:
@@ -59,7 +44,6 @@
     owner: "{{file_owner_app_dir}}"
     group: "{{file_group_app_dir}}"
   tags:
-    - install
     - bitcoin_core
 
 - name: 'file create bitcoind_app.dir'
@@ -70,7 +54,6 @@
     owner: "{{file_owner_bitcoind_app_dir}}"
     group: "{{file_group_bitcoind_app_dir}}"
   tags:
-    - install
     - bitcoin_core
 
 - name: 'file create data.dir'
@@ -81,7 +64,6 @@
     owner: "{{file_owner_data_dir}}"
     group: "{{file_group_data_dir}}"
   tags:
-    - install
     - bitcoin_core
 
 - name: 'file create bitcoind_data.dir'
@@ -92,7 +74,6 @@
     owner: "{{file_owner_bitcoind_data_dir}}"
     group: "{{file_group_bitcoind_data_dir}}"
   tags:
-    - install
     - bitcoin_core
 
 - name: 'file create bitcoind_log.dir'
@@ -103,7 +84,6 @@
     owner: "{{file_owner_bitcoind_log_dir}}"
     group: "{{file_group_bitcoind_log_dir}}"
   tags:
-    - install
     - bitcoin_core
 
 - name: 'file create bitcoind_src.dir'
@@ -114,7 +94,6 @@
     owner: "{{file_owner_bitcoind_src_dir}}"
     group: "{{file_group_bitcoind_src_dir}}"
   tags:
-    - install
     - bitcoin_core
 
 - name: 'file download bitcoin-core.tar.gz'
@@ -126,7 +105,6 @@
     group: "{{file_group_bitcoin_core_tar_gz}}"
     checksum: "{{file_checksum_bitcoin_core_tar_gz}}"
   tags:
-    - install
     - bitcoin_core
 
 - name: 'file unarchive bitcoin-core.tar.gz'
@@ -138,7 +116,6 @@
     creates: "{{file_creates_bitcoin_core}}"
     remote_src: 'yes'
   tags:
-    - install
     - bitcoin_core
 
 - name: 'file create bitcoin-current.link'
@@ -149,7 +126,6 @@
     owner: "{{file_owner_bitcoin_current_link}}"
     group: "{{file_group_bitcoin_current_link}}"
   tags:
-    - install
     - bitcoin_core
 
 - name: 'file create debug.log'
@@ -161,7 +137,6 @@
     owner: "{{file_owner_debug_log}}"
     group: "{{file_group_debug_log}}"
   tags:
-    - install
     - bitcoin_core
 
 - name: 'file create bitcoind_conf.dir'
@@ -172,7 +147,6 @@
     owner: "{{file_owner_bitcoind_conf_dir}}"
     group: "{{file_group_bitcoind_conf_dir}}"
   tags:
-    - install
     - bitcoin_core
 
 - name: 'file create bitcoind.service'
@@ -184,12 +158,7 @@
     group: "{{file_group_bitcoind_service}}"
   notify: 'command systemctl daemon-reload'
   tags:
-    - install
     - bitcoin_core
-
-#-------------------------------------------------------------------------------
-# FILES
-#-------------------------------------------------------------------------------
 
 - name: 'stat file monit.d'
   stat:
@@ -197,7 +166,6 @@
   register: register_monit_d
   when: (bitcoin_core_monitor_monit_state is match('true|yes|enable'))
   tags:
-    - install
     - bitcoin_core
 
 - name: 'file create monit.d'
@@ -209,12 +177,7 @@
     group: "{{file_group_monit_d}}"
   when: (bitcoin_core_monitor_monit_state is match('true|yes|enable')) and (register_monit_d.stat.exists == False)
   tags:
-    - install
     - bitcoin_core
-
-#-------------------------------------------------------------------------------
-# COMMANDS
-#-------------------------------------------------------------------------------
 
 - name: 'command check service monit'
   shell: "{{command_cmd_check_service_monit}}"
@@ -224,15 +187,9 @@
   check_mode: 'no'
   when: (bitcoin_core_monitor_monit_state is match('true|yes|enable'))
   tags:
-    - install
     - bitcoin_core
-
-#-------------------------------------------------------------------------------
-# META
-#-------------------------------------------------------------------------------
 
 - name: 'meta flush handlers'
   meta: 'flush_handlers'
   tags:
-    - install
     - bitcoin_core

@@ -1,9 +1,5 @@
 ---
 
-#-------------------------------------------------------------------------------
-# VARIABLES
-#-------------------------------------------------------------------------------
-
 - name: 'include variables'
   include_vars: "{{item}}"
   with_first_found:
@@ -12,12 +8,7 @@
       - 'vars/main.yml'
       errors: 'ignore'
   tags:
-    - install
     - lnd
-
-#-------------------------------------------------------------------------------
-# FILES
-#-------------------------------------------------------------------------------
 
 - name: 'file create lnd.default'
   template:
@@ -28,7 +19,6 @@
     group: "{{file_group_lnd_default}}"
   notify: 'service restart lnd'
   tags:
-    - enable
     - lnd
 
 - name: 'file create lnd.conf'
@@ -40,7 +30,6 @@
     group: "{{file_group_lnd_conf}}"
   notify: 'service restart lnd'
   tags:
-    - enable
     - lnd
 
 - name: 'file create lnd.cfg'
@@ -53,12 +42,7 @@
   notify: 'service reload monit'
   when: (lnd_monitor_monit_state is match('true|yes|enable'))
   tags:
-    - enable
     - lnd
-
-#-------------------------------------------------------------------------------
-# SYSTEM
-#-------------------------------------------------------------------------------
 
 - name: 'service start lnd'
   service:
@@ -66,5 +50,4 @@
     enabled: 'yes'
     name: "{{service_name_lnd}}"
   tags:
-    - enable
     - lnd

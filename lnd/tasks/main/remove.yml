@@ -1,9 +1,5 @@
 ---
 
-#-------------------------------------------------------------------------------
-# VARIABLES
-#-------------------------------------------------------------------------------
-
 - name: 'include variables'
   include_vars: "{{item}}"
   with_first_found:
@@ -12,12 +8,7 @@
       - 'vars/main.yml'
       errors: 'ignore'
   tags:
-    - remove
     - lnd
-
-#-------------------------------------------------------------------------------
-# SYSTEM
-#-------------------------------------------------------------------------------
 
 - name: 'user remove lnd'
   user:
@@ -26,7 +17,6 @@
     remove: "{{user_home_remove_lnd}}"
     force: "{{user_home_force_lnd}}"
   tags:
-    - remove
     - lnd
 
 - name: 'group remove lnd'
@@ -34,12 +24,7 @@
     state: 'absent'
     name: "{{group_name_lnd}}"
   tags:
-    - remove
     - lnd
-
-#-------------------------------------------------------------------------------
-# FILES
-#-------------------------------------------------------------------------------
 
 - name: 'file remove lnd.cfg'
   file:
@@ -47,7 +32,6 @@
     path: "{{file_dst_lnd_cfg}}"
   notify: 'service reload monit'
   tags:
-    - remove
     - lnd
 
 - name: 'file remove lnd.service'
@@ -55,7 +39,6 @@
     state: 'absent'
     path: "{{file_dst_lnd_service}}"
   tags:
-    - remove
     - lnd
 
 - name: 'file remove lnd.default'
@@ -63,7 +46,6 @@
     state: 'absent'
     path: "{{file_dst_lnd_default}}"
   tags:
-    - remove
     - lnd
 
 - name: 'file remove lnd_app.dir'
@@ -71,7 +53,6 @@
     state: 'absent'
     path: "{{file_dst_lnd_src_dir}}"
   tags:
-    - remove
     - lnd
 
 - name: 'file remove lnd_src.dir'
@@ -79,5 +60,4 @@
     state: 'absent'
     path: "{{file_dst_lnd_src_dir}}"
   tags:
-    - remove
     - lnd

@@ -1,9 +1,5 @@
 ---
 
-#-------------------------------------------------------------------------------
-# VARIABLES
-#-------------------------------------------------------------------------------
-
 - name: 'include variables'
   include_vars: "{{item}}"
   with_first_found:
@@ -12,12 +8,7 @@
       - 'vars/main.yml'
       errors: 'ignore'
   tags:
-    - remove
     - bitcoin_core
-
-#-------------------------------------------------------------------------------
-# SYSTEM
-#-------------------------------------------------------------------------------
 
 - name: 'user remove bitcoind'
   user:
@@ -26,7 +17,6 @@
     remove: "{{user_home_remove_bitcoind}}"
     force: "{{user_home_force_bitcoind}}"
   tags:
-    - remove
     - bitcoin_core
 
 - name: 'group remove bitcoind'
@@ -34,12 +24,7 @@
     state: 'absent'
     name: "{{group_name_bitcoind}}"
   tags:
-    - remove
     - bitcoin_core
-
-#-------------------------------------------------------------------------------
-# FILES
-#-------------------------------------------------------------------------------
 
 - name: 'file remove bitcoind.cfg'
   file:
@@ -47,7 +32,6 @@
     path: "{{file_dst_bitcoind_cfg}}"
   notify: 'service reload monit'
   tags:
-    - remove
     - bitcoin_core
 
 - name: 'file remove bitcoind.service'
@@ -55,7 +39,6 @@
     state: 'absent'
     path: "{{file_dst_bitcoind_service}}"
   tags:
-    - remove
     - bitcoin_core
 
 - name: 'file remove bitcoind.default'
@@ -63,7 +46,6 @@
     state: 'absent'
     path: "{{file_dst_bitcoind_default}}"
   tags:
-    - remove
     - bitcoin_core
 
 - name: 'file remove bitcoind_app.dir'
@@ -71,7 +53,6 @@
     state: 'absent'
     path: "{{file_dst_bitcoind_src_dir}}"
   tags:
-    - remove
     - bitcoin_core
 
 - name: 'file remove bitcoind_src.dir'
@@ -79,5 +60,4 @@
     state: 'absent'
     path: "{{file_dst_bitcoind_src_dir}}"
   tags:
-    - remove
     - bitcoin_core

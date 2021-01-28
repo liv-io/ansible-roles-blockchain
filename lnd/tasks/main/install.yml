@@ -1,9 +1,5 @@
 ---
 
-#-------------------------------------------------------------------------------
-# VARIABLES
-#-------------------------------------------------------------------------------
-
 - name: 'include variables'
   include_vars: "{{item}}"
   with_first_found:
@@ -12,12 +8,7 @@
       - 'vars/main.yml'
       errors: 'ignore'
   tags:
-    - install
     - lnd
-
-#-------------------------------------------------------------------------------
-# SYSTEM
-#-------------------------------------------------------------------------------
 
 - name: 'group create lnd'
   group:
@@ -25,7 +16,6 @@
     name: "{{group_name_lnd}}"
     system: "{{group_system_lnd}}"
   tags:
-    - install
     - lnd
 
 - name: 'user create lnd'
@@ -44,12 +34,7 @@
     shell: "{{user_shell_lnd}}"
     system: "{{user_system_lnd}}"
   tags:
-    - install
     - lnd
-
-#-------------------------------------------------------------------------------
-# FILES
-#-------------------------------------------------------------------------------
 
 - name: 'file create app.dir'
   file:
@@ -59,7 +44,6 @@
     owner: "{{file_owner_app_dir}}"
     group: "{{file_group_app_dir}}"
   tags:
-    - install
     - lnd
 
 - name: 'file create lnd_app.dir'
@@ -70,7 +54,6 @@
     owner: "{{file_owner_lnd_app_dir}}"
     group: "{{file_group_lnd_app_dir}}"
   tags:
-    - install
     - lnd
 
 - name: 'file create data.dir'
@@ -81,7 +64,6 @@
     owner: "{{file_owner_data_dir}}"
     group: "{{file_group_data_dir}}"
   tags:
-    - install
     - lnd
 
 - name: 'file create lnd_data.dir'
@@ -92,7 +74,6 @@
     owner: "{{file_owner_lnd_data_dir}}"
     group: "{{file_group_lnd_data_dir}}"
   tags:
-    - install
     - lnd
 
 - name: 'file create lnd_log.dir'
@@ -103,7 +84,6 @@
     owner: "{{file_owner_lnd_log_dir}}"
     group: "{{file_group_lnd_log_dir}}"
   tags:
-    - install
     - lnd
 
 - name: 'file create lnd_src.dir'
@@ -114,7 +94,6 @@
     owner: "{{file_owner_lnd_src_dir}}"
     group: "{{file_group_lnd_src_dir}}"
   tags:
-    - install
     - lnd
 
 - name: 'file download lnd.tar.gz'
@@ -126,7 +105,6 @@
     group: "{{file_group_lnd_tar_gz}}"
     checksum: "{{file_checksum_lnd_tar_gz}}"
   tags:
-    - install
     - lnd
 
 - name: 'file unarchive lnd.tar.gz'
@@ -138,7 +116,6 @@
     creates: "{{file_creates_lnd}}"
     remote_src: 'yes'
   tags:
-    - install
     - lnd
 
 - name: 'file create lnd-current.link'
@@ -149,7 +126,6 @@
     owner: "{{file_owner_lnd_current_link}}"
     group: "{{file_group_lnd_current_link}}"
   tags:
-    - install
     - lnd
 
 - name: 'file create lnd_conf.dir'
@@ -160,7 +136,6 @@
     owner: "{{file_owner_lnd_conf_dir}}"
     group: "{{file_group_lnd_conf_dir}}"
   tags:
-    - install
     - lnd
 
 - name: 'file create lnd.service'
@@ -172,12 +147,7 @@
     group: "{{file_group_lnd_service}}"
   notify: 'command systemctl daemon-reload'
   tags:
-    - install
     - lnd
-
-#-------------------------------------------------------------------------------
-# FILES
-#-------------------------------------------------------------------------------
 
 - name: 'stat file monit.d'
   stat:
@@ -185,7 +155,6 @@
   register: register_monit_d
   when: (lnd_monitor_monit_state is match('true|yes|enable'))
   tags:
-    - install
     - lnd
 
 - name: 'file create monit.d'
@@ -197,12 +166,7 @@
     group: "{{file_group_monit_d}}"
   when: (lnd_monitor_monit_state is match('true|yes|enable')) and (register_monit_d.stat.exists == False)
   tags:
-    - install
     - lnd
-
-#-------------------------------------------------------------------------------
-# COMMANDS
-#-------------------------------------------------------------------------------
 
 - name: 'command check service monit'
   shell: "{{command_cmd_check_service_monit}}"
@@ -212,15 +176,9 @@
   check_mode: 'no'
   when: (lnd_monitor_monit_state is match('true|yes|enable'))
   tags:
-    - install
     - lnd
-
-#-------------------------------------------------------------------------------
-# META
-#-------------------------------------------------------------------------------
 
 - name: 'meta flush handlers'
   meta: 'flush_handlers'
   tags:
-    - install
     - lnd

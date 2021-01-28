@@ -1,9 +1,5 @@
 ---
 
-#-------------------------------------------------------------------------------
-# VARIABLES
-#-------------------------------------------------------------------------------
-
 - name: 'include variables'
   include_vars: "{{item}}"
   with_first_found:
@@ -12,12 +8,7 @@
       - 'vars/main.yml'
       errors: 'ignore'
   tags:
-    - install
     - bitcoin_core
-
-#-------------------------------------------------------------------------------
-# FILES
-#-------------------------------------------------------------------------------
 
 - name: 'file create bitcoind.default'
   template:
@@ -28,7 +19,6 @@
     group: "{{file_group_bitcoind_default}}"
   notify: 'service restart bitcoind'
   tags:
-    - enable
     - bitcoin_core
 
 - name: 'file create bitcoin.conf'
@@ -40,7 +30,6 @@
     group: "{{file_group_bitcoin_conf}}"
   notify: 'service restart bitcoind'
   tags:
-    - enable
     - bitcoin_core
 
 - name: 'file create bitcoind.cfg'
@@ -53,12 +42,7 @@
   notify: 'service reload monit'
   when: (bitcoin_core_monitor_monit_state is match('true|yes|enable'))
   tags:
-    - enable
     - bitcoin_core
-
-#-------------------------------------------------------------------------------
-# SYSTEM
-#-------------------------------------------------------------------------------
 
 - name: 'service start bitcoind'
   service:
@@ -66,5 +50,4 @@
     enabled: 'yes'
     name: "{{service_name_bitcoind}}"
   tags:
-    - enable
     - bitcoin_core
