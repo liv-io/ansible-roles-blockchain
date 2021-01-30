@@ -1,6 +1,6 @@
 ---
 
-- name: 'include variables'
+- name: include variables
   include_vars: "{{item}}"
   with_first_found:
     - files:
@@ -10,7 +10,7 @@
   tags:
     - lnd
 
-- name: 'group create lnd'
+- name: create group lnd
   group:
     state: 'present'
     name: "{{group_name_lnd}}"
@@ -18,7 +18,7 @@
   tags:
     - lnd
 
-- name: 'user create lnd'
+- name: create user lnd
   user:
     state: 'present'
     name: "{{user_name_lnd}}"
@@ -36,7 +36,7 @@
   tags:
     - lnd
 
-- name: 'file create app.dir'
+- name: create file app.dir
   file:
     state: 'directory'
     path: "{{file_dst_app_dir}}"
@@ -46,7 +46,7 @@
   tags:
     - lnd
 
-- name: 'file create lnd_app.dir'
+- name: create file lnd_app.dir
   file:
     state: 'directory'
     path: "{{file_dst_lnd_app_dir}}"
@@ -56,7 +56,7 @@
   tags:
     - lnd
 
-- name: 'file create data.dir'
+- name: create file data.dir
   file:
     state: 'directory'
     path: "{{file_dst_data_dir}}"
@@ -66,7 +66,7 @@
   tags:
     - lnd
 
-- name: 'file create lnd_data.dir'
+- name: create file lnd_data.dir
   file:
     state: 'directory'
     path: "{{file_dst_lnd_data_dir}}"
@@ -76,7 +76,7 @@
   tags:
     - lnd
 
-- name: 'file create lnd_log.dir'
+- name: create file lnd_log.dir
   file:
     state: 'directory'
     path: "{{file_dst_lnd_log_dir}}"
@@ -86,7 +86,7 @@
   tags:
     - lnd
 
-- name: 'file create lnd_src.dir'
+- name: create file lnd_src.dir
   file:
     state: 'directory'
     path: "{{file_dst_lnd_src_dir}}"
@@ -96,7 +96,7 @@
   tags:
     - lnd
 
-- name: 'file download lnd.tar.gz'
+- name: download file lnd.tar.gz
   get_url:
     url: "{{file_src_lnd_tar_gz}}"
     dest: "{{file_dst_lnd_tar_gz}}"
@@ -107,7 +107,7 @@
   tags:
     - lnd
 
-- name: 'file unarchive lnd.tar.gz'
+- name: unarchive file lnd.tar.gz
   unarchive:
     src: "{{file_src_lnd}}"
     dest: "{{file_dst_lnd}}"
@@ -118,7 +118,7 @@
   tags:
     - lnd
 
-- name: 'file create lnd-current.link'
+- name: create file lnd-current.link
   file:
     state: 'link'
     src: "{{file_src_lnd_current_link}}"
@@ -128,7 +128,7 @@
   tags:
     - lnd
 
-- name: 'file create lnd_conf.dir'
+- name: create file lnd_conf.dir
   file:
     state: 'directory'
     path: "{{file_dst_lnd_conf_dir}}"
@@ -138,18 +138,18 @@
   tags:
     - lnd
 
-- name: 'file create lnd.service'
+- name: create file lnd.service
   template:
     src: "{{file_src_lnd_service}}"
     dest: "{{file_dst_lnd_service}}"
     mode: "{{file_mode_lnd_service}}"
     owner: "{{file_owner_lnd_service}}"
     group: "{{file_group_lnd_service}}"
-  notify: 'command systemctl daemon-reload'
+  notify: systemctl daemon-reload
   tags:
     - lnd
 
-- name: 'stat file monit.d'
+- name: stat file monit.d
   stat:
     path: "{{file_dst_monit_d}}"
   register: register_monit_d
@@ -157,7 +157,7 @@
   tags:
     - lnd
 
-- name: 'file create monit.d'
+- name: create file monit.d
   file:
     state: 'directory'
     path: "{{file_dst_monit_d}}"
@@ -168,7 +168,7 @@
   tags:
     - lnd
 
-- name: 'command check service monit'
+- name: check service monit
   shell: "{{command_cmd_check_service_monit}}"
   register: register_check_service_monit
   changed_when: (register_check_service_monit.rc > 1)
@@ -178,7 +178,7 @@
   tags:
     - lnd
 
-- name: 'meta flush handlers'
+- name: flush meta handlers
   meta: 'flush_handlers'
   tags:
     - lnd

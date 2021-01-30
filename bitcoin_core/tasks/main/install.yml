@@ -1,6 +1,6 @@
 ---
 
-- name: 'include variables'
+- name: include variables
   include_vars: "{{item}}"
   with_first_found:
     - files:
@@ -10,7 +10,7 @@
   tags:
     - bitcoin_core
 
-- name: 'group create bitcoind'
+- name: create group bitcoind
   group:
     state: 'present'
     name: "{{group_name_bitcoind}}"
@@ -18,7 +18,7 @@
   tags:
     - bitcoin_core
 
-- name: 'user create bitcoind'
+- name: create user bitcoind
   user:
     state: 'present'
     name: "{{user_name_bitcoind}}"
@@ -36,7 +36,7 @@
   tags:
     - bitcoin_core
 
-- name: 'file create app.dir'
+- name: create file app.dir
   file:
     state: 'directory'
     path: "{{file_dst_app_dir}}"
@@ -46,7 +46,7 @@
   tags:
     - bitcoin_core
 
-- name: 'file create bitcoind_app.dir'
+- name: create file bitcoind_app.dir
   file:
     state: 'directory'
     path: "{{file_dst_bitcoind_app_dir}}"
@@ -56,7 +56,7 @@
   tags:
     - bitcoin_core
 
-- name: 'file create data.dir'
+- name: create file data.dir
   file:
     state: 'directory'
     path: "{{file_dst_data_dir}}"
@@ -66,7 +66,7 @@
   tags:
     - bitcoin_core
 
-- name: 'file create bitcoind_data.dir'
+- name: create file bitcoind_data.dir
   file:
     state: 'directory'
     path: "{{file_dst_bitcoind_data_dir}}"
@@ -76,7 +76,7 @@
   tags:
     - bitcoin_core
 
-- name: 'file create bitcoind_log.dir'
+- name: create file bitcoind_log.dir
   file:
     state: 'directory'
     path: "{{file_dst_bitcoind_log_dir}}"
@@ -86,7 +86,7 @@
   tags:
     - bitcoin_core
 
-- name: 'file create bitcoind_src.dir'
+- name: create file bitcoind_src.dir
   file:
     state: 'directory'
     path: "{{file_dst_bitcoind_src_dir}}"
@@ -96,7 +96,7 @@
   tags:
     - bitcoin_core
 
-- name: 'file download bitcoin-core.tar.gz'
+- name: download file bitcoin-core.tar.gz
   get_url:
     url: "{{file_src_bitcoin_core_tar_gz}}"
     dest: "{{file_dst_bitcoin_core_tar_gz}}"
@@ -107,7 +107,7 @@
   tags:
     - bitcoin_core
 
-- name: 'file unarchive bitcoin-core.tar.gz'
+- name: unarchive file bitcoin-core.tar.gz
   unarchive:
     src: "{{file_src_bitcoin_core}}"
     dest: "{{file_dst_bitcoin_core}}"
@@ -118,7 +118,7 @@
   tags:
     - bitcoin_core
 
-- name: 'file create bitcoin-current.link'
+- name: create file bitcoin-current.link
   file:
     state: 'link'
     src: "{{file_src_bitcoin_current_link}}"
@@ -128,7 +128,7 @@
   tags:
     - bitcoin_core
 
-- name: 'file create debug.log'
+- name: create file debug.log
   copy:
     content: ''
     force: 'no'
@@ -139,7 +139,7 @@
   tags:
     - bitcoin_core
 
-- name: 'file create bitcoind_conf.dir'
+- name: create file bitcoind_conf.dir
   file:
     state: 'directory'
     path: "{{file_dst_bitcoind_conf_dir}}"
@@ -149,18 +149,18 @@
   tags:
     - bitcoin_core
 
-- name: 'file create bitcoind.service'
+- name: create file bitcoind.service
   template:
     src: "{{file_src_bitcoind_service}}"
     dest: "{{file_dst_bitcoind_service}}"
     mode: "{{file_mode_bitcoind_service}}"
     owner: "{{file_owner_bitcoind_service}}"
     group: "{{file_group_bitcoind_service}}"
-  notify: 'command systemctl daemon-reload'
+  notify: systemctl daemon-reload
   tags:
     - bitcoin_core
 
-- name: 'stat file monit.d'
+- name: stat file monit.d
   stat:
     path: "{{file_dst_monit_d}}"
   register: register_monit_d
@@ -168,7 +168,7 @@
   tags:
     - bitcoin_core
 
-- name: 'file create monit.d'
+- name: create file monit.d
   file:
     state: 'directory'
     path: "{{file_dst_monit_d}}"
@@ -179,7 +179,7 @@
   tags:
     - bitcoin_core
 
-- name: 'command check service monit'
+- name: check service monit
   shell: "{{command_cmd_check_service_monit}}"
   register: register_check_service_monit
   changed_when: (register_check_service_monit.rc > 1)
@@ -189,7 +189,7 @@
   tags:
     - bitcoin_core
 
-- name: 'meta flush handlers'
+- name: flush meta handlers
   meta: 'flush_handlers'
   tags:
     - bitcoin_core

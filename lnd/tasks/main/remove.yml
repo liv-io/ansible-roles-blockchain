@@ -1,6 +1,6 @@
 ---
 
-- name: 'include variables'
+- name: include variables
   include_vars: "{{item}}"
   with_first_found:
     - files:
@@ -10,7 +10,7 @@
   tags:
     - lnd
 
-- name: 'user remove lnd'
+- name: remove user lnd
   user:
     state: 'absent'
     name: "{{user_name_lnd}}"
@@ -19,43 +19,43 @@
   tags:
     - lnd
 
-- name: 'group remove lnd'
+- name: remove group lnd
   group:
     state: 'absent'
     name: "{{group_name_lnd}}"
   tags:
     - lnd
 
-- name: 'file remove lnd.cfg'
+- name: remove file lnd.cfg
   file:
     state: 'absent'
     path: "{{file_dst_lnd_cfg}}"
-  notify: 'service reload monit'
+  notify: reload service monit
   tags:
     - lnd
 
-- name: 'file remove lnd.service'
+- name: remove file lnd.service
   file:
     state: 'absent'
     path: "{{file_dst_lnd_service}}"
   tags:
     - lnd
 
-- name: 'file remove lnd.default'
+- name: remove file lnd.default
   file:
     state: 'absent'
     path: "{{file_dst_lnd_default}}"
   tags:
     - lnd
 
-- name: 'file remove lnd_app.dir'
+- name: remove file lnd_app.dir
   file:
     state: 'absent'
     path: "{{file_dst_lnd_src_dir}}"
   tags:
     - lnd
 
-- name: 'file remove lnd_src.dir'
+- name: remove file lnd_src.dir
   file:
     state: 'absent'
     path: "{{file_dst_lnd_src_dir}}"

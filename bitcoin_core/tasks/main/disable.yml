@@ -1,6 +1,6 @@
 ---
 
-- name: 'include variables'
+- name: include variables
   include_vars: "{{item}}"
   with_first_found:
     - files:
@@ -10,7 +10,7 @@
   tags:
     - bitcoin_core
 
-- name: 'file create bitcoind.default'
+- name: create file bitcoind.default
   template:
     src: "{{file_src_bitcoind_default}}"
     dest: "{{file_dst_bitcoind_default}}"
@@ -20,7 +20,7 @@
   tags:
     - bitcoin_core
 
-- name: 'file create bitcoin.conf'
+- name: create file bitcoin.conf
   template:
     src: "{{file_src_bitcoin_conf}}"
     dest: "{{file_dst_bitcoin_conf}}"
@@ -30,19 +30,19 @@
   tags:
     - bitcoin_core
 
-- name: 'file create bitcoind.cfg'
+- name: create file bitcoind.cfg
   template:
     src: "{{file_src_bitcoind_cfg}}"
     dest: "{{file_dst_bitcoind_cfg}}"
     mode: "{{file_mode_bitcoind_cfg}}"
     owner: "{{file_owner_bitcoind_cfg}}"
     group: "{{file_group_bitcoind_cfg}}"
-  notify: 'service reload monit'
+  notify: reload service monit
   when: (bitcoin_core_monitor_monit_state is match('true|yes|enable'))
   tags:
     - bitcoin_core
 
-- name: 'service stop bitcoind'
+- name: stop service bitcoind
   service:
     state: 'stopped'
     enabled: 'no'

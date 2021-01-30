@@ -1,6 +1,6 @@
 ---
 
-- name: 'include variables'
+- name: include variables
   include_vars: "{{item}}"
   with_first_found:
     - files:
@@ -10,7 +10,7 @@
   tags:
     - bitcoin_core
 
-- name: 'user remove bitcoind'
+- name: remove user bitcoind
   user:
     state: 'absent'
     name: "{{user_name_bitcoind}}"
@@ -19,43 +19,43 @@
   tags:
     - bitcoin_core
 
-- name: 'group remove bitcoind'
+- name: remove group bitcoind
   group:
     state: 'absent'
     name: "{{group_name_bitcoind}}"
   tags:
     - bitcoin_core
 
-- name: 'file remove bitcoind.cfg'
+- name: remove file bitcoind.cfg
   file:
     state: 'absent'
     path: "{{file_dst_bitcoind_cfg}}"
-  notify: 'service reload monit'
+  notify: reload service monit
   tags:
     - bitcoin_core
 
-- name: 'file remove bitcoind.service'
+- name: remove file bitcoind.service
   file:
     state: 'absent'
     path: "{{file_dst_bitcoind_service}}"
   tags:
     - bitcoin_core
 
-- name: 'file remove bitcoind.default'
+- name: remove file bitcoind.default
   file:
     state: 'absent'
     path: "{{file_dst_bitcoind_default}}"
   tags:
     - bitcoin_core
 
-- name: 'file remove bitcoind_app.dir'
+- name: remove file bitcoind_app.dir
   file:
     state: 'absent'
     path: "{{file_dst_bitcoind_src_dir}}"
   tags:
     - bitcoin_core
 
-- name: 'file remove bitcoind_src.dir'
+- name: remove file bitcoind_src.dir
   file:
     state: 'absent'
     path: "{{file_dst_bitcoind_src_dir}}"

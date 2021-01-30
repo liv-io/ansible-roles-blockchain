@@ -1,6 +1,6 @@
 ---
 
-- name: 'include variables'
+- name: include variables
   include_vars: "{{item}}"
   with_first_found:
     - files:
@@ -8,20 +8,20 @@
       - 'vars/main.yml'
       errors: 'ignore'
 
-- name: 'command systemctl daemon-reload'
+- name: systemctl daemon-reload
   command: "{{command_cmd_systemctl_daemon_reload}}"
 
-- name: 'service reloaded bitcoind'
+- name: reload service bitcoind
   service:
     state: 'reloaded'
     name: "{{service_name_bitcoind}}"
 
-- name: 'service restart bitcoind'
+- name: restart service bitcoind
   service:
     state: 'restarted'
     name: "{{service_name_bitcoind}}"
 
-- name: 'service reload monit'
+- name: reload service monit
   service:
     state: 'reloaded'
     name: "{{service_name_monit}}"

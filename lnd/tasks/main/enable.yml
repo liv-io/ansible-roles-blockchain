@@ -1,6 +1,6 @@
 ---
 
-- name: 'include variables'
+- name: include variables
   include_vars: "{{item}}"
   with_first_found:
     - files:
@@ -10,41 +10,41 @@
   tags:
     - lnd
 
-- name: 'file create lnd.default'
+- name: create file lnd.default
   template:
     src: "{{file_src_lnd_default}}"
     dest: "{{file_dst_lnd_default}}"
     mode: "{{file_mode_lnd_default}}"
     owner: "{{file_owner_lnd_default}}"
     group: "{{file_group_lnd_default}}"
-  notify: 'service restart lnd'
+  notify: restart service lnd
   tags:
     - lnd
 
-- name: 'file create lnd.conf'
+- name: create file lnd.conf
   template:
     src: "{{file_src_lnd_conf}}"
     dest: "{{file_dst_lnd_conf}}"
     mode: "{{file_mode_lnd_conf}}"
     owner: "{{file_owner_lnd_conf}}"
     group: "{{file_group_lnd_conf}}"
-  notify: 'service restart lnd'
+  notify: restart service lnd
   tags:
     - lnd
 
-- name: 'file create lnd.cfg'
+- name: create file lnd.cfg
   template:
     src: "{{file_src_lnd_cfg}}"
     dest: "{{file_dst_lnd_cfg}}"
     mode: "{{file_mode_lnd_cfg}}"
     owner: "{{file_owner_lnd_cfg}}"
     group: "{{file_group_lnd_cfg}}"
-  notify: 'service reload monit'
+  notify: reload service monit
   when: (lnd_monitor_monit_state is match('true|yes|enable'))
   tags:
     - lnd
 
-- name: 'service start lnd'
+- name: start service lnd
   service:
     state: 'started'
     enabled: 'yes'

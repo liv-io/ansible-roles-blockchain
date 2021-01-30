@@ -1,6 +1,6 @@
 ---
 
-- name: 'include variables'
+- name: include variables
   include_vars: "{{item}}"
   with_first_found:
     - files:
@@ -8,21 +8,21 @@
       - 'vars/main.yml'
       errors: 'ignore'
 
-- name: 'command systemctl daemon-reload'
+- name: systemctl daemon-reload
   command: "{{command_cmd_systemctl_daemon_reload}}"
 
-- name: 'service reload monit'
+- name: reload service monit
   service:
     state: 'reloaded'
     name: "{{service_name_monit}}"
   when: (register_check_service_monit.rc == 0)
 
-- name: 'service reloaded lnd'
+- name: reload service lnd
   service:
     state: 'reloaded'
     name: "{{service_name_lnd}}"
 
-- name: 'service restart lnd'
+- name: restart service lnd
   service:
     state: 'restarted'
     name: "{{service_name_lnd}}"
