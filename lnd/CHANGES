@@ -12,6 +12,9 @@ F: feature
 
 CHANGES
 
+* Version 0.12.1-beta-1 (2021-02-27)
+C: Update to upstream release 0.12.1-beta
+
 * Version 0.11.1-beta-4 (2020-12-15)
 C: Add support for Debian 10
 C: Drop support for CentOS 7, CentOS 8
