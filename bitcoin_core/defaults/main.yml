@@ -16,7 +16,7 @@ bitcoin_core_rpc_bind: '127.0.0.1'
 
 bitcoin_core_rpc_port: 8332
 
-bitcoin_core_version: '0.21.0'
+bitcoin_core_version: '0.21.1'
 
 bitcoin_core_zeromq_bind: '127.0.0.1'
 
