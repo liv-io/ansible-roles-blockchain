@@ -12,6 +12,9 @@ F: feature
 
 CHANGES
 
+* Version 0.13.1-beta-1 (2021-07-23)
+C: Update to upstream release 0.13.1-beta
+
 * Version 0.12.1-beta-1 (2021-02-27)
 C: Update to upstream release 0.12.1-beta
 
