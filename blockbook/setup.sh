@@ -11,6 +11,8 @@
 # Update packages
 apt update
 apt -y upgrade
+
+# Install dependencies
 apt install -y --no-install-recommends autoconf \
   automake \
   build-essential \
@@ -27,20 +29,19 @@ apt install -y --no-install-recommends autoconf \
   wget \
   zlib1g-dev
 
-apt -y clean
-
 #-------------------------------------------------------------------------------
 
 # GO
 
+# Set environment variables
 export GO_VERSION="1.17.5"
 export GOPATH=/app/go
 export PATH="$PATH:$GOPATH/bin:/usr/local/go/bin"
 
-# Create Go directories
+# Create directories
 install --directory --owner=root --group=root --mode=0755 /app/go/
 
-# Add to GPG keyring
+# Add key to GPG keyring
 cd /tmp/
 gpg --no-default-keyring --keyring /tmp/go.gpg --fingerprint
 gpg --no-default-keyring --keyring /tmp/go.gpg --batch --import /tmp/go.key
@@ -48,6 +49,7 @@ rm -f /tmp/go.gpg* \
       /tmp/go.key
 
 # Install Go
+cd /tmp/
 wget -q -O /tmp/go${GO_VERSION}.linux-amd64.tar.gz https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz
 wget -q -O /tmp/go${GO_VERSION}.linux-amd64.tar.gz.sha256 https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz.sha256
 wget -q -O /tmp/go${GO_VERSION}.linux-amd64.tar.gz.asc https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz.asc
@@ -64,9 +66,10 @@ rm -f /tmp/go${GO_VERSION}.checksum \
 
 # ROCKSDB
 
+# Set environment variables
 export ROCKSDB_VERSION="v6.22.1"
 
-# Create RocksDB directories
+# Create directories
 install --directory --owner=root --group=root --mode=0755 /app/rocksdb/
 install --directory --owner=root --group=root --mode=0755 /app/rocksdb/include/
 
@@ -88,6 +91,7 @@ rm -rf /tmp/rocksdb
 
 # ZEROMQ
 
+# Set environment variables
 export ZEROMQ_VERSION="v4.3.4"
 
 # Build ZeroMQ
@@ -106,22 +110,23 @@ rm -rf /tmp/libzmq
 
 # BLOCKBOOK
 
+# Set environment variables
 export BLOCKBOOK_VERSION="v0.3.6"
 
-# Create Blockbook directories
-install --directory --owner=root --group=root --mode=0755 /etc/blockbook
+# Create user
+useradd --comment 'blockbook' --no-create-home --password '!' --shell '/bin/bash' blockbook
 
-# Clone Blockbook
-cd /app/
-git clone -q --branch ${BLOCKBOOK_VERSION} https://github.com/trezor/blockbook.git
+# Create directories
+install --directory --owner=root --group=root --mode=0755 /etc/blockbook
+install --directory --owner=blockbook --group=blockbook --mode=0755 /data/blockbook
 
 # Build Blockbook
+cd /app/
+git clone -q --branch ${BLOCKBOOK_VERSION} https://github.com/trezor/blockbook.git
 cd blockbook/
 go build -tags rocksdb_6_16
 
-useradd --comment 'blockbook' --no-create-home --password '!' --shell '/bin/bash' blockbook
-install --directory --owner=blockbook --group=blockbook --mode=0755 /data/blockbook
-
+# Create config.json
 echo '{
     "coin_name": "Bitcoin",
     "coin_shortcut": "BTC",
@@ -139,8 +144,10 @@ echo '{
 
 chown root:blockbook /etc/blockbook/config.json
 
+# Create default file
 echo 'OPTIONS="-sync -blockchaincfg=/etc/blockbook/config.json -public=:8080 -logtostderr -datadir /data/blockbook/"' > /etc/default/blockbook
 
+# Create systemd service unit file
 echo '[Unit]
 Description=blockbook
 After=syslog.target network.target
@@ -157,6 +164,9 @@ LimitNPROC=500000
 [Install]
 WantedBy=multi-user.target' > /usr/lib/systemd/system/blockbook.service
 
+# Reload systemd
 systemctl daemon-reload
+
+# Start and enable service
 systemctl enable blockbook.service
 systemctl start blockbook.service
