@@ -12,6 +12,10 @@ F: feature
 
 CHANGES
 
+* Version 22.0-2 (2022-01-02)
+C: Add support for Debian 11 (Bullseye)
+C: Drop support for Debian 10 (Buster)
+
 * Version 22.0-1 (2021-09-16)
 F: Update Bitcoin Core to version 22.0
 

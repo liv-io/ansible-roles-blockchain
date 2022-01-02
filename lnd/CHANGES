@@ -12,6 +12,10 @@ F: feature
 
 CHANGES
 
+* Version 0.14.1-beta-2 (2022-01-02)
+C: Add support for Debian 11 (Bullseye)
+C: Drop support for Debian 10 (Buster)
+
 * Version 0.14.1-beta-1 (2021-11-25)
 C: Update to upstream release 0.14.1-beta
 
