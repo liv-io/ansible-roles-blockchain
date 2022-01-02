@@ -1,0 +1,288 @@
+---
+
+- name: include variables
+  include_vars: "{{item}}"
+  with_first_found:
+    - files:
+      - "vars/{{ansible_distribution_major_version}}.yml"
+      - 'vars/main.yml'
+      errors: 'ignore'
+  tags:
+    - blockbook
+
+- name: create group blockbook
+  group:
+    state: 'present'
+    name: "{{group_name_blockbook}}"
+    system: "{{group_system_blockbook}}"
+  tags:
+    - blockbook
+
+- name: create user blockbook
+  user:
+    state: 'present'
+    name: "{{user_name_blockbook}}"
+    comment: "{{user_comment_blockbook}}"
+    group: "{{user_group_blockbook}}"
+    append: "{{user_append_blockbook}}"
+    createhome: "{{user_home_create_blockbook}}"
+    move_home: "{{user_home_move_blockbook}}"
+    remove: "{{user_home_remove_blockbook}}"
+    force: "{{user_home_force_blockbook}}"
+    password: "{{user_password_blockbook}}"
+    update_password: "{{user_password_update_blockbook}}"
+    shell: "{{user_shell_blockbook}}"
+    system: "{{user_system_blockbook}}"
+  tags:
+    - blockbook
+
+- name: create file app.dir
+  file:
+    state: 'directory'
+    path: "{{file_dst_app_dir}}"
+    mode: "{{file_mode_app_dir}}"
+    owner: "{{file_owner_app_dir}}"
+    group: "{{file_group_app_dir}}"
+  tags:
+    - blockbook
+
+- name: create file blockbook_app.dir
+  file:
+    state: 'directory'
+    path: "{{file_dst_blockbook_app_dir}}"
+    mode: "{{file_mode_blockbook_app_dir}}"
+    owner: "{{file_owner_blockbook_app_dir}}"
+    group: "{{file_group_blockbook_app_dir}}"
+  tags:
+    - blockbook
+
+- name: create file blockbook_conf.dir
+  file:
+    state: 'directory'
+    path: "{{file_dst_blockbook_conf_dir}}"
+    mode: "{{file_mode_blockbook_conf_dir}}"
+    owner: "{{file_owner_blockbook_conf_dir}}"
+    group: "{{file_group_blockbook_conf_dir}}"
+  tags:
+    - blockbook
+
+- name: create file data.dir
+  file:
+    state: 'directory'
+    path: "{{file_dst_data_dir}}"
+    mode: "{{file_mode_data_dir}}"
+    owner: "{{file_owner_data_dir}}"
+    group: "{{file_group_data_dir}}"
+  tags:
+    - blockbook
+
+- name: create file blockbook_data.dir
+  file:
+    state: 'directory'
+    path: "{{file_dst_blockbook_data_dir}}"
+    mode: "{{file_mode_blockbook_data_dir}}"
+    owner: "{{file_owner_blockbook_data_dir}}"
+    group: "{{file_group_blockbook_data_dir}}"
+  tags:
+    - blockbook
+
+- name: install package dependencies
+  package:
+    state: 'present'
+    name:
+      - 'autoconf'
+      - 'automake'
+      - 'build-essential'
+      - 'libbz2-dev'
+      - 'libgflags-dev'
+      - 'liblz4-dev'
+      - 'libsnappy-dev'
+      - 'libtool'
+      - 'libzmq3-dev'
+      - 'pkg-config'
+      - 'zlib1g-dev'
+    install_recommends: 'no'
+  tags:
+    - blockbook
+
+- name: stat file go
+  stat:
+    path: "{{file_dst_go}}"
+  register: register_go
+  tags:
+    - blockbook
+
+- name: install go
+  shell: |
+    set -eoux pipefail
+
+    # Set environment variables
+    export GOPATH=/app/go
+    export PATH="$PATH:$GOPATH/bin:/usr/local/go/bin"
+
+    # Create directories
+    install --directory --owner=root --group=root --mode=0755 /app/go/
+
+    # Add key to GPG keyring
+    cd /tmp/
+    wget -q -O /tmp/go.pub https://dl.google.com/linux/linux_signing_key.pub
+    gpg --no-default-keyring --keyring /tmp/go.gpg --fingerprint
+    gpg --no-default-keyring --keyring /tmp/go.gpg --batch --import /tmp/go.pub
+
+    # Install Go
+    cd /tmp/
+    wget -q -O /tmp/go{{blockbook_go_version}}.linux-amd64.tar.gz https://dl.google.com/go/go{{blockbook_go_version}}.linux-amd64.tar.gz
+    wget -q -O /tmp/go{{blockbook_go_version}}.linux-amd64.tar.gz.sha256 https://dl.google.com/go/go{{blockbook_go_version}}.linux-amd64.tar.gz.sha256
+    wget -q -O /tmp/go{{blockbook_go_version}}.linux-amd64.tar.gz.asc https://dl.google.com/go/go{{blockbook_go_version}}.linux-amd64.tar.gz.asc
+    gpg --no-default-keyring --keyring /tmp/go.gpg --verify /tmp/go{{blockbook_go_version}}.linux-amd64.tar.gz.asc
+    echo "$(cat /tmp/go{{blockbook_go_version}}.linux-amd64.tar.gz.sha256) go{{blockbook_go_version}}.linux-amd64.tar.gz" > /tmp/go{{blockbook_go_version}}.checksum
+    sha256sum -c /tmp/go{{blockbook_go_version}}.checksum
+    tar -C /usr/local/ -xzf go{{blockbook_go_version}}.linux-amd64.tar.gz
+    rm -f /tmp/go.gpg* \
+          /tmp/go.pub \
+          /tmp/go{{blockbook_go_version}}.checksum \
+          /tmp/go{{blockbook_go_version}}.linux-amd64.tar.gz \
+          /tmp/go{{blockbook_go_version}}.linux-amd64.tar.gz.asc \
+          /tmp/go{{blockbook_go_version}}.linux-amd64.tar.gz.sha256
+  args:
+    executable: /bin/bash
+  when: (register_go.stat.exists == False)
+  tags:
+    - blockbook
+
+- name: stat file rocksdb_namespace.h
+  stat:
+    path: "{{file_dst_rocksdb_namespace_h}}"
+  register: register_rocksdb_namespace_h
+  tags:
+    - blockbook
+
+- name: install rocksdb
+  shell: |
+    set -eoux pipefail
+
+    # Create directories
+    install --directory --owner=root --group=root --mode=0755 /app/rocksdb/
+    install --directory --owner=root --group=root --mode=0755 /app/rocksdb/include/
+
+    # Set RocksDB build flags
+    export CGO_CFLAGS="-I/app/rocksdb/include"
+    export CGO_LDFLAGS="-L/app/rocksdb -lrocksdb -lstdc++ -lm -lz -ldl -lbz2 -lsnappy -llz4"
+
+    # Build RocksDB
+    cd /tmp/
+    git clone -q --branch v{{blockbook_rocksdb_version}} --depth 1 https://github.com/facebook/rocksdb.git
+    cd rocksdb/
+    CFLAGS=-fPIC CXXFLAGS=-fPIC make -j 4 release
+    cp librock* /app/rocksdb
+    cp -r include /app/rocksdb
+    cd /tmp/
+    rm -rf /tmp/rocksdb
+  args:
+    executable: /bin/bash
+  when: (register_rocksdb_namespace_h.stat.exists == False)
+  tags:
+    - blockbook
+
+- name: stat file libzmq.a
+  stat:
+    path: "{{file_dst_libzmq_a}}"
+  register: register_libzmq_a
+  tags:
+    - blockbook
+
+- name: install zeromq
+  shell: |
+    set -eoux pipefail
+
+    # Set environment variables
+    export GOPATH=/app/go
+    export PATH="$PATH:$GOPATH/bin:/usr/local/go/bin"
+
+    # Build ZeroMQ
+    cd /tmp/
+    git clone -q --branch v{{blockbook_zeromq_version}} --depth 1 https://github.com/zeromq/libzmq
+    cd libzmq/
+    ./autogen.sh
+    ./configure
+    make
+    make install
+    {{file_dst_go}} mod init libzmq
+    cd /tmp/
+    rm -rf /tmp/libzmq
+  args:
+    executable: /bin/bash
+  when: (register_libzmq_a.stat.exists == False)
+  tags:
+    - blockbook
+
+- name: stat file blockbook
+  stat:
+    path: "{{file_dst_blockbook}}"
+  register: register_blockbook
+  tags:
+    - blockbook
+
+- name: install blockbook
+  shell: |
+    set -eoux pipefail
+
+    # Set environment variables
+    export GOPATH=/app/go
+    export PATH="$PATH:$GOPATH/bin:/usr/local/go/bin"
+
+    # Build Blockbook
+    cd /app/
+    git clone -q --branch v{{blockbook_version}} https://github.com/trezor/blockbook.git
+    cd blockbook/
+    {{file_dst_go}} build -tags {{blockbook_build_tags}}
+  args:
+    executable: /bin/bash
+  when: (register_blockbook.stat.exists == False)
+  tags:
+    - blockbook
+
+- name: create file blockbook.service
+  template:
+    src: "{{file_src_blockbook_service}}"
+    dest: "{{file_dst_blockbook_service}}"
+    mode: "{{file_mode_blockbook_service}}"
+    owner: "{{file_owner_blockbook_service}}"
+    group: "{{file_group_blockbook_service}}"
+  notify: systemctl daemon-reload
+  tags:
+    - blockbook
+
+- name: stat file monit.d
+  stat:
+    path: "{{file_dst_monit_d}}"
+  register: register_monit_d
+  when: (blockbook_monitor_monit_state is match('true|yes|enable'))
+  tags:
+    - blockbook
+
+- name: create file monit.d
+  file:
+    state: 'directory'
+    path: "{{file_dst_monit_d}}"
+    mode: "{{file_mode_monit_d}}"
+    owner: "{{file_owner_monit_d}}"
+    group: "{{file_group_monit_d}}"
+  when: (blockbook_monitor_monit_state is match('true|yes|enable')) and (register_monit_d.stat.exists == False)
+  tags:
+    - blockbook
+
+- name: check service monit
+  shell: "{{command_cmd_check_service_monit}}"
+  register: register_check_service_monit
+  changed_when: (register_check_service_monit.rc > 1)
+  failed_when: (register_check_service_monit.rc > 1)
+  check_mode: 'no'
+  when: (blockbook_monitor_monit_state is match('true|yes|enable'))
+  tags:
+    - blockbook
+
+- name: flush meta handlers
+  meta: 'flush_handlers'
+  tags:
+    - blockbook

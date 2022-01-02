@@ -1,0 +1,23 @@
+---
+
+blockbook_state: 'enable'
+
+blockbook_build_tags: 'rocksdb_6_16'
+
+blockbook_go_version: '1.17.5'
+
+blockbook_message_queue_binding: 'tcp://localhost:5555'
+
+blockbook_monitor_monit_state: 'false'
+
+blockbook_rocksdb_version: '6.22.1'
+
+blockbook_rpc_pass: ''
+
+blockbook_rpc_url: 'http://localhost:8332'
+
+blockbook_rpc_user: ''
+
+blockbook_version: '0.3.6'
+
+blockbook_zeromq_version: '4.3.4'

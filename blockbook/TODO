@@ -9,7 +9,7 @@ License: Simplified BSD License
 BUGS
 
 ENHANCEMENTS
+- Improve removal tasks
 
 FEATURES
-
-- Turn installation instructions into Ansible role
+- Add support for updating versions

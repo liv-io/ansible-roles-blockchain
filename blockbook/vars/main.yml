@@ -1,0 +1,107 @@
+---
+
+# app.dir
+file_dst_app_dir: '/app'
+file_mode_app_dir: '0755'
+file_owner_app_dir: 'root'
+file_group_app_dir: 'root'
+
+# blockbook_app.dir
+file_dst_blockbook_app_dir: '/app/blockbook'
+file_mode_blockbook_app_dir: '0755'
+file_owner_blockbook_app_dir: 'root'
+file_group_blockbook_app_dir: 'root'
+
+# blockbook_conf.dir
+file_dst_blockbook_conf_dir: '/etc/blockbook'
+file_mode_blockbook_conf_dir: '0750'
+file_owner_blockbook_conf_dir: 'root'
+file_group_blockbook_conf_dir: 'blockbook'
+
+# data.dir
+file_dst_data_dir: '/data'
+file_mode_data_dir: '0755'
+file_owner_data_dir: 'root'
+file_group_data_dir: 'root'
+
+# blockbook_data.dir
+file_dst_blockbook_data_dir: '/data/blockbook'
+file_mode_blockbook_data_dir: '0700'
+file_owner_blockbook_data_dir: 'blockbook'
+file_group_blockbook_data_dir: 'blockbook'
+
+# blockbook
+file_dst_blockbook: '/app/blockbook/blockbook'
+
+# blockbook.json
+file_src_blockbook_json: 'templates/main/blockbook.json'
+file_dst_blockbook_json: '/etc/blockbook/blockbook.json'
+file_mode_blockbook_json: '0640'
+file_owner_blockbook_json: 'root'
+file_group_blockbook_json: 'blockbook'
+
+# blockbook.default
+file_src_blockbook_default: 'templates/main/blockbook.default'
+file_dst_blockbook_default: '/etc/default/blockbook'
+file_mode_blockbook_default: '0644'
+file_owner_blockbook_default: 'root'
+file_group_blockbook_default: 'root'
+
+# blockbook.service
+file_src_blockbook_service: 'templates/main/blockbook.service'
+file_dst_blockbook_service: '/usr/lib/systemd/system/blockbook.service'
+file_mode_blockbook_service: '0644'
+file_owner_blockbook_service: 'root'
+file_group_blockbook_service: 'root'
+
+# go
+file_dst_go: '/usr/local/go/bin/go'
+
+# libzmq.a
+file_dst_libzmq_a: '/usr/local/lib/libzmq.a'
+
+# monit.d
+file_dst_monit_d: '/etc/monit.d'
+file_mode_monit_d: '0750'
+file_owner_monit_d: 'root'
+file_group_monit_d: 'root'
+
+# blockbook.cfg
+file_src_blockbook_cfg: 'templates/main/blockbook.cfg'
+file_dst_blockbook_cfg: '/etc/monit.d/blockbook.cfg'
+file_mode_blockbook_cfg: '0640'
+file_owner_blockbook_cfg: 'root'
+file_group_blockbook_cfg: 'root'
+
+# rocksdb_namespace.h
+file_dst_rocksdb_namespace_h: '/app/rocksdb/include/rocksdb/rocksdb_namespace.h'
+
+# check service monit
+command_cmd_check_service_monit: 'systemctl cat monit.service > /dev/null 2>&1'
+
+# systemctl daemon-reload
+command_cmd_systemctl_daemon_reload: 'systemctl daemon-reload'
+
+# blockbook
+group_name_blockbook: 'blockbook'
+group_system_blockbook: 'yes'
+
+# blockbook
+user_name_blockbook: 'blockbook'
+user_comment_blockbook: 'Blockbook'
+user_group_blockbook: 'blockbook'
+user_append_blockbook: 'yes'
+user_home_create_blockbook: 'yes'
+user_home_move_blockbook: 'no'
+user_home_remove_blockbook: 'yes'
+user_home_force_blockbook: 'no'
+user_password_blockbook: '!'
+user_password_update_blockbook: 'always'
+user_shell_blockbook: '/usr/bin/bash'
+user_system_blockbook: 'yes'
+
+# blockbook
+service_name_blockbook: 'blockbook'
+
+# monit
+service_name_monit: 'monit'

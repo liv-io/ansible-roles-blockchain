@@ -1,0 +1,8 @@
+---
+
+dependencies:
+  - {role: ca_certificates, when: not (blockbook_state is match('false|no|remove|quiesce|inactive'))}
+  - {role: git, when: not (blockbook_state is match('false|no|remove|quiesce|inactive'))}
+  - {role: gnupg, when: not (blockbook_state is match('false|no|remove|quiesce|inactive'))}
+  - {role: gnu_tar, when: not (blockbook_state is match('false|no|remove|quiesce|inactive'))}
+  - {role: wget, when: not (blockbook_state is match('false|no|remove|quiesce|inactive'))}

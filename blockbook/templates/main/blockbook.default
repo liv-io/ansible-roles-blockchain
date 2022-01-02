@@ -1,0 +1,3 @@
+{{ansible_managed|comment(decoration='#')}}
+
+OPTIONS="-sync -blockchaincfg={{file_dst_blockbook_json}} -public=:8080 -logtostderr -datadir {{file_dst_blockbook_data_dir}}"

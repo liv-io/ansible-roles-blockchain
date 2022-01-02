@@ -1,0 +1,18 @@
+{
+    "coin_name": "Bitcoin",
+    "coin_shortcut": "BTC",
+    "coin_label": "Bitcoin",
+    "rpc_url": "{{blockbook_rpc_url}}",
+{% if not (blockbook_rpc_user == '') %}
+    "rpc_user": "{{blockbook_rpc_user}}",
+{% endif %}
+{% if not (blockbook_rpc_pass == '') %}
+    "rpc_pass": "{{blockbook_rpc_pass}}",
+{% endif %}
+    "rpc_timeout": 25,
+    "parse": true,
+    "message_queue_binding": "{{blockbook_message_queue_binding}}",
+    "subversion": "",
+    "address_format": "",
+    "block_addresses_to_keep": 300
+}
