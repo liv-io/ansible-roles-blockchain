@@ -51,7 +51,7 @@
 - name: remove file lnd_app.dir
   file:
     state: 'absent'
-    path: "{{file_dst_lnd_src_dir}}"
+    path: "{{file_dst_lnd_app_dir}}"
   tags:
     - lnd
 

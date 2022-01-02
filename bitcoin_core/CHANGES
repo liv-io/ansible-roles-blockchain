@@ -12,6 +12,9 @@ F: feature
 
 CHANGES
 
+* Version 22.0-3 (2022-01-02)
+B: Fix app.dir path in removal task
+
 * Version 22.0-2 (2022-01-02)
 C: Add support for Debian 11 (Bullseye)
 C: Drop support for Debian 10 (Buster)

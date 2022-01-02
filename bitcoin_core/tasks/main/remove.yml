@@ -51,7 +51,7 @@
 - name: remove file bitcoind_app.dir
   file:
     state: 'absent'
-    path: "{{file_dst_bitcoind_src_dir}}"
+    path: "{{file_dst_bitcoind_app_dir}}"
   tags:
     - bitcoin_core
 
