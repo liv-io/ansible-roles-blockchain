@@ -69,8 +69,6 @@ The Ansible managed node depends on:
 
 ## Roadmap
 
-* Add Ansible role to manage [Blockbook](https://github.com/trezor/blockbook)
-
 ## Contributing
 
 ## License
