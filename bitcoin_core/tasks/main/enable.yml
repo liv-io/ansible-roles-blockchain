@@ -28,6 +28,7 @@
     mode: "{{file_mode_bitcoin_conf}}"
     owner: "{{file_owner_bitcoin_conf}}"
     group: "{{file_group_bitcoin_conf}}"
+  no_log: 'true'
   notify: restart service bitcoind
   tags:
     - bitcoin_core
