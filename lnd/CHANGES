@@ -12,6 +12,9 @@ F: feature
 
 CHANGES
 
+* Version 0.14.2-beta-1 (2022-02-04)
+C: Update to upstream release 0.14.2-beta
+
 * Version 0.14.1-beta-3 (2022-01-02)
 B: Fix app.dir path in removal task
 
