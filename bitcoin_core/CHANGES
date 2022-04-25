@@ -12,6 +12,9 @@ F: feature
 
 CHANGES
 
+* Version 23.0-1 (2022-04-25)
+F: Update Bitcoin Core to version 23.0
+
 * Version 22.0-4 (2022-01-08)
 E: Add 'no_log' parameter to sensitive tasks
 
