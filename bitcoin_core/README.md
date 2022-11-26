@@ -1,12 +1,6 @@
-INFORMATION
+# bitcoin_core
 
-Name   : bitcoin_core
-Type   : Ansible role
-
-Authors: liv community
-License: Simplified BSD License
-
-DESCRIPTION
+## Description
 
 Bitcoin is an experimental digital currency that enables instant payments to
 anyone, anywhere in the world. Bitcoin uses peer-to-peer technology to operate
@@ -17,55 +11,72 @@ software which enables the use of this currency.
 For more information on the usage and available configuration options,
 consult the following sections.
 
-USAGE
+## Usage
 
-INSTALL
-  - hosts: all
-    roles:
-      - role: bitcoin_core
-    vars:
-      bitcoin_core_state: 'install'
+### Install
 
-ENABLE
-  - hosts: all
-    roles:
-      - role: bitcoin_core
-    vars:
-      bitcoin_core_state: 'enable'
-      bitcoin_core_rpc_allow_ip: '0.0.0.0/0'
-      bitcoin_core_rpc_auth: 'satoshi:63c20cd63c1eed39bfd8ecc04cf8d816$83340b182b07b1b2d55352797eab617b821f83c4f1c28bd3dfc40240e412ec7a'
-      bitcoin_core_rpc_bind: '0.0.0.0'
-      bitcoin_core_zeromq_bind: '0.0.0.0'
+```
+- hosts: all
+  roles:
+    - role: bitcoin_core
+  vars:
+    bitcoin_core_state: 'install'
+```
 
-DISABLE
-  - hosts: all
-    roles:
-      - role: bitcoin_core
-    vars:
-      bitcoin_core_state: 'disable'
-      bitcoin_core_rpc_allow_ip: '0.0.0.0/0'
-      bitcoin_core_rpc_auth: 'satoshi:63c20cd63c1eed39bfd8ecc04cf8d816$83340b182b07b1b2d55352797eab617b821f83c4f1c28bd3dfc40240e412ec7a'
-      bitcoin_core_rpc_bind: '0.0.0.0'
-      bitcoin_core_zeromq_bind: '0.0.0.0'
+### Enable
 
-REMOVE
-  - hosts: all
-    roles:
-      - role: bitcoin_core
-    vars:
-      bitcoin_core_state: 'remove'
+```
+- hosts: all
+  roles:
+    - role: bitcoin_core
+  vars:
+    bitcoin_core_state: 'enable'
+    bitcoin_core_rpc_allow_ip: '0.0.0.0/0'
+    bitcoin_core_rpc_auth: 'satoshi:63c20cd63c1eed39bfd8ecc04cf8d816$83340b182b07b1b2d55352797eab617b821f83c4f1c28bd3dfc40240e412ec7a'
+    bitcoin_core_rpc_bind: '0.0.0.0'
+    bitcoin_core_zeromq_bind: '0.0.0.0'
+```
 
-INACTIVE
-  - hosts: all
-    roles:
-      - role: bitcoin_core
-    vars:
-      bitcoin_core_state: 'inactive'
+### Disable
 
-PARAMETERS
+```
+- hosts: all
+  roles:
+    - role: bitcoin_core
+  vars:
+    bitcoin_core_state: 'disable'
+    bitcoin_core_rpc_allow_ip: '0.0.0.0/0'
+    bitcoin_core_rpc_auth: 'satoshi:63c20cd63c1eed39bfd8ecc04cf8d816$83340b182b07b1b2d55352797eab617b821f83c4f1c28bd3dfc40240e412ec7a'
+    bitcoin_core_rpc_bind: '0.0.0.0'
+    bitcoin_core_zeromq_bind: '0.0.0.0'
+```
 
-ROLE
-  bitcoin_core_state
+### Remove
+
+```
+- hosts: all
+  roles:
+    - role: bitcoin_core
+  vars:
+    bitcoin_core_state: 'remove'
+```
+
+### Inactive
+
+```
+- hosts: all
+  roles:
+    - role: bitcoin_core
+  vars:
+    bitcoin_core_state: 'inactive'
+```
+
+## Parameters
+
+### Role
+
+`bitcoin_core_state`
+
     Description: Control the state of the role.
     Implemented: 0.19.0.1-1
     Required   : False
@@ -79,7 +90,8 @@ ROLE
       Remove  : 'false' | 'no' | 'remove'
       Inactive: 'quiesce' | 'inactive'
 
-  bitcoin_core_monitor_monit_state
+`bitcoin_core_monitor_monit_state`
+
     Description: Control the 'bitcoin_core_monitor_monit_state' option.
     Implemented: 0.20.1-6
     Required   : False
@@ -90,7 +102,8 @@ ROLE
       Enable : 'true' | 'yes' | 'enable'
       Disable: 'false' | 'no' | 'disable'
 
-  bitcoin_core_network_bind
+`bitcoin_core_network_bind`
+
     Description: Define the 'bitcoin_core_network_bind' option.
     Implemented: 0.19.0.1-2
     Required   : False
@@ -100,7 +113,8 @@ ROLE
     Options    :
       Examples: '10.1.1.10' | '0.0.0.0'
 
-  bitcoin_core_network_port
+`bitcoin_core_network_port`
+
     Description: Define the 'bitcoin_core_network_port' option.
     Implemented: 0.19.0.1-2
     Required   : False
@@ -110,7 +124,8 @@ ROLE
     Options    :
       Examples: 8333
 
-  bitcoin_core_rpc_allow_ip
+`bitcoin_core_rpc_allow_ip`
+
     Description: Define the 'bitcoin_core_rpc_allow_ip' option.
     Implemented: 0.19.0.1-1
     Required   : False
@@ -120,7 +135,8 @@ ROLE
     Options    :
       Examples: '10.0.0.0/8' | '0.0.0.0/0'
 
-  bitcoin_core_rpc_auth
+`bitcoin_core_rpc_auth`
+
     Description: Define the 'bitcoin_core_rpc_auth' option.
                  For more information, visit:
                  https://github.com/bitcoin/bitcoin/tree/master/share/rpcauth
@@ -134,7 +150,8 @@ ROLE
                 'satoshi:63c20cd63c1eed39bfd8ecc04cf8d816$83340b182b07b1b2d55352797eab617b821f83c4f1c28bd3dfc40240e412ec7a'
       None    : ''
 
-  bitcoin_core_rpc_bind
+`bitcoin_core_rpc_bind`
+
     Description: Define the 'bitcoin_core_rpc_bind' option.
     Implemented: 0.19.0.1-1
     Required   : False
@@ -144,7 +161,8 @@ ROLE
     Options    :
       Examples: '10.1.1.10' | '0.0.0.0'
 
-  bitcoin_core_rpc_port
+`bitcoin_core_rpc_port`
+
     Description: Define the 'bitcoin_core_rpc_port' option.
     Implemented: 0.19.0.1-2
     Required   : False
@@ -154,7 +172,8 @@ ROLE
     Options    :
       Examples: 8332
 
-  bitcoin_core_version
+`bitcoin_core_version`
+
     Description: Define the 'bitcoin_core_version' option.
     Implemented: 0.20.0-1
     Required   : False
@@ -164,7 +183,8 @@ ROLE
     Options    :
       Examples: '0.18.1' | '0.18.0'
 
-  bitcoin_core_zeromq_bind
+`bitcoin_core_zeromq_bind`
+
     Description: Define the 'bitcoin_core_zeromq_bind' option.
     Implemented: 0.19.0.1-2
     Required   : False
@@ -174,7 +194,8 @@ ROLE
     Options    :
       Examples: '10.1.1.10' | '0.0.0.0'
 
-  bitcoin_core_zeromq_pub_hash_block_port
+`bitcoin_core_zeromq_pub_hash_block_port`
+
     Description: Define the 'bitcoin_core_zeromq_pub_hash_block_port' option.
     Implemented: 0.20.1-2
     Required   : False
@@ -184,7 +205,8 @@ ROLE
     Options    :
       Examples: 5555
 
-  bitcoin_core_zeromq_pub_hash_tx_port
+`bitcoin_core_zeromq_pub_hash_tx_port`
+
     Description: Define the 'bitcoin_core_zeromq_pub_hash_tx_port' option.
     Implemented: 0.20.1-2
     Required   : False
@@ -194,7 +216,8 @@ ROLE
     Options    :
       Examples: 5556
 
-  bitcoin_core_zeromq_pub_raw_block_port
+`bitcoin_core_zeromq_pub_raw_block_port`
+
     Description: Define the 'bitcoin_core_zeromq_pub_raw_block_port' option.
     Implemented: 0.20.1-2
     Required   : False
@@ -204,7 +227,8 @@ ROLE
     Options    :
       Examples: 5557
 
-  bitcoin_core_zeromq_pub_raw_tx_port
+`bitcoin_core_zeromq_pub_raw_tx_port`
+
     Description: Define the 'bitcoin_core_zeromq_pub_raw_tx_port' option.
     Implemented: 0.20.1-2
     Required   : False
@@ -214,33 +238,40 @@ ROLE
     Options    :
       Examples: 5558
 
-CONFLICTS
+## Conflicts
 
-ROLES
+### Roles
 
-DEPENDENCIES
+## Dependencies
 
-PACKAGES
-  bitcoin-core
+### Archives
 
-ROLES
-  gnu_tar
+`bitcoin-core`
 
-PARAMETERS
+### Packages
 
-REQUIREMENTS
+### Roles
 
-CONTROL NODE
-  Ansible
-    Version: >= 2.8.0
+`gnu_tar`
 
-MANAGED NODE
-  Python
-    Version: >= 2.7.0
+## Requirements
 
-SUPPORT
+### Control Node
 
-OPERATING SYSTEMS
-  Debian
-    Version: 11
-      Status: Testing
+`ansible`
+
+    Version: `>= 2.8.0`
+
+### Managed Node
+
+`python`
+
+    Version: `>= 2.7.0`
+
+## support
+
+### Operating Systems
+
+`debian`
+
+    Version: `11`

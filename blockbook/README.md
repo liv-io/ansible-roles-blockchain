@@ -1,74 +1,85 @@
-INFORMATION
+# blockbook
 
-Name   : blockbook
-Type   : Ansible role
-
-Authors: liv community
-License: Simplified BSD License
-
-DESCRIPTION
+## Description
 
 Blockbook is back-end service for Trezor wallet. Main features of Blockbook are:
- - index of addresses and address balances of the connected block chain
- - fast index search
- - simple blockchain explorer
- - websocket, API and legacy Bitcore Insight compatible socket.io interfaces
- - support of multiple coins (Bitcoin and Ethereum type) with easy extensibility
-   to other coins
- - scripts for easy creation of debian packages for backend and blockbook
+- index of addresses and address balances of the connected block chain
+- fast index search
+- simple blockchain explorer
+- websocket, API and legacy Bitcore Insight compatible socket.io interfaces
+- support of multiple coins (Bitcoin and Ethereum type) with easy extensibility
+  to other coins
+- scripts for easy creation of debian packages for backend and blockbook
 
 For more information on the usage and available configuration options,
 consult the following sections.
 
-USAGE
+## Usage
 
-INSTALL
-  - hosts: all
-    roles:
-      - role: blockbook
-    vars:
-      blockbook_state: 'install'
+### Install
 
-ENABLE
-  - hosts: all
-    roles:
-      - role: blockbook
-    vars:
-      blockbook_state: 'enable'
-      blockbook_message_queue_binding: 'tcp://10.1.1.10:5555'
-      blockbook_rpc_pass: 'r7e5Tpb3aqrk23HFTkPreN9BrXk8u4de'
-      blockbook_rpc_url: 'http://10.1.1.10:8332'
-      blockbook_rpc_user: 'satoshi'
+```
+- hosts: all
+  roles:
+    - role: blockbook
+  vars:
+    blockbook_state: 'install'
+```
 
-DISABLE
-  - hosts: all
-    roles:
-      - role: blockbook
-    vars:
-      blockbook_state: 'disable'
-      blockbook_message_queue_binding: 'tcp://10.1.1.10:5555'
-      blockbook_rpc_pass: 'r7e5Tpb3aqrk23HFTkPreN9BrXk8u4de'
-      blockbook_rpc_url: 'http://10.1.1.10:8332'
-      blockbook_rpc_user: 'satoshi'
+### Enable
 
-REMOVE
-  - hosts: all
-    roles:
-      - role: blockbook
-    vars:
-      blockbook_state: 'remove'
+```
+- hosts: all
+  roles:
+    - role: blockbook
+  vars:
+    blockbook_state: 'enable'
+    blockbook_message_queue_binding: 'tcp://10.1.1.10:5555'
+    blockbook_rpc_pass: 'r7e5Tpb3aqrk23HFTkPreN9BrXk8u4de'
+    blockbook_rpc_url: 'http://10.1.1.10:8332'
+    blockbook_rpc_user: 'satoshi'
+```
 
-INACTIVE
-  - hosts: all
-    roles:
-      - role: blockbook
-    vars:
-      blockbook_state: 'inactive'
+### Disable
 
-PARAMETERS
+```
+- hosts: all
+  roles:
+    - role: blockbook
+  vars:
+    blockbook_state: 'disable'
+    blockbook_message_queue_binding: 'tcp://10.1.1.10:5555'
+    blockbook_rpc_pass: 'r7e5Tpb3aqrk23HFTkPreN9BrXk8u4de'
+    blockbook_rpc_url: 'http://10.1.1.10:8332'
+    blockbook_rpc_user: 'satoshi'
+```
 
-ROLE
-  blockbook_state
+### Remove
+
+```
+- hosts: all
+  roles:
+    - role: blockbook
+  vars:
+    blockbook_state: 'remove'
+```
+
+### Inactive
+
+```
+- hosts: all
+  roles:
+    - role: blockbook
+  vars:
+    blockbook_state: 'inactive'
+```
+
+## Parameters
+
+### Role
+
+`blockbook_state`
+
     Description: Control the state of the role.
     Implemented: 0.3.6-2
     Required   : False
@@ -82,7 +93,8 @@ ROLE
       Remove  : 'false' | 'no' | 'remove'
       Inactive: 'quiesce' | 'inactive'
 
-  blockbook_build_tags
+`blockbook_build_tags`
+
     Description: Define the 'blockbook_build_tags' option.
     Implemented: 0.3.6-2
     Required   : False
@@ -92,7 +104,8 @@ ROLE
     Options    :
       Examples: 'rocksdb_6_10' | 'rocksdb_6_15'
 
-  blockbook_go_version
+`blockbook_go_version`
+
     Description: Define the 'blockbook_go_version' option.
     Implemented: 0.3.6-2
     Required   : False
@@ -102,7 +115,8 @@ ROLE
     Options    :
       Examples: '1.17.1' | '1.17.4'
 
-  blockbook_message_queue_binding
+`blockbook_message_queue_binding`
+
     Description: Define the 'blockbook_message_queue_binding' option.
     Implemented: 0.3.6-2
     Required   : False
@@ -112,7 +126,8 @@ ROLE
     Options    :
       Examples: 'tcp://10.1.1.11:5555'
 
-  blockbook_monitor_monit_state
+`blockbook_monitor_monit_state`
+
     Description: Control the 'blockbook_monitor_monit_state' option.
     Implemented: 0.3.6-2
     Required   : False
@@ -123,7 +138,8 @@ ROLE
       Enable : 'true' | 'yes' | 'enable'
       Disable: 'false' | 'no' | 'disable'
 
-  blockbook_rocksdb_version
+`blockbook_rocksdb_version`
+
     Description: Define the 'blockbook_rocksdb_version' option.
     Implemented: 0.3.6-2
     Required   : False
@@ -133,7 +149,8 @@ ROLE
     Options    :
       Examples: '6.21.0' | '6.22.0'
 
-  blockbook_rpc_pass
+`blockbook_rpc_pass`
+
     Description: Define the 'blockbook_rpc_pass' option.
                  For more information, visit:
                  https://github.com/bitcoin/bitcoin/tree/master/share/rpcauth
@@ -146,7 +163,8 @@ ROLE
       Examples: 'NVsc0kchBeA7MNvmQNzD1HSD53LdEWxL' | 'G4vjWqUDzlRQdinZwebZoOdrp6o05Zln'
       None    : ''
 
-  blockbook_rpc_url
+`blockbook_rpc_url`
+
     Description: Define the 'blockbook_rpc_url' option.
     Implemented: 0.3.6-2
     Required   : False
@@ -156,7 +174,8 @@ ROLE
     Options    :
       Examples: 'http://10.1.1.11:8332'
 
-  blockbook_rpc_user
+`blockbook_rpc_user`
+
     Description: Define the 'blockbook_rpc_user' option.
                  For more information, visit:
                  https://github.com/bitcoin/bitcoin/tree/master/share/rpcauth
@@ -169,7 +188,8 @@ ROLE
       Examples: 'satoshi' | 'nakamoto'
       None    : ''
 
-  blockbook_version
+`blockbook_version`
+
     Description: Define the 'blockbook_version' option.
     Implemented: 0.3.6-2
     Required   : False
@@ -179,7 +199,8 @@ ROLE
     Options    :
       Examples: '0.3.1' | '0.3.5'
 
-  blockbook_zeromq_version
+`blockbook_zeromq_version`
+
     Description: Define the 'blockbook_zeromq_version' option.
     Implemented: 0.3.6-2
     Required   : False
@@ -189,36 +210,46 @@ ROLE
     Options    :
       Examples: '4.3.1' | '4.3.3'
 
-CONFLICTS
+## Conflicts
 
-ROLES
+### Roles
 
-DEPENDENCIES
+## Dependencies
 
-PACKAGES
+### Archives
 
-ROLES
-  ca_certificates
-  git
-  gnupg
-  gnu_tar
-  wget
+### Packages
 
-PARAMETERS
+### Roles
 
-REQUIREMENTS
+`ca_certificates`
 
-CONTROL NODE
-  Ansible
-    Version: >= 2.8.0
+`git`
 
-MANAGED NODE
-  Python
-    Version: >= 2.7.0
+`gnupg`
 
-SUPPORT
+`gnu_tar`
 
-OPERATING SYSTEMS
-  Debian
-    Version: 11
-      Status: Development
+`wget`
+
+## Requirements
+
+### Control Node
+
+`ansible`
+
+    Version: `>= 2.8.0`
+
+### Managed Node
+
+`python`
+
+    Version: `>= 2.7.0`
+
+## support
+
+### Operating Systems
+
+`debian`
+
+    Version: `11`
