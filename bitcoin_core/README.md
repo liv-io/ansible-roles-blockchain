@@ -260,13 +260,13 @@ consult the following sections.
 
 `ansible`
 
-    Version: `>= 2.8.0`
+    Version: >= 2.8.0
 
 ### Managed Node
 
 `python`
 
-    Version: `>= 2.7.0`
+    Version: >= 2.7.0
 
 ## support
 
@@ -274,4 +274,4 @@ consult the following sections.
 
 `debian`
 
-    Version: `11`
+    Version: 11
