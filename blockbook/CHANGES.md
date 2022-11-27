@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 0.3.6-3 (2022-11-27)
+
+### Enhancements
+
+- Improve include variables tasks
+
 ## 0.3.6-2 (2022-01-02)
 
 ### Changes
