@@ -212,13 +212,7 @@ consult the following sections.
 
 ## Conflicts
 
-### Roles
-
 ## Dependencies
-
-### Archives
-
-### Packages
 
 ### Roles
 

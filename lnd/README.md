@@ -283,15 +283,11 @@ consult the following sections.
 
 ## Conflicts
 
-### Roles
-
 ## Dependencies
 
 ### Archives
 
 `lnd`
-
-### Packages
 
 ### Roles
 

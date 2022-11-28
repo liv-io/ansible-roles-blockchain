@@ -240,15 +240,11 @@ consult the following sections.
 
 ## Conflicts
 
-### Roles
-
 ## Dependencies
 
 ### Archives
 
 `bitcoin-core`
-
-### Packages
 
 ### Roles
 
