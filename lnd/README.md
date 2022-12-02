@@ -307,7 +307,7 @@ consult the following sections.
 
     Version: >= 2.7.0
 
-## support
+## Support
 
 ### Operating Systems
 
