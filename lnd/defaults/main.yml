@@ -30,4 +30,4 @@ lnd_restlisten: []
 
 lnd_rpclisten: []
 
-lnd_version: '0.15.5-beta'
+lnd_version: '0.16.0-beta'

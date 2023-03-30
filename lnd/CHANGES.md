@@ -10,7 +10,15 @@ The headers are:
 - enhancements
 - features
 
+## 0.16.0-beta-1 (2023-03-30)
+
+### Features
+
+- Update to upstream release 0.16.0-beta
+
 ## 0.15.5-beta-1 (2023-03-25)
+
+### Enhancements
 
 - Update to upstream release 0.15.5-beta
 
@@ -22,25 +30,25 @@ The headers are:
 
 ## 0.15.3-beta-1 (2022-10-18)
 
-### Changes
+### Enhancements
 
 - Update to upstream release 0.15.3-beta
 
 ## 0.15.0-beta-1 (2022-06-27)
 
-### Changes
+### Features
 
 - Update to upstream release 0.15.0-beta
 
 ## 0.14.3-beta-1 (2022-04-19)
 
-### Changes
+### Enhancements
 
 - Update to upstream release 0.14.3-beta
 
 ## 0.14.2-beta-1 (2022-02-04)
 
-### Changes
+### Enhancements
 
 - Update to upstream release 0.14.2-beta
 
@@ -59,37 +67,37 @@ The headers are:
 
 ## 0.14.1-beta-1 (2021-11-25)
 
-### Changes
+### Enhancements
 
 - Update to upstream release 0.14.1-beta
 
 ## 0.14.0-beta-1 (2021-11-18)
 
-### Changes
+### Features
 
 - Update to upstream release 0.14.0-beta
 
 ## 0.13.4-beta-1 (2021-11-10)
 
-### Changes
+### Enhancements
 
 - Update to upstream release 0.13.4-beta
 
 ## 0.13.3-beta-1 (2021-10-11)
 
-### Changes
+### Enhancements
 
 - Update to upstream release 0.13.3-beta
 
 ## 0.13.1-beta-1 (2021-07-23)
 
-### Changes
+### Features
 
 - Update to upstream release 0.13.1-beta
 
 ## 0.12.1-beta-1 (2021-02-27)
 
-### Changes
+### Features
 
 - Update to upstream release 0.12.1-beta
 
@@ -120,13 +128,13 @@ The headers are:
 
 ## 0.11.1-beta-1 (2020-10-11)
 
-### Changes
+### Enhancements
 
 - Update to upstream release 0.11.1-beta
 
 ## 0.11.0-beta-1 (2020-08-20)
 
-### Changes
+### Enhancements
 
 - Update to upstream release 0.11.0-beta
 
