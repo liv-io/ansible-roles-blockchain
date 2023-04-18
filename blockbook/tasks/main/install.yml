@@ -249,7 +249,6 @@
     mode: "{{file_mode_blockbook_service}}"
     owner: "{{file_owner_blockbook_service}}"
     group: "{{file_group_blockbook_service}}"
-  notify: systemctl daemon-reload
   tags:
     - blockbook
 
@@ -279,10 +278,5 @@
   failed_when: (register_check_service_monit.rc > 1)
   check_mode: 'no'
   when: (blockbook_monitor_monit_state is match('true|yes|enable'))
-  tags:
-    - blockbook
-
-- name: flush meta handlers
-  meta: 'flush_handlers'
   tags:
     - blockbook

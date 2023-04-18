@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 24.0.1-2 (2023-04-18)
+
+### Enhancements
+
+- Use `daemon_reload` instead of `systemctl daemon-reload` handler
+
 ## 24.0.1-1 (2022-12-12)
 
 ### Bugs

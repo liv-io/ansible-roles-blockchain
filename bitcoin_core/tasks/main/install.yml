@@ -156,7 +156,6 @@
     mode: "{{file_mode_bitcoind_service}}"
     owner: "{{file_owner_bitcoind_service}}"
     group: "{{file_group_bitcoind_service}}"
-  notify: systemctl daemon-reload
   tags:
     - bitcoin_core
 
@@ -186,10 +185,5 @@
   failed_when: (register_check_service_monit.rc > 1)
   check_mode: 'no'
   when: (bitcoin_core_monitor_monit_state is match('true|yes|enable'))
-  tags:
-    - bitcoin_core
-
-- name: flush meta handlers
-  meta: 'flush_handlers'
   tags:
     - bitcoin_core

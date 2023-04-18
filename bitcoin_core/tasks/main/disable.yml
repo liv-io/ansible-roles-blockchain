@@ -47,5 +47,6 @@
     state: 'stopped'
     enabled: 'no'
     name: "{{service_name_bitcoind}}"
+    daemon_reload: 'yes'
   tags:
     - bitcoin_core

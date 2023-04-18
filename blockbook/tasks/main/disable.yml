@@ -47,5 +47,6 @@
     state: 'stopped'
     enabled: 'no'
     name: "{{service_name_blockbook}}"
+    daemon_reload: 'yes'
   tags:
     - blockbook

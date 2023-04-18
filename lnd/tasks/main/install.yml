@@ -145,7 +145,6 @@
     mode: "{{file_mode_lnd_service}}"
     owner: "{{file_owner_lnd_service}}"
     group: "{{file_group_lnd_service}}"
-  notify: systemctl daemon-reload
   tags:
     - lnd
 
@@ -175,10 +174,5 @@
   failed_when: (register_check_service_monit.rc > 1)
   check_mode: 'no'
   when: (lnd_monitor_monit_state is match('true|yes|enable'))
-  tags:
-    - lnd
-
-- name: flush meta handlers
-  meta: 'flush_handlers'
   tags:
     - lnd
