@@ -107,9 +107,6 @@ file_group_bitcoind_cfg: 'root'
 # check service monit
 command_cmd_check_service_monit: 'systemctl cat monit.service > /dev/null 2>&1'
 
-# systemctl daemon-reload
-command_cmd_systemctl_daemon_reload: 'systemctl daemon-reload'
-
 # bitcoind
 group_name_bitcoind: 'bitcoind'
 group_system_bitcoind: 'yes'
