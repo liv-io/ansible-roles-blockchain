@@ -179,7 +179,7 @@ consult the following sections.
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : '24.0.1'
+    Default    : '24.1'
     Options    :
       Examples: '0.18.1' | '0.18.0'
 
