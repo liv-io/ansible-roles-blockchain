@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 0.16.3-beta-1 (2023-06-06)
+
+### Features
+
+- Update to upstream release 0.16.3-beta
+
 ## 0.16.2-beta-1 (2023-04-29)
 
 ### Features
