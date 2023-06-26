@@ -1,5 +1,20 @@
 ---
 
+# ca-certificates
+package_name_ca_certificates: 'ca-certificates'
+
+# git
+package_name_git: 'git'
+
+# gnupg
+package_name_gnupg: 'gnupg'
+
+# tar
+package_name_tar: 'tar'
+
+# wget
+package_name_wget: 'wget'
+
 # app.dir
 file_dst_app_dir: '/app'
 file_mode_app_dir: '0755'

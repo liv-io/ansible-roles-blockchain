@@ -214,17 +214,42 @@ consult the following sections.
 
 ## Dependencies
 
-### Roles
+### Packages
 
-`ca_certificates`
+`ca-certificates`
+
+    Version: >= 20200601
+    Name   :
+      Debian 11: 'ca-certificates'
+      Debian 12: 'ca-certificates'
 
 `git`
 
+    Version: >= 2.0
+    Name   :
+      Debian 11: 'git'
+      Debian 12: 'git'
+
 `gnupg`
 
-`gnu_tar`
+    Version: >= 2.0
+    Name   :
+      Debian 11: 'gnupg'
+      Debian 12: 'gnupg'
+
+`tar`
+
+    Version: >= 1.0
+    Name   :
+      Debian 11: 'tar'
+      Debian 12: 'tar'
 
 `wget`
+
+    Version: >= 1.0
+    Name   :
+      Debian 11: 'wget'
+      Debian 12: 'wget'
 
 ## Requirements
 

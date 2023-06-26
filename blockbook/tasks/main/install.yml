@@ -10,6 +10,46 @@
   tags:
     - blockbook
 
+- name: install package ca-certificates
+  package:
+    state: 'present'
+    name: "{{package_name_ca_certificates}}"
+    install_recommends: 'no'
+  tags:
+    - blockbook
+
+- name: install package git
+  package:
+    state: 'present'
+    name: "{{package_name_git}}"
+    install_recommends: 'no'
+  tags:
+    - blockbook
+
+- name: install package gnupg
+  package:
+    state: 'present'
+    name: "{{package_name_gnupg}}"
+    install_recommends: 'no'
+  tags:
+    - blockbook
+
+- name: install package tar
+  package:
+    state: 'present'
+    name: "{{package_name_tar}}"
+    install_recommends: 'no'
+  tags:
+    - blockbook
+
+- name: install package wget
+  package:
+    state: 'present'
+    name: "{{package_name_wget}}"
+    install_recommends: 'no'
+  tags:
+    - blockbook
+
 - name: create group blockbook
   group:
     state: 'present'
