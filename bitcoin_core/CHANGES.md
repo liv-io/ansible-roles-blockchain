@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 25.0-2 (2023-06-26)
+
+### Enhancements
+
+- Remove role dependency and add package task instead
+
 ## 25.0-1 (2023-05-27)
 
 ### Changes

@@ -246,9 +246,14 @@ consult the following sections.
 
 `bitcoin-core`
 
-### Roles
+### Packages
 
-`gnu_tar`
+`tar`
+
+    Version: >= 1.0
+    Name   :
+      Debian 11: 'tar'
+      Debian 12: 'tar'
 
 ## Requirements
 

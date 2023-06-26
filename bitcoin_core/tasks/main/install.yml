@@ -10,6 +10,14 @@
   tags:
     - bitcoin_core
 
+- name: install package tar
+  package:
+    state: 'present'
+    name: "{{package_name_tar}}"
+    install_recommends: 'no'
+  tags:
+    - bitcoin_core
+
 - name: create group bitcoind
   group:
     state: 'present'
