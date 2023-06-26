@@ -10,6 +10,14 @@
   tags:
     - lnd
 
+- name: install package tar
+  package:
+    state: 'present'
+    name: "{{package_name_tar}}"
+    install_recommends: 'no'
+  tags:
+    - lnd
+
 - name: create group lnd
   group:
     state: 'present'

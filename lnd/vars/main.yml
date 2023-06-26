@@ -1,5 +1,8 @@
 ---
 
+# tar
+package_name_tar: 'tar'
+
 # app.dir
 file_dst_app_dir: '/app'
 file_mode_app_dir: '0755'
