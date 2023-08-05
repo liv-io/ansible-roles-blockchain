@@ -10,16 +10,16 @@
 
 - name: reload service monit
   service:
-    state: 'reloaded'
+    state: reloaded
     name: "{{service_name_monit}}"
   when: (register_check_service_monit.rc == 0)
 
 - name: reload service blockbook
   service:
-    state: 'reloaded'
+    state: reloaded
     name: "{{service_name_blockbook}}"
 
 - name: restart service blockbook
   service:
-    state: 'restarted'
+    state: restarted
     name: "{{service_name_blockbook}}"

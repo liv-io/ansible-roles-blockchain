@@ -46,9 +46,9 @@
 
 - name: start service blockbook
   service:
-    state: 'started'
-    enabled: 'yes'
+    state: started
+    enabled: True
     name: "{{service_name_blockbook}}"
-    daemon_reload: 'yes'
+    daemon_reload: True
   tags:
     - blockbook

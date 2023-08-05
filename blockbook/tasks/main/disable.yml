@@ -44,9 +44,9 @@
 
 - name: stop service blockbook
   service:
-    state: 'stopped'
-    enabled: 'no'
+    state: stopped
+    enabled: False
     name: "{{service_name_blockbook}}"
-    daemon_reload: 'yes'
+    daemon_reload: True
   tags:
     - blockbook

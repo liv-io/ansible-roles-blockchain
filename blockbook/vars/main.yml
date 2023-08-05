@@ -96,21 +96,21 @@ command_cmd_check_service_monit: 'systemctl cat monit.service > /dev/null 2>&1'
 
 # blockbook
 group_name_blockbook: 'blockbook'
-group_system_blockbook: 'yes'
+group_system_blockbook: True
 
 # blockbook
 user_name_blockbook: 'blockbook'
 user_comment_blockbook: 'Blockbook'
 user_group_blockbook: 'blockbook'
-user_append_blockbook: 'yes'
-user_home_create_blockbook: 'yes'
-user_home_move_blockbook: 'no'
-user_home_remove_blockbook: 'yes'
-user_home_force_blockbook: 'no'
+user_append_blockbook: True
+user_home_create_blockbook: True
+user_home_move_blockbook: False
+user_home_remove_blockbook: True
+user_home_force_blockbook: False
 user_password_blockbook: '!'
 user_password_update_blockbook: 'always'
 user_shell_blockbook: '/usr/bin/bash'
-user_system_blockbook: 'yes'
+user_system_blockbook: True
 
 # blockbook
 service_name_blockbook: 'blockbook'

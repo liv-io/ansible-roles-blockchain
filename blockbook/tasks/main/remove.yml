@@ -12,7 +12,7 @@
 
 - name: remove user blockbook
   user:
-    state: 'absent'
+    state: absent
     name: "{{user_name_blockbook}}"
     remove: "{{user_home_remove_blockbook}}"
     force: "{{user_home_force_blockbook}}"
@@ -21,14 +21,14 @@
 
 - name: remove group blockbook
   group:
-    state: 'absent'
+    state: absent
     name: "{{group_name_blockbook}}"
   tags:
     - blockbook
 
 - name: remove file blockbook.cfg
   file:
-    state: 'absent'
+    state: absent
     path: "{{file_dst_blockbook_cfg}}"
   notify: reload service monit
   tags:
@@ -36,21 +36,21 @@
 
 - name: remove file blockbook.service
   file:
-    state: 'absent'
+    state: absent
     path: "{{file_dst_blockbook_service}}"
   tags:
     - blockbook
 
 - name: remove file blockbook.default
   file:
-    state: 'absent'
+    state: absent
     path: "{{file_dst_blockbook_default}}"
   tags:
     - blockbook
 
 - name: remove file blockbook_conf.dir
   file:
-    state: 'absent'
+    state: absent
     path: "{{file_dst_blockbook_conf_dir}}"
   tags:
     - blockbook

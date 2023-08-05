@@ -28,7 +28,7 @@
     mode: "{{file_mode_bitcoin_conf}}"
     owner: "{{file_owner_bitcoin_conf}}"
     group: "{{file_group_bitcoin_conf}}"
-  no_log: 'true'
+  no_log: True
   notify: restart service bitcoind
   tags:
     - bitcoin_core
@@ -47,9 +47,9 @@
 
 - name: start service bitcoind
   service:
-    state: 'started'
-    enabled: 'yes'
+    state: started
+    enabled: True
     name: "{{service_name_bitcoind}}"
-    daemon_reload: 'yes'
+    daemon_reload: True
   tags:
     - bitcoin_core

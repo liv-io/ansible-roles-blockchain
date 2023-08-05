@@ -12,47 +12,47 @@
 
 - name: install package ca-certificates
   package:
-    state: 'present'
+    state: present
     name: "{{package_name_ca_certificates}}"
-    install_recommends: 'no'
+    install_recommends: False
   tags:
     - blockbook
 
 - name: install package git
   package:
-    state: 'present'
+    state: present
     name: "{{package_name_git}}"
-    install_recommends: 'no'
+    install_recommends: False
   tags:
     - blockbook
 
 - name: install package gnupg
   package:
-    state: 'present'
+    state: present
     name: "{{package_name_gnupg}}"
-    install_recommends: 'no'
+    install_recommends: False
   tags:
     - blockbook
 
 - name: install package tar
   package:
-    state: 'present'
+    state: present
     name: "{{package_name_tar}}"
-    install_recommends: 'no'
+    install_recommends: False
   tags:
     - blockbook
 
 - name: install package wget
   package:
-    state: 'present'
+    state: present
     name: "{{package_name_wget}}"
-    install_recommends: 'no'
+    install_recommends: False
   tags:
     - blockbook
 
 - name: create group blockbook
   group:
-    state: 'present'
+    state: present
     name: "{{group_name_blockbook}}"
     system: "{{group_system_blockbook}}"
   tags:
@@ -60,7 +60,7 @@
 
 - name: create user blockbook
   user:
-    state: 'present'
+    state: present
     name: "{{user_name_blockbook}}"
     comment: "{{user_comment_blockbook}}"
     group: "{{user_group_blockbook}}"
@@ -78,7 +78,7 @@
 
 - name: create file app.dir
   file:
-    state: 'directory'
+    state: directory
     path: "{{file_dst_app_dir}}"
     mode: "{{file_mode_app_dir}}"
     owner: "{{file_owner_app_dir}}"
@@ -88,7 +88,7 @@
 
 - name: create file blockbook_app.dir
   file:
-    state: 'directory'
+    state: directory
     path: "{{file_dst_blockbook_app_dir}}"
     mode: "{{file_mode_blockbook_app_dir}}"
     owner: "{{file_owner_blockbook_app_dir}}"
@@ -98,7 +98,7 @@
 
 - name: create file blockbook_conf.dir
   file:
-    state: 'directory'
+    state: directory
     path: "{{file_dst_blockbook_conf_dir}}"
     mode: "{{file_mode_blockbook_conf_dir}}"
     owner: "{{file_owner_blockbook_conf_dir}}"
@@ -108,7 +108,7 @@
 
 - name: create file data.dir
   file:
-    state: 'directory'
+    state: directory
     path: "{{file_dst_data_dir}}"
     mode: "{{file_mode_data_dir}}"
     owner: "{{file_owner_data_dir}}"
@@ -118,7 +118,7 @@
 
 - name: create file blockbook_data.dir
   file:
-    state: 'directory'
+    state: directory
     path: "{{file_dst_blockbook_data_dir}}"
     mode: "{{file_mode_blockbook_data_dir}}"
     owner: "{{file_owner_blockbook_data_dir}}"
@@ -128,7 +128,7 @@
 
 - name: install package dependencies
   package:
-    state: 'present'
+    state: present
     name:
       - 'autoconf'
       - 'automake'
@@ -141,7 +141,7 @@
       - 'libzmq3-dev'
       - 'pkg-config'
       - 'zlib1g-dev'
-    install_recommends: 'no'
+    install_recommends: False
   tags:
     - blockbook
 
@@ -302,7 +302,7 @@
 
 - name: create file monit.d
   file:
-    state: 'directory'
+    state: directory
     path: "{{file_dst_monit_d}}"
     mode: "{{file_mode_monit_d}}"
     owner: "{{file_owner_monit_d}}"
@@ -316,7 +316,7 @@
   register: register_check_service_monit
   changed_when: (register_check_service_monit.rc > 1)
   failed_when: (register_check_service_monit.rc > 1)
-  check_mode: 'no'
+  check_mode: False
   when: (blockbook_monitor_monit_state is match('true|yes|enable'))
   tags:
     - blockbook

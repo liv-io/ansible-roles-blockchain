@@ -12,15 +12,15 @@
 
 - name: install package tar
   package:
-    state: 'present'
+    state: present
     name: "{{package_name_tar}}"
-    install_recommends: 'no'
+    install_recommends: False
   tags:
     - bitcoin_core
 
 - name: create group bitcoind
   group:
-    state: 'present'
+    state: present
     name: "{{group_name_bitcoind}}"
     system: "{{group_system_bitcoind}}"
   tags:
@@ -28,7 +28,7 @@
 
 - name: create user bitcoind
   user:
-    state: 'present'
+    state: present
     name: "{{user_name_bitcoind}}"
     comment: "{{user_comment_bitcoind}}"
     group: "{{user_group_bitcoind}}"
@@ -46,7 +46,7 @@
 
 - name: create file app.dir
   file:
-    state: 'directory'
+    state: directory
     path: "{{file_dst_app_dir}}"
     mode: "{{file_mode_app_dir}}"
     owner: "{{file_owner_app_dir}}"
@@ -56,7 +56,7 @@
 
 - name: create file bitcoind_app.dir
   file:
-    state: 'directory'
+    state: directory
     path: "{{file_dst_bitcoind_app_dir}}"
     mode: "{{file_mode_bitcoind_app_dir}}"
     owner: "{{file_owner_bitcoind_app_dir}}"
@@ -66,7 +66,7 @@
 
 - name: create file data.dir
   file:
-    state: 'directory'
+    state: directory
     path: "{{file_dst_data_dir}}"
     mode: "{{file_mode_data_dir}}"
     owner: "{{file_owner_data_dir}}"
@@ -76,7 +76,7 @@
 
 - name: create file bitcoind_data.dir
   file:
-    state: 'directory'
+    state: directory
     path: "{{file_dst_bitcoind_data_dir}}"
     mode: "{{file_mode_bitcoind_data_dir}}"
     owner: "{{file_owner_bitcoind_data_dir}}"
@@ -86,7 +86,7 @@
 
 - name: create file bitcoind_log.dir
   file:
-    state: 'directory'
+    state: directory
     path: "{{file_dst_bitcoind_log_dir}}"
     mode: "{{file_mode_bitcoind_log_dir}}"
     owner: "{{file_owner_bitcoind_log_dir}}"
@@ -96,7 +96,7 @@
 
 - name: create file bitcoind_src.dir
   file:
-    state: 'directory'
+    state: directory
     path: "{{file_dst_bitcoind_src_dir}}"
     mode: "{{file_mode_bitcoind_src_dir}}"
     owner: "{{file_owner_bitcoind_src_dir}}"
@@ -122,13 +122,13 @@
     owner: "{{file_owner_bitcoin_core}}"
     group: "{{file_group_bitcoin_core}}"
     creates: "{{file_creates_bitcoin_core}}"
-    remote_src: 'yes'
+    remote_src: True
   tags:
     - bitcoin_core
 
 - name: create file bitcoin-current.link
   file:
-    state: 'link'
+    state: link
     src: "{{file_src_bitcoin_current_link}}"
     path: "{{file_dst_bitcoin_current_link}}"
     owner: "{{file_owner_bitcoin_current_link}}"
@@ -139,7 +139,7 @@
 - name: create file debug.log
   copy:
     content: ''
-    force: 'no'
+    force: False
     dest: "{{file_dst_debug_log}}"
     mode: "{{file_mode_debug_log}}"
     owner: "{{file_owner_debug_log}}"
@@ -149,7 +149,7 @@
 
 - name: create file bitcoind_conf.dir
   file:
-    state: 'directory'
+    state: directory
     path: "{{file_dst_bitcoind_conf_dir}}"
     mode: "{{file_mode_bitcoind_conf_dir}}"
     owner: "{{file_owner_bitcoind_conf_dir}}"
@@ -177,7 +177,7 @@
 
 - name: create file monit.d
   file:
-    state: 'directory'
+    state: directory
     path: "{{file_dst_monit_d}}"
     mode: "{{file_mode_monit_d}}"
     owner: "{{file_owner_monit_d}}"
@@ -191,7 +191,7 @@
   register: register_check_service_monit
   changed_when: (register_check_service_monit.rc > 1)
   failed_when: (register_check_service_monit.rc > 1)
-  check_mode: 'no'
+  check_mode: False
   when: (bitcoin_core_monitor_monit_state is match('true|yes|enable'))
   tags:
     - bitcoin_core

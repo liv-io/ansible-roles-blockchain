@@ -44,9 +44,9 @@
 
 - name: stop service bitcoind
   service:
-    state: 'stopped'
-    enabled: 'no'
+    state: stopped
+    enabled: False
     name: "{{service_name_bitcoind}}"
-    daemon_reload: 'yes'
+    daemon_reload: True
   tags:
     - bitcoin_core

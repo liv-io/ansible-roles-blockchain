@@ -12,15 +12,15 @@
 
 - name: install package tar
   package:
-    state: 'present'
+    state: present
     name: "{{package_name_tar}}"
-    install_recommends: 'no'
+    install_recommends: False
   tags:
     - lnd
 
 - name: create group lnd
   group:
-    state: 'present'
+    state: present
     name: "{{group_name_lnd}}"
     system: "{{group_system_lnd}}"
   tags:
@@ -28,7 +28,7 @@
 
 - name: create user lnd
   user:
-    state: 'present'
+    state: present
     name: "{{user_name_lnd}}"
     comment: "{{user_comment_lnd}}"
     group: "{{user_group_lnd}}"
@@ -46,7 +46,7 @@
 
 - name: create file app.dir
   file:
-    state: 'directory'
+    state: directory
     path: "{{file_dst_app_dir}}"
     mode: "{{file_mode_app_dir}}"
     owner: "{{file_owner_app_dir}}"
@@ -56,7 +56,7 @@
 
 - name: create file lnd_app.dir
   file:
-    state: 'directory'
+    state: directory
     path: "{{file_dst_lnd_app_dir}}"
     mode: "{{file_mode_lnd_app_dir}}"
     owner: "{{file_owner_lnd_app_dir}}"
@@ -66,7 +66,7 @@
 
 - name: create file data.dir
   file:
-    state: 'directory'
+    state: directory
     path: "{{file_dst_data_dir}}"
     mode: "{{file_mode_data_dir}}"
     owner: "{{file_owner_data_dir}}"
@@ -76,7 +76,7 @@
 
 - name: create file lnd_data.dir
   file:
-    state: 'directory'
+    state: directory
     path: "{{file_dst_lnd_data_dir}}"
     mode: "{{file_mode_lnd_data_dir}}"
     owner: "{{file_owner_lnd_data_dir}}"
@@ -86,7 +86,7 @@
 
 - name: create file lnd_log.dir
   file:
-    state: 'directory'
+    state: directory
     path: "{{file_dst_lnd_log_dir}}"
     mode: "{{file_mode_lnd_log_dir}}"
     owner: "{{file_owner_lnd_log_dir}}"
@@ -96,7 +96,7 @@
 
 - name: create file lnd_src.dir
   file:
-    state: 'directory'
+    state: directory
     path: "{{file_dst_lnd_src_dir}}"
     mode: "{{file_mode_lnd_src_dir}}"
     owner: "{{file_owner_lnd_src_dir}}"
@@ -122,13 +122,13 @@
     owner: "{{file_owner_lnd}}"
     group: "{{file_group_lnd}}"
     creates: "{{file_creates_lnd}}"
-    remote_src: 'yes'
+    remote_src: True
   tags:
     - lnd
 
 - name: create file lnd-current.link
   file:
-    state: 'link'
+    state: link
     src: "{{file_src_lnd_current_link}}"
     path: "{{file_dst_lnd_current_link}}"
     owner: "{{file_owner_lnd_current_link}}"
@@ -138,7 +138,7 @@
 
 - name: create file lnd_conf.dir
   file:
-    state: 'directory'
+    state: directory
     path: "{{file_dst_lnd_conf_dir}}"
     mode: "{{file_mode_lnd_conf_dir}}"
     owner: "{{file_owner_lnd_conf_dir}}"
@@ -166,7 +166,7 @@
 
 - name: create file monit.d
   file:
-    state: 'directory'
+    state: directory
     path: "{{file_dst_monit_d}}"
     mode: "{{file_mode_monit_d}}"
     owner: "{{file_owner_monit_d}}"
@@ -180,7 +180,7 @@
   register: register_check_service_monit
   changed_when: (register_check_service_monit.rc > 1)
   failed_when: (register_check_service_monit.rc > 1)
-  check_mode: 'no'
+  check_mode: False
   when: (lnd_monitor_monit_state is match('true|yes|enable'))
   tags:
     - lnd

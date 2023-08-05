@@ -12,7 +12,7 @@
 
 - name: remove user lnd
   user:
-    state: 'absent'
+    state: absent
     name: "{{user_name_lnd}}"
     remove: "{{user_home_remove_lnd}}"
     force: "{{user_home_force_lnd}}"
@@ -21,14 +21,14 @@
 
 - name: remove group lnd
   group:
-    state: 'absent'
+    state: absent
     name: "{{group_name_lnd}}"
   tags:
     - lnd
 
 - name: remove file lnd.cfg
   file:
-    state: 'absent'
+    state: absent
     path: "{{file_dst_lnd_cfg}}"
   notify: reload service monit
   tags:
@@ -36,28 +36,28 @@
 
 - name: remove file lnd.service
   file:
-    state: 'absent'
+    state: absent
     path: "{{file_dst_lnd_service}}"
   tags:
     - lnd
 
 - name: remove file lnd.default
   file:
-    state: 'absent'
+    state: absent
     path: "{{file_dst_lnd_default}}"
   tags:
     - lnd
 
 - name: remove file lnd_app.dir
   file:
-    state: 'absent'
+    state: absent
     path: "{{file_dst_lnd_app_dir}}"
   tags:
     - lnd
 
 - name: remove file lnd_src.dir
   file:
-    state: 'absent'
+    state: absent
     path: "{{file_dst_lnd_src_dir}}"
   tags:
     - lnd
