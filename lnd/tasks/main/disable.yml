@@ -38,7 +38,7 @@
     owner: "{{file_owner_lnd_cfg}}"
     group: "{{file_group_lnd_cfg}}"
   notify: reload service monit
-  when: (lnd_monitor_monit_state is match('true|yes|enable'))
+  when: (lnd_monitor_monit_state == True)
   tags:
     - lnd
 

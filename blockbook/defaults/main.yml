@@ -8,7 +8,7 @@ blockbook_go_version: '1.17.5'
 
 blockbook_message_queue_binding: 'tcp://localhost:5555'
 
-blockbook_monitor_monit_state: 'false'
+blockbook_monitor_monit_state: False
 
 blockbook_rocksdb_version: '6.22.1'
 

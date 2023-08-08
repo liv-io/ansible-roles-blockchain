@@ -4,7 +4,7 @@ lnd_state: 'enable'
 
 lnd_alias: ''
 
-lnd_bitcoin_active: 'true'
+lnd_bitcoin_active: True
 
 lnd_bitcoind_estimatemode: 'ECONOMICAL'
 
@@ -24,7 +24,7 @@ lnd_externalip: ''
 
 lnd_listen: ['0.0.0.0:9735']
 
-lnd_monitor_monit_state: 'false'
+lnd_monitor_monit_state: False
 
 lnd_restlisten: []
 

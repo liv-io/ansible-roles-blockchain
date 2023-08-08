@@ -38,7 +38,7 @@
     owner: "{{file_owner_bitcoind_cfg}}"
     group: "{{file_group_bitcoind_cfg}}"
   notify: reload service monit
-  when: (bitcoin_core_monitor_monit_state is match('true|yes|enable'))
+  when: (bitcoin_core_monitor_monit_state == True)
   tags:
     - bitcoin_core
 

@@ -38,7 +38,7 @@
     owner: "{{file_owner_blockbook_cfg}}"
     group: "{{file_group_blockbook_cfg}}"
   notify: reload service monit
-  when: (blockbook_monitor_monit_state is match('true|yes|enable'))
+  when: (blockbook_monitor_monit_state == True)
   tags:
     - blockbook
 

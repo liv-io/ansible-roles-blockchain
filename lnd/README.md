@@ -122,11 +122,11 @@ consult the following sections.
     Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Predetermined
-    Type       : String
-    Default    : 'true'
+    Type       : Boolean
+    Default    : True
     Options    :
-      Enable : 'true' | 'yes' | 'enable'
-      Disable: 'false' | 'no' | 'disable'
+      True : True
+      False: False
 
 `lnd_bitcoind_estimatemode`
 
@@ -240,11 +240,11 @@ consult the following sections.
     Implemented: 0.11.1-beta-4
     Required   : False
     Value      : Predetermined
-    Type       : String
-    Default    : 'false'
+    Type       : Boolean
+    Default    : False
     Options    :
-      Enable : 'true' | 'yes' | 'enable'
-      Disable: 'false' | 'no' | 'disable'
+      True : True
+      False: False
 
 `lnd_restlisten`
 

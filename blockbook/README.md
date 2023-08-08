@@ -132,11 +132,11 @@ consult the following sections.
     Implemented: 0.3.6-2
     Required   : False
     Value      : Predetermined
-    Type       : String
-    Default    : 'false'
+    Type       : Boolean
+    Default    : False
     Options    :
-      Enable : 'true' | 'yes' | 'enable'
-      Disable: 'false' | 'no' | 'disable'
+      True : True
+      False: False
 
 `blockbook_rocksdb_version`
 

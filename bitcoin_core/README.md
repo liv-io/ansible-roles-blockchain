@@ -96,11 +96,11 @@ consult the following sections.
     Implemented: 0.20.1-6
     Required   : False
     Value      : Predetermined
-    Type       : String
-    Default    : 'false'
+    Type       : Boolean
+    Default    : False
     Options    :
-      Enable : 'true' | 'yes' | 'enable'
-      Disable: 'false' | 'no' | 'disable'
+      True : True
+      False: False
 
 `bitcoin_core_network_bind`
 
