@@ -124,6 +124,38 @@ consult the following sections.
     Options    :
       Examples: 8333
 
+`bitcoin_core_nftables_filter_rule`
+
+    Description: Define the 'bitcoin_core_nftables_filter_rule' option.
+    Implemented: 25.0-5
+    Required   : False
+    Value      : Arbitrary
+    Type       : String
+    Default    : |
+      add rule ip filter INPUT ct state new tcp dport 8333 counter accept comment "bitcoin from any"
+      add rule ip6 filter INPUT ct state new tcp dport 8333 counter accept comment "bitcoin from any"
+      add rule ip filter INPUT ip saddr { 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 } ct state new tcp dport { 5555, 5556, 5557, 5558, 8332 } counter accept comment "json-rpc from internal private addresses"
+      add rule ip6 filter INPUT ip6 saddr fc00::/7 ct state new tcp dport { 5555, 5556, 5557, 5558, 8332 } counter accept comment "json-rpc from unique local addresses"
+      add rule ip filter OUTPUT ct state new tcp dport 8333 counter accept comment "bitcoin to any"
+      add rule ip6 filter OUTPUT ct state new tcp dport 8333 counter accept comment "bitcoin to any"
+    Options    :
+      Examples: |
+        add rule ip filter INPUT ct state new tcp dport 8333 counter accept comment "bitcoin from any"
+        add rule ip filter INPUT ip saddr 10.0.0.0/8 ct state new tcp dport { 5555, 5556, 5557, 5558, 8332 } counter accept comment "json-rpc from internal private addresses"
+        add rule ip filter OUTPUT ct state new tcp dport 8333 counter accept comment "bitcoin to any"
+
+`bitcoin_core_nftables_state`
+
+    Description: Control the 'bitcoin_core_nftables_state' option.
+    Implemented: 25.0-5
+    Required   : False
+    Value      : Predetermined
+    Type       : Boolean
+    Default    : False
+    Options    :
+      True : True
+      False: False
+
 `bitcoin_core_rpc_allow_ip`
 
     Description: Define the 'bitcoin_core_rpc_allow_ip' option.

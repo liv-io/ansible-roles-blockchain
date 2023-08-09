@@ -42,6 +42,18 @@
   tags:
     - bitcoin_core
 
+- name: create file bitcoind.nft
+  template:
+    src: "{{file_src_bitcoind_nft}}"
+    dest: "{{file_dst_bitcoind_nft}}"
+    mode: "{{file_mode_bitcoind_nft}}"
+    owner: "{{file_owner_bitcoind_nft}}"
+    group: "{{file_group_bitcoind_nft}}"
+  notify: reload service nftables
+  when: (bitcoin_core_nftables_state == True)
+  tags:
+    - bitcoin_core
+
 - name: stop service bitcoind
   service:
     state: stopped

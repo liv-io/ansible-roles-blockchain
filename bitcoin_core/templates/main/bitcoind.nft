@@ -1,0 +1,3 @@
+{{ansible_managed|comment(decoration='#')}}
+
+{{bitcoin_core_nftables_filter_rule}}

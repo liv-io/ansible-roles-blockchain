@@ -34,6 +34,14 @@
   tags:
     - bitcoin_core
 
+- name: remove file bitcoind.nft
+  file:
+    state: absent
+    path: "{{file_dst_bitcoind_nft}}"
+  notify: reload service nftables
+  tags:
+    - bitcoin_core
+
 - name: remove file bitcoind.service
   file:
     state: absent

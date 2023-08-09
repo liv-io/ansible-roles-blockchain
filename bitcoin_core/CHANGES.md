@@ -10,6 +10,13 @@ The headers are:
 - enhancements
 - features
 
+## 25.0-5 (2023-08-09)
+
+### Features
+
+- Add parameter `bitcoin_core_nftables_filter_rule`
+- Add parameter `bitcoin_core_nftables_state`
+
 ## 25.0-4 (2023-08-08)
 
 ### Changes
