@@ -138,6 +138,33 @@ consult the following sections.
       True : True
       False: False
 
+`blockbook_nftables_filter_rule`
+
+    Description: Define the 'blockbook_nftables_filter_rule' option.
+    Implemented: 0.3.6-8
+    Required   : False
+    Value      : Arbitrary
+    Type       : String
+    Default    : |
+      add rule ip filter INPUT ip saddr { 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 } ct state new tcp dport 8080 counter accept comment "blockbook from internal private addresses"
+      add rule ip6 filter INPUT ip6 saddr fc00::/7 ct state new tcp dport 8080 counter accept comment "blockbook from unique local addresses"
+      add rule ip filter OUTPUT ip daddr { 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 } ct state new tcp dport { 5555, 5556, 5557, 5558, 8332 } counter accept comment "json-rpc to internal private addresses"
+      add rule ip6 filter OUTPUT ip6 daddr fc00::/7 ct state new tcp dport { 5555, 5556, 5557, 5558, 8332 } counter accept comment "json-rpc to unique local addresses"
+    Options    :
+      Examples: |
+        add rule ip filter INPUT ip saddr 10.0.0.0/8 ct state new tcp dport 8080 counter accept comment "blockbook from internal-networks"
+        add rule ip filter OUTPUT ip daddr 10.0.0.0/8 ct state new tcp dport { 5555, 5556, 5557, 5558, 8332 } counter accept comment "json-rpc to internal-networks"
+
+`blockbook_nftables_state`
+
+    Description: Control the 'blockbook_nftables_state' option.
+    Implemented: 0.3.6-8
+    Required   : False
+    Value      : Predetermined
+    Type       : Boolean
+    Default    : False
+    Options    : True | False
+
 `blockbook_rocksdb_version`
 
     Description: Define the 'blockbook_rocksdb_version' option.

@@ -8,18 +8,19 @@
         - "vars/{{ansible_distribution_major_version}}.yml"
         - 'vars/main.yml'
 
+- name: restart service blockbook
+  service:
+    state: restarted
+    name: "{{service_name_blockbook}}"
+
 - name: reload service monit
   service:
     state: reloaded
     name: "{{service_name_monit}}"
   when: (register_check_service_monit.rc == 0)
 
-- name: reload service blockbook
+- name: reload service nftables
   service:
     state: reloaded
-    name: "{{service_name_blockbook}}"
-
-- name: restart service blockbook
-  service:
-    state: restarted
-    name: "{{service_name_blockbook}}"
+    name: "{{service_name_nftables}}"
+  when: (register_check_service_nftables.rc == 0)

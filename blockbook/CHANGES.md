@@ -10,6 +10,18 @@ The headers are:
 - enhancements
 - features
 
+## 0.3.6-8 (2023-08-19)
+
+### Bugs
+
+- Update monit tasks according to different states
+- Update nftables tasks according to different states
+
+### Features
+
+- Add parameter `blockbook_nftables_filter_rule`
+- Add parameter `blockbook_nftables_state`
+
 ## 0.3.6-7 (2023-08-08)
 
 ### Changes
