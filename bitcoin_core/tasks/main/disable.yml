@@ -30,15 +30,11 @@
   tags:
     - bitcoin_core
 
-- name: create file bitcoind.cfg
-  template:
-    src: "{{file_src_bitcoind_cfg}}"
-    dest: "{{file_dst_bitcoind_cfg}}"
-    mode: "{{file_mode_bitcoind_cfg}}"
-    owner: "{{file_owner_bitcoind_cfg}}"
-    group: "{{file_group_bitcoind_cfg}}"
+- name: remove file bitcoind.cfg
+  file:
+    state: absent
+    path: "{{file_dst_bitcoind_cfg}}"
   notify: reload service monit
-  when: (bitcoin_core_monitor_monit_state == True)
   tags:
     - bitcoin_core
 
@@ -51,6 +47,15 @@
     group: "{{file_group_bitcoind_nft}}"
   notify: reload service nftables
   when: (bitcoin_core_nftables_state == True)
+  tags:
+    - bitcoin_core
+
+- name: remove file bitcoind.nft
+  file:
+    state: absent
+    path: "{{file_dst_bitcoind_nft}}"
+  notify: reload service nftables
+  when: (bitcoin_core_nftables_state == False)
   tags:
     - bitcoin_core
 

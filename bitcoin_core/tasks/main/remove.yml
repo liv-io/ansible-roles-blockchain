@@ -26,19 +26,19 @@
   tags:
     - bitcoin_core
 
-- name: remove file bitcoind.cfg
-  file:
-    state: absent
-    path: "{{file_dst_bitcoind_cfg}}"
-  notify: reload service monit
-  tags:
-    - bitcoin_core
-
 - name: remove file bitcoind.nft
   file:
     state: absent
     path: "{{file_dst_bitcoind_nft}}"
   notify: reload service nftables
+  tags:
+    - bitcoin_core
+
+- name: remove file bitcoind.cfg
+  file:
+    state: absent
+    path: "{{file_dst_bitcoind_cfg}}"
+  notify: reload service monit
   tags:
     - bitcoin_core
 

@@ -10,6 +10,13 @@ The headers are:
 - enhancements
 - features
 
+## 25.0-6 (2023-08-19)
+
+### Bugs
+
+- Update monit tasks according to different states
+- Update nftables tasks according to different states
+
 ## 25.0-5 (2023-08-09)
 
 ### Features

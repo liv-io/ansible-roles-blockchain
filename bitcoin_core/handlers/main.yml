@@ -8,11 +8,6 @@
         - "vars/{{ansible_distribution_major_version}}.yml"
         - 'vars/main.yml'
 
-- name: reload service bitcoind
-  service:
-    state: reloaded
-    name: "{{service_name_bitcoind}}"
-
 - name: restart service bitcoind
   service:
     state: restarted
