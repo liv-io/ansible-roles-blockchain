@@ -26,6 +26,14 @@
   tags:
     - lnd
 
+- name: remove file lnd.nft
+  file:
+    state: absent
+    path: "{{file_dst_lnd_nft}}"
+  notify: reload service nftables
+  tags:
+    - lnd
+
 - name: remove file lnd.cfg
   file:
     state: absent

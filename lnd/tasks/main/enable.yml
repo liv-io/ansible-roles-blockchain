@@ -44,6 +44,36 @@
   tags:
     - lnd
 
+- name: remove file lnd.cfg
+  file:
+    state: absent
+    path: "{{file_dst_lnd_cfg}}"
+  notify: reload service monit
+  when: (lnd_monitor_monit_state == False)
+  tags:
+    - lnd
+
+- name: create file lnd.nft
+  template:
+    src: "{{file_src_lnd_nft}}"
+    dest: "{{file_dst_lnd_nft}}"
+    mode: "{{file_mode_lnd_nft}}"
+    owner: "{{file_owner_lnd_nft}}"
+    group: "{{file_group_lnd_nft}}"
+  notify: reload service nftables
+  when: (lnd_nftables_state == True)
+  tags:
+    - lnd
+
+- name: remove file lnd.nft
+  file:
+    state: absent
+    path: "{{file_dst_lnd_nft}}"
+  notify: reload service nftables
+  when: (lnd_nftables_state == False)
+  tags:
+    - lnd
+
 - name: start service lnd
   service:
     state: started

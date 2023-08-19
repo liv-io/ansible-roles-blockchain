@@ -10,6 +10,17 @@ The headers are:
 - enhancements
 - features
 
+## 0.16.4-beta-3 (2023-08-19)
+
+### Bugs
+
+- Update monit tasks according to different states
+
+### Features
+
+- Add parameter `lnd_nftables_filter_rule`
+- Add parameter `lnd_nftables_state`
+
 ## 0.16.4-beta-2 (2023-08-08)
 
 ### Changes
