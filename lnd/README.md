@@ -307,7 +307,7 @@ consult the following sections.
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : '0.16.4-beta'
+    Default    : '0.17.0-beta'
     Options    :
       Examples: '0.11.0-beta.rc1' | '0.10.4-beta'
 
