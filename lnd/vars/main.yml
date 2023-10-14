@@ -68,21 +68,21 @@ file_owner_lnd: 'root'
 file_group_lnd: 'root'
 
 # lnd.conf
-file_src_lnd_conf: 'templates/main/lnd.conf'
+file_src_lnd_conf: 'lnd.conf'
 file_dst_lnd_conf: '/etc/lnd/lnd.conf'
 file_mode_lnd_conf: '0640'
 file_owner_lnd_conf: 'root'
 file_group_lnd_conf: 'lnd'
 
 # lnd.default
-file_src_lnd_default: 'templates/main/lnd.default'
+file_src_lnd_default: 'lnd.default'
 file_dst_lnd_default: '/etc/default/lnd'
 file_mode_lnd_default: '0644'
 file_owner_lnd_default: 'root'
 file_group_lnd_default: 'root'
 
 # lnd.service
-file_src_lnd_service: 'templates/main/lnd.service'
+file_src_lnd_service: 'lnd.service'
 file_dst_lnd_service: '/usr/lib/systemd/system/lnd.service'
 file_mode_lnd_service: '0644'
 file_owner_lnd_service: 'root'
@@ -101,14 +101,14 @@ file_owner_nftables_d: 'root'
 file_group_nftables_d: 'root'
 
 # lnd.cfg
-file_src_lnd_cfg: 'templates/main/lnd.cfg'
+file_src_lnd_cfg: 'lnd.cfg'
 file_dst_lnd_cfg: '/etc/monit.d/lnd.cfg'
 file_mode_lnd_cfg: '0640'
 file_owner_lnd_cfg: 'root'
 file_group_lnd_cfg: 'root'
 
 # lnd.nft
-file_src_lnd_nft: 'templates/main/lnd.nft'
+file_src_lnd_nft: 'lnd.nft'
 file_dst_lnd_nft: '/etc/nftables.d/lnd.conf'
 file_mode_lnd_nft: '0640'
 file_owner_lnd_nft: 'root'
