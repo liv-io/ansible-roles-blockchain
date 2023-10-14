@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 0.3.6-9 (2023-10-14)
+
+### Enhancements
+
+- Minor Ansible style improvements
+
 ## 0.3.6-8 (2023-08-19)
 
 ### Bugs

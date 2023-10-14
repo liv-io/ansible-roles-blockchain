@@ -49,21 +49,21 @@ file_group_blockbook_data_dir: 'blockbook'
 file_dst_blockbook: '/app/blockbook/blockbook'
 
 # blockbook.json
-file_src_blockbook_json: 'templates/main/blockbook.json'
+file_src_blockbook_json: 'blockbook.json'
 file_dst_blockbook_json: '/etc/blockbook/blockbook.json'
 file_mode_blockbook_json: '0640'
 file_owner_blockbook_json: 'root'
 file_group_blockbook_json: 'blockbook'
 
 # blockbook.default
-file_src_blockbook_default: 'templates/main/blockbook.default'
+file_src_blockbook_default: 'blockbook.default'
 file_dst_blockbook_default: '/etc/default/blockbook'
 file_mode_blockbook_default: '0644'
 file_owner_blockbook_default: 'root'
 file_group_blockbook_default: 'root'
 
 # blockbook.service
-file_src_blockbook_service: 'templates/main/blockbook.service'
+file_src_blockbook_service: 'blockbook.service'
 file_dst_blockbook_service: '/usr/lib/systemd/system/blockbook.service'
 file_mode_blockbook_service: '0644'
 file_owner_blockbook_service: 'root'
@@ -88,14 +88,14 @@ file_owner_nftables_d: 'root'
 file_group_nftables_d: 'root'
 
 # blockbook.cfg
-file_src_blockbook_cfg: 'templates/main/blockbook.cfg'
+file_src_blockbook_cfg: 'blockbook.cfg'
 file_dst_blockbook_cfg: '/etc/monit.d/blockbook.cfg'
 file_mode_blockbook_cfg: '0640'
 file_owner_blockbook_cfg: 'root'
 file_group_blockbook_cfg: 'root'
 
 # blockbook.nft
-file_src_blockbook_nft: 'templates/main/blockbook.nft'
+file_src_blockbook_nft: 'blockbook.nft'
 file_dst_blockbook_nft: '/etc/nftables.d/blockbook.conf'
 file_mode_blockbook_nft: '0640'
 file_owner_blockbook_nft: 'root'
