@@ -68,21 +68,21 @@ file_owner_bitcoin_core: 'root'
 file_group_bitcoin_core: 'root'
 
 # bitcoin.conf
-file_src_bitcoin_conf: 'templates/main/bitcoin.conf'
+file_src_bitcoin_conf: 'bitcoin.conf'
 file_dst_bitcoin_conf: '/etc/bitcoind/bitcoin.conf'
 file_mode_bitcoin_conf: '0640'
 file_owner_bitcoin_conf: 'root'
 file_group_bitcoin_conf: 'bitcoind'
 
 # bitcoind.default
-file_src_bitcoind_default: 'templates/main/bitcoind.default'
+file_src_bitcoind_default: 'bitcoind.default'
 file_dst_bitcoind_default: '/etc/default/bitcoind'
 file_mode_bitcoind_default: '0644'
 file_owner_bitcoind_default: 'root'
 file_group_bitcoind_default: 'root'
 
 # bitcoind.service
-file_src_bitcoind_service: 'templates/main/bitcoind.service'
+file_src_bitcoind_service: 'bitcoind.service'
 file_dst_bitcoind_service: '/usr/lib/systemd/system/bitcoind.service'
 file_mode_bitcoind_service: '0644'
 file_owner_bitcoind_service: 'root'
@@ -107,14 +107,14 @@ file_owner_nftables_d: 'root'
 file_group_nftables_d: 'root'
 
 # bitcoind.cfg
-file_src_bitcoind_cfg: 'templates/main/bitcoind.cfg'
+file_src_bitcoind_cfg: 'bitcoind.cfg'
 file_dst_bitcoind_cfg: '/etc/monit.d/bitcoind.cfg'
 file_mode_bitcoind_cfg: '0640'
 file_owner_bitcoind_cfg: 'root'
 file_group_bitcoind_cfg: 'root'
 
 # bitcoind.nft
-file_src_bitcoind_nft: 'templates/main/bitcoind.nft'
+file_src_bitcoind_nft: 'bitcoind.nft'
 file_dst_bitcoind_nft: '/etc/nftables.d/bitcoind.conf'
 file_mode_bitcoind_nft: '0640'
 file_owner_bitcoind_nft: 'root'
