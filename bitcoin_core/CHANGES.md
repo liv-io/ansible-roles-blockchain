@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 25.1-1 (2023-10-20)
+
+### Enhancements
+
+- Update Bitcoin Core to version 25.1
+
 ## 25.0-7 (2023-10-14)
 
 ### Enhancements

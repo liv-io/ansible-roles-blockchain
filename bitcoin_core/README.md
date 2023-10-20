@@ -211,7 +211,7 @@ consult the following sections.
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : '25.0'
+    Default    : '25.1'
     Options    :
       Examples: '0.18.1' | '0.18.0'
 
