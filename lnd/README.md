@@ -124,9 +124,7 @@ consult the following sections.
     Value      : Predetermined
     Type       : Boolean
     Default    : True
-    Options    :
-      True : True
-      False: False
+    Options    : True | False
 
 `lnd_bitcoind_estimatemode`
 
@@ -242,9 +240,7 @@ consult the following sections.
     Value      : Predetermined
     Type       : Boolean
     Default    : False
-    Options    :
-      True : True
-      False: False
+    Options    : True | False
 
 `lnd_nftables_filter_rule`
 
