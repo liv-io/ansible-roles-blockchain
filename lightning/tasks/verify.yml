@@ -1,0 +1,24 @@
+---
+
+- name: include variables
+  include_vars: "{{lookup('first_found', params)}}"
+  vars:
+    params:
+      files:
+        - "vars/{{ansible_distribution_major_version}}.yml"
+        - 'vars/main.yml'
+  tags:
+    - lightning
+
+- name: verify required parameters
+  fail:
+    msg: "Please define all required parameters. See README.md for help."
+  no_log: True
+  when: (item == '')
+  loop:
+    - "{{lightning_alias}}"
+    - "{{lightning_announce_addr}}"
+    - "{{lightning_bitcoin_rpcpassword}}"
+    - "{{lightning_bitcoin_rpcuser}}"
+  tags:
+    - lightning

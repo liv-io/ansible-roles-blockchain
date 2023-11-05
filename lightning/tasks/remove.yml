@@ -1,0 +1,71 @@
+---
+
+- name: include variables
+  include_vars: "{{lookup('first_found', params)}}"
+  vars:
+    params:
+      files:
+        - "vars/{{ansible_distribution_major_version}}.yml"
+        - 'vars/main.yml'
+  tags:
+    - lightning
+
+- name: remove user lightningd
+  user:
+    state: absent
+    name: "{{user_name_lightningd}}"
+    remove: "{{user_home_remove_lightningd}}"
+    force: "{{user_home_force_lightningd}}"
+  tags:
+    - lightning
+
+- name: remove group lightningd
+  group:
+    state: absent
+    name: "{{group_name_lightningd}}"
+  tags:
+    - lightning
+
+- name: remove file lightningd.nft
+  file:
+    state: absent
+    path: "{{file_dst_lightningd_nft}}"
+  notify: reload service nftables
+  tags:
+    - lightning
+
+- name: remove file lightningd.cfg
+  file:
+    state: absent
+    path: "{{file_dst_lightningd_cfg}}"
+  notify: reload service monit
+  tags:
+    - lightning
+
+- name: remove file lightningd.service
+  file:
+    state: absent
+    path: "{{file_dst_lightningd_service}}"
+  tags:
+    - lightning
+
+- name: remove file lightningd.default
+  file:
+    state: absent
+    path: "{{file_dst_lightningd_default}}"
+  tags:
+    - lightning
+
+- name: remove file lightningd_app.dir
+  file:
+    state: absent
+    path: "{{file_dst_lightningd_app_dir}}"
+  tags:
+    - lightning
+
+- name: remove file lightningd_src.dir
+  file:
+    state: absent
+    path: "{{file_dst_lightningd_src_dir}}"
+  tags:
+    - lightning
