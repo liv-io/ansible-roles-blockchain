@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 0.17.0-beta-4 (2023-11-05)
+
+### Enhancements
+
+- Verify if required parameters have been defined
+
 ## 0.17.0-beta-3 (2023-11-05)
 
 ### Enhancements

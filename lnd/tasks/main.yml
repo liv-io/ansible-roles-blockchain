@@ -3,6 +3,10 @@
 - name: assert operating system family and version
   block:
 
+    - name: import tasks verify
+      import_tasks: verify.yml
+      when: not (lnd_state is match('false|no|remove|quiesce|inactive'))
+
     - name: import tasks install
       import_tasks: install.yml
       when: not (lnd_state is match('false|no|remove|quiesce|inactive'))
