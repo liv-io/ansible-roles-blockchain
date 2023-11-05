@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 0.17.0-beta-3 (2023-11-05)
+
+### Enhancements
+
+- Remove duplicate `install` section in systemd service unit file
+
 ## 0.17.0-beta-2 (2023-10-14)
 
 ### Enhancements
