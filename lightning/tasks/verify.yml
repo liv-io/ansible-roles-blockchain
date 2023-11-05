@@ -17,8 +17,5 @@
   when: (item == '')
   loop:
     - "{{lightning_alias}}"
-    - "{{lightning_announce_addr}}"
-    - "{{lightning_bitcoin_rpcpassword}}"
-    - "{{lightning_bitcoin_rpcuser}}"
   tags:
     - lightning

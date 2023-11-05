@@ -12,6 +12,12 @@ The headers are:
 
 ## 23.08.1-1 (2023-11-05)
 
+### Enhancements
+
+- Only verify parameter `lightning_alias`
+
+## 23.08.1-1 (2023-11-05)
+
 ### Features
 
 - Initial release
