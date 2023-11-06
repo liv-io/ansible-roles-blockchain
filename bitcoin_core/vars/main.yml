@@ -54,7 +54,7 @@ file_group_bitcoin_core_tar_gz: 'root'
 file_checksum_bitcoin_core_tar_gz: "sha256:https://bitcoincore.org/bin/bitcoin-core-{{bitcoin_core_version}}/SHA256SUMS"
 
 # bitcoin-current.link
-file_src_bitcoin_current_link: '/app/bitcoind/bitcoin-{{bitcoin_core_version}}'
+file_src_bitcoin_current_link: "/app/bitcoind/bitcoin-{{bitcoin_core_version}}"
 file_dst_bitcoin_current_link: '/app/bitcoind/current'
 file_owner_bitcoin_current_link: 'root'
 file_group_bitcoin_current_link: 'root'
@@ -62,7 +62,7 @@ file_group_bitcoin_current_link: 'root'
 # bitcoin-core
 file_src_bitcoin_core: "/usr/local/src/bitcoind/bitcoin-{{bitcoin_core_version}}-x86_64-linux-gnu.tar.gz"
 file_dst_bitcoin_core: '/app/bitcoind'
-file_creates_bitcoin_core: '/app/bitcoind/bitcoin-{{bitcoin_core_version}}'
+file_creates_bitcoin_core: "/app/bitcoind/bitcoin-{{bitcoin_core_version}}"
 file_mode_bitcoin_core: '0644'
 file_owner_bitcoin_core: 'root'
 file_group_bitcoin_core: 'root'
