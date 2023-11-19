@@ -1,0 +1,3 @@
+{{ansible_managed|comment(decoration='#')}}
+
+OPTIONS="--configfile='{{file_dst_btcd_conf}}' --logdir='{{file_dst_btcd_log_dir}}"

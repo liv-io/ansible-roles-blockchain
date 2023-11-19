@@ -1,0 +1,71 @@
+---
+
+- name: include variables
+  include_vars: "{{lookup('first_found', params)}}"
+  vars:
+    params:
+      files:
+        - "vars/{{ansible_distribution_major_version}}.yml"
+        - 'vars/main.yml'
+  tags:
+    - btcd
+
+- name: remove user btcd
+  user:
+    state: absent
+    name: "{{user_name_btcd}}"
+    remove: "{{user_home_remove_btcd}}"
+    force: "{{user_home_force_btcd}}"
+  tags:
+    - btcd
+
+- name: remove group btcd
+  group:
+    state: absent
+    name: "{{group_name_btcd}}"
+  tags:
+    - btcd
+
+- name: remove file btcd.nft
+  file:
+    state: absent
+    path: "{{file_dst_btcd_nft}}"
+  notify: reload service nftables
+  tags:
+    - btcd
+
+- name: remove file btcd.cfg
+  file:
+    state: absent
+    path: "{{file_dst_btcd_cfg}}"
+  notify: reload service monit
+  tags:
+    - btcd
+
+- name: remove file btcd.service
+  file:
+    state: absent
+    path: "{{file_dst_btcd_service}}"
+  tags:
+    - btcd
+
+- name: remove file btcd.default
+  file:
+    state: absent
+    path: "{{file_dst_btcd_default}}"
+  tags:
+    - btcd
+
+- name: remove file btcd_app.dir
+  file:
+    state: absent
+    path: "{{file_dst_btcd_app_dir}}"
+  tags:
+    - btcd
+
+- name: remove file btcd_src.dir
+  file:
+    state: absent
+    path: "{{file_dst_btcd_src_dir}}"
+  tags:
+    - btcd
