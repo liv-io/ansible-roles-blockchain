@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 25.1-3 (2023-11-20)
+
+### Features
+
+- Add parameter `bitcoin_core_addnode`
+
 ## 25.1-2 (2023-11-20)
 
 ### Enhancements

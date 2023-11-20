@@ -90,6 +90,18 @@ consult the following sections.
       Remove  : 'false' | 'no' | 'remove'
       Inactive: 'quiesce' | 'inactive'
 
+`bitcoin_core_addnode`
+
+    Description: Define the 'bitcoin_core_addnode' option.
+    Implemented: 25.1-3
+    Required   : False
+    Value      : Arbitrary
+    Type       : Array
+    Default    : []
+    Options    :
+      Examples:  ['1.2.3.4:8333', '[2002::1234]:8333']
+      None    : []
+
 `bitcoin_core_monitor_monit_state`
 
     Description: Control the 'bitcoin_core_monitor_monit_state' option.
