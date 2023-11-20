@@ -143,7 +143,6 @@ group_system_lightningd: True
 user_name_lightningd: 'lightningd'
 user_comment_lightningd: 'Lightning Network Daemon'
 user_group_lightningd: 'lightningd'
-user_append_lightningd: True
 user_home_create_lightningd: True
 user_home_move_lightningd: False
 user_home_remove_lightningd: True

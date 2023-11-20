@@ -32,7 +32,6 @@
     name: "{{user_name_btcd}}"
     comment: "{{user_comment_btcd}}"
     group: "{{user_group_btcd}}"
-    append: "{{user_append_btcd}}"
     createhome: "{{user_home_create_btcd}}"
     move_home: "{{user_home_move_btcd}}"
     remove: "{{user_home_remove_btcd}}"

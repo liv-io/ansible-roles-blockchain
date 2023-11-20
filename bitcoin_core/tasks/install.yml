@@ -32,7 +32,6 @@
     name: "{{user_name_bitcoind}}"
     comment: "{{user_comment_bitcoind}}"
     group: "{{user_group_bitcoind}}"
-    append: "{{user_append_bitcoind}}"
     createhome: "{{user_home_create_bitcoind}}"
     move_home: "{{user_home_move_bitcoind}}"
     remove: "{{user_home_remove_bitcoind}}"

@@ -134,7 +134,6 @@ group_system_btcd: True
 user_name_btcd: 'btcd'
 user_comment_btcd: 'btcd'
 user_group_btcd: 'btcd'
-user_append_btcd: True
 user_home_create_btcd: True
 user_home_move_btcd: False
 user_home_remove_btcd: True

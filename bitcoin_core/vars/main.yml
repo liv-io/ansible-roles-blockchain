@@ -134,7 +134,6 @@ group_system_bitcoind: True
 user_name_bitcoind: 'bitcoind'
 user_comment_bitcoind: 'Bitcoin Core'
 user_group_bitcoind: 'bitcoind'
-user_append_bitcoind: True
 user_home_create_bitcoind: True
 user_home_move_bitcoind: False
 user_home_remove_bitcoind: True

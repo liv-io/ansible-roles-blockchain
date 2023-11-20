@@ -128,7 +128,6 @@ group_system_lnd: True
 user_name_lnd: 'lnd'
 user_comment_lnd: 'Lightning Network Daemon'
 user_group_lnd: 'lnd'
-user_append_lnd: True
 user_home_create_lnd: True
 user_home_move_lnd: False
 user_home_remove_lnd: True

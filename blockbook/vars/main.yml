@@ -118,7 +118,6 @@ group_system_blockbook: True
 user_name_blockbook: 'blockbook'
 user_comment_blockbook: 'Blockbook'
 user_group_blockbook: 'blockbook'
-user_append_blockbook: True
 user_home_create_blockbook: True
 user_home_move_blockbook: False
 user_home_remove_blockbook: True

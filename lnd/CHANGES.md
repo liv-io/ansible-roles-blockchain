@@ -10,6 +10,13 @@ The headers are:
 - enhancements
 - features
 
+## 0.17.1-beta-2 (2023-11-20)
+
+### Enhancements
+
+- Remove `append` parameter in `user` task to get rid of Ansible warning \
+  `'append' is set, but no 'groups' are specified`
+
 ## 0.17.1-beta-1 (2023-11-14)
 
 ### Enhancements

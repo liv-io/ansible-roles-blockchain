@@ -64,7 +64,6 @@
     name: "{{user_name_blockbook}}"
     comment: "{{user_comment_blockbook}}"
     group: "{{user_group_blockbook}}"
-    append: "{{user_append_blockbook}}"
     createhome: "{{user_home_create_blockbook}}"
     move_home: "{{user_home_move_blockbook}}"
     remove: "{{user_home_remove_blockbook}}"

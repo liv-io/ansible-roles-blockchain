@@ -32,7 +32,6 @@
     name: "{{user_name_lnd}}"
     comment: "{{user_comment_lnd}}"
     group: "{{user_group_lnd}}"
-    append: "{{user_append_lnd}}"
     createhome: "{{user_home_create_lnd}}"
     move_home: "{{user_home_move_lnd}}"
     remove: "{{user_home_remove_lnd}}"

@@ -35,7 +35,6 @@
     name: "{{user_name_lightningd}}"
     comment: "{{user_comment_lightningd}}"
     group: "{{user_group_lightningd}}"
-    append: "{{user_append_lightningd}}"
     createhome: "{{user_home_create_lightningd}}"
     move_home: "{{user_home_move_lightningd}}"
     remove: "{{user_home_remove_lightningd}}"
