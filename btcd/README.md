@@ -84,6 +84,18 @@ consult the following sections.
       Remove  : 'false' | 'no' | 'remove'
       Inactive: 'quiesce' | 'inactive'
 
+`btcd_addpeer`
+
+    Description: Define the 'btcd_addpeer' option.
+    Implemented: 0.23.3-2
+    Required   : False
+    Value      : Arbitrary
+    Type       : Array
+    Default    : []
+    Options    :
+      Examples:  ['1.2.3.4:8333', '[2002::1234]:8333']
+      None    : []
+
 `btcd_externalip`
 
     Description: Define the 'btcd_externalip' option.
@@ -93,7 +105,7 @@ consult the following sections.
     Type       : Array
     Default    : []
     Options    :
-      Examples:  ['1.2.3.4', '2002::1234']
+      Examples:  ['1.2.3.4:8333', '[2002::1234]:8333']
       None    : []
 
 `btcd_listen`

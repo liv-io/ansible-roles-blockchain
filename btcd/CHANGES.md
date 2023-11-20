@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 0.23.3-2 (2023-11-20)
+
+### Features
+
+- Add parameter `btcd_addpeer`
+
 ## 0.23.3-1 (2023-11-19)
 
 ### Features

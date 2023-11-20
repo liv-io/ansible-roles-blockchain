@@ -2,6 +2,8 @@
 
 btcd_state: 'enable'
 
+btcd_addpeer: []
+
 btcd_externalip: []
 
 btcd_listen: ['0.0.0.0:8333']
