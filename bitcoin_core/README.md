@@ -219,7 +219,7 @@ consult the following sections.
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : '25.1'
+    Default    : '26.0'
     Options    :
       Examples: '0.18.1' | '0.18.0'
 
