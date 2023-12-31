@@ -78,7 +78,6 @@ consult the following sections.
 `bitcoin_core_state`
 
     Description: Control the state of the role.
-    Implemented: 0.19.0.1-1
     Required   : False
     Value      : Predetermined
     Type       : String
@@ -93,7 +92,6 @@ consult the following sections.
 `bitcoin_core_addnode`
 
     Description: Define the 'bitcoin_core_addnode' option.
-    Implemented: 25.1-3
     Required   : False
     Value      : Arbitrary
     Type       : Array
@@ -105,7 +103,6 @@ consult the following sections.
 `bitcoin_core_monitor_monit_state`
 
     Description: Control the 'bitcoin_core_monitor_monit_state' option.
-    Implemented: 0.20.1-6
     Required   : False
     Value      : Predetermined
     Type       : Boolean
@@ -115,7 +112,6 @@ consult the following sections.
 `bitcoin_core_network_bind`
 
     Description: Define the 'bitcoin_core_network_bind' option.
-    Implemented: 0.19.0.1-2
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -126,7 +122,6 @@ consult the following sections.
 `bitcoin_core_network_port`
 
     Description: Define the 'bitcoin_core_network_port' option.
-    Implemented: 0.19.0.1-2
     Required   : False
     Value      : Arbitrary
     Type       : Integer, String
@@ -137,7 +132,6 @@ consult the following sections.
 `bitcoin_core_nftables_filter_rule`
 
     Description: Define the 'bitcoin_core_nftables_filter_rule' option.
-    Implemented: 25.0-5
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -157,7 +151,6 @@ consult the following sections.
 `bitcoin_core_nftables_state`
 
     Description: Control the 'bitcoin_core_nftables_state' option.
-    Implemented: 25.0-5
     Required   : False
     Value      : Predetermined
     Type       : Boolean
@@ -167,7 +160,6 @@ consult the following sections.
 `bitcoin_core_rpc_allow_ip`
 
     Description: Define the 'bitcoin_core_rpc_allow_ip' option.
-    Implemented: 0.19.0.1-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -180,7 +172,6 @@ consult the following sections.
     Description: Define the 'bitcoin_core_rpc_auth' option.
                  For more information, visit:
                  https://github.com/bitcoin/bitcoin/tree/master/share/rpcauth
-    Implemented: 0.19.0.1-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -193,7 +184,6 @@ consult the following sections.
 `bitcoin_core_rpc_bind`
 
     Description: Define the 'bitcoin_core_rpc_bind' option.
-    Implemented: 0.19.0.1-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -204,7 +194,6 @@ consult the following sections.
 `bitcoin_core_rpc_port`
 
     Description: Define the 'bitcoin_core_rpc_port' option.
-    Implemented: 0.19.0.1-2
     Required   : False
     Value      : Arbitrary
     Type       : Integer, String
@@ -215,7 +204,6 @@ consult the following sections.
 `bitcoin_core_version`
 
     Description: Define the 'bitcoin_core_version' option.
-    Implemented: 0.20.0-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -226,7 +214,6 @@ consult the following sections.
 `bitcoin_core_zeromq_bind`
 
     Description: Define the 'bitcoin_core_zeromq_bind' option.
-    Implemented: 0.19.0.1-2
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -237,7 +224,6 @@ consult the following sections.
 `bitcoin_core_zeromq_pub_hash_block_port`
 
     Description: Define the 'bitcoin_core_zeromq_pub_hash_block_port' option.
-    Implemented: 0.20.1-2
     Required   : False
     Value      : Arbitrary
     Type       : Integer, String
@@ -248,7 +234,6 @@ consult the following sections.
 `bitcoin_core_zeromq_pub_hash_tx_port`
 
     Description: Define the 'bitcoin_core_zeromq_pub_hash_tx_port' option.
-    Implemented: 0.20.1-2
     Required   : False
     Value      : Arbitrary
     Type       : Integer, String
@@ -259,7 +244,6 @@ consult the following sections.
 `bitcoin_core_zeromq_pub_raw_block_port`
 
     Description: Define the 'bitcoin_core_zeromq_pub_raw_block_port' option.
-    Implemented: 0.20.1-2
     Required   : False
     Value      : Arbitrary
     Type       : Integer, String
@@ -270,7 +254,6 @@ consult the following sections.
 `bitcoin_core_zeromq_pub_raw_tx_port`
 
     Description: Define the 'bitcoin_core_zeromq_pub_raw_tx_port' option.
-    Implemented: 0.20.1-2
     Required   : False
     Value      : Arbitrary
     Type       : Integer, String

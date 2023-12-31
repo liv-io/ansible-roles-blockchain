@@ -91,7 +91,6 @@ consult the following sections.
 `lnd_state`
 
     Description: Control the state of the role.
-    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Predetermined
     Type       : String
@@ -107,7 +106,6 @@ consult the following sections.
 
     Description: Define the 'lnd_alias' option.
                  Max. 32 UTF-8 characters.
-    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -119,7 +117,6 @@ consult the following sections.
 `lnd_bitcoin_active`
 
     Description: Control the 'lnd_bitcoin_active' option.
-    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Predetermined
     Type       : Boolean
@@ -129,7 +126,6 @@ consult the following sections.
 `lnd_bitcoind_estimatemode`
 
     Description: Set the 'lnd_bitcoind_estimatemode' option.
-    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Predetermined
     Type       : String
@@ -141,7 +137,6 @@ consult the following sections.
 `lnd_bitcoind_rpchost`
 
     Description: Define the 'lnd_bitcoind_rpchost' option.
-    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -153,7 +148,6 @@ consult the following sections.
 `lnd_bitcoind_rpcpass`
 
     Description: Define the 'lnd_bitcoind_rpcpass' option.
-    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -165,7 +159,6 @@ consult the following sections.
 `lnd_bitcoind_rpcuser`
 
     Description: Define the 'lnd_bitcoind_rpcuser' option.
-    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -177,7 +170,6 @@ consult the following sections.
 `lnd_bitcoind_zmqpubrawblock`
 
     Description: Define the 'lnd_bitcoind_zmqpubrawblock' option.
-    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -188,7 +180,6 @@ consult the following sections.
 `lnd_bitcoind_zmqpubrawtx`
 
     Description: Define the 'lnd_bitcoind_zmqpubrawtx' option.
-    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -199,7 +190,6 @@ consult the following sections.
 `lnd_color`
 
     Description: Define the 'lnd_color' option.
-    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -211,7 +201,6 @@ consult the following sections.
 `lnd_externalip`
 
     Description: Define the 'lnd_externalip' option.
-    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -223,7 +212,6 @@ consult the following sections.
 `lnd_listen`
 
     Description: Define the 'lnd_listen' option.
-    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : Array
@@ -235,7 +223,6 @@ consult the following sections.
 `lnd_monitor_monit_state`
 
     Description: Control the 'lnd_monitor_monit_state' option.
-    Implemented: 0.11.1-beta-4
     Required   : False
     Value      : Predetermined
     Type       : Boolean
@@ -245,7 +232,6 @@ consult the following sections.
 `lnd_nftables_filter_rule`
 
     Description: Define the 'lnd_nftables_filter_rule' option.
-    Implemented: 0.16.4-beta-3
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -265,7 +251,6 @@ consult the following sections.
 `lnd_nftables_state`
 
     Description: Control the 'lnd_nftables_state' option.
-    Implemented: 0.16.4-beta-3
     Required   : False
     Value      : Predetermined
     Type       : Boolean
@@ -275,7 +260,6 @@ consult the following sections.
 `lnd_restlisten`
 
     Description: Define the 'lnd_restlisten' option.
-    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : Array
@@ -287,7 +271,6 @@ consult the following sections.
 `lnd_rpclisten`
 
     Description: Define the 'lnd_rpclisten' option.
-    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : Array
@@ -299,7 +282,6 @@ consult the following sections.
 `lnd_version`
 
     Description: Define the 'lnd_version' option.
-    Implemented: 0.11.0-beta-1
     Required   : False
     Value      : Arbitrary
     Type       : String

@@ -81,7 +81,6 @@ consult the following sections.
 `blockbook_state`
 
     Description: Control the state of the role.
-    Implemented: 0.3.6-2
     Required   : False
     Value      : Predetermined
     Type       : String
@@ -96,7 +95,6 @@ consult the following sections.
 `blockbook_build_tags`
 
     Description: Define the 'blockbook_build_tags' option.
-    Implemented: 0.3.6-2
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -107,7 +105,6 @@ consult the following sections.
 `blockbook_go_version`
 
     Description: Define the 'blockbook_go_version' option.
-    Implemented: 0.3.6-2
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -118,7 +115,6 @@ consult the following sections.
 `blockbook_message_queue_binding`
 
     Description: Define the 'blockbook_message_queue_binding' option.
-    Implemented: 0.3.6-2
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -129,7 +125,6 @@ consult the following sections.
 `blockbook_monitor_monit_state`
 
     Description: Control the 'blockbook_monitor_monit_state' option.
-    Implemented: 0.3.6-2
     Required   : False
     Value      : Predetermined
     Type       : Boolean
@@ -139,7 +134,6 @@ consult the following sections.
 `blockbook_nftables_filter_rule`
 
     Description: Define the 'blockbook_nftables_filter_rule' option.
-    Implemented: 0.3.6-8
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -156,7 +150,6 @@ consult the following sections.
 `blockbook_nftables_state`
 
     Description: Control the 'blockbook_nftables_state' option.
-    Implemented: 0.3.6-8
     Required   : False
     Value      : Predetermined
     Type       : Boolean
@@ -166,7 +159,6 @@ consult the following sections.
 `blockbook_rocksdb_version`
 
     Description: Define the 'blockbook_rocksdb_version' option.
-    Implemented: 0.3.6-2
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -179,7 +171,6 @@ consult the following sections.
     Description: Define the 'blockbook_rpc_pass' option.
                  For more information, visit:
                  https://github.com/bitcoin/bitcoin/tree/master/share/rpcauth
-    Implemented: 0.3.6-2
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -191,7 +182,6 @@ consult the following sections.
 `blockbook_rpc_url`
 
     Description: Define the 'blockbook_rpc_url' option.
-    Implemented: 0.3.6-2
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -204,7 +194,6 @@ consult the following sections.
     Description: Define the 'blockbook_rpc_user' option.
                  For more information, visit:
                  https://github.com/bitcoin/bitcoin/tree/master/share/rpcauth
-    Implemented: 0.3.6-2
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -216,7 +205,6 @@ consult the following sections.
 `blockbook_version`
 
     Description: Define the 'blockbook_version' option.
-    Implemented: 0.3.6-2
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -227,7 +215,6 @@ consult the following sections.
 `blockbook_zeromq_version`
 
     Description: Define the 'blockbook_zeromq_version' option.
-    Implemented: 0.3.6-2
     Required   : False
     Value      : Arbitrary
     Type       : String

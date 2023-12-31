@@ -72,7 +72,6 @@ consult the following sections.
 `btcd_state`
 
     Description: Control the state of the role.
-    Implemented: 0.23.3-1
     Required   : False
     Value      : Predetermined
     Type       : String
@@ -87,7 +86,6 @@ consult the following sections.
 `btcd_addpeer`
 
     Description: Define the 'btcd_addpeer' option.
-    Implemented: 0.23.3-2
     Required   : False
     Value      : Arbitrary
     Type       : Array
@@ -99,7 +97,6 @@ consult the following sections.
 `btcd_externalip`
 
     Description: Define the 'btcd_externalip' option.
-    Implemented: 0.23.3-1
     Required   : False
     Value      : Arbitrary
     Type       : Array
@@ -111,7 +108,6 @@ consult the following sections.
 `btcd_listen`
 
     Description: Define the 'btcd_listen' option.
-    Implemented: 0.23.3-1
     Required   : False
     Value      : Arbitrary
     Type       : Array
@@ -123,7 +119,6 @@ consult the following sections.
 `btcd_monitor_monit_state`
 
     Description: Control the 'btcd_monitor_monit_state' option.
-    Implemented: 0.23.3-1
     Required   : False
     Value      : Predetermined
     Type       : Boolean
@@ -133,7 +128,6 @@ consult the following sections.
 `btcd_nftables_filter_rule`
 
     Description: Define the 'btcd_nftables_filter_rule' option.
-    Implemented: 0.23.3-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -152,7 +146,6 @@ consult the following sections.
 `btcd_nftables_state`
 
     Description: Control the 'btcd_nftables_state' option.
-    Implemented: 0.23.3-1
     Required   : False
     Value      : Predetermined
     Type       : Boolean
@@ -162,7 +155,6 @@ consult the following sections.
 `btcd_rpclisten`
 
     Description: Define the 'btcd_rpclisten' option.
-    Implemented: 0.23.3-1
     Required   : False
     Value      : Arbitrary
     Type       : Array
@@ -174,7 +166,6 @@ consult the following sections.
 `btcd_rpcuser`
 
     Description: Define the ''btcd_rpcuser option.
-    Implemented: 0.23.3-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -186,7 +177,6 @@ consult the following sections.
 `btcd_rpcpass`
 
     Description: Define the 'btcd_rpcpass' option.
-    Implemented: 0.23.3-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -198,7 +188,6 @@ consult the following sections.
 `btcd_version`
 
     Description: Define the 'btcd_version' option.
-    Implemented: 0.23.3-1
     Required   : False
     Value      : Arbitrary
     Type       : String

@@ -101,7 +101,6 @@ consult the following sections.
 `lightning_addr`
 
     Description: Define the 'lightning_addr' option.
-    Implemented: 23.08.1-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -113,7 +112,6 @@ consult the following sections.
 
     Description: Define the 'lightning_alias' option.
                  Max. 32 UTF-8 characters.
-    Implemented: 23.08.1-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -125,7 +123,6 @@ consult the following sections.
 `lightning_announce_addr`
 
     Description: Define the 'lightning_announce_addr' option.
-    Implemented: 23.08.1-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -137,7 +134,6 @@ consult the following sections.
 `lightning_announce_addr_discovered`
 
     Description: Control the 'lightning_announce_addr_discovered' option.
-    Implemented: 23.08.1-1
     Required   : False
     Value      : Predetermined
     Type       : String
@@ -147,7 +143,6 @@ consult the following sections.
 `lightning_announce_addr_discovered_port`
 
     Description: Define the 'lightning_announce_addr_discovered_port' option.
-    Implemented: 23.08.1-1
     Required   : False
     Value      : Arbitrary
     Type       : Integer
@@ -159,7 +154,6 @@ consult the following sections.
 `lightning_bind_addr`
 
     Description: Define the 'lightning_bind_addr' option.
-    Implemented: 23.08.1-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -171,7 +165,6 @@ consult the following sections.
 `lightning_bitcoin_cli`
 
     Description: Define the 'lightning_bitcoin_cli' option.
-    Implemented: 23.08.1-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -182,7 +175,6 @@ consult the following sections.
 `lightning_bitcoin_rpcconnect`
 
     Description: Define the 'lightning_bitcoin_rpcconnect' option.
-    Implemented: 23.08.1-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -193,7 +185,6 @@ consult the following sections.
 `lightning_bitcoin_rpcpassword`
 
     Description: Define the 'lightning_bitcoin_rpcpassword' option.
-    Implemented: 23.08.1-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -204,7 +195,6 @@ consult the following sections.
 `lightning_bitcoin_rpcport`
 
     Description: Define the 'lightning_bitcoin_rpcport' option.
-    Implemented: 23.08.1-1
     Required   : False
     Value      : Arbitrary
     Type       : Integer
@@ -215,7 +205,6 @@ consult the following sections.
 `lightning_bitcoin_rpcuser`
 
     Description: Define the 'lightning_bitcoin_rpcuser' option.
-    Implemented: 23.08.1-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -229,7 +218,6 @@ consult the following sections.
                  1. Generate BIP39 mnemonic
                  2. lightning-hsmtool generatehsm /data/lightningd/hsm
                  3. lightning-hsmtool encrypt /data/lightningd/hsm
-    Implemented: 23.08.1-1
     Required   : False
     Value      : Predetermined
     Type       : Boolean
@@ -239,7 +227,6 @@ consult the following sections.
 `lightning_log_level`
 
     Description: Define the 'lightning_log_level' option.
-    Implemented: 23.08.1-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -250,7 +237,6 @@ consult the following sections.
 `lightning_monitor_monit_state`
 
     Description: Control the 'lightning_monitor_monit_state' option.
-    Implemented: 23.08.1-1
     Required   : False
     Value      : Predetermined
     Type       : Boolean
@@ -260,7 +246,6 @@ consult the following sections.
 `lightning_nftables_filter_rule`
 
     Description: Define the 'lightning_nftables_filter_rule' option.
-    Implemented: 23.08.1-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -280,7 +265,6 @@ consult the following sections.
 `lightning_nftables_state`
 
     Description: Control the 'lightning_nftables_state' option.
-    Implemented: 23.08.1-1
     Required   : False
     Value      : Predetermined
     Type       : Boolean
@@ -290,7 +274,6 @@ consult the following sections.
 `lightning_rgb`
 
     Description: Define the 'lightning_rgb' option.
-    Implemented: 23.08.1-1
     Required   : False
     Value      : Arbitrary
     Type       : String
@@ -301,7 +284,6 @@ consult the following sections.
 `lightning_version`
 
     Description: Define the 'lightning_version' option.
-    Implemented: 23.08.1-1
     Required   : False
     Value      : Arbitrary
     Type       : String
