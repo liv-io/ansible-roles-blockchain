@@ -1,0 +1,109 @@
+---
+
+# subgid
+file_src_subgid: 'subgid'
+file_dst_subgid: '/etc/subgid'
+file_mode_subgid: '0644'
+file_owner_subgid: 'root'
+file_group_subgid: 'root'
+
+# subuid
+file_src_subuid: 'subuid'
+file_dst_subuid: '/etc/subuid'
+file_mode_subuid: '0644'
+file_owner_subuid: 'root'
+file_group_subuid: 'root'
+
+# pod_bitcoin_core_etc.dir
+file_dst_pod_bitcoin_core_etc_dir: '/etc/pod_bitcoin_core'
+file_mode_pod_bitcoin_core_etc_dir: '0750'
+file_owner_pod_bitcoin_core_etc_dir: 'root'
+file_group_pod_bitcoin_core_etc_dir: 'pod_bitcoin_core'
+
+# opt.dir
+file_dst_opt_dir: '/opt'
+file_mode_opt_dir: '0755'
+file_owner_opt_dir: 'root'
+file_group_opt_dir: 'root'
+
+# pod_bitcoin_core_opt.dir
+file_dst_pod_bitcoin_core_opt_dir: '/opt/pod_bitcoin_core'
+file_mode_pod_bitcoin_core_opt_dir: '0755'
+file_owner_pod_bitcoin_core_opt_dir: 'pod_bitcoin_core'
+file_group_pod_bitcoin_core_opt_dir: 'pod_bitcoin_core'
+
+# bitcoin-core_db.dir
+file_dst_bitcoin_core_db_dir: '/opt/pod_bitcoin_core/db'
+file_mode_bitcoin_core_db_dir: '0750'
+file_owner_bitcoin_core_db_dir: '29999'
+file_group_bitcoin_core_db_dir: '29999'
+
+# pod_bitcoin_core.default
+file_src_pod_bitcoin_core_default: 'pod_bitcoin_core.default'
+file_dst_pod_bitcoin_core_default: '/etc/default/pod_bitcoin_core'
+file_mode_pod_bitcoin_core_default: '0640'
+file_owner_pod_bitcoin_core_default: 'root'
+file_group_pod_bitcoin_core_default: 'pod_bitcoin_core'
+
+# pod_bitcoin_core.service
+file_src_pod_bitcoin_core_service: 'pod_bitcoin_core.service'
+file_dst_pod_bitcoin_core_service: '/lib/systemd/system/pod_bitcoin_core.service'
+file_mode_pod_bitcoin_core_service: '0644'
+file_owner_pod_bitcoin_core_service: 'root'
+file_group_pod_bitcoin_core_service: 'root'
+
+# pod_bitcoin_core.yaml
+file_src_pod_bitcoin_core_yaml: 'pod_bitcoin_core.yaml'
+file_dst_pod_bitcoin_core_yaml: '/etc/pod_bitcoin_core/pod_bitcoin_core.yaml'
+file_mode_pod_bitcoin_core_yaml: '0640'
+file_owner_pod_bitcoin_core_yaml: 'root'
+file_group_pod_bitcoin_core_yaml: 'pod_bitcoin_core'
+
+# monit.d
+file_dst_monit_d: '/etc/monit.d'
+file_mode_monit_d: '0750'
+file_owner_monit_d: 'root'
+file_group_monit_d: 'root'
+
+# pod_bitcoin_core-bitcoin-core.cfg
+file_src_pod_bitcoin_core_bitcoin_core_cfg: 'pod_bitcoin_core-bitcoin-core.cfg'
+file_dst_pod_bitcoin_core_bitcoin_core_cfg: '/etc/monit.d/pod_bitcoin_core-bitcoin-core.cfg'
+file_mode_pod_bitcoin_core_bitcoin_core_cfg: '0640'
+file_owner_pod_bitcoin_core_bitcoin_core_cfg: 'root'
+file_group_pod_bitcoin_core_bitcoin_core_cfg: 'root'
+
+# check service monit
+command_cmd_check_service_monit: 'systemctl cat monit.service > /dev/null 2>&1'
+
+# check service pod_bitcoin_core
+command_cmd_check_service_pod_bitcoin_core: 'systemctl cat pod_bitcoin_core.service > /dev/null 2>&1'
+
+# loginctl enable_linger
+command_cmd_loginctl_enable_linger: 'loginctl enable-linger pod_bitcoin_core'
+
+# pod_bitcoin_core
+group_name_pod_bitcoin_core: 'pod_bitcoin_core'
+group_gid_pod_bitcoin_core: '10000'
+group_system_pod_bitcoin_core: False
+
+# pod_bitcoin_core
+user_name_pod_bitcoin_core: 'pod_bitcoin_core'
+user_comment_pod_bitcoin_core: 'Pod Woodpecker'
+user_uid_pod_bitcoin_core: '10000'
+user_group_pod_bitcoin_core: 'pod_bitcoin_core'
+user_groups_pod_bitcoin_core: ['systemd-journal']
+user_append_pod_bitcoin_core: True
+user_home_create_pod_bitcoin_core: True
+user_home_move_pod_bitcoin_core: False
+user_home_remove_pod_bitcoin_core: True
+user_home_force_pod_bitcoin_core: False
+user_password_pod_bitcoin_core: '!'
+user_password_update_pod_bitcoin_core: 'always'
+user_shell_pod_bitcoin_core: '/bin/bash'
+user_system_pod_bitcoin_core: False
+
+# monit
+service_name_monit: 'monit'
+
+# pod_bitcoin_core
+service_name_pod_bitcoin_core: 'pod_bitcoin_core'
