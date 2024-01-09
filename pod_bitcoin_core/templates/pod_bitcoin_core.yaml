@@ -6,7 +6,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    app: woodpecker
+    app: bitcoin-core
   name: pod_bitcoin_core
 spec:
   containers:

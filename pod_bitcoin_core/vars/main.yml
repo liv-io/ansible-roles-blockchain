@@ -88,7 +88,7 @@ group_system_pod_bitcoin_core: False
 
 # pod_bitcoin_core
 user_name_pod_bitcoin_core: 'pod_bitcoin_core'
-user_comment_pod_bitcoin_core: 'Pod Woodpecker'
+user_comment_pod_bitcoin_core: 'Pod bitcoin-core'
 user_uid_pod_bitcoin_core: '10000'
 user_group_pod_bitcoin_core: 'pod_bitcoin_core'
 user_groups_pod_bitcoin_core: ['systemd-journal']
