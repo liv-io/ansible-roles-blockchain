@@ -1,0 +1,48 @@
+---
+
+- name: include variables
+  include_vars: "{{lookup('first_found', params)}}"
+  vars:
+    params:
+      files:
+        - "vars/{{ansible_distribution_major_version}}.yml"
+        - 'vars/main.yml'
+  tags:
+    - pod_btcd
+
+- name: create file pod_btcd.yaml
+  template:
+    src: "{{file_src_pod_btcd_yaml}}"
+    dest: "{{file_dst_pod_btcd_yaml}}"
+    mode: "{{file_mode_pod_btcd_yaml}}"
+    owner: "{{file_owner_pod_btcd_yaml}}"
+    group: "{{file_group_pod_btcd_yaml}}"
+  tags:
+    - pod_btcd
+
+- name: create file pod_btcd.default
+  template:
+    src: "{{file_src_pod_btcd_default}}"
+    dest: "{{file_dst_pod_btcd_default}}"
+    mode: "{{file_mode_pod_btcd_default}}"
+    owner: "{{file_owner_pod_btcd_default}}"
+    group: "{{file_group_pod_btcd_default}}"
+  tags:
+    - pod_btcd
+
+- name: remove file pod_btcd-btcd.cfg
+  file:
+    state: absent
+    path: "{{file_dst_pod_btcd_btcd_cfg}}"
+  notify: reload service monit
+  tags:
+    - pod_btcd
+
+- name: stop service pod_btcd
+  service:
+    state: stopped
+    enabled: False
+    name: "{{service_name_pod_btcd}}"
+    daemon_reload: True
+  tags:
+    - pod_btcd

@@ -1,0 +1,75 @@
+---
+
+- name: include variables
+  include_vars: "{{lookup('first_found', params)}}"
+  vars:
+    params:
+      files:
+        - "vars/{{ansible_distribution_major_version}}.yml"
+        - 'vars/main.yml'
+  tags:
+    - pod_btcd
+
+- name: check service pod_btcd
+  shell: "{{command_cmd_check_service_pod_btcd}}"
+  register: register_check_service_pod_btcd
+  changed_when: (register_check_service_pod_btcd.rc == 0)
+  failed_when: (register_check_service_pod_btcd.rc > 1)
+  check_mode: False
+  tags:
+    - pod_btcd
+
+- name: stop service pod_btcd
+  service:
+    state: stopped
+    enabled: False
+    name: "{{service_name_pod_btcd}}"
+    daemon_reload: True
+  when: (register_check_service_pod_btcd.rc == 0)
+  tags:
+    - pod_btcd
+
+- name: remove user pod_btcd
+  user:
+    state: absent
+    name: "{{user_name_pod_btcd}}"
+    remove: "{{user_home_remove_pod_btcd}}"
+    force: "{{user_home_force_pod_btcd}}"
+  tags:
+    - pod_btcd
+
+- name: remove group pod_btcd
+  group:
+    state: absent
+    name: "{{group_name_pod_btcd}}"
+  tags:
+    - pod_btcd
+
+- name: remove file pod_btcd-btcd.cfg
+  file:
+    state: absent
+    path: "{{file_dst_pod_btcd_btcd_cfg}}"
+  notify: reload service monit
+  tags:
+    - pod_btcd
+
+- name: remove file pod_btcd_etc.dir
+  file:
+    state: absent
+    path: "{{file_dst_pod_btcd_etc_dir}}"
+  tags:
+    - pod_btcd
+
+- name: remove file pod_btcd.default
+  file:
+    state: absent
+    path: "{{file_dst_pod_btcd_default}}"
+  tags:
+    - pod_btcd
+
+- name: remove file pod_btcd.service
+  file:
+    state: absent
+    path: "{{file_dst_pod_btcd_service}}"
+  tags:
+    - pod_btcd

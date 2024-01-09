@@ -1,0 +1,147 @@
+---
+
+- name: include variables
+  include_vars: "{{lookup('first_found', params)}}"
+  vars:
+    params:
+      files:
+        - "vars/{{ansible_distribution_major_version}}.yml"
+        - 'vars/main.yml'
+  tags:
+    - pod_btcd
+
+- name: copy file subuid
+  copy:
+    src: "{{file_src_subuid}}"
+    dest: "{{file_dst_subuid}}"
+    mode: "{{file_mode_subuid}}"
+    owner: "{{file_owner_subuid}}"
+    group: "{{file_group_subuid}}"
+  tags:
+    - pod_btcd
+
+- name: copy file subgid
+  copy:
+    src: "{{file_src_subgid}}"
+    dest: "{{file_dst_subgid}}"
+    mode: "{{file_mode_subgid}}"
+    owner: "{{file_owner_subgid}}"
+    group: "{{file_group_subgid}}"
+  tags:
+    - pod_btcd
+
+- name: create group pod_btcd
+  group:
+    state: present
+    name: "{{group_name_pod_btcd}}"
+    gid: "{{group_gid_pod_btcd}}"
+    system: "{{group_system_pod_btcd}}"
+  tags:
+    - pod_btcd
+
+- name: create user pod_btcd
+  user:
+    state: present
+    name: "{{user_name_pod_btcd}}"
+    comment: "{{user_comment_pod_btcd}}"
+    uid: "{{user_uid_pod_btcd}}"
+    group: "{{user_group_pod_btcd}}"
+    groups: "{{user_groups_pod_btcd}}"
+    append: "{{user_append_pod_btcd}}"
+    createhome: "{{user_home_create_pod_btcd}}"
+    move_home: "{{user_home_move_pod_btcd}}"
+    remove: "{{user_home_remove_pod_btcd}}"
+    force: "{{user_home_force_pod_btcd}}"
+    password: "{{user_password_pod_btcd}}"
+    update_password: "{{user_password_update_pod_btcd}}"
+    shell: "{{user_shell_pod_btcd}}"
+    system: "{{user_system_pod_btcd}}"
+  register: register_create_user_pod_btcd
+  tags:
+    - pod_btcd
+
+- name: loginctl enable-linger
+  shell: "{{command_cmd_loginctl_enable_linger}}"
+  check_mode: False
+  when: register_create_user_pod_btcd.changed
+  tags:
+    - pod_btcd
+
+- name: create file pod_btcd_etc.dir
+  file:
+    state: directory
+    path: "{{file_dst_pod_btcd_etc_dir}}"
+    mode: "{{file_mode_pod_btcd_etc_dir}}"
+    owner: "{{file_owner_pod_btcd_etc_dir}}"
+    group: "{{file_group_pod_btcd_etc_dir}}"
+  tags:
+    - pod_btcd
+
+- name: create file opt.dir
+  file:
+    state: directory
+    path: "{{file_dst_opt_dir}}"
+    mode: "{{file_mode_opt_dir}}"
+    owner: "{{file_owner_opt_dir}}"
+    group: "{{file_group_opt_dir}}"
+  tags:
+    - pod_btcd
+
+- name: create file pod_btcd_opt.dir
+  file:
+    state: directory
+    path: "{{file_dst_pod_btcd_opt_dir}}"
+    mode: "{{file_mode_pod_btcd_opt_dir}}"
+    owner: "{{file_owner_pod_btcd_opt_dir}}"
+    group: "{{file_group_pod_btcd_opt_dir}}"
+  tags:
+    - pod_btcd
+
+- name: create file btcd_db.dir
+  file:
+    state: directory
+    path: "{{file_dst_btcd_db_dir}}"
+    mode: "{{file_mode_btcd_db_dir}}"
+    owner: "{{file_owner_btcd_db_dir}}"
+    group: "{{file_group_btcd_db_dir}}"
+  tags:
+    - pod_btcd
+
+- name: create file pod_btcd.service
+  template:
+    src: "{{file_src_pod_btcd_service}}"
+    dest: "{{file_dst_pod_btcd_service}}"
+    mode: "{{file_mode_pod_btcd_service}}"
+    owner: "{{file_owner_pod_btcd_service}}"
+    group: "{{file_group_pod_btcd_service}}"
+  tags:
+    - pod_btcd
+
+- name: stat file monit.d
+  stat:
+    path: "{{file_dst_monit_d}}"
+  register: register_monit_d
+  when: (pod_btcd_monitor_monit_state == True)
+  tags:
+    - pod_btcd
+
+- name: create file monit.d
+  file:
+    state: directory
+    path: "{{file_dst_monit_d}}"
+    mode: "{{file_mode_monit_d}}"
+    owner: "{{file_owner_monit_d}}"
+    group: "{{file_group_monit_d}}"
+  when: (pod_btcd_monitor_monit_state == True) and (register_monit_d.stat.exists == False)
+  tags:
+    - pod_btcd
+
+- name: check service monit
+  shell: "{{command_cmd_check_service_monit}}"
+  register: register_check_service_monit
+  changed_when: (register_check_service_monit.rc > 1)
+  failed_when: (register_check_service_monit.rc > 1)
+  check_mode: False
+  when: (pod_btcd_monitor_monit_state == True)
+  tags:
+    - pod_btcd

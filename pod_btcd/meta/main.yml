@@ -1,0 +1,4 @@
+---
+
+dependencies:
+  - {role: podman, when: not (pod_btcd_state is match('false|no|remove|quiesce|inactive'))}

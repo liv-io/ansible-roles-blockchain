@@ -1,0 +1,81 @@
+---
+
+{{ansible_managed|comment(decoration='#')}}
+
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: btcd
+  name: pod_btcd
+spec:
+  containers:
+  - name: btcd
+    image: {{pod_btcd_registry_address}}/btcd:{{pod_btcd_btcd_version}}
+    ports:
+    - name: btcd-network
+      containerPort: 8333
+      hostPort: 8333
+      protocol: TCP
+    - name: btcd-rpc
+      containerPort: 8334
+      hostPort: 8334
+      protocol: TCP
+    resources: {}
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - CAP_MKNOD
+        - CAP_NET_RAW
+        - CAP_AUDIT_WRITE
+      privileged: false
+      readOnlyRootFilesystem: {{pod_btcd_btcd_read_only_root_filesystem|lower}}
+      runAsGroup: 10000
+      runAsUser: 10000
+      seLinuxOptions:
+        type: spc_t
+    volumeMounts:
+    - name: btcd-db
+      mountPath: /home/btcd/.btcd
+    workingDir: /
+    env:
+{% if not (pod_btcd_btcd_addpeer == "") %}
+    - name: ADDPEER
+      value: "{{pod_btcd_btcd_addpeer}}"
+{% endif %}
+{% if not (pod_btcd_btcd_debuglevel == "") %}
+    - name: DEBUGLEVEL
+      value: "{{pod_btcd_btcd_debuglevel}}"
+{% endif %}
+{% if not (pod_btcd_btcd_externalip == "") %}
+    - name: EXTERNALIP
+      value: "{{pod_btcd_btcd_externalip}}"
+{% endif %}
+{% if not (pod_btcd_btcd_listen == "") %}
+    - name: LISTEN
+      value: "{{pod_btcd_btcd_listen}}"
+{% endif %}
+{% if not (pod_btcd_btcd_rpclisten == "") %}
+    - name: RPCLISTEN
+      value: "{{pod_btcd_btcd_rpclisten}}"
+{% endif %}
+{% if not (pod_btcd_btcd_rpcpass == "") %}
+    - name: RPCPASS
+      value: "{{pod_btcd_btcd_rpcpass}}"
+{% endif %}
+{% if not (pod_btcd_btcd_rpcuser == "") %}
+    - name: RPCUSER
+      value: "{{pod_btcd_btcd_rpcuser}}"
+{% endif %}
+
+  dnsConfig: {}
+  restartPolicy: Always
+
+  volumes:
+  - name: btcd-db
+    hostPath:
+      type: Directory
+      path: {{file_dst_btcd_db_dir}}
+
+status: {}
