@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 0.1.2 (2024-01-09)
+
+### Bugs
+
+- Add default value for parameter `pod_bitcoin_core_bitcoin_core_version`
+
 ## 0.1.1 (2024-01-09)
 
 ### Bugs
