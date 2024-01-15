@@ -1,0 +1,117 @@
+---
+
+{{ansible_managed|comment(decoration='#')}}
+
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: lnd
+  name: pod_lnd
+spec:
+  containers:
+  - name: lnd
+    image: {{pod_lnd_registry_address}}/lnd:{{pod_lnd_lnd_version}}
+    ports:
+    - name: lnd-network
+      containerPort: 9735
+      hostPort: 9735
+      protocol: TCP
+    - name: lnd-rest
+      containerPort: 8080
+      hostPort: 8080
+      protocol: TCP
+    - name: lnd-rpc
+      containerPort: 10009
+      hostPort: 10009
+      protocol: TCP
+    resources: {}
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - CAP_MKNOD
+        - CAP_NET_RAW
+        - CAP_AUDIT_WRITE
+      privileged: false
+      readOnlyRootFilesystem: {{pod_lnd_lnd_read_only_root_filesystem|lower}}
+      runAsGroup: 10000
+      runAsUser: 10000
+      seLinuxOptions:
+        type: spc_t
+    volumeMounts:
+    - name: lnd-data
+      mountPath: /var/local/lnd/data
+    workingDir: /
+    env:
+{% if not (pod_lnd_lnd_alias == "") %}
+    - name: ALIAS
+      value: "{{pod_lnd_lnd_alias}}"
+{% endif %}
+{% if not (pod_lnd_lnd_bitcoin_network == "") %}
+    - name: BITCOIN_NETWORK
+      value: "{{pod_lnd_lnd_bitcoin_network|lower}}"
+{% endif %}
+{% if not (pod_lnd_lnd_bitcoin_node == "") %}
+    - name: BITCOIN_NODE
+      value: "{{pod_lnd_lnd_bitcoin_node|lower}}"
+{% endif %}
+{% if not (pod_lnd_lnd_bitcoind_estimatemode == "") %}
+    - name: BITCOIND_ESTIMATEMODE
+      value: "{{pod_lnd_lnd_bitcoind_estimatemode|upper}}"
+{% endif %}
+{% if not (pod_lnd_lnd_bitcoind_rpchost == "") %}
+    - name: BITCOIND_RPCHOST
+      value: "{{pod_lnd_lnd_bitcoind_rpchost}}"
+{% endif %}
+{% if not (pod_lnd_lnd_bitcoind_rpcpass == "") %}
+    - name: BITCOIND_RPCPASS
+      value: "{{pod_lnd_lnd_bitcoind_rpcpass}}"
+{% endif %}
+{% if not (pod_lnd_lnd_bitcoind_rpcuser == "") %}
+    - name: BITCOIND_RPCUSER
+      value: "{{pod_lnd_lnd_bitcoind_rpcuser}}"
+{% endif %}
+{% if not (pod_lnd_lnd_bitcoind_zmqpubrawblock == "") %}
+    - name: BITCOIND_ZMQPUBRAWBLOCK
+      value: "{{pod_lnd_lnd_bitcoind_zmqpubrawblock}}"
+{% endif %}
+{% if not (pod_lnd_lnd_bitcoind_zmqpubrawtx == "") %}
+    - name: BITCOIND_ZMQPUBRAWTX
+      value: "{{pod_lnd_lnd_bitcoind_zmqpubrawtx}}"
+{% endif %}
+{% if not (pod_lnd_lnd_color == "") %}
+    - name: COLOR
+      value: "{{pod_lnd_lnd_color}}"
+{% endif %}
+{% if not (pod_lnd_lnd_externalip == "") %}
+    - name: EXTERNALIP
+      value: "{{pod_lnd_lnd_externalip}}"
+{% endif %}
+{% if not (pod_lnd_lnd_listen == "") %}
+    - name: LISTEN
+      value: "{{pod_lnd_lnd_listen}}"
+{% endif %}
+{% if not (pod_lnd_lnd_lnddir == "") %}
+    - name: LNDDIR
+      value: "{{pod_lnd_lnd_lnddir}}"
+{% endif %}
+{% if not (pod_lnd_lnd_restlisten == "") %}
+    - name: RESTLISTEN
+      value: "{{pod_lnd_lnd_restlisten}}"
+{% endif %}
+{% if not (pod_lnd_lnd_rpclisten == "") %}
+    - name: RPCLISTEN
+      value: "{{pod_lnd_lnd_rpclisten}}"
+{% endif %}
+
+  dnsConfig: {}
+  restartPolicy: Always
+
+  volumes:
+  - name: lnd-data
+    hostPath:
+      type: Directory
+      path: {{file_dst_lnd_data_dir}}
+
+status: {}

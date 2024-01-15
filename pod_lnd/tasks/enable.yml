@@ -1,0 +1,63 @@
+---
+
+- name: include variables
+  include_vars: "{{lookup('first_found', params)}}"
+  vars:
+    params:
+      files:
+        - "vars/{{ansible_distribution_major_version}}.yml"
+        - 'vars/main.yml'
+  tags:
+    - pod_lnd
+
+- name: create file pod_lnd.yaml
+  template:
+    src: "{{file_src_pod_lnd_yaml}}"
+    dest: "{{file_dst_pod_lnd_yaml}}"
+    mode: "{{file_mode_pod_lnd_yaml}}"
+    owner: "{{file_owner_pod_lnd_yaml}}"
+    group: "{{file_group_pod_lnd_yaml}}"
+  notify: restart service pod_lnd
+  tags:
+    - pod_lnd
+
+- name: create file pod_lnd.default
+  template:
+    src: "{{file_src_pod_lnd_default}}"
+    dest: "{{file_dst_pod_lnd_default}}"
+    mode: "{{file_mode_pod_lnd_default}}"
+    owner: "{{file_owner_pod_lnd_default}}"
+    group: "{{file_group_pod_lnd_default}}"
+  notify: restart service pod_lnd
+  tags:
+    - pod_lnd
+
+- name: create file pod_lnd-lnd.cfg
+  template:
+    src: "{{file_src_pod_lnd_lnd_cfg}}"
+    dest: "{{file_dst_pod_lnd_lnd_cfg}}"
+    mode: "{{file_mode_pod_lnd_lnd_cfg}}"
+    owner: "{{file_owner_pod_lnd_lnd_cfg}}"
+    group: "{{file_group_pod_lnd_lnd_cfg}}"
+  notify: reload service monit
+  when: (pod_lnd_monitor_monit_state == True)
+  tags:
+    - pod_lnd
+
+- name: remove file pod_lnd-lnd.cfg
+  file:
+    state: absent
+    path: "{{file_dst_pod_lnd_lnd_cfg}}"
+  notify: reload service monit
+  when: (pod_lnd_monitor_monit_state == False)
+  tags:
+    - pod_lnd
+
+- name: start service pod_lnd
+  service:
+    state: started
+    enabled: True
+    name: "{{service_name_pod_lnd}}"
+    daemon_reload: True
+  tags:
+    - pod_lnd

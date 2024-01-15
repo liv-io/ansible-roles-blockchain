@@ -1,0 +1,41 @@
+---
+
+pod_lnd_state: 'enable'
+
+pod_lnd_lnd_alias: ''
+pod_lnd_lnd_bitcoin_network: ''
+pod_lnd_lnd_bitcoin_node: ''
+# FIXME: --bitcoind.dir is broken, needs fixing upstream
+#pod_lnd_lnd_bitcoind_dir: ''
+pod_lnd_lnd_bitcoind_estimatemode: ''
+pod_lnd_lnd_bitcoind_rpchost: ''
+pod_lnd_lnd_bitcoind_rpcpass: ''
+pod_lnd_lnd_bitcoind_rpcuser: ''
+pod_lnd_lnd_bitcoind_zmqpubrawblock: ''
+pod_lnd_lnd_bitcoind_zmqpubrawtx: ''
+# FIXME: --btcd.dir is broken, needs fixing upstream
+#pod_lnd_lnd_btcd_dir: ''
+pod_lnd_lnd_color: ''
+# FIXME: --datadir is broken, needs fixing upstream
+#pod_lnd_lnd_datadir: ''
+pod_lnd_lnd_externalip: ''
+# FIXME: --letsencryptdir is broken, needs fixing upstream
+#pod_lnd_lnd_letsencryptdir: ''
+pod_lnd_lnd_listen: ''
+pod_lnd_lnd_lnddir: ''
+# FIXME: --logdir is broken, needs fixing upstream
+#pod_lnd_lnd_logdir: ''
+pod_lnd_lnd_read_only_root_filesystem: True
+pod_lnd_lnd_restlisten: ''
+pod_lnd_lnd_rpclisten: ''
+pod_lnd_lnd_version: '0.17.3-beta-1'
+
+pod_lnd_log_driver: 'journald'
+
+pod_lnd_monitor_monit_state: False
+
+pod_lnd_proxy: ''
+
+pod_lnd_registry_address: ''
+pod_lnd_registry_password: ''
+pod_lnd_registry_username: ''
