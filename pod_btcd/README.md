@@ -172,6 +172,15 @@ consult the following sections.
     Options    :
       Examples: '/mnt/log'
 
+`pod_btcd_btcd_read_only_root_filesystem`
+
+    Description: Define the readOnlyRootFilesystem option.
+    Required   : False
+    Value      : Predetermined
+    Type       : Boolean
+    Default    : True
+    Options    : True | False
+
 `pod_btcd_btcd_rpclisten`
 
     Description: --rpclisten
@@ -211,7 +220,7 @@ consult the following sections.
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : '0.24.0-5'
+    Default    : '0.24.0-6'
     Options    :
       Examples: ''
 
