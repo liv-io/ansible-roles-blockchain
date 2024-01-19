@@ -1,3 +1,0 @@
-{{ansible_managed|comment(decoration='#')}}
-
-OPTIONS="-daemon -pid='{{file_dst_bitcoind_data_dir}}/bitcoind.pid' -conf='{{file_dst_bitcoin_conf}}' -rpcallowip={{bitcoin_core_rpc_allow_ip}} -rpcbind={{bitcoin_core_rpc_bind}}"
