@@ -1,0 +1,30 @@
+{{ansible_managed|comment(decoration='#')}}
+
+[Unit]
+Description=Pod Core Lightning
+Documentation=man:podman-generate-systemd(1)
+Wants=network.target
+After=network-online.target
+
+[Service]
+Type=forking
+RemainAfterExit=yes
+User=pod_lightning
+Group=pod_lightning
+EnvironmentFile={{file_dst_pod_lightning_default}}
+Restart=always
+TimeoutStartSec=60
+TimeoutStopSec=60
+ExecStart=/usr/bin/podman play kube \
+{% if not (pod_lightning_registry_username == "") %}
+    --creds {{pod_lightning_registry_username}}:'{{pod_lightning_registry_password}}' \
+{% endif %}
+{% if (pod_lightning_log_driver == "journald") %}
+    --log-driver journald \
+{% endif %}
+    {{file_dst_pod_lightning_yaml}}
+ExecStop=/usr/bin/podman stop --time 15 pod_lightning
+ExecStopPost=/usr/bin/podman pod rm --force pod_lightning
+
+[Install]
+WantedBy=multi-user.target

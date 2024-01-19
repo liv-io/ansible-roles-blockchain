@@ -1,0 +1,109 @@
+---
+
+# subgid
+file_src_subgid: 'subgid'
+file_dst_subgid: '/etc/subgid'
+file_mode_subgid: '0644'
+file_owner_subgid: 'root'
+file_group_subgid: 'root'
+
+# subuid
+file_src_subuid: 'subuid'
+file_dst_subuid: '/etc/subuid'
+file_mode_subuid: '0644'
+file_owner_subuid: 'root'
+file_group_subuid: 'root'
+
+# pod_lightning_etc.dir
+file_dst_pod_lightning_etc_dir: '/etc/pod_lightning'
+file_mode_pod_lightning_etc_dir: '0750'
+file_owner_pod_lightning_etc_dir: 'root'
+file_group_pod_lightning_etc_dir: 'pod_lightning'
+
+# opt.dir
+file_dst_opt_dir: '/opt'
+file_mode_opt_dir: '0755'
+file_owner_opt_dir: 'root'
+file_group_opt_dir: 'root'
+
+# pod_lightning_opt.dir
+file_dst_pod_lightning_opt_dir: '/opt/pod_lightning'
+file_mode_pod_lightning_opt_dir: '0755'
+file_owner_pod_lightning_opt_dir: 'pod_lightning'
+file_group_pod_lightning_opt_dir: 'pod_lightning'
+
+# lightning_data.dir
+file_dst_lightning_data_dir: '/opt/pod_lightning/data'
+file_mode_lightning_data_dir: '0750'
+file_owner_lightning_data_dir: '29999'
+file_group_lightning_data_dir: '29999'
+
+# pod_lightning.default
+file_src_pod_lightning_default: 'pod_lightning.default'
+file_dst_pod_lightning_default: '/etc/default/pod_lightning'
+file_mode_pod_lightning_default: '0640'
+file_owner_pod_lightning_default: 'root'
+file_group_pod_lightning_default: 'pod_lightning'
+
+# pod_lightning.service
+file_src_pod_lightning_service: 'pod_lightning.service'
+file_dst_pod_lightning_service: '/lib/systemd/system/pod_lightning.service'
+file_mode_pod_lightning_service: '0644'
+file_owner_pod_lightning_service: 'root'
+file_group_pod_lightning_service: 'root'
+
+# pod_lightning.yaml
+file_src_pod_lightning_yaml: 'pod_lightning.yaml'
+file_dst_pod_lightning_yaml: '/etc/pod_lightning/pod_lightning.yaml'
+file_mode_pod_lightning_yaml: '0640'
+file_owner_pod_lightning_yaml: 'root'
+file_group_pod_lightning_yaml: 'pod_lightning'
+
+# monit.d
+file_dst_monit_d: '/etc/monit.d'
+file_mode_monit_d: '0750'
+file_owner_monit_d: 'root'
+file_group_monit_d: 'root'
+
+# pod_lightning-lightning.cfg
+file_src_pod_lightning_lightning_cfg: 'pod_lightning-lightning.cfg'
+file_dst_pod_lightning_lightning_cfg: '/etc/monit.d/pod_lightning-lightning.cfg'
+file_mode_pod_lightning_lightning_cfg: '0640'
+file_owner_pod_lightning_lightning_cfg: 'root'
+file_group_pod_lightning_lightning_cfg: 'root'
+
+# check service monit
+command_cmd_check_service_monit: 'systemctl cat monit.service > /dev/null 2>&1'
+
+# check service pod_lightning
+command_cmd_check_service_pod_lightning: 'systemctl cat pod_lightning.service > /dev/null 2>&1'
+
+# loginctl enable_linger
+command_cmd_loginctl_enable_linger: 'loginctl enable-linger pod_lightning'
+
+# pod_lightning
+group_name_pod_lightning: 'pod_lightning'
+group_gid_pod_lightning: '10000'
+group_system_pod_lightning: False
+
+# pod_lightning
+user_name_pod_lightning: 'pod_lightning'
+user_comment_pod_lightning: 'Pod lightning'
+user_uid_pod_lightning: '10000'
+user_group_pod_lightning: 'pod_lightning'
+user_groups_pod_lightning: ['systemd-journal']
+user_append_pod_lightning: True
+user_home_create_pod_lightning: True
+user_home_move_pod_lightning: False
+user_home_remove_pod_lightning: True
+user_home_force_pod_lightning: False
+user_password_pod_lightning: '!'
+user_password_update_pod_lightning: 'always'
+user_shell_pod_lightning: '/bin/bash'
+user_system_pod_lightning: False
+
+# monit
+service_name_monit: 'monit'
+
+# pod_lightning
+service_name_pod_lightning: 'pod_lightning'

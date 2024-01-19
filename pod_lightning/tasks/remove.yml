@@ -1,0 +1,75 @@
+---
+
+- name: include variables
+  include_vars: "{{lookup('first_found', params)}}"
+  vars:
+    params:
+      files:
+        - "vars/{{ansible_distribution_major_version}}.yml"
+        - 'vars/main.yml'
+  tags:
+    - pod_lightning
+
+- name: check service pod_lightning
+  shell: "{{command_cmd_check_service_pod_lightning}}"
+  register: register_check_service_pod_lightning
+  changed_when: (register_check_service_pod_lightning.rc == 0)
+  failed_when: (register_check_service_pod_lightning.rc > 1)
+  check_mode: False
+  tags:
+    - pod_lightning
+
+- name: stop service pod_lightning
+  service:
+    state: stopped
+    enabled: False
+    name: "{{service_name_pod_lightning}}"
+    daemon_reload: True
+  when: (register_check_service_pod_lightning.rc == 0)
+  tags:
+    - pod_lightning
+
+- name: remove user pod_lightning
+  user:
+    state: absent
+    name: "{{user_name_pod_lightning}}"
+    remove: "{{user_home_remove_pod_lightning}}"
+    force: "{{user_home_force_pod_lightning}}"
+  tags:
+    - pod_lightning
+
+- name: remove group pod_lightning
+  group:
+    state: absent
+    name: "{{group_name_pod_lightning}}"
+  tags:
+    - pod_lightning
+
+- name: remove file pod_lightning-lightning.cfg
+  file:
+    state: absent
+    path: "{{file_dst_pod_lightning_lightning_cfg}}"
+  notify: reload service monit
+  tags:
+    - pod_lightning
+
+- name: remove file pod_lightning_etc.dir
+  file:
+    state: absent
+    path: "{{file_dst_pod_lightning_etc_dir}}"
+  tags:
+    - pod_lightning
+
+- name: remove file pod_lightning.default
+  file:
+    state: absent
+    path: "{{file_dst_pod_lightning_default}}"
+  tags:
+    - pod_lightning
+
+- name: remove file pod_lightning.service
+  file:
+    state: absent
+    path: "{{file_dst_pod_lightning_service}}"
+  tags:
+    - pod_lightning

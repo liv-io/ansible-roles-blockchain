@@ -1,0 +1,34 @@
+---
+
+pod_lightning_state: 'enable'
+
+pod_lightning_lightning_addr: ''
+pod_lightning_lightning_alias: ''
+pod_lightning_lightning_announce_addr: ''
+pod_lightning_lightning_announce_addr_discovered: ''
+pod_lightning_lightning_announce_addr_discovered_port: ''
+pod_lightning_lightning_autolisten: ''
+pod_lightning_lightning_bind_addr: ''
+pod_lightning_lightning_bitcoin_cli: ''
+pod_lightning_lightning_bitcoin_datadir: ''
+pod_lightning_lightning_bitcoin_rpcconnect: ''
+pod_lightning_lightning_bitcoin_rpcpassword: ''
+pod_lightning_lightning_bitcoin_rpcport: ''
+pod_lightning_lightning_bitcoin_rpcuser: ''
+pod_lightning_lightning_lightning_dir: ''
+pod_lightning_lightning_log_level: ''
+pod_lightning_lightning_log_timestamps: ''
+pod_lightning_lightning_network: ''
+pod_lightning_lightning_read_only_root_filesystem: True
+pod_lightning_lightning_rgb: ''
+pod_lightning_lightning_version: '23.11.2-1'
+
+pod_lightning_log_driver: 'journald'
+
+pod_lightning_monitor_monit_state: False
+
+pod_lightning_proxy: ''
+
+pod_lightning_registry_address: ''
+pod_lightning_registry_password: ''
+pod_lightning_registry_username: ''
