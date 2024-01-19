@@ -1,4 +1,0 @@
----
-
-dependencies:
-  - {role: bitcoin_core, vars: {bitcoin_core_state: disable}}

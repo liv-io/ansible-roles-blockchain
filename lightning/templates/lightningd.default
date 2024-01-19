@@ -1,3 +1,0 @@
-{{ansible_managed|comment(decoration='#')}}
-
-OPTIONS="--conf={{file_dst_lightning_conf}} --pid-file=/data/lightningd/lightningd-bitcoin.pid"
