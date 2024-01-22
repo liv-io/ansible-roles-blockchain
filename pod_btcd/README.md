@@ -108,28 +108,6 @@ consult the following sections.
       Examples: '10.1.1.10:8333' | 'btc.example.com:8333 btc.example.org:8333'
       None    : ''
 
-`pod_btcd_btcd_configfile`
-
-    Warning    : --configfile= is broken, needs fixing upstream
-    Description: --configfile
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : '/var/local/btcd/config/btcd.conf'
-    Options    :
-      Examples: '/mnt/config/btcd.conf'
-
-`pod_btcd_btcd_datadir`
-
-    Warning    : --datadir= is broken, needs fixing upstream
-    Description: --datadir
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: '/mnt/db'
-
 `pod_btcd_btcd_debuglevel`
 
     Description: --debuglevel
@@ -160,17 +138,6 @@ consult the following sections.
     Default    : '0.0.0.0:8333'
     Options    :
       Examples: '127.0.0.1:8333' | '1.2.3.4:8333 5.6.7.8:8333'
-
-`pod_btcd_btcd_logdir`
-
-    Warning    : --logdir= is broken, needs fixing upstream
-    Description: --logdir
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : '/var/local/btcd/log'
-    Options    :
-      Examples: '/mnt/log'
 
 `pod_btcd_btcd_read_only_root_filesystem`
 
@@ -220,7 +187,7 @@ consult the following sections.
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : '0.24.0-6'
+    Default    : '0.24.0-8'
     Options    :
       Examples: ''
 

@@ -10,6 +10,13 @@ The headers are:
 - enhancements
 - features
 
+## 0.1.2 (2024-01-22)
+
+### Enhancements
+
+- Update pod_btcd_btcd_version from 0.24.0-6 to 0.24.0-8
+- Remove parameters `pod_btcd_btcd_configfile`, `pod_btcd_btcd_datadir`, `pod_btcd_btcd_logdir`
+
 ## 0.1.1 (2024-01-15)
 
 ### Enhancements

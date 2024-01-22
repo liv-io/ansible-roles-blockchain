@@ -3,20 +3,14 @@
 pod_btcd_state: 'enable'
 
 pod_btcd_btcd_addpeer: ''
-# FIXME: --configfile is broken, needs fixing upstream
-#pod_btcd_btcd_configfile: ''
-# FIXME: --datadir= is broken, needs fixing upstream
-#pod_btcd_btcd_datadir: ''
 pod_btcd_btcd_debuglevel: ''
 pod_btcd_btcd_externalip: ''
 pod_btcd_btcd_listen: '0.0.0.0:8333'
-# FIXME: --logdir= is broken, needs fixing upstream
-#pod_btcd_btcd_logdir: ''
 pod_btcd_btcd_read_only_root_filesystem: True
 pod_btcd_btcd_rpclisten: '127.0.0.1:8334'
 pod_btcd_btcd_rpcpass: ''
 pod_btcd_btcd_rpcuser: ''
-pod_btcd_btcd_version: '0.24.0-6'
+pod_btcd_btcd_version: '0.24.0-7'
 
 pod_btcd_log_driver: 'journald'
 
