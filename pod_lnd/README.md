@@ -114,16 +114,6 @@ consult the following sections.
       Examples: 'lnd-node' | 'lnd-node-alias'
       None    : ''
 
-`pod_lnd_lnd_bitcoind_dir`
-
-    Description: --bitcoind.dir
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: '/mnt/bitcoind'
-
 `pod_lnd_lnd_bitcoind_estimatemode`
 
     Description: --bitcoind.estimatemode
@@ -205,16 +195,6 @@ consult the following sections.
     Default    : ''
     Options    : 'btcd' | 'bitcoind'
 
-`pod_lnd_lnd_btcd_dir`
-
-    Description: --btcd.dir
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: '/mnt/btcd'
-
 `pod_lnd_lnd_color`
 
     Description: --color
@@ -224,16 +204,6 @@ consult the following sections.
     Default    : ''
     Options    :
       Examples: '#f2a900' | 'cc9900'
-
-`pod_lnd_lnd_datadir`
-
-    Description: --datadir
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: '/mnt/data'
 
 `pod_lnd_lnd_externalip`
 
@@ -245,16 +215,6 @@ consult the following sections.
     Options    :
       Examples: '1.2.3.4' | '5.6.7.8'
       None    : ''
-
-`pod_lnd_lnd_letsencryptdir`
-
-    Description: --letsencryptdir
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: '/mnt/letsencrypt'
 
 `pod_lnd_lnd_listen`
 
@@ -275,16 +235,6 @@ consult the following sections.
     Default    : ''
     Options    :
       Examples: '/mnt/lnd'
-
-`pod_lnd_lnd_logdir`
-
-    Description: --logdir
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: '/mnt/log'
 
 `pod_lnd_lnd_read_only_root_filesystem`
 

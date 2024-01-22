@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 0.1.1 (2024-01-22)
+
+### Enhancements
+
+- Remove parameters `pod_lnd_lnd_bitcoind_dir`, `pod_lnd_lnd_btcd_dir`, `pod_lnd_lnd_datadir`, `pod_lnd_lnd_letsencryptdir`, `pod_lnd_lnd_logdir`
+
 ## 0.1.0 (2024-01-15)
 
 ### Features
