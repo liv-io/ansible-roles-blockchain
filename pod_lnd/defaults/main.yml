@@ -18,7 +18,7 @@ pod_lnd_lnd_lnddir: ''
 pod_lnd_lnd_read_only_root_filesystem: True
 pod_lnd_lnd_restlisten: ''
 pod_lnd_lnd_rpclisten: ''
-pod_lnd_lnd_version: '0.17.3-beta-2'
+pod_lnd_lnd_version: '0.17.3-beta-3'
 
 pod_lnd_log_driver: 'journald'
 
