@@ -187,7 +187,7 @@ consult the following sections.
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : '0.24.0-8'
+    Default    : '0.24.0-9'
     Options    :
       Examples: ''
 
