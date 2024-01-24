@@ -247,7 +247,7 @@ consult the following sections.
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : '26.0-2'
+    Default    : '26.0-3'
     Options    :
       Examples: ''
 
