@@ -53,6 +53,27 @@
   tags:
     - pod_bitcoin_core
 
+- name: create file pod_bitcoin_core.nft
+  template:
+    src: "{{file_src_pod_bitcoin_core_nft}}"
+    dest: "{{file_dst_pod_bitcoin_core_nft}}"
+    mode: "{{file_mode_pod_bitcoin_core_nft}}"
+    owner: "{{file_owner_pod_bitcoin_core_nft}}"
+    group: "{{file_group_pod_bitcoin_core_nft}}"
+  notify: reload service nftables
+  when: (pod_bitcoin_core_nftables_state == True)
+  tags:
+    - pod_bitcoin_core
+
+- name: remove file pod_bitcoin_core.nft
+  file:
+    state: absent
+    path: "{{file_dst_pod_bitcoin_core_nft}}"
+  notify: reload service nftables
+  when: (pod_bitcoin_core_nftables_state == False)
+  tags:
+    - pod_bitcoin_core
+
 - name: start service pod_bitcoin_core
   service:
     state: started
