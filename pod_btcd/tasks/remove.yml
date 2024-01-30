@@ -45,6 +45,14 @@
   tags:
     - pod_btcd
 
+- name: remove file pod_btcd.nft
+  file:
+    state: absent
+    path: "{{file_dst_pod_btcd_nft}}"
+  notify: reload service nftables
+  tags:
+    - pod_btcd
+
 - name: remove file pod_btcd-btcd.cfg
   file:
     state: absent

@@ -53,6 +53,27 @@
   tags:
     - pod_btcd
 
+- name: create file pod_btcd.nft
+  template:
+    src: "{{file_src_pod_btcd_nft}}"
+    dest: "{{file_dst_pod_btcd_nft}}"
+    mode: "{{file_mode_pod_btcd_nft}}"
+    owner: "{{file_owner_pod_btcd_nft}}"
+    group: "{{file_group_pod_btcd_nft}}"
+  notify: reload service nftables
+  when: (pod_btcd_nftables_state == True)
+  tags:
+    - pod_btcd
+
+- name: remove file pod_btcd.nft
+  file:
+    state: absent
+    path: "{{file_dst_pod_btcd_nft}}"
+  notify: reload service nftables
+  when: (pod_btcd_nftables_state == False)
+  tags:
+    - pod_btcd
+
 - name: start service pod_btcd
   service:
     state: started
