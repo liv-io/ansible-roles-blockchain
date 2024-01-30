@@ -297,6 +297,34 @@ consult the following sections.
     Default    : False
     Options    : True | False
 
+`pod_lnd_nftables_filter_rule`
+
+    Description: Define the 'pod_lnd_nftables_filter_rule' option.
+    Required   : False
+    Value      : Arbitrary
+    Type       : String
+    Default    : |
+      add rule ip filter INPUT ct state new tcp dport 9735 counter accept comment "lnd from any"
+      add rule ip6 filter INPUT ct state new tcp dport 9735 counter accept comment "lnd from any"
+      add rule ip filter OUTPUT ip daddr { 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 } ct state new tcp dport { 5557, 5558, 8332 } counter accept comment "json-rpc to internal private addresses"
+      add rule ip6 filter OUTPUT ip6 daddr fc00::/7 ct state new tcp dport { 5557, 5558, 8332 } counter accept comment "json-rpc to unique local addresses"
+      add rule ip filter OUTPUT ct state new tcp dport 9735 counter accept comment "lnd to any"
+      add rule ip6 filter OUTPUT ct state new tcp dport 9735 counter accept comment "lnd to any"
+    Options    :
+      Examples: |
+        add rule ip filter INPUT ct state new tcp dport 9735 counter accept comment "lnd from any"
+        add rule ip filter OUTPUT ip daddr 10.0.0.0/8 ct state new tcp dport { 5557, 5558, 8332 } counter accept comment "json-rpc to internal-networks"
+        add rule ip filter OUTPUT ct state new tcp dport 9735 counter accept comment "lnd to any"
+
+`pod_lnd_nftables_state`
+
+    Description: Control the 'pod_lnd_nftables_state' option.
+    Required   : False
+    Value      : Predetermined
+    Type       : Boolean
+    Default    : False
+    Options    : True | False
+
 `pod_lnd_proxy`
 
     Description: Define the 'pod_lnd_proxy' option.

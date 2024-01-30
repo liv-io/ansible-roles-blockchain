@@ -53,6 +53,27 @@
   tags:
     - pod_lnd
 
+- name: create file pod_lnd.nft
+  template:
+    src: "{{file_src_pod_lnd_nft}}"
+    dest: "{{file_dst_pod_lnd_nft}}"
+    mode: "{{file_mode_pod_lnd_nft}}"
+    owner: "{{file_owner_pod_lnd_nft}}"
+    group: "{{file_group_pod_lnd_nft}}"
+  notify: reload service nftables
+  when: (pod_lnd_nftables_state == True)
+  tags:
+    - pod_lnd
+
+- name: remove file pod_lnd.nft
+  file:
+    state: absent
+    path: "{{file_dst_pod_lnd_nft}}"
+  notify: reload service nftables
+  when: (pod_lnd_nftables_state == False)
+  tags:
+    - pod_lnd
+
 - name: start service pod_lnd
   service:
     state: started
