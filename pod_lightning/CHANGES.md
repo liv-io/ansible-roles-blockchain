@@ -10,6 +10,13 @@ The headers are:
 - enhancements
 - features
 
+## 0.2.0 (2024-01-30)
+
+### Features
+
+- Add parameter `pod_lightning_nftables_filter_rule`
+- Add parameter `pod_lightning_nftables_state`
+
 ## 0.1.1 (2024-01-24)
 
 ### Enhancements

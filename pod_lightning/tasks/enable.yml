@@ -53,6 +53,27 @@
   tags:
     - pod_lightning
 
+- name: create file pod_lightning.nft
+  template:
+    src: "{{file_src_pod_lightning_nft}}"
+    dest: "{{file_dst_pod_lightning_nft}}"
+    mode: "{{file_mode_pod_lightning_nft}}"
+    owner: "{{file_owner_pod_lightning_nft}}"
+    group: "{{file_group_pod_lightning_nft}}"
+  notify: reload service nftables
+  when: (pod_lightning_nftables_state == True)
+  tags:
+    - pod_lightning
+
+- name: remove file pod_lightning.nft
+  file:
+    state: absent
+    path: "{{file_dst_pod_lightning_nft}}"
+  notify: reload service nftables
+  when: (pod_lightning_nftables_state == False)
+  tags:
+    - pod_lightning
+
 - name: start service pod_lightning
   service:
     state: started

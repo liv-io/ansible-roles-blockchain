@@ -45,6 +45,14 @@
   tags:
     - pod_lightning
 
+- name: remove file pod_lightning.nft
+  file:
+    state: absent
+    path: "{{file_dst_pod_lightning_nft}}"
+  notify: reload service nftables
+  tags:
+    - pod_lightning
+
 - name: remove file pod_lightning-lightning.cfg
   file:
     state: absent
