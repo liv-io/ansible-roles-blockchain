@@ -10,7 +10,7 @@ pod_btcd_btcd_read_only_root_filesystem: True
 pod_btcd_btcd_rpclisten: '127.0.0.1:8334'
 pod_btcd_btcd_rpcpass: ''
 pod_btcd_btcd_rpcuser: ''
-pod_btcd_btcd_version: '0.24.0-9'
+pod_btcd_btcd_version: '0.24.0-10'
 
 pod_btcd_log_driver: 'journald'
 

@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 0.2.1 (2024-01-31)
+
+### Bugs
+
+- Update pod_btcd_btcd_version from 0.24.0-9 to 0.24.0-10
+
 ## 0.2.0 (2024-01-30)
 
 ### Features
