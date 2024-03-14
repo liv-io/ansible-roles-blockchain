@@ -104,12 +104,6 @@ file_group_blockbook_nft: 'root'
 # rocksdb_namespace.h
 file_dst_rocksdb_namespace_h: '/app/rocksdb/include/rocksdb/rocksdb_namespace.h'
 
-# check service monit
-command_cmd_check_service_monit: 'systemctl cat monit.service > /dev/null 2>&1'
-
-# check service nftables
-command_cmd_check_service_nftables: 'systemctl cat nftables.service > /dev/null 2>&1'
-
 # blockbook
 group_name_blockbook: 'blockbook'
 group_system_blockbook: True
@@ -127,11 +121,17 @@ user_password_update_blockbook: 'always'
 user_shell_blockbook: '/usr/bin/bash'
 user_system_blockbook: True
 
+# reload monit
+command_cmd_reload_monit: 'systemctl is-active monit.service > /dev/null 2>&1 && systemctl reload monit || true'
+
+# validate monit
+command_cmd_validate_monit: 'systemctl is-active monit.service > /dev/null 2>&1 && monit -t || true'
+
+# reload nftables
+command_cmd_reload_nftables: 'systemctl is-active nftables.service > /dev/null 2>&1 &&  nft --file /etc/nftables.conf || true'
+
+# validate nftables
+command_cmd_validate_nftables: 'systemctl is-active nftables.service > /dev/null 2>&1 && nft --check --file /etc/nftables.conf || true'
+
 # blockbook
 service_name_blockbook: 'blockbook'
-
-# monit
-service_name_monit: 'monit'
-
-# nftables
-service_name_nftables: 'nftables'

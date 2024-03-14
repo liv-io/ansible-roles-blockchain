@@ -30,7 +30,7 @@
   file:
     state: absent
     path: "{{file_dst_blockbook_nft}}"
-  notify: reload service nftables
+  notify: reload nftables
   tags:
     - blockbook
 
@@ -38,7 +38,7 @@
   file:
     state: absent
     path: "{{file_dst_blockbook_cfg}}"
-  notify: reload service monit
+  notify: reload monit
   tags:
     - blockbook
 

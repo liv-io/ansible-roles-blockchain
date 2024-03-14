@@ -85,18 +85,6 @@ file_mode_pod_bitcoin_core_nft: '0640'
 file_owner_pod_bitcoin_core_nft: 'root'
 file_group_pod_bitcoin_core_nft: 'root'
 
-# check service monit
-command_cmd_check_service_monit: 'systemctl cat monit.service > /dev/null 2>&1'
-
-# check service nftables
-command_cmd_check_service_nftables: 'systemctl cat nftables.service > /dev/null 2>&1'
-
-# check service pod_bitcoin_core
-command_cmd_check_service_pod_bitcoin_core: 'systemctl cat pod_bitcoin_core.service > /dev/null 2>&1'
-
-# loginctl enable_linger
-command_cmd_loginctl_enable_linger: 'loginctl enable-linger pod_bitcoin_core'
-
 # pod_bitcoin_core
 group_name_pod_bitcoin_core: 'pod_bitcoin_core'
 group_gid_pod_bitcoin_core: '10000'
@@ -118,11 +106,23 @@ user_password_update_pod_bitcoin_core: 'always'
 user_shell_pod_bitcoin_core: '/bin/bash'
 user_system_pod_bitcoin_core: False
 
-# monit
-service_name_monit: 'monit'
+# check service pod_bitcoin_core
+command_cmd_check_service_pod_bitcoin_core: 'systemctl cat pod_bitcoin_core.service > /dev/null 2>&1'
 
-# nftables
-service_name_nftables: 'nftables'
+# loginctl enable_linger
+command_cmd_loginctl_enable_linger: 'loginctl enable-linger pod_bitcoin_core'
+
+# reload monit
+command_cmd_reload_monit: 'systemctl is-active monit.service > /dev/null 2>&1 && systemctl reload monit || true'
+
+# validate monit
+command_cmd_validate_monit: 'systemctl is-active monit.service > /dev/null 2>&1 && monit -t || true'
+
+# reload nftables
+command_cmd_reload_nftables: 'systemctl is-active nftables.service > /dev/null 2>&1 &&  nft --file /etc/nftables.conf || true'
+
+# validate nftables
+command_cmd_validate_nftables: 'systemctl is-active nftables.service > /dev/null 2>&1 && nft --check --file /etc/nftables.conf || true'
 
 # pod_bitcoin_core
 service_name_pod_bitcoin_core: 'pod_bitcoin_core'

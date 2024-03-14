@@ -39,7 +39,9 @@
     mode: "{{file_mode_pod_btcd_btcd_cfg}}"
     owner: "{{file_owner_pod_btcd_btcd_cfg}}"
     group: "{{file_group_pod_btcd_btcd_cfg}}"
-  notify: reload service monit
+  notify:
+    - validate monit
+    - reload monit
   when: (pod_btcd_monitor_monit_state == True)
   tags:
     - pod_btcd
@@ -48,7 +50,7 @@
   file:
     state: absent
     path: "{{file_dst_pod_btcd_btcd_cfg}}"
-  notify: reload service monit
+  notify: reload monit
   when: (pod_btcd_monitor_monit_state == False)
   tags:
     - pod_btcd
@@ -60,7 +62,9 @@
     mode: "{{file_mode_pod_btcd_nft}}"
     owner: "{{file_owner_pod_btcd_nft}}"
     group: "{{file_group_pod_btcd_nft}}"
-  notify: reload service nftables
+  notify:
+    - validate nftables
+    - reload nftables
   when: (pod_btcd_nftables_state == True)
   tags:
     - pod_btcd
@@ -69,7 +73,7 @@
   file:
     state: absent
     path: "{{file_dst_pod_btcd_nft}}"
-  notify: reload service nftables
+  notify: reload nftables
   when: (pod_btcd_nftables_state == False)
   tags:
     - pod_btcd

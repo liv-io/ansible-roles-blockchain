@@ -39,7 +39,9 @@
     mode: "{{file_mode_pod_lnd_lnd_cfg}}"
     owner: "{{file_owner_pod_lnd_lnd_cfg}}"
     group: "{{file_group_pod_lnd_lnd_cfg}}"
-  notify: reload service monit
+  notify:
+    - validate monit
+    - reload monit
   when: (pod_lnd_monitor_monit_state == True)
   tags:
     - pod_lnd
@@ -48,7 +50,7 @@
   file:
     state: absent
     path: "{{file_dst_pod_lnd_lnd_cfg}}"
-  notify: reload service monit
+  notify: reload monit
   when: (pod_lnd_monitor_monit_state == False)
   tags:
     - pod_lnd
@@ -60,7 +62,9 @@
     mode: "{{file_mode_pod_lnd_nft}}"
     owner: "{{file_owner_pod_lnd_nft}}"
     group: "{{file_group_pod_lnd_nft}}"
-  notify: reload service nftables
+  notify:
+    - validate nftables
+    - reload nftables
   when: (pod_lnd_nftables_state == True)
   tags:
     - pod_lnd
@@ -69,7 +73,7 @@
   file:
     state: absent
     path: "{{file_dst_pod_lnd_nft}}"
-  notify: reload service nftables
+  notify: reload nftables
   when: (pod_lnd_nftables_state == False)
   tags:
     - pod_lnd

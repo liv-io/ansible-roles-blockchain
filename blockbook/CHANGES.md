@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 0.3.6-11 (2024-03-14)
+
+### Bugs
+
+- Fix `monit` and `nftables` check task
+
 ## 0.3.6-10 (2023-11-20)
 
 ### Enhancements
