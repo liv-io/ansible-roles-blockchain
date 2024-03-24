@@ -78,6 +78,10 @@ spec:
     - name: EXTERNALIP
       value: "{{pod_bitcoin_core_bitcoin_core_externalip}}"
 {% endif %}
+{% if not (pod_bitcoin_core_bitcoin_core_maxuploadtarget == "") %}
+    - name: MAXUPLOADTARGET
+      value: "{{pod_bitcoin_core_bitcoin_core_maxuploadtarget}}"
+{% endif %}
 {% if not (pod_bitcoin_core_bitcoin_core_onlynet == "") %}
     - name: ONLYNET
       value: "{{pod_bitcoin_core_bitcoin_core_onlynet}}"

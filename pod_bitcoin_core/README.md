@@ -159,6 +159,17 @@ consult the following sections.
       Examples: '1.2.3.4' | '5.6.7.8'
       None    : ''
 
+`pod_bitcoin_core_bitcoin_core_maxuploadtarget`
+
+    Description: -maxuploadtarget (MiB per day)
+    Required   : False
+    Value      : Arbitrary
+    Type       : String
+    Default    : ''
+    Options    :
+      Examples: '25787' | '103148' | '515738' | '1031475'
+      None    : ''
+
 `pod_bitcoin_core_bitcoin_core_onlynet`
 
     Description: -onlynet
@@ -247,7 +258,7 @@ consult the following sections.
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : '26.0-4'
+    Default    : '26.0-5'
     Options    :
       Examples: ''
 

@@ -10,6 +10,13 @@ The headers are:
 - enhancements
 - features
 
+## 0.3.0 (2024-03-24)
+
+### Features
+
+- Add parameter `pod_bitcoin_core_bitcoin_core_maxuploadtarget`
+- Update pod_bitcoin_core_bitcoin_core_version from 26.0-4 to 26.0-5
+
 ## 0.2.4 (2024-03-22)
 
 ### Bugs
