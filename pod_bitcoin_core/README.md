@@ -258,7 +258,7 @@ consult the following sections.
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : '26.1-1'
+    Default    : '27.0-1'
     Options    :
       Examples: ''
 

@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 0.5.0 (2024-04-21)
+
+### Features
+
+- Update pod_bitcoin_core_bitcoin_core_version from 26.1-1 to 27.0-1
+
 ## 0.4.0 (2024-04-02)
 
 ### Enhancements
