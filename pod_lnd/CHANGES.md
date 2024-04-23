@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 0.2.5 (2024-04-23)
+
+### Bugs
+
+- Update pod_lnd_lnd_version to 0.17.5-beta-1
+
 ## 0.2.4 (2024-03-22)
 
 ### Bugs
@@ -26,7 +32,7 @@ The headers are:
 
 ### Bugs
 
-- Update pod_lnd_lnd_version from 0.17.3-beta-3 to 0.17.4-beta-1
+- Update pod_lnd_lnd_version to 0.17.4-beta-1
 
 ## 0.2.1 (2024-02-01)
 
@@ -45,13 +51,13 @@ The headers are:
 
 ### Enhancements
 
-- Update pod_lnd_lnd_version from 0.17.3-beta-2 to 0.17.3-beta-3
+- Update pod_lnd_lnd_version to 0.17.3-beta-3
 
 ## 0.1.2 (2024-01-22)
 
 ### Changes
 
-- Update pod_lnd_lnd_version from 0.17.3-beta-1 to 0.17.3-beta-2
+- Update pod_lnd_lnd_version to 0.17.3-beta-2
 
 ## 0.1.1 (2024-01-22)
 
