@@ -9,8 +9,8 @@ After=network-online.target
 [Service]
 Type=forking
 RemainAfterExit=yes
-User=pod_btcd
-Group=pod_btcd
+User=root
+Group=root
 EnvironmentFile={{file_dst_pod_btcd_default}}
 Restart=always
 TimeoutStartSec=60

@@ -1,24 +1,10 @@
 ---
 
-# subgid
-file_src_subgid: 'subgid'
-file_dst_subgid: '/etc/subgid'
-file_mode_subgid: '0644'
-file_owner_subgid: 'root'
-file_group_subgid: 'root'
-
-# subuid
-file_src_subuid: 'subuid'
-file_dst_subuid: '/etc/subuid'
-file_mode_subuid: '0644'
-file_owner_subuid: 'root'
-file_group_subuid: 'root'
-
 # pod_btcd_etc.dir
 file_dst_pod_btcd_etc_dir: '/etc/pod_btcd'
 file_mode_pod_btcd_etc_dir: '0750'
 file_owner_pod_btcd_etc_dir: 'root'
-file_group_pod_btcd_etc_dir: 'pod_btcd'
+file_group_pod_btcd_etc_dir: 'root'
 
 # opt.dir
 file_dst_opt_dir: '/opt'
@@ -29,21 +15,21 @@ file_group_opt_dir: 'root'
 # pod_btcd_opt.dir
 file_dst_pod_btcd_opt_dir: '/opt/pod_btcd'
 file_mode_pod_btcd_opt_dir: '0755'
-file_owner_pod_btcd_opt_dir: 'pod_btcd'
-file_group_pod_btcd_opt_dir: 'pod_btcd'
+file_owner_pod_btcd_opt_dir: 'root'
+file_group_pod_btcd_opt_dir: 'root'
 
 # btcd_db.dir
 file_dst_btcd_db_dir: '/opt/pod_btcd/db'
 file_mode_btcd_db_dir: '0750'
-file_owner_btcd_db_dir: '29999'
-file_group_btcd_db_dir: '29999'
+file_owner_btcd_db_dir: '10000'
+file_group_btcd_db_dir: '10000'
 
 # pod_btcd.default
 file_src_pod_btcd_default: 'pod_btcd.default'
 file_dst_pod_btcd_default: '/etc/default/pod_btcd'
 file_mode_pod_btcd_default: '0640'
 file_owner_pod_btcd_default: 'root'
-file_group_pod_btcd_default: 'pod_btcd'
+file_group_pod_btcd_default: 'root'
 
 # pod_btcd.service
 file_src_pod_btcd_service: 'pod_btcd.service'
@@ -57,7 +43,7 @@ file_src_pod_btcd_yaml: 'pod_btcd.yaml'
 file_dst_pod_btcd_yaml: '/etc/pod_btcd/pod_btcd.yaml'
 file_mode_pod_btcd_yaml: '0640'
 file_owner_pod_btcd_yaml: 'root'
-file_group_pod_btcd_yaml: 'pod_btcd'
+file_group_pod_btcd_yaml: 'root'
 
 # monit.d
 file_dst_monit_d: '/etc/monit.d'
@@ -85,32 +71,8 @@ file_mode_pod_btcd_nft: '0640'
 file_owner_pod_btcd_nft: 'root'
 file_group_pod_btcd_nft: 'root'
 
-# pod_btcd
-group_name_pod_btcd: 'pod_btcd'
-group_gid_pod_btcd: '10000'
-group_system_pod_btcd: False
-
-# pod_btcd
-user_name_pod_btcd: 'pod_btcd'
-user_comment_pod_btcd: 'Pod btcd'
-user_uid_pod_btcd: '10000'
-user_group_pod_btcd: 'pod_btcd'
-user_groups_pod_btcd: ['systemd-journal']
-user_append_pod_btcd: True
-user_home_create_pod_btcd: True
-user_home_move_pod_btcd: False
-user_home_remove_pod_btcd: True
-user_home_force_pod_btcd: False
-user_password_pod_btcd: '!'
-user_password_update_pod_btcd: 'always'
-user_shell_pod_btcd: '/bin/bash'
-user_system_pod_btcd: False
-
 # check service pod_btcd
 command_cmd_check_service_pod_btcd: 'systemctl cat pod_btcd.service > /dev/null 2>&1'
-
-# loginctl enable_linger
-command_cmd_loginctl_enable_linger: 'loginctl enable-linger pod_btcd'
 
 # reload monit
 command_cmd_reload_monit: 'systemctl is-active monit.service > /dev/null 2>&1 && systemctl reload monit || true'

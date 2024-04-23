@@ -29,22 +29,6 @@
   tags:
     - pod_btcd
 
-- name: remove user pod_btcd
-  user:
-    state: absent
-    name: "{{user_name_pod_btcd}}"
-    remove: "{{user_home_remove_pod_btcd}}"
-    force: "{{user_home_force_pod_btcd}}"
-  tags:
-    - pod_btcd
-
-- name: remove group pod_btcd
-  group:
-    state: absent
-    name: "{{group_name_pod_btcd}}"
-  tags:
-    - pod_btcd
-
 - name: remove file pod_btcd.nft
   file:
     state: absent
