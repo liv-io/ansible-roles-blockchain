@@ -9,8 +9,8 @@ After=network-online.target
 [Service]
 Type=forking
 RemainAfterExit=yes
-User=pod_lightning
-Group=pod_lightning
+User=root
+Group=root
 EnvironmentFile={{file_dst_pod_lightning_default}}
 Restart=always
 TimeoutStartSec=60

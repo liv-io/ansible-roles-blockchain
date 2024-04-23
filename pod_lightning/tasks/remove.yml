@@ -29,22 +29,6 @@
   tags:
     - pod_lightning
 
-- name: remove user pod_lightning
-  user:
-    state: absent
-    name: "{{user_name_pod_lightning}}"
-    remove: "{{user_home_remove_pod_lightning}}"
-    force: "{{user_home_force_pod_lightning}}"
-  tags:
-    - pod_lightning
-
-- name: remove group pod_lightning
-  group:
-    state: absent
-    name: "{{group_name_pod_lightning}}"
-  tags:
-    - pod_lightning
-
 - name: remove file pod_lightning.nft
   file:
     state: absent
