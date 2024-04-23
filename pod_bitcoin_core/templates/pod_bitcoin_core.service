@@ -9,8 +9,8 @@ After=network-online.target
 [Service]
 Type=forking
 RemainAfterExit=yes
-User=pod_bitcoin_core
-Group=pod_bitcoin_core
+User=root
+Group=root
 EnvironmentFile={{file_dst_pod_bitcoin_core_default}}
 Restart=always
 TimeoutStartSec=60

@@ -29,22 +29,6 @@
   tags:
     - pod_bitcoin_core
 
-- name: remove user pod_bitcoin_core
-  user:
-    state: absent
-    name: "{{user_name_pod_bitcoin_core}}"
-    remove: "{{user_home_remove_pod_bitcoin_core}}"
-    force: "{{user_home_force_pod_bitcoin_core}}"
-  tags:
-    - pod_bitcoin_core
-
-- name: remove group pod_bitcoin_core
-  group:
-    state: absent
-    name: "{{group_name_pod_bitcoin_core}}"
-  tags:
-    - pod_bitcoin_core
-
 - name: remove file pod_bitcoin_core.nft
   file:
     state: absent
