@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 0.3.0 (2024-04-23)
+
+### Changes
+
+- Run Podman containers in rootful mode (permission denied issues in rootless mode)
+
 ## 0.2.5 (2024-04-23)
 
 ### Bugs

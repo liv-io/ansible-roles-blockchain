@@ -1,24 +1,10 @@
 ---
 
-# subgid
-file_src_subgid: 'subgid'
-file_dst_subgid: '/etc/subgid'
-file_mode_subgid: '0644'
-file_owner_subgid: 'root'
-file_group_subgid: 'root'
-
-# subuid
-file_src_subuid: 'subuid'
-file_dst_subuid: '/etc/subuid'
-file_mode_subuid: '0644'
-file_owner_subuid: 'root'
-file_group_subuid: 'root'
-
 # pod_lnd_etc.dir
 file_dst_pod_lnd_etc_dir: '/etc/pod_lnd'
 file_mode_pod_lnd_etc_dir: '0750'
 file_owner_pod_lnd_etc_dir: 'root'
-file_group_pod_lnd_etc_dir: 'pod_lnd'
+file_group_pod_lnd_etc_dir: 'root'
 
 # opt.dir
 file_dst_opt_dir: '/opt'
@@ -29,21 +15,21 @@ file_group_opt_dir: 'root'
 # pod_lnd_opt.dir
 file_dst_pod_lnd_opt_dir: '/opt/pod_lnd'
 file_mode_pod_lnd_opt_dir: '0755'
-file_owner_pod_lnd_opt_dir: 'pod_lnd'
-file_group_pod_lnd_opt_dir: 'pod_lnd'
+file_owner_pod_lnd_opt_dir: 'root'
+file_group_pod_lnd_opt_dir: 'root'
 
 # lnd_data.dir
 file_dst_lnd_data_dir: '/opt/pod_lnd/data'
 file_mode_lnd_data_dir: '0750'
-file_owner_lnd_data_dir: '29999'
-file_group_lnd_data_dir: '29999'
+file_owner_lnd_data_dir: '10000'
+file_group_lnd_data_dir: '10000'
 
 # pod_lnd.default
 file_src_pod_lnd_default: 'pod_lnd.default'
 file_dst_pod_lnd_default: '/etc/default/pod_lnd'
 file_mode_pod_lnd_default: '0640'
 file_owner_pod_lnd_default: 'root'
-file_group_pod_lnd_default: 'pod_lnd'
+file_group_pod_lnd_default: 'root'
 
 # pod_lnd.service
 file_src_pod_lnd_service: 'pod_lnd.service'
@@ -57,7 +43,7 @@ file_src_pod_lnd_yaml: 'pod_lnd.yaml'
 file_dst_pod_lnd_yaml: '/etc/pod_lnd/pod_lnd.yaml'
 file_mode_pod_lnd_yaml: '0640'
 file_owner_pod_lnd_yaml: 'root'
-file_group_pod_lnd_yaml: 'pod_lnd'
+file_group_pod_lnd_yaml: 'root'
 
 # monit.d
 file_dst_monit_d: '/etc/monit.d'
@@ -85,32 +71,8 @@ file_mode_pod_lnd_nft: '0640'
 file_owner_pod_lnd_nft: 'root'
 file_group_pod_lnd_nft: 'root'
 
-# pod_lnd
-group_name_pod_lnd: 'pod_lnd'
-group_gid_pod_lnd: '10000'
-group_system_pod_lnd: False
-
-# pod_lnd
-user_name_pod_lnd: 'pod_lnd'
-user_comment_pod_lnd: 'Pod lnd'
-user_uid_pod_lnd: '10000'
-user_group_pod_lnd: 'pod_lnd'
-user_groups_pod_lnd: ['systemd-journal']
-user_append_pod_lnd: True
-user_home_create_pod_lnd: True
-user_home_move_pod_lnd: False
-user_home_remove_pod_lnd: True
-user_home_force_pod_lnd: False
-user_password_pod_lnd: '!'
-user_password_update_pod_lnd: 'always'
-user_shell_pod_lnd: '/bin/bash'
-user_system_pod_lnd: False
-
 # check service pod_lnd
 command_cmd_check_service_pod_lnd: 'systemctl cat pod_lnd.service > /dev/null 2>&1'
-
-# loginctl enable_linger
-command_cmd_loginctl_enable_linger: 'loginctl enable-linger pod_lnd'
 
 # reload monit
 command_cmd_reload_monit: 'systemctl is-active monit.service > /dev/null 2>&1 && systemctl reload monit || true'

@@ -29,22 +29,6 @@
   tags:
     - pod_lnd
 
-- name: remove user pod_lnd
-  user:
-    state: absent
-    name: "{{user_name_pod_lnd}}"
-    remove: "{{user_home_remove_pod_lnd}}"
-    force: "{{user_home_force_pod_lnd}}"
-  tags:
-    - pod_lnd
-
-- name: remove group pod_lnd
-  group:
-    state: absent
-    name: "{{group_name_pod_lnd}}"
-  tags:
-    - pod_lnd
-
 - name: remove file pod_lnd.nft
   file:
     state: absent
