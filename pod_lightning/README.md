@@ -305,7 +305,7 @@ consult the following sections.
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : '24.05-1'
+    Default    : '24.05-2'
     Options    :
       Examples: ''
 
