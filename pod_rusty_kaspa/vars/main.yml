@@ -1,0 +1,90 @@
+---
+
+# pod_rusty_kaspa_etc.dir
+file_dst_pod_rusty_kaspa_etc_dir: '/etc/pod_rusty_kaspa'
+file_mode_pod_rusty_kaspa_etc_dir: '0750'
+file_owner_pod_rusty_kaspa_etc_dir: 'root'
+file_group_pod_rusty_kaspa_etc_dir: 'root'
+
+# opt.dir
+file_dst_opt_dir: '/opt'
+file_mode_opt_dir: '0755'
+file_owner_opt_dir: 'root'
+file_group_opt_dir: 'root'
+
+# pod_rusty_kaspa_opt.dir
+file_dst_pod_rusty_kaspa_opt_dir: '/opt/pod_rusty_kaspa'
+file_mode_pod_rusty_kaspa_opt_dir: '0755'
+file_owner_pod_rusty_kaspa_opt_dir: 'root'
+file_group_pod_rusty_kaspa_opt_dir: 'root'
+
+# pod_rusty_kaspa_data.dir
+file_dst_pod_rusty_kaspa_data_dir: '/opt/pod_rusty_kaspa/data'
+file_mode_pod_rusty_kaspa_data_dir: '0750'
+file_owner_pod_rusty_kaspa_data_dir: '10000'
+file_group_pod_rusty_kaspa_data_dir: '10000'
+
+# pod_rusty_kaspa.default
+file_src_pod_rusty_kaspa_default: 'pod_rusty_kaspa.default'
+file_dst_pod_rusty_kaspa_default: '/etc/default/pod_rusty_kaspa'
+file_mode_pod_rusty_kaspa_default: '0640'
+file_owner_pod_rusty_kaspa_default: 'root'
+file_group_pod_rusty_kaspa_default: 'root'
+
+# pod_rusty_kaspa.service
+file_src_pod_rusty_kaspa_service: 'pod_rusty_kaspa.service'
+file_dst_pod_rusty_kaspa_service: '/lib/systemd/system/pod_rusty_kaspa.service'
+file_mode_pod_rusty_kaspa_service: '0644'
+file_owner_pod_rusty_kaspa_service: 'root'
+file_group_pod_rusty_kaspa_service: 'root'
+
+# pod_rusty_kaspa.yaml
+file_src_pod_rusty_kaspa_yaml: 'pod_rusty_kaspa.yaml'
+file_dst_pod_rusty_kaspa_yaml: '/etc/pod_rusty_kaspa/pod_rusty_kaspa.yaml'
+file_mode_pod_rusty_kaspa_yaml: '0640'
+file_owner_pod_rusty_kaspa_yaml: 'root'
+file_group_pod_rusty_kaspa_yaml: 'root'
+
+# monit.d
+file_dst_monit_d: '/etc/monit.d'
+file_mode_monit_d: '0750'
+file_owner_monit_d: 'root'
+file_group_monit_d: 'root'
+
+# nftables.d
+file_dst_nftables_d: '/etc/nftables.d'
+file_mode_nftables_d: '0750'
+file_owner_nftables_d: 'root'
+file_group_nftables_d: 'root'
+
+# pod_rusty_kaspa-rusty_kaspa.cfg
+file_src_pod_rusty_kaspa_rusty_kaspa_cfg: 'pod_rusty_kaspa-rusty-kaspa.cfg'
+file_dst_pod_rusty_kaspa_rusty_kaspa_cfg: '/etc/monit.d/pod_rusty_kaspa-rusty-kaspa.cfg'
+file_mode_pod_rusty_kaspa_rusty_kaspa_cfg: '0640'
+file_owner_pod_rusty_kaspa_rusty_kaspa_cfg: 'root'
+file_group_pod_rusty_kaspa_rusty_kaspa_cfg: 'root'
+
+# pod_rusty_kaspa.nft
+file_src_pod_rusty_kaspa_nft: 'pod_rusty_kaspa.nft'
+file_dst_pod_rusty_kaspa_nft: '/etc/nftables.d/pod_rusty_kaspa.conf'
+file_mode_pod_rusty_kaspa_nft: '0640'
+file_owner_pod_rusty_kaspa_nft: 'root'
+file_group_pod_rusty_kaspa_nft: 'root'
+
+# check service pod_rusty_kaspa
+command_cmd_check_service_pod_rusty_kaspa: 'systemctl cat pod_rusty_kaspa.service > /dev/null 2>&1'
+
+# reload monit
+command_cmd_reload_monit: 'systemctl is-active monit.service > /dev/null 2>&1 && systemctl reload monit || true'
+
+# validate monit
+command_cmd_validate_monit: 'systemctl is-active monit.service > /dev/null 2>&1 && monit -t || true'
+
+# reload nftables
+command_cmd_reload_nftables: 'systemctl is-active nftables.service > /dev/null 2>&1 &&  nft --file /etc/nftables.conf || true'
+
+# validate nftables
+command_cmd_validate_nftables: 'systemctl is-active nftables.service > /dev/null 2>&1 && nft --check --file /etc/nftables.conf || true'
+
+# pod_rusty_kaspa
+service_name_pod_rusty_kaspa: 'pod_rusty_kaspa'

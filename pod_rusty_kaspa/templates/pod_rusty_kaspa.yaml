@@ -1,0 +1,97 @@
+---
+
+{{ansible_managed|comment(decoration='#')}}
+
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: rusty-kaspa
+  name: pod_rusty_kaspa
+spec:
+  containers:
+  - name: rusty-kaspa
+    image: {{pod_rusty_kaspa_registry_address}}/rusty-kaspa:{{pod_rusty_kaspa_rusty_kaspa_version}}
+    ports:
+    - name: pod_rusty_kaspa-network
+      containerPort: 16110
+      hostPort: 16110
+      protocol: TCP
+    resources: {}
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - CAP_MKNOD
+        - CAP_NET_RAW
+        - CAP_AUDIT_WRITE
+      privileged: false
+      readOnlyRootFilesystem: {{pod_rusty_kaspa_rusty_kaspa_read_only_root_filesystem|lower}}
+      runAsGroup: 10000
+      runAsUser: 10000
+      seLinuxOptions:
+        type: spc_t
+    volumeMounts:
+    - name: rusty-kaspa-data
+      mountPath: /var/local/rusty-kaspa/data
+    workingDir: /
+    env:
+{% if not (pod_rusty_kaspa_rusty_kaspa_addpeer == "") %}
+    - name: ADDPEER
+      value: "{{pod_rusty_kaspa_rusty_kaspa_addpeer}}"
+{% endif %}
+{% if not (pod_rusty_kaspa_rusty_kaspa_appdir == "") %}
+    - name: APPDIR
+      value: "{{pod_rusty_kaspa_rusty_kaspa_appdir}}"
+{% endif %}
+{% if not (pod_rusty_kaspa_rusty_kaspa_disable_upnp == "") %}
+    - name: DISABLE_UPNP
+      value: "{{pod_rusty_kaspa_rusty_kaspa_disable_upnp|lower}}"
+{% endif %}
+{% if not (pod_rusty_kaspa_rusty_kaspa_externalip == "") %}
+    - name: EXTERNALIP
+      value: "{{pod_rusty_kaspa_rusty_kaspa_externalip}}"
+{% endif %}
+{% if not (pod_rusty_kaspa_rusty_kaspa_listen == "") %}
+    - name: LISTEN
+      value: "{{pod_rusty_kaspa_rusty_kaspa_listen}}"
+{% endif %}
+{% if not (pod_rusty_kaspa_rusty_kaspa_loglevel == "") %}
+    - name: LOGLEVEL
+      value: "{{pod_rusty_kaspa_rusty_kaspa_loglevel|lower}}"
+{% endif %}
+{% if not (pod_rusty_kaspa_rusty_kaspa_nogrpc == "") %}
+    - name: NOGRPC
+      value: "{{pod_rusty_kaspa_rusty_kaspa_nogrpc|lower}}"
+{% endif %}
+{% if not (pod_rusty_kaspa_rusty_kaspa_nologfiles == "") %}
+    - name: NOLOGFILES
+      value: "{{pod_rusty_kaspa_rusty_kaspa_nologfiles|lower}}"
+{% endif %}
+{% if not (pod_rusty_kaspa_rusty_kaspa_nodnsseed == "") %}
+    - name: NODNSSEED
+      value: "{{pod_rusty_kaspa_rusty_kaspa_nodnsseed|lower}}"
+{% endif %}
+{% if not (pod_rusty_kaspa_rusty_kaspa_ram_scale == "") %}
+    - name: RAM_SCALE
+      value: "{{pod_rusty_kaspa_rusty_kaspa_ram_scale}}"
+{% endif %}
+{% if not (pod_rusty_kaspa_rusty_kaspa_sanity == "") %}
+    - name: SANITY
+      value: "{{pod_rusty_kaspa_rusty_kaspa_sanity|lower}}"
+{% endif %}
+{% if not (pod_rusty_kaspa_rusty_kaspa_utxoindex == "") %}
+    - name: UTXOINDEX
+      value: "{{pod_rusty_kaspa_rusty_kaspa_utxoindex|lower}}"
+{% endif %}
+
+  dnsConfig: {}
+  restartPolicy: Always
+
+  volumes:
+  - name: rusty-kaspa-data
+    hostPath:
+      type: Directory
+      path: {{file_dst_pod_rusty_kaspa_data_dir}}
+
+status: {}

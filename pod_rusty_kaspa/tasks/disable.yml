@@ -1,0 +1,71 @@
+---
+
+- name: include variables
+  include_vars: "{{lookup('first_found', params)}}"
+  vars:
+    params:
+      files:
+        - "vars/{{ansible_distribution_major_version}}.yml"
+        - 'vars/main.yml'
+  tags:
+    - pod_rusty_kaspa
+
+- name: create file pod_rusty_kaspa.yaml
+  template:
+    src: "{{file_src_pod_rusty_kaspa_yaml}}"
+    dest: "{{file_dst_pod_rusty_kaspa_yaml}}"
+    mode: "{{file_mode_pod_rusty_kaspa_yaml}}"
+    owner: "{{file_owner_pod_rusty_kaspa_yaml}}"
+    group: "{{file_group_pod_rusty_kaspa_yaml}}"
+  tags:
+    - pod_rusty_kaspa
+
+- name: create file pod_rusty_kaspa.default
+  template:
+    src: "{{file_src_pod_rusty_kaspa_default}}"
+    dest: "{{file_dst_pod_rusty_kaspa_default}}"
+    mode: "{{file_mode_pod_rusty_kaspa_default}}"
+    owner: "{{file_owner_pod_rusty_kaspa_default}}"
+    group: "{{file_group_pod_rusty_kaspa_default}}"
+  tags:
+    - pod_rusty_kaspa
+
+- name: remove file pod_rusty_kaspa-rusty-kaspa.cfg
+  file:
+    state: absent
+    path: "{{file_dst_pod_rusty_kaspa_rusty_kaspa_cfg}}"
+  notify: reload monit
+  tags:
+    - pod_rusty_kaspa
+
+- name: create file pod_rusty_kaspa.nft
+  template:
+    src: "{{file_src_pod_rusty_kaspa_nft}}"
+    dest: "{{file_dst_pod_rusty_kaspa_nft}}"
+    mode: "{{file_mode_pod_rusty_kaspa_nft}}"
+    owner: "{{file_owner_pod_rusty_kaspa_nft}}"
+    group: "{{file_group_pod_rusty_kaspa_nft}}"
+  notify:
+    - validate nftables
+    - reload nftables
+  when: (pod_rusty_kaspa_nftables_state == True)
+  tags:
+    - pod_rusty_kaspa
+
+- name: remove file pod_rusty_kaspa.nft
+  file:
+    state: absent
+    path: "{{file_dst_pod_rusty_kaspa_nft}}"
+  notify: reload nftables
+  when: (pod_rusty_kaspa_nftables_state == False)
+  tags:
+    - pod_rusty_kaspa
+
+- name: stop service pod_rusty_kaspa
+  service:
+    state: stopped
+    enabled: False
+    name: "{{service_name_pod_rusty_kaspa}}"
+    daemon_reload: True
+  tags:
+    - pod_rusty_kaspa
