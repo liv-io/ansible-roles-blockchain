@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 0.2.1 (2024-07-27)
+
+### Bugs
+
+- Add both ports to monit check
+
 ## 0.2.0 (2024-07-27)
 
 ### Bugs
