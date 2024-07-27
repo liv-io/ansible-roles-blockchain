@@ -117,14 +117,20 @@ consult the following sections.
     Value      : Arbitrary
     Type       : String
     Default    : |
-      add rule ip filter INPUT ct state new tcp dport 16110 counter accept comment "kaspa from any"
-      add rule ip6 filter INPUT ct state new tcp dport 16110 counter accept comment "kaspa from any"
-      add rule ip filter OUTPUT ct state new tcp dport 16110 counter accept comment "kaspa to any"
-      add rule ip6 filter OUTPUT ct state new tcp dport 16110 counter accept comment "kaspa to any"
+      add rule ip filter INPUT ct state new tcp dport 16110 counter accept comment "kaspa grpc from any"
+      add rule ip6 filter INPUT ct state new tcp dport 16110 counter accept comment "kaspa grpc from any"
+      add rule ip filter OUTPUT ct state new tcp dport 16110 counter accept comment "kaspa grpc to any"
+      add rule ip6 filter OUTPUT ct state new tcp dport 16110 counter accept comment "kaspa grpc to any"
+      add rule ip filter INPUT ct state new tcp dport 16111 counter accept comment "kaspa network from any"
+      add rule ip6 filter INPUT ct state new tcp dport 16111 counter accept comment "kaspa network from any"
+      add rule ip filter OUTPUT ct state new tcp dport 16111 counter accept comment "kaspa network to any"
+      add rule ip6 filter OUTPUT ct state new tcp dport 16111 counter accept comment "kaspa network to any"
     Options    :
       Examples: |
-        add rule ip filter INPUT ct state new tcp dport 16110 counter accept comment "kaspa from any"
-        add rule ip filter OUTPUT ct state new tcp dport 16110 counter accept comment "kaspa to any"
+        add rule ip filter INPUT ct state new tcp dport 16110 counter accept comment "kaspa grpc from any"
+        add rule ip filter OUTPUT ct state new tcp dport 16110 counter accept comment "kaspa grpc to any"
+        add rule ip filter INPUT ct state new tcp dport 16111 counter accept comment "kaspa network from any"
+        add rule ip filter OUTPUT ct state new tcp dport 16111 counter accept comment "kaspa network to any"
 
 `pod_rusty_kaspa_nftables_state`
 
@@ -223,7 +229,7 @@ consult the following sections.
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : "0.0.0.0"
+    Default    : ""
     Options    :
       Examples: "127.0.0.1" | "1.2.3.4" | "5.6.7.8:16111"
 
@@ -283,6 +289,16 @@ consult the following sections.
     Default    : True
     Options    : True | False
 
+`pod_rusty_kaspa_rusty_kaspa_rpclisten`
+
+    Description: --listen
+    Required   : False
+    Value      : Arbitrary
+    Type       : String
+    Default    : ""
+    Options    :
+      Examples: "127.0.0.1" | "1.2.3.4" | "5.6.7.8:16111"
+
 `pod_rusty_kaspa_rusty_kaspa_sanity`
 
     Description: --sanity
@@ -307,7 +323,7 @@ consult the following sections.
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : '0.14.1-1'
+    Default    : '0.14.1-2'
     Options    :
       Examples: '0.13.6-1'
 

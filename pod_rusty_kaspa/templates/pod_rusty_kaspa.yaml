@@ -13,9 +13,13 @@ spec:
   - name: rusty-kaspa
     image: {{pod_rusty_kaspa_registry_address}}/rusty-kaspa:{{pod_rusty_kaspa_rusty_kaspa_version}}
     ports:
-    - name: pod_rusty_kaspa-network
+    - name: pod_rusty_kaspa-grpc
       containerPort: 16110
       hostPort: 16110
+      protocol: TCP
+    - name: pod_rusty_kaspa-network
+      containerPort: 16111
+      hostPort: 16111
       protocol: TCP
     resources: {}
     securityContext:
@@ -34,6 +38,8 @@ spec:
     volumeMounts:
     - name: rusty-kaspa-data
       mountPath: /var/local/rusty-kaspa/data
+    - name: rusty-kaspa-tmp
+      mountPath: /tmp/rusty-kaspa
     workingDir: /
     env:
 {% if not (pod_rusty_kaspa_rusty_kaspa_addpeer == "") %}
@@ -76,6 +82,10 @@ spec:
     - name: RAM_SCALE
       value: "{{pod_rusty_kaspa_rusty_kaspa_ram_scale}}"
 {% endif %}
+{% if not (pod_rusty_kaspa_rusty_kaspa_rpclisten == "") %}
+    - name: RPCLISTEN
+      value: "{{pod_rusty_kaspa_rusty_kaspa_rpclisten}}"
+{% endif %}
 {% if not (pod_rusty_kaspa_rusty_kaspa_sanity == "") %}
     - name: SANITY
       value: "{{pod_rusty_kaspa_rusty_kaspa_sanity|lower}}"
@@ -93,5 +103,10 @@ spec:
     hostPath:
       type: Directory
       path: {{file_dst_pod_rusty_kaspa_data_dir}}
+
+  - name: rusty-kaspa-tmp
+    hostPath:
+      type: Directory
+      path: {{file_dst_pod_rusty_kaspa_tmp_dir}}
 
 status: {}

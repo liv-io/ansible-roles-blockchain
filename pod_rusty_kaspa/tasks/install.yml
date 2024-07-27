@@ -50,6 +50,16 @@
   tags:
     - pod_rusty_kaspa
 
+- name: create file pod_rusty_kaspa_tmp.dir
+  file:
+    state: directory
+    path: "{{file_dst_pod_rusty_kaspa_tmp_dir}}"
+    mode: "{{file_mode_pod_rusty_kaspa_tmp_dir}}"
+    owner: "{{file_owner_pod_rusty_kaspa_tmp_dir}}"
+    group: "{{file_group_pod_rusty_kaspa_tmp_dir}}"
+  tags:
+    - pod_rusty_kaspa
+
 - name: create file pod_rusty_kaspa.service
   template:
     src: "{{file_src_pod_rusty_kaspa_service}}"

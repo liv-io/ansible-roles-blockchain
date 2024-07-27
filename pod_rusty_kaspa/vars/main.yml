@@ -24,6 +24,12 @@ file_mode_pod_rusty_kaspa_data_dir: '0750'
 file_owner_pod_rusty_kaspa_data_dir: '10000'
 file_group_pod_rusty_kaspa_data_dir: '10000'
 
+# pod_rusty_kaspa_tmp.dir
+file_dst_pod_rusty_kaspa_tmp_dir: '/opt/pod_rusty_kaspa/tmp'
+file_mode_pod_rusty_kaspa_tmp_dir: '0750'
+file_owner_pod_rusty_kaspa_tmp_dir: '10000'
+file_group_pod_rusty_kaspa_tmp_dir: '10000'
+
 # pod_rusty_kaspa.default
 file_src_pod_rusty_kaspa_default: 'pod_rusty_kaspa.default'
 file_dst_pod_rusty_kaspa_default: '/etc/default/pod_rusty_kaspa'
