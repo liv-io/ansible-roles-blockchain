@@ -273,7 +273,7 @@ consult the following sections.
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : '0.18.2-beta-1'
+    Default    : '0.18.3-beta-1'
     Options    :
       Examples: ''
 
