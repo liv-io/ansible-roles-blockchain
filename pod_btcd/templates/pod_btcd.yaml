@@ -13,14 +13,18 @@ spec:
   - name: btcd
     image: {{pod_btcd_registry_address}}/btcd:{{pod_btcd_btcd_version}}
     ports:
+{% if (pod_btcd_btcd_environment_variables.LISTEN) %}
     - name: btcd-network
-      containerPort: 8333
-      hostPort: 8333
+      containerPort: {{pod_btcd_btcd_environment_variables.LISTEN.rsplit(':', 1)[-1]}}
+      hostPort: {{pod_btcd_btcd_environment_variables.LISTEN.rsplit(':', 1)[-1]}}
       protocol: TCP
+{% endif %}
+{% if (pod_btcd_btcd_environment_variables.RPCLISTEN) %}
     - name: btcd-rpc
-      containerPort: 8334
-      hostPort: 8334
+      containerPort: {{pod_btcd_btcd_environment_variables.RPCLISTEN.rsplit(':', 1)[-1]}}
+      hostPort: {{pod_btcd_btcd_environment_variables.RPCLISTEN.rsplit(':', 1)[-1]}}
       protocol: TCP
+{% endif %}
     resources: {}
     securityContext:
       allowPrivilegeEscalation: false
@@ -40,33 +44,11 @@ spec:
       mountPath: /home/btcd/.btcd
     workingDir: /
     env:
-{% if not (pod_btcd_btcd_addpeer == "") %}
-    - name: ADDPEER
-      value: "{{pod_btcd_btcd_addpeer}}"
-{% endif %}
-{% if not (pod_btcd_btcd_debuglevel == "") %}
-    - name: DEBUGLEVEL
-      value: "{{pod_btcd_btcd_debuglevel}}"
-{% endif %}
-{% if not (pod_btcd_btcd_externalip == "") %}
-    - name: EXTERNALIP
-      value: "{{pod_btcd_btcd_externalip}}"
-{% endif %}
-{% if not (pod_btcd_btcd_listen == "") %}
-    - name: LISTEN
-      value: "{{pod_btcd_btcd_listen}}"
-{% endif %}
-{% if not (pod_btcd_btcd_rpclisten == "") %}
-    - name: RPCLISTEN
-      value: "{{pod_btcd_btcd_rpclisten}}"
-{% endif %}
-{% if not (pod_btcd_btcd_rpcpass == "") %}
-    - name: RPCPASS
-      value: "{{pod_btcd_btcd_rpcpass}}"
-{% endif %}
-{% if not (pod_btcd_btcd_rpcuser == "") %}
-    - name: RPCUSER
-      value: "{{pod_btcd_btcd_rpcuser}}"
+{% if not (pod_btcd_btcd_environment_variables == {}) %}
+{% for key, value in pod_btcd_btcd_environment_variables.items() %}
+    - name: {{key | upper }}
+      value: {{value}}
+{% endfor %}
 {% endif %}
 
   dnsConfig: {}

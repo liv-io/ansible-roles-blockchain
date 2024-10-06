@@ -2,14 +2,11 @@
 
 pod_btcd_state: 'enable'
 
-pod_btcd_btcd_addpeer: ''
-pod_btcd_btcd_debuglevel: ''
-pod_btcd_btcd_externalip: ''
-pod_btcd_btcd_listen: '0.0.0.0:8333'
+pod_btcd_btcd_environment_variables:
+  LISTEN: '0.0.0.0:8333'
+  RPCLISTEN: '127.0.0.1:8334'
+
 pod_btcd_btcd_read_only_root_filesystem: True
-pod_btcd_btcd_rpclisten: '127.0.0.1:8334'
-pod_btcd_btcd_rpcpass: ''
-pod_btcd_btcd_rpcuser: ''
 pod_btcd_btcd_version: '0.24.2-1'
 
 pod_btcd_log_driver: 'journald'

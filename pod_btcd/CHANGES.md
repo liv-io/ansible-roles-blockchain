@@ -10,6 +10,22 @@ The headers are:
 - enhancements
 - features
 
+## 1.0.0 (2024-10-06)
+
+### Changes
+
+- Remove parameter `pod_btcd_btcd_addpeer`
+- Remove parameter `pod_btcd_btcd_debuglevel`
+- Remove parameter `pod_btcd_btcd_externalip`
+- Remove parameter `pod_btcd_btcd_listen`
+- Remove parameter `pod_btcd_btcd_rpclisten`
+- Remove parameter `pod_btcd_btcd_rpcpass`
+- Remove parameter `pod_btcd_btcd_rpcuser
+
+### Features
+
+- Add parameter `pod_btcd_btcd_environment_variables`
+
 ## 0.3.1 (2024-06-26)
 
 ### Bugs

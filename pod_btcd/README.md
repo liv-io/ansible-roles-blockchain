@@ -29,10 +29,13 @@ consult the following sections.
     - role: pod_btcd
   vars:
     pod_btcd_state: 'enable'
-    pod_btcd_btcd_addpeer: 'btc.example.com:8333 btc.example.org:8333'
-    pod_btcd_btcd_rpclisten: '0.0.0.0:8334'
-    pod_btcd_btcd_rpcpass: 'J4eQwP_vkMnB8A!s9pRp'
-    pod_btcd_btcd_rpcuser: 'satoshi'
+    pod_btcd_btcd_environment_variables:
+      ADDPEER: 'btc.example.com:8333 btc.example.org:8333'
+      LISTEN: '0.0.0.0:8333'
+      RPCLISTEN: '0.0.0.0:8334'
+      RPCPASS: 'J4eQwP_vkMnB8A!s9pRp'
+      RPCUSER: 'satoshi'
+
     pod_btcd_btcd_version: '0.24.0-5'
     pod_btcd_proxy: 'http://proxy.example.com:3128'
     pod_btcd_registry_address: 'registry.example.com'
@@ -48,10 +51,13 @@ consult the following sections.
     - role: pod_btcd
   vars:
     pod_btcd_state: 'disable'
-    pod_btcd_btcd_addpeer: 'btc.example.com:8333 btc.example.org:8333'
-    pod_btcd_btcd_rpclisten: '0.0.0.0:8334'
-    pod_btcd_btcd_rpcpass: 'J4eQwP_vkMnB8A!s9pRp'
-    pod_btcd_btcd_rpcuser: 'satoshi'
+    pod_btcd_btcd_environment_variables:
+      ADDPEER: 'btc.example.com:8333 btc.example.org:8333'
+      LISTEN: '0.0.0.0:8333'
+      RPCLISTEN: '0.0.0.0:8334'
+      RPCPASS: 'J4eQwP_vkMnB8A!s9pRp'
+      RPCUSER: 'satoshi'
+
     pod_btcd_btcd_version: '0.24.0-5'
     pod_btcd_proxy: 'http://proxy.example.com:3128'
     pod_btcd_registry_address: 'registry.example.com'
@@ -97,47 +103,23 @@ consult the following sections.
       Remove  : 'false' | 'no' | 'remove'
       Inactive: 'quiesce' | 'inactive'
 
-`pod_btcd_btcd_addpeer`
+`pod_btcd_btcd_environment_variables`
 
-    Description: --addpeer
+    Description: Define the btcd environment variables.
     Required   : False
     Value      : Arbitrary
-    Type       : Array
-    Default    : ''
+    Type       : Dictionary
+    Default    :
+        LISTEN: '0.0.0.0:8333'
+        RPCLISTEN: '127.0.0.1:8334'
     Options    :
-      Examples: '10.1.1.10:8333' | 'btc.example.com:8333 btc.example.org:8333'
-      None    : ''
-
-`pod_btcd_btcd_debuglevel`
-
-    Description: --debuglevel
-    Required   : False
-    Value      : Predetermined
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: 'trace' | 'debug' | 'info' | 'warn' | 'error' | 'critical'
-
-`pod_btcd_btcd_externalip`
-
-    Description: --externalip
-    Required   : False
-    Value      : Arbitrary
-    Type       : Array
-    Default    : ''
-    Options    :
-      Examples: '1.2.3.4' | '1.2.3.4 5.6.7.8'
-      None    : ''
-
-`pod_btcd_btcd_listen`
-
-    Description: --listen
-    Required   : False
-    Value      : Arbitrary
-    Type       : Array
-    Default    : '0.0.0.0:8333'
-    Options    :
-      Examples: '127.0.0.1:8333' | '1.2.3.4:8333 5.6.7.8:8333'
+      Examples:
+        ADDPEER: 'btc.example.com:8333 btc.example.org:8333'
+        LISTEN: '0.0.0.0:8333'
+        RPCLISTEN: '127.0.0.1:8334'
+        RPCPASS: 'J4eQwP_vkMnB8A!s9pRp'
+        RPCUSER: 'satoshi'
+      None    : {}
 
 `pod_btcd_btcd_read_only_root_filesystem`
 
@@ -147,39 +129,6 @@ consult the following sections.
     Type       : Boolean
     Default    : True
     Options    : True | False
-
-`pod_btcd_btcd_rpclisten`
-
-    Description: --rpclisten
-    Required   : False
-    Value      : Arbitrary
-    Type       : Array
-    Default    : '127.0.0.1:8334'
-    Options    :
-      Examples: '0.0.0.0:8334' | '1.2.3.4:8334 5.6.7.8:8334'
-      None    : ''
-
-`pod_btcd_btcd_rpcpass`
-
-    Description: --rpcpass
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: 'q-HrBk83.5w9wuhFt,nP' | 'J4eQwP_vkMnB8A!s9pRp'
-      None    : ''
-
-`pod_btcd_btcd_rpcuser`
-
-    Description: --rpcuser
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: 'satoshi' | 'hal' | 'len' | 'nick' | 'adam' | 'david'
-      None    : ''
 
 `pod_btcd_btcd_version`
 
