@@ -13,37 +13,37 @@ spec:
   - name: bitcoin-core
     image: {{pod_bitcoin_core_registry_address}}/bitcoin-core:{{pod_bitcoin_core_bitcoin_core_version}}
     ports:
-{% if (pod_bitcoin_core_bitcoin_core_environment_variables.PORT) %}
+{% if (pod_bitcoin_core_bitcoin_core_environment_variables.PORT is defined) %}
     - name: bitcoin-core-network
       containerPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.PORT.rsplit(':', 1)[-1]}}
       hostPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.PORT.rsplit(':', 1)[-1]}}
       protocol: TCP
 {% endif %}
-{% if (pod_bitcoin_core_bitcoin_core_environment_variables.RPCPORT) %}
+{% if (pod_bitcoin_core_bitcoin_core_environment_variables.RPCPORT is defined) %}
     - name: bitcoin-core-rpc
       containerPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.RPCPORT.rsplit(':', 1)[-1]}}
       hostPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.RPCPORT.rsplit(':', 1)[-1]}}
       protocol: TCP
 {% endif %}
-{% if (pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBHASHBLOCK) %}
+{% if (pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBHASHBLOCK is defined) %}
     - name: bitcoin-core-zmqpubhashblock
       containerPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBHASHBLOCK.rsplit(':', 1)[-1]}}
       hostPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBHASHBLOCK.rsplit(':', 1)[-1]}}
       protocol: TCP
 {% endif %}
-{% if (pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBHASHTX) %}
+{% if (pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBHASHTX is defined) %}
     - name: bitcoin-core-zmqpubhashtx
       containerPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBHASHTX.rsplit(':', 1)[-1]}}
       hostPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBHASHTX.rsplit(':', 1)[-1]}}
       protocol: TCP
 {% endif %}
-{% if (pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBRAWBLOCK) %}
+{% if (pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBRAWBLOCK is defined) %}
     - name: bitcoin-core-zmqpubrawblock
       containerPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBRAWBLOCK.rsplit(':', 1)[-1]}}
       hostPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBRAWBLOCK.rsplit(':', 1)[-1]}}
       protocol: TCP
 {% endif %}
-{% if (pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBRAWTX) %}
+{% if (pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBRAWTX is defined) %}
     - name: bitcoin-core-zmqpubrawtx
       containerPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBRAWTX.rsplit(':', 1)[-1]}}
       hostPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBRAWTX.rsplit(':', 1)[-1]}}
