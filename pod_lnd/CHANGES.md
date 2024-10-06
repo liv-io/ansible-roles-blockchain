@@ -10,6 +10,30 @@ The headers are:
 - enhancements
 - features
 
+## 1.0.0 (2024-10-06)
+
+### Changes
+
+- Remove parameter `pod_lnd_lnd_alias`
+- Remove parameter `pod_lnd_lnd_bitcoin_network`
+- Remove parameter `pod_lnd_lnd_bitcoin_node`
+- Remove parameter `pod_lnd_lnd_bitcoind_estimatemode`
+- Remove parameter `pod_lnd_lnd_bitcoind_rpchost`
+- Remove parameter `pod_lnd_lnd_bitcoind_rpcpass`
+- Remove parameter `pod_lnd_lnd_bitcoind_rpcuser`
+- Remove parameter `pod_lnd_lnd_bitcoind_zmqpubrawblock`
+- Remove parameter `pod_lnd_lnd_bitcoind_zmqpubrawtx`
+- Remove parameter `pod_lnd_lnd_color`
+- Remove parameter `pod_lnd_lnd_externalip`
+- Remove parameter `pod_lnd_lnd_listen`
+- Remove parameter `pod_lnd_lnd_lnddir`
+- Remove parameter `pod_lnd_lnd_restlisten`
+- Remove parameter `pod_lnd_lnd_rpclisten`
+
+### Features
+
+- Add parameter `pod_lnd_lnd_environment_variables`
+
 ## 0.4.3 (2024-09-16)
 
 ### Bugs
