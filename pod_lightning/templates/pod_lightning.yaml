@@ -13,10 +13,12 @@ spec:
   - name: lightning
     image: {{pod_lightning_registry_address}}/lightning:{{pod_lightning_lightning_version}}
     ports:
+{% if (pod_lightning_lightning_environment_variables.ANNOUNCE_ADDR_DISCOVERED_PORT is defined) %}
     - name: lightning-network
-      containerPort: 9735
-      hostPort: 9735
+      containerPort: {{pod_lightning_lightning_environment_variables.ANNOUNCE_ADDR_DISCOVERED_PORT.rsplit(':', 1)[-1]}}
+      hostPort: {{pod_lightning_lightning_environment_variables.ANNOUNCE_ADDR_DISCOVERED_PORT.rsplit(':', 1)[-1]}}
       protocol: TCP
+{% endif %}
     resources: {}
     securityContext:
       allowPrivilegeEscalation: false
@@ -36,77 +38,11 @@ spec:
       mountPath: /var/local/lightning/data
     workingDir: /
     env:
-{% if not (pod_lightning_lightning_addr == "") %}
-    - name: ADDR
-      value: "{{pod_lightning_lightning_addr}}"
-{% endif %}
-{% if not (pod_lightning_lightning_alias == "") %}
-    - name: ALIAS
-      value: "{{pod_lightning_lightning_alias}}"
-{% endif %}
-{% if not (pod_lightning_lightning_announce_addr == "") %}
-    - name: ANNOUNCE_ADDR
-      value: "{{pod_lightning_lightning_announce_addr}}"
-{% endif %}
-{% if not (pod_lightning_lightning_announce_addr_discovered == "") %}
-    - name: ANNOUNCE_ADDR_DISCOVERED
-      value: "{{pod_lightning_lightning_announce_addr_discovered|lower}}"
-{% endif %}
-{% if not (pod_lightning_lightning_announce_addr_discovered_port == "") %}
-    - name: ANNOUNCE_ADDR_DISCOVERED_PORT
-      value: "{{pod_lightning_lightning_announce_addr_discovered_port}}"
-{% endif %}
-{% if not (pod_lightning_lightning_autolisten == "") %}
-    - name: AUTOLISTEN
-      value: "{{pod_lightning_lightning_autolisten|lower}}"
-{% endif %}
-{% if not (pod_lightning_lightning_bind_addr == "") %}
-    - name: BIND_ADDR
-      value: "{{pod_lightning_lightning_bind_addr}}"
-{% endif %}
-{% if not (pod_lightning_lightning_bitcoin_cli == "") %}
-    - name: BITCOIN_CLI
-      value: "{{pod_lightning_lightning_bitcoin_cli}}"
-{% endif %}
-{% if not (pod_lightning_lightning_bitcoin_datadir == "") %}
-    - name: BITCOIN_DATADIR
-      value: "{{pod_lightning_lightning_bitcoin_datadir}}"
-{% endif %}
-{% if not (pod_lightning_lightning_bitcoin_rpcconnect == "") %}
-    - name: BITCOIN_RPCCONNECT
-      value: "{{pod_lightning_lightning_bitcoin_rpcconnect}}"
-{% endif %}
-{% if not (pod_lightning_lightning_bitcoin_rpcpassword == "") %}
-    - name: BITCOIN_RPCPASSWORD
-      value: "{{pod_lightning_lightning_bitcoin_rpcpassword}}"
-{% endif %}
-{% if not (pod_lightning_lightning_bitcoin_rpcport == "") %}
-    - name: BITCOIN_RPCPORT
-      value: "{{pod_lightning_lightning_bitcoin_rpcport}}"
-{% endif %}
-{% if not (pod_lightning_lightning_bitcoin_rpcuser == "") %}
-    - name: BITCOIN_RPCUSER
-      value: "{{pod_lightning_lightning_bitcoin_rpcuser}}"
-{% endif %}
-{% if not (pod_lightning_lightning_lightning_dir == "") %}
-    - name: LIGHTNING_DIR
-      value: "{{pod_lightning_lightning_lightning_dir}}"
-{% endif %}
-{% if not (pod_lightning_lightning_log_level == "") %}
-    - name: LOG_LEVEL
-      value: "{{pod_lightning_lightning_log_level}}"
-{% endif %}
-{% if not (pod_lightning_lightning_log_timestamps == "") %}
-    - name: LOG_TIMESTAMPS
-      value: "{{pod_lightning_lightning_log_timestamps|lower}}"
-{% endif %}
-{% if not (pod_lightning_lightning_network == "") %}
-    - name: NETWORK
-      value: "{{pod_lightning_lightning_network}}"
-{% endif %}
-{% if not (pod_lightning_lightning_rgb == "") %}
-    - name: RGB
-      value: "{{pod_lightning_lightning_rgb}}"
+{% if not (pod_lightning_lightning_environment_variables == {}) %}
+{% for key, value in pod_lightning_lightning_environment_variables.items() %}
+    - name: {{key | upper }}
+      value: {{value}}
+{% endfor %}
 {% endif %}
 
   dnsConfig: {}

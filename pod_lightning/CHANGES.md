@@ -10,6 +10,33 @@ The headers are:
 - enhancements
 - features
 
+## 1.0.0 (2024-10-06)
+
+### Changes
+
+- Remove parameter `pod_lightning_lightning_addr`
+- Remove parameter `pod_lightning_lightning_alias`
+- Remove parameter `pod_lightning_lightning_announce_addr`
+- Remove parameter `pod_lightning_lightning_announce_addr_discovered`
+- Remove parameter `pod_lightning_lightning_announce_addr_discovered_port`
+- Remove parameter `pod_lightning_lightning_autolisten`
+- Remove parameter `pod_lightning_lightning_bind_addr`
+- Remove parameter `pod_lightning_lightning_bitcoin_cli`
+- Remove parameter `pod_lightning_lightning_bitcoin_datadir`
+- Remove parameter `pod_lightning_lightning_bitcoin_rpcconnect`
+- Remove parameter `pod_lightning_lightning_bitcoin_rpcpassword`
+- Remove parameter `pod_lightning_lightning_bitcoin_rpcport`
+- Remove parameter `pod_lightning_lightning_bitcoin_rpcuser`
+- Remove parameter `pod_lightning_lightning_lightning_dir`
+- Remove parameter `pod_lightning_lightning_log_level`
+- Remove parameter `pod_lightning_lightning_log_timestamps`
+- Remove parameter `pod_lightning_lightning_network`
+- Remove parameter `pod_lightning_lightning_rgb`
+
+### Features
+
+- Add parameter `pod_lightning_lightning_environment_variables`
+
 ## 0.3.2 (2024-06-18)
 
 ### Enhancements

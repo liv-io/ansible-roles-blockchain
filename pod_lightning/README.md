@@ -27,16 +27,17 @@ consult the following sections.
     - role: pod_lightning
   vars:
     pod_lightning_state: 'enable'
-    pod_lightning_lightning_alias: 'example.com'
-    pod_lightning_lightning_announce_addr: '5.6.7.8'
-    pod_lightning_lightning_announce_addr_discovered_port: '9735'
-    pod_lightning_lightning_bind_addr: '0.0.0.0'
-    pod_lightning_lightning_bitcoin_rpcconnect: '1.2.3.4'
-    pod_lightning_lightning_bitcoin_rpcpassword: '3cf83a6puhq4hqjr8f0re28dkpb8hqw5'
-    pod_lightning_lightning_bitcoin_rpcport: '8332'
-    pod_lightning_lightning_bitcoin_rpcuser: 'satoshi'
+    pod_lightning_lightning_environment_variables:
+      ALIAS: 'example.com'
+      ANNOUNCE_ADDR: '5.6.7.8'
+      ANNOUNCE_ADDR_DISCOVERED_PORT: '9735'
+      BIND_ADDR: '0.0.0.0'
+      BITCOIN_RPCCONNECT: '1.2.3.4'
+      BITCOIN_RPCPASSWORD: '3cf83a6puhq4hqjr8f0re28dkpb8hqw5'
+      BITCOIN_RPCPORT: '8332'
+      BITCOIN_RPCUSER: 'satoshi'
+      RGB: 'f2a900'
     pod_lightning_lightning_read_only_root_filesystem: True
-    pod_lightning_lightning_rgb: 'f2a900'
     pod_lightning_lightning_version: '23.11.2-1'
     pod_lightning_proxy: 'http://proxy.example.com:3128'
     pod_lightning_registry_address: 'registry.example.com'
@@ -52,16 +53,18 @@ consult the following sections.
     - role: pod_lightning
   vars:
     pod_lightning_state: 'disable'
-    pod_lightning_lightning_alias: 'example.com'
-    pod_lightning_lightning_announce_addr: '5.6.7.8'
-    pod_lightning_lightning_announce_addr_discovered_port: '9735'
-    pod_lightning_lightning_bind_addr: '0.0.0.0'
-    pod_lightning_lightning_bitcoin_rpcconnect: '1.2.3.4'
-    pod_lightning_lightning_bitcoin_rpcpassword: '3cf83a6puhq4hqjr8f0re28dkpb8hqw5'
-    pod_lightning_lightning_bitcoin_rpcport: '8332'
-    pod_lightning_lightning_bitcoin_rpcuser: 'satoshi'
+    pod_lightning_lightning_environment_variables:
+      ALIAS: 'example.com'
+      ANNOUNCE_ADDR: '5.6.7.8'
+      ANNOUNCE_ADDR_DISCOVERED_PORT: '9735'
+      BIND_ADDR: '0.0.0.0'
+      BITCOIN_RPCCONNECT: '1.2.3.4'
+      BITCOIN_RPCPASSWORD: '3cf83a6puhq4hqjr8f0re28dkpb8hqw5'
+      BITCOIN_RPCPORT: '8332'
+      BITCOIN_RPCUSER: 'satoshi'
+      RGB: 'f2a900'
+
     pod_lightning_lightning_read_only_root_filesystem: True
-    pod_lightning_lightning_rgb: 'f2a900'
     pod_lightning_lightning_version: '23.11.2-1'
     pod_lightning_proxy: 'http://proxy.example.com:3128'
     pod_lightning_registry_address: 'registry.example.com'
@@ -107,178 +110,26 @@ consult the following sections.
       Remove  : 'false' | 'no' | 'remove'
       Inactive: 'quiesce' | 'inactive'
 
-`pod_lightning_lightning_addr`
+`pod_lightning_lightning_environment_variables`
 
-    Description: --addr
+    Description: Define the lightning environment variables.
     Required   : False
     Value      : Arbitrary
-    Type       : String
-    Default    : ''
+    Type       : Dictionary
+    Default    :
+      ANNOUNCE_ADDR_DISCOVERED_PORT: '9735'
     Options    :
-      Examples: '1.2.3.4' | '5.6.7.8'
-      None    : ''
-
-`pod_lightning_lightning_alias`
-
-    Description: --alias
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: 'lightning-node' | 'lightning-node-alias'
-      None    : ''
-
-`pod_lightning_lightning_announce_addr`
-
-    Description: --announce-addr
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: '1.2.3.4' | '5.6.7.8'
-      None    : ''
-
-`pod_lightning_lightning_announce_addr_discovered`
-
-    Description:
-    Required   : False
-    Value      : Predetermined
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: 'true' | 'false' | 'auto'
-
-`pod_lightning_lightning_announce_addr_discovered_port`
-
-    Description: --announce-addr-discovered-port
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: '9735' | '8735'
-
-`pod_lightning_lightning_autolisten`
-
-    Description: --autolisten
-    Required   : False
-    Value      : Predetermined
-    Type       : Boolean
-    Default    : ''
-    Options    : true | false
-
-`pod_lightning_lightning_bind_addr`
-
-    Description: --bind-addr
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: '1.2.3.4' | '5.6.7.8'
-      None    : ''
-
-`pod_lightning_lightning_bitcoin_cli`
-
-    Description: --bitcoin-cli
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: '/mnt/bin/bitcoin-cli'
-
-`pod_lightning_lightning_bitcoin_datadir`
-
-    Description: --bitcoin-datadir
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: '/mnt/lightning/bitcoin-cli'
-
-`pod_lightning_lightning_bitcoin_rpcconnect`
-
-    Description: --bitcoin-rpcconnect
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: '10.10.10.10'
-
-`pod_lightning_lightning_bitcoin_rpcpassword`
-
-    Description: --bitcoin-rpcpassword
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: 'q-HrBk83.5w9wuhFt,nP' | 'J4eQwP_vkMnB8A!s9pRp'
-      None    : ''
-
-`pod_lightning_lightning_bitcoin_rpcport`
-
-    Description: --bitcoin-rpcport
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: '8334'
-
-`pod_lightning_lightning_bitcoin_rpcuser`
-
-    Description: --bitcoin-rpcuser
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: 'satoshi' | 'hal' | 'len' | 'nick' | 'adam' | 'david'
-      None    : ''
-
-`pod_lightning_lightning_lightning_dir`
-
-    Description: --lightning-dir
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: '/mnt/data'
-
-`pod_lightning_lightning_log_level`
-
-    Description: --log-level
-    Required   : False
-    Value      : Predetermined
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: 'io' | 'debug' | 'info' | 'unusual' | 'broken'
-
-`pod_lightning_lightning_log_timestamps`
-
-    Description: --log-timestamps
-    Required   : False
-    Value      : Predetermined
-    Type       : Boolean
-    Default    : ''
-    Options    : true | false
-
-`pod_lightning_lightning_network`
-
-    Description: --network / --mainnet / --testnet
-    Required   : False
-    Value      : Predetermined
-    Type       : String
-    Default    : ''
-    Options    : 'testnet' | 'mainnet'
+      Examples:
+        ALIAS: 'example.com'
+        ANNOUNCE_ADDR: '5.6.7.8'
+        ANNOUNCE_ADDR_DISCOVERED_PORT: '9735'
+        BIND_ADDR: '0.0.0.0'
+        BITCOIN_RPCCONNECT: '1.2.3.4'
+        BITCOIN_RPCPASSWORD: '3cf83a6puhq4hqjr8f0re28dkpb8hqw5'
+        BITCOIN_RPCPORT: '8332'
+        BITCOIN_RPCUSER: 'satoshi'
+        RGB: 'f2a900'
+      None    : {}
 
 `pod_lightning_lightning_read_only_root_filesystem`
 
@@ -288,16 +139,6 @@ consult the following sections.
     Type       : Boolean
     Default    : ''
     Options    : True | False
-
-`pod_lightning_lightning_rgb`
-
-    Description: --rgb
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: 'f2a900' | 'cc9900'
 
 `pod_lightning_lightning_version`
 

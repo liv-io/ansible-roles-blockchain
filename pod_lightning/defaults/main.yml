@@ -2,25 +2,10 @@
 
 pod_lightning_state: 'enable'
 
-pod_lightning_lightning_addr: ''
-pod_lightning_lightning_alias: ''
-pod_lightning_lightning_announce_addr: ''
-pod_lightning_lightning_announce_addr_discovered: ''
-pod_lightning_lightning_announce_addr_discovered_port: ''
-pod_lightning_lightning_autolisten: ''
-pod_lightning_lightning_bind_addr: ''
-pod_lightning_lightning_bitcoin_cli: ''
-pod_lightning_lightning_bitcoin_datadir: ''
-pod_lightning_lightning_bitcoin_rpcconnect: ''
-pod_lightning_lightning_bitcoin_rpcpassword: ''
-pod_lightning_lightning_bitcoin_rpcport: ''
-pod_lightning_lightning_bitcoin_rpcuser: ''
-pod_lightning_lightning_lightning_dir: ''
-pod_lightning_lightning_log_level: ''
-pod_lightning_lightning_log_timestamps: ''
-pod_lightning_lightning_network: ''
+pod_lightning_lightning_environment_variables:
+  ANNOUNCE_ADDR_DISCOVERED_PORT: '9735'
+
 pod_lightning_lightning_read_only_root_filesystem: True
-pod_lightning_lightning_rgb: ''
 pod_lightning_lightning_version: '24.05-2'
 
 pod_lightning_log_driver: 'journald'
