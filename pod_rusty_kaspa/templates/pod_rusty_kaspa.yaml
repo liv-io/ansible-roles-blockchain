@@ -42,57 +42,11 @@ spec:
       mountPath: /tmp/rusty-kaspa
     workingDir: /
     env:
-{% if not (pod_rusty_kaspa_rusty_kaspa_addpeer == "") %}
-    - name: ADDPEER
-      value: "{{pod_rusty_kaspa_rusty_kaspa_addpeer}}"
-{% endif %}
-{% if not (pod_rusty_kaspa_rusty_kaspa_appdir == "") %}
-    - name: APPDIR
-      value: "{{pod_rusty_kaspa_rusty_kaspa_appdir}}"
-{% endif %}
-{% if not (pod_rusty_kaspa_rusty_kaspa_disable_upnp == "") %}
-    - name: DISABLE_UPNP
-      value: "{{pod_rusty_kaspa_rusty_kaspa_disable_upnp|lower}}"
-{% endif %}
-{% if not (pod_rusty_kaspa_rusty_kaspa_externalip == "") %}
-    - name: EXTERNALIP
-      value: "{{pod_rusty_kaspa_rusty_kaspa_externalip}}"
-{% endif %}
-{% if not (pod_rusty_kaspa_rusty_kaspa_listen == "") %}
-    - name: LISTEN
-      value: "{{pod_rusty_kaspa_rusty_kaspa_listen}}"
-{% endif %}
-{% if not (pod_rusty_kaspa_rusty_kaspa_loglevel == "") %}
-    - name: LOGLEVEL
-      value: "{{pod_rusty_kaspa_rusty_kaspa_loglevel|lower}}"
-{% endif %}
-{% if not (pod_rusty_kaspa_rusty_kaspa_nogrpc == "") %}
-    - name: NOGRPC
-      value: "{{pod_rusty_kaspa_rusty_kaspa_nogrpc|lower}}"
-{% endif %}
-{% if not (pod_rusty_kaspa_rusty_kaspa_nologfiles == "") %}
-    - name: NOLOGFILES
-      value: "{{pod_rusty_kaspa_rusty_kaspa_nologfiles|lower}}"
-{% endif %}
-{% if not (pod_rusty_kaspa_rusty_kaspa_nodnsseed == "") %}
-    - name: NODNSSEED
-      value: "{{pod_rusty_kaspa_rusty_kaspa_nodnsseed|lower}}"
-{% endif %}
-{% if not (pod_rusty_kaspa_rusty_kaspa_ram_scale == "") %}
-    - name: RAM_SCALE
-      value: "{{pod_rusty_kaspa_rusty_kaspa_ram_scale}}"
-{% endif %}
-{% if not (pod_rusty_kaspa_rusty_kaspa_rpclisten == "") %}
-    - name: RPCLISTEN
-      value: "{{pod_rusty_kaspa_rusty_kaspa_rpclisten}}"
-{% endif %}
-{% if not (pod_rusty_kaspa_rusty_kaspa_sanity == "") %}
-    - name: SANITY
-      value: "{{pod_rusty_kaspa_rusty_kaspa_sanity|lower}}"
-{% endif %}
-{% if not (pod_rusty_kaspa_rusty_kaspa_utxoindex == "") %}
-    - name: UTXOINDEX
-      value: "{{pod_rusty_kaspa_rusty_kaspa_utxoindex|lower}}"
+{% if not (pod_rusty_kaspa_rusty_kaspa_environment_variables == {}) %}
+{% for key, value in pod_rusty_kaspa_rusty_kaspa_environment_variables.items() %}
+    - name: {{key | upper }}
+      value: {{value}}
+{% endfor %}
 {% endif %}
 
   dnsConfig: {}

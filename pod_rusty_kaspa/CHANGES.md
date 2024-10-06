@@ -10,6 +10,28 @@ The headers are:
 - enhancements
 - features
 
+## 1.0.0 (2024-10-06)
+
+### Changes
+
+- Remove parameter `pod_rusty_kaspa_rusty_kaspa_addpeer`
+- Remove parameter `pod_rusty_kaspa_rusty_kaspa_appdir`
+- Remove parameter `pod_rusty_kaspa_rusty_kaspa_disable_upnp`
+- Remove parameter `pod_rusty_kaspa_rusty_kaspa_externalip`
+- Remove parameter `pod_rusty_kaspa_rusty_kaspa_listen`
+- Remove parameter `pod_rusty_kaspa_rusty_kaspa_loglevel`
+- Remove parameter `pod_rusty_kaspa_rusty_kaspa_nodnsseed`
+- Remove parameter `pod_rusty_kaspa_rusty_kaspa_nogrpc`
+- Remove parameter `pod_rusty_kaspa_rusty_kaspa_nologfiles`
+- Remove parameter `pod_rusty_kaspa_rusty_kaspa_ram_scale`
+- Remove parameter `pod_rusty_kaspa_rusty_kaspa_rpclisten`
+- Remove parameter `pod_rusty_kaspa_rusty_kaspa_sanity`
+- Remove parameter `pod_rusty_kaspa_rusty_kaspa_utxoindex`
+
+### Features
+
+- Add parameter `pod_rusty_kaspa_rusty_kaspa_environment_variables`
+
 ## 0.2.1 (2024-07-27)
 
 ### Bugs

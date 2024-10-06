@@ -24,18 +24,7 @@ pod_rusty_kaspa_registry_address: ''
 pod_rusty_kaspa_registry_password: ''
 pod_rusty_kaspa_registry_username: ''
 
-pod_rusty_kaspa_rusty_kaspa_addpeer: ''
-pod_rusty_kaspa_rusty_kaspa_appdir: ''
-pod_rusty_kaspa_rusty_kaspa_disable_upnp: ''
-pod_rusty_kaspa_rusty_kaspa_externalip: ''
-pod_rusty_kaspa_rusty_kaspa_listen: ''
-pod_rusty_kaspa_rusty_kaspa_loglevel: ''
-pod_rusty_kaspa_rusty_kaspa_nodnsseed: ''
-pod_rusty_kaspa_rusty_kaspa_nogrpc: ''
-pod_rusty_kaspa_rusty_kaspa_nologfiles: ''
-pod_rusty_kaspa_rusty_kaspa_ram_scale: ''
+pod_rusty_kaspa_rusty_kaspa_environment_variables: {}
+
 pod_rusty_kaspa_rusty_kaspa_read_only_root_filesystem: True
-pod_rusty_kaspa_rusty_kaspa_rpclisten: ''
-pod_rusty_kaspa_rusty_kaspa_sanity: ''
-pod_rusty_kaspa_rusty_kaspa_utxoindex: ''
 pod_rusty_kaspa_rusty_kaspa_version: '0.14.1-2'

@@ -33,7 +33,8 @@ consult the following sections.
     pod_rusty_kaspa_registry_address: 'registry.example.com'
     pod_rusty_kaspa_registry_password: 'sUlJr0kPZ1S0TX44aUdOVdQ90GbOBk6L'
     pod_rusty_kaspa_registry_username: 'registry'
-    pod_rusty_kaspa_rusty_kaspa_externalip: '1.2.3.4'
+    pod_rusty_kaspa_rusty_kaspa_environment_variables:
+      EXTERNALIP: '1.2.3.4'
 ```
 
 ### Disable
@@ -50,6 +51,8 @@ consult the following sections.
     pod_rusty_kaspa_registry_password: 'sUlJr0kPZ1S0TX44aUdOVdQ90GbOBk6L'
     pod_rusty_kaspa_registry_username: 'registry'
     pod_rusty_kaspa_rusty_kaspa_externalip: '1.2.3.4'
+    pod_rusty_kaspa_rusty_kaspa_environment_variables:
+      EXTERNALIP: '1.2.3.4'
 ```
 
 ### Remove
@@ -182,103 +185,18 @@ consult the following sections.
     Options    :
       Examples: 'user' | 'registry'
 
-`pod_rusty_kaspa_rusty_kaspa_addpeer`
+`pod_rusty_kaspa_rusty_kaspa_environment_variables`
 
-    Description: --addpeer
+    Description: Define the rusty-kaspa environment variables.
     Required   : False
     Value      : Arbitrary
-    Type       : Array
-    Default    : ""
+    Type       : Dictionary
+    Default    : {}
     Options    :
-      Examples: "10.1.1.10:16111" | "kas.example.com:16111 kas.example.org:16111"
-      None    : ""
-
-`pod_rusty_kaspa_rusty_kaspa_appdir`
-
-    Description: --appdir
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : "-/var/local/rusty-kaspa/data"
-    Options    :
-      Examples: "/mnt/data"
-
-`pod_rusty_kaspa_rusty_kaspa_disable_upnp`
-
-    Description: --disable-upnp
-    Required   : False
-    Value      : Predetermined
-    Type       : Boolean
-    Default    : true
-    Options    : true | false
-
-`pod_rusty_kaspa_rusty_kaspa_externalip`
-
-    Description: --externalip
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ""
-    Options    :
-      Examples: "1.2.3.4" | "5.6.7.8"
-      None    : ""
-
-`pod_rusty_kaspa_rusty_kaspa_listen`
-
-    Description: --listen
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ""
-    Options    :
-      Examples: "127.0.0.1" | "1.2.3.4" | "5.6.7.8:16111"
-
-`pod_rusty_kaspa_rusty_kaspa_loglevel`
-
-    Description: --loglevel
-    Required   : False
-    Value      : Predetermined
-    Type       : String
-    Default    : "info"
-    Options    :
-      Examples: "off" | "error" | "warn" | "info" | "debug" | "trace"
-
-`pod_rusty_kaspa_rusty_kaspa_nodnsseed`
-
-    Description: --nodnsseed
-    Required   : False
-    Value      : Predetermined
-    Type       : Boolean
-    Default    : false
-    Options    : true | false
-
-`pod_rusty_kaspa_rusty_kaspa_nogrpc`
-
-    Description: --nogrpc
-    Required   : False
-    Value      : Predetermined
-    Type       : Boolean
-    Default    : true
-    Options    : true | false
-
-`pod_rusty_kaspa_rusty_kaspa_nologfiles`
-
-    Description: --nologfiles
-    Required   : False
-    Value      : Predetermined
-    Type       : Boolean
-    Default    : true
-    Options    : true | false
-
-`pod_rusty_kaspa_rusty_kaspa_ram_scale`
-
-    Description: --ram-scale
-    Required   : False
-    Value      : Arbitrary
-    Type       : Float
-    Default    : 0.3
-    Options    :
-      Examples: 0.3 | 0.4 | 1.0
+      Examples:
+        EXTERNALIP: '213.193.83.251'
+        NODNSSEED: False
+      None    : {}
 
 `pod_rusty_kaspa_rusty_kaspa_read_only_root_filesystem`
 
@@ -288,34 +206,6 @@ consult the following sections.
     Type       : Boolean
     Default    : True
     Options    : True | False
-
-`pod_rusty_kaspa_rusty_kaspa_rpclisten`
-
-    Description: --listen
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ""
-    Options    :
-      Examples: "127.0.0.1" | "1.2.3.4" | "5.6.7.8:16111"
-
-`pod_rusty_kaspa_rusty_kaspa_sanity`
-
-    Description: --sanity
-    Required   : False
-    Value      : Predetermined
-    Type       : Boolean
-    Default    : false
-    Options    : true | false
-
-`pod_rusty_kaspa_rusty_kaspa_utxoindex`
-
-    Description: --utxoindex
-    Required   : False
-    Value      : Predetermined
-    Type       : Boolean
-    Default    : false
-    Options    : true | false
 
 `pod_rusty_kaspa_rusty_kaspa_version`
 
