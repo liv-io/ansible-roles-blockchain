@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 1.0.1 (2024-10-06)
+
+### Bugs
+
+- Fix Jinja2 if-statements in Monit configuration and Podman Kubernetes YAML
+
 ## 1.0.0 (2024-10-06)
 
 ### Changes

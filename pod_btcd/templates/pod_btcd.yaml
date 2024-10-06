@@ -13,13 +13,13 @@ spec:
   - name: btcd
     image: {{pod_btcd_registry_address}}/btcd:{{pod_btcd_btcd_version}}
     ports:
-{% if (pod_btcd_btcd_environment_variables.LISTEN) %}
+{% if (pod_btcd_btcd_environment_variables.LISTEN is defined) %}
     - name: btcd-network
       containerPort: {{pod_btcd_btcd_environment_variables.LISTEN.rsplit(':', 1)[-1]}}
       hostPort: {{pod_btcd_btcd_environment_variables.LISTEN.rsplit(':', 1)[-1]}}
       protocol: TCP
 {% endif %}
-{% if (pod_btcd_btcd_environment_variables.RPCLISTEN) %}
+{% if (pod_btcd_btcd_environment_variables.RPCLISTEN is defined) %}
     - name: btcd-rpc
       containerPort: {{pod_btcd_btcd_environment_variables.RPCLISTEN.rsplit(':', 1)[-1]}}
       hostPort: {{pod_btcd_btcd_environment_variables.RPCLISTEN.rsplit(':', 1)[-1]}}
