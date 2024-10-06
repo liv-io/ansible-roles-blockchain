@@ -13,30 +13,40 @@ spec:
   - name: bitcoin-core
     image: {{pod_bitcoin_core_registry_address}}/bitcoin-core:{{pod_bitcoin_core_bitcoin_core_version}}
     ports:
+{% if (pod_bitcoin_core_bitcoin_core_environment_variables.PORT) %}
     - name: bitcoin-core-network
-      containerPort: {{pod_bitcoin_core_bitcoin_core_port}}
-      hostPort: {{pod_bitcoin_core_bitcoin_core_port}}
+      containerPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.PORT.rsplit(':', 1)[-1]}}
+      hostPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.PORT.rsplit(':', 1)[-1]}}
       protocol: TCP
-{% if (pod_bitcoin_core_bitcoin_core_rest == True) %}
+{% endif %}
+{% if (pod_bitcoin_core_bitcoin_core_environment_variables.RPCPORT) %}
     - name: bitcoin-core-rpc
-      containerPort: {{pod_bitcoin_core_bitcoin_core_rpcport}}
-      hostPort: {{pod_bitcoin_core_bitcoin_core_rpcport}}
+      containerPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.RPCPORT.rsplit(':', 1)[-1]}}
+      hostPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.RPCPORT.rsplit(':', 1)[-1]}}
       protocol: TCP
+{% endif %}
+{% if (pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBHASHBLOCK) %}
     - name: bitcoin-core-zmqpubhashblock
-      containerPort: 5555
-      hostPort: 5555
+      containerPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBHASHBLOCK.rsplit(':', 1)[-1]}}
+      hostPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBHASHBLOCK.rsplit(':', 1)[-1]}}
       protocol: TCP
+{% endif %}
+{% if (pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBHASHTX) %}
     - name: bitcoin-core-zmqpubhashtx
-      containerPort: 5556
-      hostPort: 5556
+      containerPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBHASHTX.rsplit(':', 1)[-1]}}
+      hostPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBHASHTX.rsplit(':', 1)[-1]}}
       protocol: TCP
+{% endif %}
+{% if (pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBRAWBLOCK) %}
     - name: bitcoin-core-zmqpubrawblock
-      containerPort: 5557
-      hostPort: 5557
+      containerPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBRAWBLOCK.rsplit(':', 1)[-1]}}
+      hostPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBRAWBLOCK.rsplit(':', 1)[-1]}}
       protocol: TCP
+{% endif %}
+{% if (pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBRAWTX) %}
     - name: bitcoin-core-zmqpubrawtx
-      containerPort: 5558
-      hostPort: 5558
+      containerPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBRAWTX.rsplit(':', 1)[-1]}}
+      hostPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBRAWTX.rsplit(':', 1)[-1]}}
       protocol: TCP
 {% endif %}
     resources: {}
@@ -58,73 +68,11 @@ spec:
       mountPath: /var/local/bitcoin-core/db
     workingDir: /
     env:
-{% if not (pod_bitcoin_core_bitcoin_core_addnode == "") %}
-    - name: ADDNODE
-      value: "{{pod_bitcoin_core_bitcoin_core_addnode}}"
-{% endif %}
-{% if not (pod_bitcoin_core_bitcoin_core_bind == "") %}
-    - name: BIND
-      value: "{{pod_bitcoin_core_bitcoin_core_bind}}"
-{% endif %}
-{% if not (pod_bitcoin_core_bitcoin_core_datadir == "") %}
-    - name: DATADIR
-      value: "{{pod_bitcoin_core_bitcoin_core_datadir}}"
-{% endif %}
-{% if not (pod_bitcoin_core_bitcoin_core_dbcache == "") %}
-    - name: DBCACHE
-      value: "{{pod_bitcoin_core_bitcoin_core_dbcache}}"
-{% endif %}
-{% if not (pod_bitcoin_core_bitcoin_core_externalip == "") %}
-    - name: EXTERNALIP
-      value: "{{pod_bitcoin_core_bitcoin_core_externalip}}"
-{% endif %}
-{% if not (pod_bitcoin_core_bitcoin_core_maxuploadtarget == "") %}
-    - name: MAXUPLOADTARGET
-      value: "{{pod_bitcoin_core_bitcoin_core_maxuploadtarget}}"
-{% endif %}
-{% if not (pod_bitcoin_core_bitcoin_core_onlynet == "") %}
-    - name: ONLYNET
-      value: "{{pod_bitcoin_core_bitcoin_core_onlynet}}"
-{% endif %}
-{% if not (pod_bitcoin_core_bitcoin_core_port == "") %}
-    - name: PORT
-      value: "{{pod_bitcoin_core_bitcoin_core_port}}"
-{% endif %}
-{% if not (pod_bitcoin_core_bitcoin_core_rest == "") %}
-    - name: REST
-      value: "{{pod_bitcoin_core_bitcoin_core_rest|lower}}"
-{% endif %}
-{% if not (pod_bitcoin_core_bitcoin_core_rpcallowip == "") %}
-    - name: RPCALLOWIP
-      value: "{{pod_bitcoin_core_bitcoin_core_rpcallowip}}"
-{% endif %}
-{% if not (pod_bitcoin_core_bitcoin_core_rpcauth == "") %}
-    - name: RPCAUTH
-      value: "{{pod_bitcoin_core_bitcoin_core_rpcauth}}"
-{% endif %}
-{% if not (pod_bitcoin_core_bitcoin_core_rpcbind == "") %}
-    - name: RPCBIND
-      value: "{{pod_bitcoin_core_bitcoin_core_rpcbind}}"
-{% endif %}
-{% if not (pod_bitcoin_core_bitcoin_core_rpcport == "") %}
-    - name: RPCPORT
-      value: "{{pod_bitcoin_core_bitcoin_core_rpcport}}"
-{% endif %}
-{% if not (pod_bitcoin_core_bitcoin_core_zmqpubhashblock == "") %}
-    - name: ZMQPUBHASHBLOCK
-      value: "{{pod_bitcoin_core_bitcoin_core_zmqpubhashblock}}"
-{% endif %}
-{% if not (pod_bitcoin_core_bitcoin_core_zmqpubhashtx == "") %}
-    - name: ZMQPUBHASHTX
-      value: "{{pod_bitcoin_core_bitcoin_core_zmqpubhashtx}}"
-{% endif %}
-{% if not (pod_bitcoin_core_bitcoin_core_zmqpubrawblock == "") %}
-    - name: ZMQPUBRAWBLOCK
-      value: "{{pod_bitcoin_core_bitcoin_core_zmqpubrawblock}}"
-{% endif %}
-{% if not (pod_bitcoin_core_bitcoin_core_zmqpubrawtx == "") %}
-    - name: ZMQPUBRAWTX
-      value: "{{pod_bitcoin_core_bitcoin_core_zmqpubrawtx}}"
+{% if not (pod_bitcoin_core_bitcoin_core_environment_variables == {}) %}
+{% for key, value in pod_bitcoin_core_bitcoin_core_environment_variables.items() %}
+    - name: {{key | upper }}
+      value: {{value}}
+{% endfor %}
 {% endif %}
 
   dnsConfig: {}

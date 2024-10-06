@@ -10,6 +10,33 @@ The headers are:
 - enhancements
 - features
 
+## 1.0.0 (2024-10-06)
+
+### Changes
+
+- Remove parameter `pod_bitcoin_core_bitcoin_core_addnode`
+- Remove parameter `pod_bitcoin_core_bitcoin_core_bind`
+- Remove parameter `pod_bitcoin_core_bitcoin_core_datadir`
+- Remove parameter `pod_bitcoin_core_bitcoin_core_dbcache`
+- Remove parameter `pod_bitcoin_core_bitcoin_core_externalip`
+- Remove parameter `pod_bitcoin_core_bitcoin_core_maxuploadtarget`
+- Remove parameter `pod_bitcoin_core_bitcoin_core_onlynet`
+- Remove parameter `pod_bitcoin_core_bitcoin_core_port`
+- Remove parameter `pod_bitcoin_core_bitcoin_core_rest`
+- Remove parameter `pod_bitcoin_core_bitcoin_core_rpcallowip`
+- Remove parameter `pod_bitcoin_core_bitcoin_core_rpcauth`
+- Remove parameter `pod_bitcoin_core_bitcoin_core_rpcbind`
+- Remove parameter `pod_bitcoin_core_bitcoin_core_rpcport`
+- Remove parameter `pod_bitcoin_core_bitcoin_core_zmqpubhashblock`
+- Remove parameter `pod_bitcoin_core_bitcoin_core_zmqpubhashtx`
+- Remove parameter `pod_bitcoin_core_bitcoin_core_zmqpubrawblock`
+- Remove parameter `pod_bitcoin_core_bitcoin_core_zmqpubrawtx`
+
+### Features
+
+- Add parameter `pod_bitcoin_core_bitcoin_core_environment_variables`
+- Update pod_bitcoin_core_bitcoin_core_version from 27.1-1 to 28.0-1
+
 ## 0.6.1 (2024-06-18)
 
 ### Enhancements

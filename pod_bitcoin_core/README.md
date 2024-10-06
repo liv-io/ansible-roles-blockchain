@@ -29,16 +29,19 @@ consult the following sections.
     - role: pod_bitcoin_core
   vars:
     pod_bitcoin_core_state: 'enable'
-    pod_bitcoin_core_bitcoin_core_addnode: 'btc.example.com:8333 btc.example.org:8333'
-    pod_bitcoin_core_bitcoin_core_rest: True
-    pod_bitcoin_core_bitcoin_core_rpcallowip: '0.0.0.0/0'
-    pod_bitcoin_core_bitcoin_core_rpcauth: 'satoshi:d7316644b50aa7ea8792daf5c6b897e4$54194677335fcb771aa39533ddc2833927de9626b0d8fcb7940a7f56aa8a9569'
-    pod_bitcoin_core_bitcoin_core_rpcbind: '0.0.0.0'
-    pod_bitcoin_core_bitcoin_core_version: '25.1-1'
-    pod_bitcoin_core_bitcoin_core_zmqpubhashblock: 'tcp://0.0.0.0:5555'
-    pod_bitcoin_core_bitcoin_core_zmqpubhashtx: 'tcp://0.0.0.0:5556'
-    pod_bitcoin_core_bitcoin_core_zmqpubrawblock: 'tcp://0.0.0.0:5557'
-    pod_bitcoin_core_bitcoin_core_zmqpubrawtx: 'tcp://0.0.0.0:5558'
+    pod_bitcoin_core_bitcoin_core_environment_variables:
+      ADDNODE: 'btc.example.com:8333 btc.example.org:8333'
+      PORT: '8333'
+      REST: True
+      RPCALLOWIP: '0.0.0.0/0'
+      RPCAUTH: 'satoshi:d7316644b50aa7ea8792daf5c6b897e4$54194677335fcb771aa39533ddc2833927de9626b0d8fcb7940a7f56aa8a9569'
+      RPCBIND: '0.0.0.0'
+      RPCPORT: '8332'
+      ZMQPUBHASHBLOCK: 'tcp://0.0.0.0:5555'
+      ZMQPUBHASHTX: 'tcp://0.0.0.0:5556'
+      ZMQPUBRAWBLOCK: 'tcp://0.0.0.0:5557'
+      ZMQPUBRAWTX: 'tcp://0.0.0.0:5558'
+    pod_bitcoin_core_bitcoin_core_version: '28.0-1'
     pod_bitcoin_core_proxy: 'http://proxy.example.com:3128'
     pod_bitcoin_core_registry_address: 'registry.example.com'
     pod_bitcoin_core_registry_password: 'sUlJr0kPZ1S0TX44aUdOVdQ90GbOBk6L'
@@ -53,16 +56,19 @@ consult the following sections.
     - role: pod_bitcoin_core
   vars:
     pod_bitcoin_core_state: 'disable'
-    pod_bitcoin_core_bitcoin_core_addnode: 'btc.example.com:8333 btc.example.org:8333'
-    pod_bitcoin_core_bitcoin_core_rest: True
-    pod_bitcoin_core_bitcoin_core_rpcallowip: '0.0.0.0/0'
-    pod_bitcoin_core_bitcoin_core_rpcauth: 'satoshi:d7316644b50aa7ea8792daf5c6b897e4$54194677335fcb771aa39533ddc2833927de9626b0d8fcb7940a7f56aa8a9569'
-    pod_bitcoin_core_bitcoin_core_rpcbind: '0.0.0.0'
-    pod_bitcoin_core_bitcoin_core_version: '25.1-1'
-    pod_bitcoin_core_bitcoin_core_zmqpubhashblock: 'tcp://0.0.0.0:5555'
-    pod_bitcoin_core_bitcoin_core_zmqpubhashtx: 'tcp://0.0.0.0:5556'
-    pod_bitcoin_core_bitcoin_core_zmqpubrawblock: 'tcp://0.0.0.0:5557'
-    pod_bitcoin_core_bitcoin_core_zmqpubrawtx: 'tcp://0.0.0.0:5558'
+    pod_bitcoin_core_bitcoin_core_environment_variables:
+      ADDNODE: 'btc.example.com:8333 btc.example.org:8333'
+      PORT: '8333'
+      REST: True
+      RPCALLOWIP: '0.0.0.0/0'
+      RPCAUTH: 'satoshi:d7316644b50aa7ea8792daf5c6b897e4$54194677335fcb771aa39533ddc2833927de9626b0d8fcb7940a7f56aa8a9569'
+      RPCBIND: '0.0.0.0'
+      RPCPORT: '8332'
+      ZMQPUBHASHBLOCK: 'tcp://0.0.0.0:5555'
+      ZMQPUBHASHTX: 'tcp://0.0.0.0:5556'
+      ZMQPUBRAWBLOCK: 'tcp://0.0.0.0:5557'
+      ZMQPUBRAWTX: 'tcp://0.0.0.0:5558'
+    pod_bitcoin_core_bitcoin_core_version: '28.0-1'
     pod_bitcoin_core_proxy: 'http://proxy.example.com:3128'
     pod_bitcoin_core_registry_address: 'registry.example.com'
     pod_bitcoin_core_registry_password: 'sUlJr0kPZ1S0TX44aUdOVdQ90GbOBk6L'
@@ -107,88 +113,28 @@ consult the following sections.
       Remove  : 'false' | 'no' | 'remove'
       Inactive: 'quiesce' | 'inactive'
 
-`pod_bitcoin_core_bitcoin_core_addnode`
+`pod_bitcoin_core_bitcoin_core_environment_variables`
 
-    Description: -addnode
+    Description: Define the bitcoin-core environment variables.
     Required   : False
     Value      : Arbitrary
-    Type       : Array
-    Default    : ''
+    Type       : Dictionary
+    Default    :
+      PORT: '8333'
     Options    :
-      Examples: '10.1.1.10:8333' | 'btc.example.com:8333 btc.example.org:8333'
-      None    : ''
-
-`pod_bitcoin_core_bitcoin_core_bind`
-
-    Description: -bind
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: '127.0.0.1' | '1.2.3.4' | '5.6.7.8:8333'
-
-`pod_bitcoin_core_bitcoin_core_datadir`
-
-    Description: -datadir
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: '/mnt/db'
-
-`pod_bitcoin_core_bitcoin_core_dbcache`
-
-    Description: -dbcache
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: '4096'
-
-`pod_bitcoin_core_bitcoin_core_externalip`
-
-    Description: -externalip
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: '1.2.3.4' | '5.6.7.8'
-      None    : ''
-
-`pod_bitcoin_core_bitcoin_core_maxuploadtarget`
-
-    Description: -maxuploadtarget (MiB per day)
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: '25787' | '103148' | '515738' | '1031475'
-      None    : ''
-
-`pod_bitcoin_core_bitcoin_core_onlynet`
-
-    Description: -onlynet
-    Required   : False
-    Value      : Predetermined
-    Type       : Array
-    Default    : ''
-    Options    :
-      Examples: 'ipv4 ipv6' | 'onion' | 'i2p' | 'cjdns'
-
-`pod_bitcoin_core_bitcoin_core_port`
-
-    Description: -port
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : '8333'
-    Options    :
-      Examples: '8333' | '18333'
+      Examples:
+        ADDNODE: 'btc.example.com:8333 btc.example.org:8333'
+        PORT: '8333'
+        REST: True
+        RPCALLOWIP: '0.0.0.0/0'
+        RPCAUTH: 'satoshi:d7316644b50aa7ea8792daf5c6b897e4$54194677335fcb771aa39533ddc2833927de9626b0d8fcb7940a7f56aa8a9569'
+        RPCBIND: '0.0.0.0'
+        RPCPORT: '8332'
+        ZMQPUBHASHBLOCK: 'tcp://0.0.0.0:5555'
+        ZMQPUBHASHTX: 'tcp://0.0.0.0:5556'
+        ZMQPUBRAWBLOCK: 'tcp://0.0.0.0:5557'
+        ZMQPUBRAWTX: 'tcp://0.0.0.0:5558'
+      None    : {}
 
 `pod_bitcoin_core_bitcoin_core_read_only_root_filesystem`
 
@@ -199,112 +145,15 @@ consult the following sections.
     Default    : True
     Options    : True | False
 
-`pod_bitcoin_core_bitcoin_core_rest`
-
-    Description: -rest
-    Required   : False
-    Value      : Predetermined
-    Type       : Boolean
-    Default    : ''
-    Options    : True | False
-
-`pod_bitcoin_core_bitcoin_core_rpcallowip`
-
-    Description: -rpcallowip
-    Required   : False
-    Value      : Arbitrary
-    Type       : Array
-    Default    : ''
-    Options    :
-      Examples: '127.0.0.0/8' | '0.0.0.0/0'
-      None    : ''
-
-`pod_bitcoin_core_bitcoin_core_rpcauth`
-
-    Description: -rpcauth
-                 https://github.com/bitcoin/bitcoin/tree/master/share/rpcauth
-    Required   : False
-    Value      : Arbitrary
-    Type       : Array
-    Default    : ''
-    Options    :
-      Examples: 'satoshi:d7316644b50aa7ea8792daf5c6b897e4$54194677335fcb771aa39533ddc2833927de9626b0d8fcb7940a7f56aa8a9569' |
-                'satoshi:63c20cd63c1eed39bfd8ecc04cf8d816$83340b182b07b1b2d55352797eab617b821f83c4f1c28bd3dfc40240e412ec7a'
-      None    : ''
-
-`pod_bitcoin_core_bitcoin_core_rpcbind`
-
-    Description: -rpcbind
-    Required   : False
-    Value      : Arbitrary
-    Type       : Array
-    Default    : ''
-    Options    :
-      Examples: '0.0.0.0' | '1.2.3.4 5.6.7.8:8332'
-
-`pod_bitcoin_core_bitcoin_core_rpcport`
-
-    Description: -rpcport
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : '8332'
-    Options    :
-      Examples: '8332' | '18332'
-
 `pod_bitcoin_core_bitcoin_core_version`
 
     Description: Define the bitcoin-core container image version.
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : '27.1-1'
+    Default    : '28.0-1'
     Options    :
       Examples: ''
-
-`pod_bitcoin_core_bitcoin_core_zmqpubhashblock`
-
-    Description: -zmqpubhashblock
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: 'tcp://0.0.0.0:5555'
-      None    : ''
-
-`pod_bitcoin_core_bitcoin_core_zmqpubhashtx`
-
-    Description: -zmqpubhashtx
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: 'tcp://0.0.0.0:5556'
-      None    : ''
-
-`pod_bitcoin_core_bitcoin_core_zmqpubrawblock`
-
-    Description: -zmqpubrawblock
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: 'tcp://0.0.0.0:5557'
-      None    : ''
-
-`pod_bitcoin_core_bitcoin_core_zmqpubrawtx`
-
-    Description: -zmqpubrawtx
-    Required   : False
-    Value      : Arbitrary
-    Type       : String
-    Default    : ''
-    Options    :
-      Examples: 'tcp://0.0.0.0:5558'
-      None    : ''
 
 `pod_bitcoin_core_log_driver`
 

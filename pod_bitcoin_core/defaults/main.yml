@@ -2,25 +2,11 @@
 
 pod_bitcoin_core_state: 'enable'
 
-pod_bitcoin_core_bitcoin_core_addnode: ''
-pod_bitcoin_core_bitcoin_core_bind: ''
-pod_bitcoin_core_bitcoin_core_datadir: ''
-pod_bitcoin_core_bitcoin_core_dbcache: ''
-pod_bitcoin_core_bitcoin_core_externalip: ''
-pod_bitcoin_core_bitcoin_core_maxuploadtarget: ''
-pod_bitcoin_core_bitcoin_core_onlynet: ''
-pod_bitcoin_core_bitcoin_core_port: '8333'
+pod_bitcoin_core_bitcoin_core_environment_variables:
+  PORT: '8333'
+
 pod_bitcoin_core_bitcoin_core_read_only_root_filesystem: True
-pod_bitcoin_core_bitcoin_core_rest: ''
-pod_bitcoin_core_bitcoin_core_rpcallowip: ''
-pod_bitcoin_core_bitcoin_core_rpcauth: ''
-pod_bitcoin_core_bitcoin_core_rpcbind: ''
-pod_bitcoin_core_bitcoin_core_rpcport: '8332'
-pod_bitcoin_core_bitcoin_core_version: '27.1-1'
-pod_bitcoin_core_bitcoin_core_zmqpubhashblock: ''
-pod_bitcoin_core_bitcoin_core_zmqpubhashtx: ''
-pod_bitcoin_core_bitcoin_core_zmqpubrawblock: ''
-pod_bitcoin_core_bitcoin_core_zmqpubrawtx: ''
+pod_bitcoin_core_bitcoin_core_version: '28.0-1'
 
 pod_bitcoin_core_log_driver: 'journald'
 
