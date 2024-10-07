@@ -46,7 +46,7 @@ spec:
     env:
 {% if not (pod_btcd_btcd_environment_variables == {}) %}
 {% for key, value in pod_btcd_btcd_environment_variables.items() %}
-    - name: {{key | upper }}
+    - name: {{key|upper}}
       value: {{value}}
 {% endfor %}
 {% endif %}

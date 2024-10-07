@@ -40,7 +40,7 @@ spec:
     env:
 {% if not (pod_lightning_lightning_environment_variables == {}) %}
 {% for key, value in pod_lightning_lightning_environment_variables.items() %}
-    - name: {{key | upper }}
+    - name: {{key|upper}}
       value: {{value}}
 {% endfor %}
 {% endif %}

@@ -70,7 +70,7 @@ spec:
     env:
 {% if not (pod_bitcoin_core_bitcoin_core_environment_variables == {}) %}
 {% for key, value in pod_bitcoin_core_bitcoin_core_environment_variables.items() %}
-    - name: {{key | upper }}
+    - name: {{key|upper}}
       value: {{value}}
 {% endfor %}
 {% endif %}
