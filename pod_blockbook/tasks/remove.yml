@@ -1,0 +1,67 @@
+---
+
+- name: include variables
+  include_vars: "{{lookup('first_found', params)}}"
+  vars:
+    params:
+      files:
+        - "vars/{{ansible_distribution_major_version}}.yml"
+        - 'vars/main.yml'
+  tags:
+    - pod_blockbook
+
+- name: check service pod_blockbook
+  shell: "{{command_cmd_check_service_pod_blockbook}}"
+  register: register_check_service_pod_blockbook
+  changed_when: (register_check_service_pod_blockbook.rc == 0)
+  failed_when: (register_check_service_pod_blockbook.rc > 1)
+  check_mode: False
+  tags:
+    - pod_blockbook
+
+- name: stop service pod_blockbook
+  service:
+    state: stopped
+    enabled: False
+    name: "{{service_name_pod_blockbook}}"
+    daemon_reload: True
+  when: (register_check_service_pod_blockbook.rc == 0)
+  tags:
+    - pod_blockbook
+
+- name: remove file pod_blockbook.nft
+  file:
+    state: absent
+    path: "{{file_dst_pod_blockbook_nft}}"
+  notify: reload nftables
+  tags:
+    - pod_blockbook
+
+- name: remove file pod_blockbook-blockbook.cfg
+  file:
+    state: absent
+    path: "{{file_dst_pod_blockbook_blockbook_cfg}}"
+  notify: reload monit
+  tags:
+    - pod_blockbook
+
+- name: remove file pod_blockbook_etc.dir
+  file:
+    state: absent
+    path: "{{file_dst_pod_blockbook_etc_dir}}"
+  tags:
+    - pod_blockbook
+
+- name: remove file pod_blockbook.default
+  file:
+    state: absent
+    path: "{{file_dst_pod_blockbook_default}}"
+  tags:
+    - pod_blockbook
+
+- name: remove file pod_blockbook.service
+  file:
+    state: absent
+    path: "{{file_dst_pod_blockbook_service}}"
+  tags:
+    - pod_blockbook

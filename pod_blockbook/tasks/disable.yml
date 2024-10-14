@@ -1,0 +1,71 @@
+---
+
+- name: include variables
+  include_vars: "{{lookup('first_found', params)}}"
+  vars:
+    params:
+      files:
+        - "vars/{{ansible_distribution_major_version}}.yml"
+        - 'vars/main.yml'
+  tags:
+    - pod_blockbook
+
+- name: create file pod_blockbook.yaml
+  template:
+    src: "{{file_src_pod_blockbook_yaml}}"
+    dest: "{{file_dst_pod_blockbook_yaml}}"
+    mode: "{{file_mode_pod_blockbook_yaml}}"
+    owner: "{{file_owner_pod_blockbook_yaml}}"
+    group: "{{file_group_pod_blockbook_yaml}}"
+  tags:
+    - pod_blockbook
+
+- name: create file pod_blockbook.default
+  template:
+    src: "{{file_src_pod_blockbook_default}}"
+    dest: "{{file_dst_pod_blockbook_default}}"
+    mode: "{{file_mode_pod_blockbook_default}}"
+    owner: "{{file_owner_pod_blockbook_default}}"
+    group: "{{file_group_pod_blockbook_default}}"
+  tags:
+    - pod_blockbook
+
+- name: remove file pod_blockbook-blockbook.cfg
+  file:
+    state: absent
+    path: "{{file_dst_pod_blockbook_blockbook_cfg}}"
+  notify: reload monit
+  tags:
+    - pod_blockbook
+
+- name: create file pod_blockbook.nft
+  template:
+    src: "{{file_src_pod_blockbook_nft}}"
+    dest: "{{file_dst_pod_blockbook_nft}}"
+    mode: "{{file_mode_pod_blockbook_nft}}"
+    owner: "{{file_owner_pod_blockbook_nft}}"
+    group: "{{file_group_pod_blockbook_nft}}"
+  notify:
+    - validate nftables
+    - reload nftables
+  when: (pod_blockbook_nftables_state == True)
+  tags:
+    - pod_blockbook
+
+- name: remove file pod_blockbook.nft
+  file:
+    state: absent
+    path: "{{file_dst_pod_blockbook_nft}}"
+  notify: reload nftables
+  when: (pod_blockbook_nftables_state == False)
+  tags:
+    - pod_blockbook
+
+- name: stop service pod_blockbook
+  service:
+    state: stopped
+    enabled: False
+    name: "{{service_name_pod_blockbook}}"
+    daemon_reload: True
+  tags:
+    - pod_blockbook

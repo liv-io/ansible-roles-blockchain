@@ -1,0 +1,63 @@
+---
+
+{{ansible_managed|comment(decoration='#')}}
+
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: blockbook
+  name: pod_blockbook
+spec:
+  containers:
+  - name: blockbook
+    image: {{pod_blockbook_registry_address}}/blockbook:{{pod_blockbook_blockbook_version}}
+    ports:
+
+{% if (pod_blockbook_blockbook_environment_variables.PORT is defined) %}
+    - name: blockbook
+      containerPort: {{pod_blockbook_blockbook_environment_variables.PORT}}
+      hostPort: {{pod_blockbook_blockbook_environment_variables.PORT}}
+      protocol: TCP
+{% endif %}
+    resources: {}
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - CAP_MKNOD
+        - CAP_NET_RAW
+        - CAP_AUDIT_WRITE
+      privileged: false
+      readOnlyRootFilesystem: {{pod_blockbook_blockbook_read_only_root_filesystem|lower}}
+      runAsGroup: 10000
+      runAsUser: 10000
+      seLinuxOptions:
+        type: spc_t
+    volumeMounts:
+    - name: blockbook-config
+      mountPath: /var/local/blockbook/config
+    - name: blockbook-db
+      mountPath: /var/local/blockbook/db
+    workingDir: /
+    env:
+{% if not (pod_blockbook_blockbook_environment_variables == {}) %}
+{% for key, value in pod_blockbook_blockbook_environment_variables.items() %}
+    - name: {{key|upper}}
+      value: '{{value}}'
+{% endfor %}
+{% endif %}
+
+  dnsConfig: {}
+  restartPolicy: Always
+
+  volumes:
+  - name: blockbook-config
+    emptyDir:
+      sizeLimit: 1Mi
+
+  - name: blockbook-db
+    hostPath:
+      type: Directory
+      path: {{file_dst_blockbook_db_dir}}
+status: {}
