@@ -45,7 +45,7 @@ spec:
 {% if not (pod_rusty_kaspa_rusty_kaspa_environment_variables == {}) %}
 {% for key, value in pod_rusty_kaspa_rusty_kaspa_environment_variables.items() %}
     - name: {{key|upper}}
-      value: {{value}}
+      value: '{{value}}'
 {% endfor %}
 {% endif %}
 

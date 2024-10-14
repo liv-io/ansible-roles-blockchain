@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 1.0.2 (2024-10-14)
+
+### Enhancements
+
+- Enclose environment variable value in single quotes
+
 ## 1.0.1 (2024-10-06)
 
 ### Bugs

@@ -41,7 +41,7 @@ spec:
 {% if not (pod_lightning_lightning_environment_variables == {}) %}
 {% for key, value in pod_lightning_lightning_environment_variables.items() %}
     - name: {{key|upper}}
-      value: {{value}}
+      value: '{{value}}'
 {% endfor %}
 {% endif %}
 
