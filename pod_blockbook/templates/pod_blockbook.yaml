@@ -39,7 +39,7 @@ spec:
       mountPath: /var/local/blockbook/config
     - name: blockbook-db
       mountPath: /var/local/blockbook/db
-    workingDir: /
+    workingDir: /usr/local/share/blockbook
     env:
 {% if not (pod_blockbook_blockbook_environment_variables == {}) %}
 {% for key, value in pod_blockbook_blockbook_environment_variables.items() %}
