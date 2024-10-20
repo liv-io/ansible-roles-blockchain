@@ -146,7 +146,7 @@ consult the following sections.
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : '24.05-2'
+    Default    : '24.08.2-1'
     Options    :
       Examples: ''
 
