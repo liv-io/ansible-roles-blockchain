@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 0.1.2 (2024-10-25)
+
+### Enhancements
+
+- Increase service start and stop timeout
+
 ## 0.1.1 (2024-10-14)
 
 ### Bugs

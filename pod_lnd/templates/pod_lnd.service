@@ -24,7 +24,7 @@ ExecStart=/usr/bin/podman play kube \
     --log-driver journald \
 {% endif %}
     {{file_dst_pod_lnd_yaml}}
-ExecStop=/usr/bin/podman pod stop --time 15 pod_lnd
+ExecStop=/usr/bin/podman pod stop --time 55 pod_lnd
 ExecStopPost=/usr/bin/podman pod rm --force pod_lnd
 
 [Install]

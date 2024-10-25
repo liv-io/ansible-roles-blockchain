@@ -24,7 +24,7 @@ ExecStart=/usr/bin/podman play kube \
     --log-driver journald \
 {% endif %}
     {{file_dst_pod_blockbook_yaml}}
-ExecStop=/usr/bin/podman pod stop --time 15 pod_blockbook
+ExecStop=/usr/bin/podman pod stop --time 55 pod_blockbook
 ExecStopPost=/usr/bin/podman pod rm --force pod_blockbook
 LimitNOFILE=500000
 LimitNPROC=500000

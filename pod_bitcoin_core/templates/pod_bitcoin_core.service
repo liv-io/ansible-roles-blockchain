@@ -24,7 +24,7 @@ ExecStart=/usr/bin/podman play kube \
     --log-driver journald \
 {% endif %}
     {{file_dst_pod_bitcoin_core_yaml}}
-ExecStop=/usr/bin/podman pod stop --time 15 pod_bitcoin_core
+ExecStop=/usr/bin/podman pod stop --time 55 pod_bitcoin_core
 ExecStopPost=/usr/bin/podman pod rm --force pod_bitcoin_core
 
 [Install]
