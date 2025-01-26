@@ -27,4 +27,4 @@ pod_rusty_kaspa_registry_username: ''
 pod_rusty_kaspa_rusty_kaspa_environment_variables: {}
 
 pod_rusty_kaspa_rusty_kaspa_read_only_root_filesystem: True
-pod_rusty_kaspa_rusty_kaspa_version: '0.14.1-2'
+pod_rusty_kaspa_rusty_kaspa_version: '0.15.2-1'
