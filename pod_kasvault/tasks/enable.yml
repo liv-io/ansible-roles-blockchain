@@ -1,0 +1,88 @@
+---
+
+- name: include variables
+  include_vars: "{{lookup('first_found', params)}}"
+  vars:
+    params:
+      files:
+        - "vars/{{ansible_distribution_major_version}}.yml"
+        - 'vars/main.yml'
+  tags:
+    - pod_kasvault
+
+- name: create file pod_kasvault.yaml
+  template:
+    src: "{{file_src_pod_kasvault_yaml}}"
+    dest: "{{file_dst_pod_kasvault_yaml}}"
+    mode: "{{file_mode_pod_kasvault_yaml}}"
+    owner: "{{file_owner_pod_kasvault_yaml}}"
+    group: "{{file_group_pod_kasvault_yaml}}"
+  notify: restart service pod_kasvault
+  tags:
+    - pod_kasvault
+
+- name: create file pod_kasvault.default
+  template:
+    src: "{{file_src_pod_kasvault_default}}"
+    dest: "{{file_dst_pod_kasvault_default}}"
+    mode: "{{file_mode_pod_kasvault_default}}"
+    owner: "{{file_owner_pod_kasvault_default}}"
+    group: "{{file_group_pod_kasvault_default}}"
+  notify: restart service pod_kasvault
+  tags:
+    - pod_kasvault
+
+- name: create file pod_kasvault-kasvault.cfg
+  template:
+    src: "{{file_src_pod_kasvault_kasvault_cfg}}"
+    dest: "{{file_dst_pod_kasvault_kasvault_cfg}}"
+    mode: "{{file_mode_pod_kasvault_kasvault_cfg}}"
+    owner: "{{file_owner_pod_kasvault_kasvault_cfg}}"
+    group: "{{file_group_pod_kasvault_kasvault_cfg}}"
+  notify:
+    - validate monit
+    - reload monit
+  when: (pod_kasvault_monitor_monit_state == True)
+  tags:
+    - pod_kasvault
+
+- name: remove file pod_kasvault-pod_kasvault.cfg
+  file:
+    state: absent
+    path: "{{file_dst_pod_kasvault_kasvault_cfg}}"
+  notify: reload monit
+  when: (pod_kasvault_monitor_monit_state == False)
+  tags:
+    - pod_kasvault
+
+- name: create file pod_kasvault.nft
+  template:
+    src: "{{file_src_pod_kasvault_nft}}"
+    dest: "{{file_dst_pod_kasvault_nft}}"
+    mode: "{{file_mode_pod_kasvault_nft}}"
+    owner: "{{file_owner_pod_kasvault_nft}}"
+    group: "{{file_group_pod_kasvault_nft}}"
+  notify:
+    - validate nftables
+    - reload nftables
+  when: (pod_kasvault_nftables_state == True)
+  tags:
+    - pod_kasvault
+
+- name: remove file pod_kasvault.nft
+  file:
+    state: absent
+    path: "{{file_dst_pod_kasvault_nft}}"
+  notify: reload nftables
+  when: (pod_kasvault_nftables_state == False)
+  tags:
+    - pod_kasvault
+
+- name: start service pod_kasvault
+  service:
+    state: started
+    enabled: True
+    name: "{{service_name_pod_kasvault}}"
+    daemon_reload: True
+  tags:
+    - pod_kasvault

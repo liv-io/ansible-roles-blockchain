@@ -1,0 +1,60 @@
+---
+
+{{ansible_managed|comment(decoration='#')}}
+
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: kasvault
+  name: pod_kasvault
+spec:
+  containers:
+  - name: kasvault
+    image: {{pod_kasvault_registry_address}}/kasvault:{{pod_kasvault_kasvault_version}}
+    ports:
+    - name: pod_kasvault
+      containerPort: 3000
+      hostPort: 3000
+      protocol: TCP
+    resources: {}
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - CAP_MKNOD
+        - CAP_NET_RAW
+        - CAP_AUDIT_WRITE
+      privileged: false
+      readOnlyRootFilesystem: {{pod_kasvault_kasvault_read_only_root_filesystem|lower}}
+      runAsGroup: 10000
+      runAsUser: 10000
+      seLinuxOptions:
+        type: spc_t
+    volumeMounts:
+    - name: kasvault-cache
+      mountPath: /usr/local/share/kasvault/node_modules/.cache
+    - name: kasvault-tmp
+      mountPath: /tmp
+    workingDir: /usr/local/share/kasvault
+    env:
+{% if not (pod_kasvault_kasvault_environment_variables == {}) %}
+{% for key, value in pod_kasvault_kasvault_environment_variables.items() %}
+    - name: {{key|upper}}
+      value: '{{value}}'
+{% endfor %}
+{% endif %}
+
+  dnsConfig: {}
+  restartPolicy: Always
+
+  volumes:
+  - name: kasvault-cache
+    emptyDir:
+      sizeLimit: 300Mi
+
+  - name: kasvault-tmp
+    emptyDir:
+      sizeLimit: 300Mi
+
+status: {}

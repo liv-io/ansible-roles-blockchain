@@ -1,0 +1,84 @@
+---
+
+# pod_kasvault_etc.dir
+file_dst_pod_kasvault_etc_dir: '/etc/pod_kasvault'
+file_mode_pod_kasvault_etc_dir: '0750'
+file_owner_pod_kasvault_etc_dir: 'root'
+file_group_pod_kasvault_etc_dir: 'root'
+
+# opt.dir
+file_dst_opt_dir: '/opt'
+file_mode_opt_dir: '0755'
+file_owner_opt_dir: 'root'
+file_group_opt_dir: 'root'
+
+# pod_kasvault_opt.dir
+file_dst_pod_kasvault_opt_dir: '/opt/pod_kasvault'
+file_mode_pod_kasvault_opt_dir: '0755'
+file_owner_pod_kasvault_opt_dir: 'root'
+file_group_pod_kasvault_opt_dir: 'root'
+
+# pod_kasvault.default
+file_src_pod_kasvault_default: 'pod_kasvault.default'
+file_dst_pod_kasvault_default: '/etc/default/pod_kasvault'
+file_mode_pod_kasvault_default: '0640'
+file_owner_pod_kasvault_default: 'root'
+file_group_pod_kasvault_default: 'root'
+
+# pod_kasvault.service
+file_src_pod_kasvault_service: 'pod_kasvault.service'
+file_dst_pod_kasvault_service: '/lib/systemd/system/pod_kasvault.service'
+file_mode_pod_kasvault_service: '0644'
+file_owner_pod_kasvault_service: 'root'
+file_group_pod_kasvault_service: 'root'
+
+# pod_kasvault.yaml
+file_src_pod_kasvault_yaml: 'pod_kasvault.yaml'
+file_dst_pod_kasvault_yaml: '/etc/pod_kasvault/pod_kasvault.yaml'
+file_mode_pod_kasvault_yaml: '0640'
+file_owner_pod_kasvault_yaml: 'root'
+file_group_pod_kasvault_yaml: 'root'
+
+# monit.d
+file_dst_monit_d: '/etc/monit.d'
+file_mode_monit_d: '0750'
+file_owner_monit_d: 'root'
+file_group_monit_d: 'root'
+
+# nftables.d
+file_dst_nftables_d: '/etc/nftables.d'
+file_mode_nftables_d: '0750'
+file_owner_nftables_d: 'root'
+file_group_nftables_d: 'root'
+
+# pod_kasvault-kasvault.cfg
+file_src_pod_kasvault_kasvault_cfg: 'pod_kasvault-kasvault.cfg'
+file_dst_pod_kasvault_kasvault_cfg: '/etc/monit.d/pod_kasvault-kasvault.cfg'
+file_mode_pod_kasvault_kasvault_cfg: '0640'
+file_owner_pod_kasvault_kasvault_cfg: 'root'
+file_group_pod_kasvault_kasvault_cfg: 'root'
+
+# pod_kasvault.nft
+file_src_pod_kasvault_nft: 'pod_kasvault.nft'
+file_dst_pod_kasvault_nft: '/etc/nftables.d/pod_kasvault.conf'
+file_mode_pod_kasvault_nft: '0640'
+file_owner_pod_kasvault_nft: 'root'
+file_group_pod_kasvault_nft: 'root'
+
+# check service pod_kasvault
+command_cmd_check_service_pod_kasvault: 'systemctl cat pod_kasvault.service > /dev/null 2>&1'
+
+# reload monit
+command_cmd_reload_monit: 'systemctl is-active monit.service > /dev/null 2>&1 && systemctl reload monit || true'
+
+# validate monit
+command_cmd_validate_monit: 'systemctl is-active monit.service > /dev/null 2>&1 && monit -t || true'
+
+# reload nftables
+command_cmd_reload_nftables: 'systemctl is-active nftables.service > /dev/null 2>&1 &&  nft --file /etc/nftables.conf || true'
+
+# validate nftables
+command_cmd_validate_nftables: 'systemctl is-active nftables.service > /dev/null 2>&1 && nft --check --file /etc/nftables.conf || true'
+
+# pod_kasvault
+service_name_pod_kasvault: 'pod_kasvault'
