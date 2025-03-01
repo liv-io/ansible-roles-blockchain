@@ -28,7 +28,7 @@ consult the following sections.
     - role: pod_rusty_kaspa
   vars:
     pod_rusty_kaspa_state: 'enable'
-    pod_rusty_kaspa_pod_rusty_kaspa_version: '0.14.1-1'
+    pod_rusty_kaspa_rusty_kaspa_version: '0.14.1-1'
     pod_rusty_kaspa_proxy: 'http://proxy.example.com:3128'
     pod_rusty_kaspa_registry_address: 'registry.example.com'
     pod_rusty_kaspa_registry_password: 'sUlJr0kPZ1S0TX44aUdOVdQ90GbOBk6L'
@@ -45,12 +45,11 @@ consult the following sections.
     - role: pod_rusty_kaspa
   vars:
     pod_rusty_kaspa_state: 'disable'
-    pod_rusty_kaspa_pod_rusty_kaspa_version: '0.14.1-1'
+    pod_rusty_kaspa_rusty_kaspa_version: '0.14.1-1'
     pod_rusty_kaspa_proxy: 'http://proxy.example.com:3128'
     pod_rusty_kaspa_registry_address: 'registry.example.com'
     pod_rusty_kaspa_registry_password: 'sUlJr0kPZ1S0TX44aUdOVdQ90GbOBk6L'
     pod_rusty_kaspa_registry_username: 'registry'
-    pod_rusty_kaspa_rusty_kaspa_externalip: '1.2.3.4'
     pod_rusty_kaspa_rusty_kaspa_environment_variables:
       EXTERNALIP: '1.2.3.4'
 ```
