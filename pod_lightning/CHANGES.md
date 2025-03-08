@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 1.1.0 (2025-03-08)
+
+### Features
+
+- Update pod_lightning_lightning_version from 24.08.2-1 to 25.02-2
+
 ## 1.0.3 (2024-10-25)
 
 ### Enhancements
