@@ -10,6 +10,16 @@ The headers are:
 - enhancements
 - features
 
+## 0.1.1 (2025-03-09)
+
+### Bugs
+
+- Update pod_kasvault_kasvault_version from ab0a74eff86d3ad9eee73940785c1b2b2b6afd99-2 to ab0a74eff86d3ad9eee73940785c1b2b2b6afd99-3
+
+### Enhancements
+
+- Minor Ansible task name correction
+
 ## 0.1.0 (2025-03-01)
 
 ### Features

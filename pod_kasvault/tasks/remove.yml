@@ -37,7 +37,7 @@
   tags:
     - pod_kasvault
 
-- name: remove file pod_kasvault-pod_kasvault.cfg
+- name: remove file pod_kasvault-kasvault.cfg
   file:
     state: absent
     path: "{{file_dst_pod_kasvault_kasvault_cfg}}"
