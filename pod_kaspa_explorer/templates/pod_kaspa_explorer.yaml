@@ -1,0 +1,60 @@
+---
+
+{{ansible_managed|comment(decoration='#')}}
+
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: kaspa-explorer
+  name: pod_kaspa_explorer
+spec:
+  containers:
+  - name: kaspa-explorer
+    image: {{pod_kaspa_explorer_registry_address}}/kaspa-explorer:{{pod_kaspa_explorer_kaspa_explorer_version}}
+    ports:
+    - name: kaspa-explorer
+      containerPort: 3000
+      hostPort: 3000
+      protocol: TCP
+    resources: {}
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - CAP_MKNOD
+        - CAP_NET_RAW
+        - CAP_AUDIT_WRITE
+      privileged: false
+      readOnlyRootFilesystem: {{pod_kaspa_explorer_kaspa_explorer_read_only_root_filesystem|lower}}
+      runAsGroup: 10000
+      runAsUser: 10000
+      seLinuxOptions:
+        type: spc_t
+    volumeMounts:
+    - name: kaspa-explorer-cache
+      mountPath: /usr/local/share/kaspa-explorer/node_modules/.cache
+    - name: kaspa-explorer-tmp
+      mountPath: /tmp
+    workingDir: /usr/local/share/kaspa-explorer
+    env:
+{% if not (pod_kaspa_explorer_kaspa_explorer_environment_variables == {}) %}
+{% for key, value in pod_kaspa_explorer_kaspa_explorer_environment_variables.items() %}
+    - name: {{key|upper}}
+      value: '{{value}}'
+{% endfor %}
+{% endif %}
+
+  dnsConfig: {}
+  restartPolicy: Always
+
+  volumes:
+  - name: kaspa-explorer-cache
+    emptyDir:
+      sizeLimit: 300Mi
+
+  - name: kaspa-explorer-tmp
+    emptyDir:
+      sizeLimit: 300Mi
+
+status: {}

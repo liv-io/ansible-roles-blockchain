@@ -1,0 +1,23 @@
+---
+
+pod_kaspa_explorer_state: 'enable'
+
+pod_kaspa_explorer_kaspa_explorer_environment_variables: {}
+pod_kaspa_explorer_kaspa_explorer_read_only_root_filesystem: True
+pod_kaspa_explorer_kaspa_explorer_version: 'b68585671577addcf6de48d84ea04d09503a9070-1'
+
+pod_kaspa_explorer_log_driver: 'journald'
+
+pod_kaspa_explorer_monitor_monit_state: False
+
+pod_kaspa_explorer_nftables_filter_rule: |
+  add rule ip filter INPUT ip saddr { 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 } ct state new tcp dport 3000 counter accept comment "kaspa-explorer from internal private addresses"
+  add rule ip6 filter INPUT ip6 saddr fc00::/7 ct state new tcp dport 3000 counter accept comment "kaspa-explorer from unique local addresses"
+
+pod_kaspa_explorer_nftables_state: False
+
+pod_kaspa_explorer_proxy: ''
+
+pod_kaspa_explorer_registry_address: ''
+pod_kaspa_explorer_registry_password: ''
+pod_kaspa_explorer_registry_username: ''

@@ -1,0 +1,88 @@
+---
+
+- name: include variables
+  include_vars: "{{lookup('first_found', params)}}"
+  vars:
+    params:
+      files:
+        - "vars/{{ansible_distribution_major_version}}.yml"
+        - 'vars/main.yml'
+  tags:
+    - pod_kaspa_explorer
+
+- name: create file pod_kaspa_explorer.yaml
+  template:
+    src: "{{file_src_pod_kaspa_explorer_yaml}}"
+    dest: "{{file_dst_pod_kaspa_explorer_yaml}}"
+    mode: "{{file_mode_pod_kaspa_explorer_yaml}}"
+    owner: "{{file_owner_pod_kaspa_explorer_yaml}}"
+    group: "{{file_group_pod_kaspa_explorer_yaml}}"
+  notify: restart service pod_kaspa_explorer
+  tags:
+    - pod_kaspa_explorer
+
+- name: create file pod_kaspa_explorer.default
+  template:
+    src: "{{file_src_pod_kaspa_explorer_default}}"
+    dest: "{{file_dst_pod_kaspa_explorer_default}}"
+    mode: "{{file_mode_pod_kaspa_explorer_default}}"
+    owner: "{{file_owner_pod_kaspa_explorer_default}}"
+    group: "{{file_group_pod_kaspa_explorer_default}}"
+  notify: restart service pod_kaspa_explorer
+  tags:
+    - pod_kaspa_explorer
+
+- name: create file pod_kaspa_explorer-kaspa-explorer.cfg
+  template:
+    src: "{{file_src_pod_kaspa_explorer_kaspa_explorer_cfg}}"
+    dest: "{{file_dst_pod_kaspa_explorer_kaspa_explorer_cfg}}"
+    mode: "{{file_mode_pod_kaspa_explorer_kaspa_explorer_cfg}}"
+    owner: "{{file_owner_pod_kaspa_explorer_kaspa_explorer_cfg}}"
+    group: "{{file_group_pod_kaspa_explorer_kaspa_explorer_cfg}}"
+  notify:
+    - validate monit
+    - reload monit
+  when: (pod_kaspa_explorer_monitor_monit_state == True)
+  tags:
+    - pod_kaspa_explorer
+
+- name: remove file pod_kaspa_explorer-kaspa-explorer.cfg
+  file:
+    state: absent
+    path: "{{file_dst_pod_kaspa_explorer_kaspa_explorer_cfg}}"
+  notify: reload monit
+  when: (pod_kaspa_explorer_monitor_monit_state == False)
+  tags:
+    - pod_kaspa_explorer
+
+- name: create file pod_kaspa_explorer.nft
+  template:
+    src: "{{file_src_pod_kaspa_explorer_nft}}"
+    dest: "{{file_dst_pod_kaspa_explorer_nft}}"
+    mode: "{{file_mode_pod_kaspa_explorer_nft}}"
+    owner: "{{file_owner_pod_kaspa_explorer_nft}}"
+    group: "{{file_group_pod_kaspa_explorer_nft}}"
+  notify:
+    - validate nftables
+    - reload nftables
+  when: (pod_kaspa_explorer_nftables_state == True)
+  tags:
+    - pod_kaspa_explorer
+
+- name: remove file pod_kaspa_explorer.nft
+  file:
+    state: absent
+    path: "{{file_dst_pod_kaspa_explorer_nft}}"
+  notify: reload nftables
+  when: (pod_kaspa_explorer_nftables_state == False)
+  tags:
+    - pod_kaspa_explorer
+
+- name: start service pod_kaspa_explorer
+  service:
+    state: started
+    enabled: True
+    name: "{{service_name_pod_kaspa_explorer}}"
+    daemon_reload: True
+  tags:
+    - pod_kaspa_explorer
