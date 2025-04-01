@@ -10,7 +10,13 @@ The headers are:
 - enhancements
 - features
 
-## 0.1.0 (2025-03-09)
+## 3254127d9e1346a0a2a4749cddb8aa6fc6aa2329-1 (2025-04-01)
+
+### Features
+
+- Update pod_kaspa_explorer_kaspa_explorer_version from b68585671577addcf6de48d84ea04d09503a9070-1 3254127d9e1346a0a2a4749cddb8aa6fc6aa2329-1
+
+## b68585671577addcf6de48d84ea04d09503a9070-1 (2025-03-09)
 
 ### Features
 
