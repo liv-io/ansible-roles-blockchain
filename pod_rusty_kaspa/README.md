@@ -212,7 +212,7 @@ consult the following sections.
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : '0.16.1-1'
+    Default    : '1.0.0-1'
     Options    :
       Examples: '0.13.6-1'
 

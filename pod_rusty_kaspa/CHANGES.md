@@ -10,37 +10,44 @@ The headers are:
 - enhancements
 - features
 
-## 1.2.1 (2025-03-04)
+## 1.0.0-1 (2025-04-01)
+
+### Changes
+
+- Update pod_rusty_kaspa_rusty_kaspa_version from 0.16.1-1 to 1.0.0-1
+- Change versioning
+
+## 0.5.1 (2025-03-04)
 
 ### Bugs
 
 - Update pod_rusty_kaspa_rusty_kaspa_version from 0.16.0-1 to 0.16.1-1
 
-## 1.2.0 (2025-01-29)
+## 0.5.0 (2025-01-29)
 
 ### Features
 
 - Update pod_rusty_kaspa_rusty_kaspa_version from 0.15.2-1 to 0.16.0-1
 
-## 1.1.0 (2025-01-26)
+## 0.4.0 (2025-01-26)
 
 ### Features
 
 - Update pod_rusty_kaspa_rusty_kaspa_version from 0.14.1-2 to 0.15.2-1
 
-## 1.0.2 (2024-10-25)
+## 0.3.2 (2024-10-25)
 
 ### Enhancements
 
 - Increase service start and stop timeout
 
-## 1.0.1 (2024-10-14)
+## 0.3.1 (2024-10-14)
 
 ### Enhancements
 
 - Enclose environment variable value in single quotes
 
-## 1.0.0 (2024-10-06)
+## 0.3.0 (2024-10-06)
 
 ### Changes
 

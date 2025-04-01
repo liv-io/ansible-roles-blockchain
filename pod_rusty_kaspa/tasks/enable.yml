@@ -46,7 +46,7 @@
   tags:
     - pod_rusty_kaspa
 
-- name: remove file pod_rusty_kaspa-pod_rusty-kaspa.cfg
+- name: remove file pod_rusty_kaspa-rusty-kaspa.cfg
   file:
     state: absent
     path: "{{file_dst_pod_rusty_kaspa_rusty_kaspa_cfg}}"
