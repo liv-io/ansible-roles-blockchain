@@ -4,7 +4,7 @@ pod_kaspa_explorer_state: 'enable'
 
 pod_kaspa_explorer_kaspa_explorer_environment_variables: {}
 pod_kaspa_explorer_kaspa_explorer_read_only_root_filesystem: True
-pod_kaspa_explorer_kaspa_explorer_version: '3254127d9e1346a0a2a4749cddb8aa6fc6aa2329-1'
+pod_kaspa_explorer_kaspa_explorer_version: '97c0cb37f89aa2769977fbc77ede36dbaf14bbab-1'
 
 pod_kaspa_explorer_log_driver: 'journald'
 
