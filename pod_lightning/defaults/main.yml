@@ -6,7 +6,7 @@ pod_lightning_lightning_environment_variables:
   ANNOUNCE_ADDR_DISCOVERED_PORT: '9735'
 
 pod_lightning_lightning_read_only_root_filesystem: True
-pod_lightning_lightning_version: '25.02-2'
+pod_lightning_lightning_version: '25.02.1-1'
 
 pod_lightning_log_driver: 'journald'
 
