@@ -10,6 +10,16 @@ The headers are:
 - enhancements
 - features
 
+## 0.5.0-1 (2025-09-19)
+
+### Changes
+
+- Change versioning
+
+### Features
+
+- Update blockbook to version 0.5.0
+
 ## 0.2.0 (2025-08-22)
 
 ### Changes
