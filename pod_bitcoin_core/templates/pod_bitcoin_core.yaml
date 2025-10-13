@@ -15,14 +15,14 @@ spec:
     ports:
 {% if (pod_bitcoin_core_bitcoin_core_environment_variables.PORT is defined) %}
     - name: bitcoin-core-network
-      containerPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.PORT.rsplit(':', 1)[-1]}}
-      hostPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.PORT.rsplit(':', 1)[-1]}}
+      containerPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.PORT}}
+      hostPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.PORT}}
       protocol: TCP
 {% endif %}
 {% if (pod_bitcoin_core_bitcoin_core_environment_variables.RPCPORT is defined) %}
     - name: bitcoin-core-rpc
-      containerPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.RPCPORT.rsplit(':', 1)[-1]}}
-      hostPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.RPCPORT.rsplit(':', 1)[-1]}}
+      containerPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.RPCPORT}}
+      hostPort: {{pod_bitcoin_core_bitcoin_core_environment_variables.RPCPORT}}
       protocol: TCP
 {% endif %}
 {% if (pod_bitcoin_core_bitcoin_core_environment_variables.ZMQPUBHASHBLOCK is defined) %}

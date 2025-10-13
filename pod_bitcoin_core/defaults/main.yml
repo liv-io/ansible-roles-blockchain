@@ -6,7 +6,7 @@ pod_bitcoin_core_bitcoin_core_environment_variables:
   PORT: '8333'
 
 pod_bitcoin_core_bitcoin_core_read_only_root_filesystem: True
-pod_bitcoin_core_bitcoin_core_version: '29.1-1'
+pod_bitcoin_core_bitcoin_core_version: '29.1-2'
 
 pod_bitcoin_core_log_driver: 'journald'
 
