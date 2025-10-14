@@ -62,6 +62,7 @@ consult the following sections.
       COLOR: '#f2a900'
       EXTERNALIP: '5.6.7.8'
       LISTEN: '0.0.0.0:9735'
+      WALLET_PASSWORD: '51!bDsV=SQJbYt3mJarb+ZRYsEyJN,P3'
 
     pod_lnd_proxy: 'http://proxy.example.com:3128'
     pod_lnd_registry_address: 'registry.example.com'
@@ -126,6 +127,8 @@ consult the following sections.
         COLOR: '#f2a900'
         EXTERNALIP: '5.6.7.8'
         LISTEN: '0.0.0.0:9735'
+        WALLET_PASSWORD: '51!bDsV=SQJbYt3mJarb+ZRYsEyJN,P3'
+
       None    : {}
 
 `pod_lnd_lnd_read_only_root_filesystem`

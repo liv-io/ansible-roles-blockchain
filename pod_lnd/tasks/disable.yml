@@ -17,6 +17,7 @@
     mode: "{{file_mode_pod_lnd_yaml}}"
     owner: "{{file_owner_pod_lnd_yaml}}"
     group: "{{file_group_pod_lnd_yaml}}"
+  no_log: True
   tags:
     - pod_lnd
 
