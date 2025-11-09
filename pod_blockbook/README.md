@@ -155,9 +155,9 @@ consult the following sections.
       Examples: 'journald'
       None    : ''
 
-`pod_blockbook_monitor_monit_state`
+`pod_blockbook_monit_state`
 
-    Description: Control the 'pod_blockbook_monitor_monit_state' option.
+    Description: Control the 'pod_blockbook_monit_state' option.
     Required   : False
     Value      : Predetermined
     Type       : Boolean

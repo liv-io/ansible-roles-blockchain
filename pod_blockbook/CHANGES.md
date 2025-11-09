@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 0.5.0-2 (2025-11-09)
+
+### Changes
+
+- Rename parameter from `pod_blockbook_monitor_monit_state` to `pod_blockbook_monit_state`
+
 ## 0.5.0-1 (2025-09-19)
 
 ### Changes
