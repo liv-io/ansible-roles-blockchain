@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 1.0.1-3 (2025-11-09)
+
+### Changes
+
+- Rename parameter from `pod_rusty_kaspa_monitor_monit_state` to `pod_rusty_kaspa_monit_state`
+
 ## 1.0.1-2 (2025-08-22)
 
 ### Changes

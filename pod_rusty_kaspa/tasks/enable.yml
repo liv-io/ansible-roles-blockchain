@@ -42,7 +42,7 @@
   notify:
     - validate monit
     - reload monit
-  when: (pod_rusty_kaspa_monitor_monit_state == True)
+  when: (pod_rusty_kaspa_monit_state == True)
   tags:
     - pod_rusty_kaspa
 
@@ -51,7 +51,7 @@
     state: absent
     path: "{{file_dst_pod_rusty_kaspa_rusty_kaspa_cfg}}"
   notify: reload monit
-  when: (pod_rusty_kaspa_monitor_monit_state == False)
+  when: (pod_rusty_kaspa_monit_state == False)
   tags:
     - pod_rusty_kaspa
 
