@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 2.0.0 (2025-11-09)
+
+### Changes
+
+- Rename parameter from `pod_btcd_monitor_monit_state` to `pod_btcd_monit_state`
+
 ## 1.1.0 (2025-08-22)
 
 ### Changes

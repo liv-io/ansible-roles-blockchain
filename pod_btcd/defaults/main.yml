@@ -11,7 +11,7 @@ pod_btcd_btcd_version: '0.24.2-1'
 
 pod_btcd_log_driver: 'journald'
 
-pod_btcd_monitor_monit_state: False
+pod_btcd_monit_state: False
 
 pod_btcd_nftables_filter_rule: |
   add rule ip filter INPUT ct state new tcp dport 8333 counter accept comment "bitcoin from any"

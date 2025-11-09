@@ -42,7 +42,7 @@
   notify:
     - validate monit
     - reload monit
-  when: (pod_btcd_monitor_monit_state == True)
+  when: (pod_btcd_monit_state == True)
   tags:
     - pod_btcd
 
@@ -51,7 +51,7 @@
     state: absent
     path: "{{file_dst_pod_btcd_btcd_cfg}}"
   notify: reload monit
-  when: (pod_btcd_monitor_monit_state == False)
+  when: (pod_btcd_monit_state == False)
   tags:
     - pod_btcd
 

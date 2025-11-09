@@ -151,9 +151,9 @@ consult the following sections.
       Examples: 'journald'
       None    : ''
 
-`pod_btcd_monitor_monit_state`
+`pod_btcd_monit_state`
 
-    Description: Control the 'pod_btcd_monitor_monit_state' option.
+    Description: Control the 'pod_btcd_monit_state' option.
     Required   : False
     Value      : Predetermined
     Type       : Boolean
