@@ -8,7 +8,7 @@ pod_kaspa_explorer_kaspa_explorer_version: '97c0cb37f89aa2769977fbc77ede36dbaf14
 
 pod_kaspa_explorer_log_driver: 'journald'
 
-pod_kaspa_explorer_monitor_monit_state: False
+pod_kaspa_explorer_monit_state: False
 
 pod_kaspa_explorer_nftables_filter_rule: |
   add rule ip filter INPUT ip saddr { 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 } ct state new tcp dport 3000 counter accept comment "kaspa-explorer from internal private addresses"

@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 97c0cb37f89aa2769977fbc77ede36dbaf14bbab-3 (2025-11-09)
+
+### Changes
+
+- Rename parameter from `pod_kaspa_explorer_monitor_monit_state` to `pod_kaspa_explorer_monit_state`
+
 ## 97c0cb37f89aa2769977fbc77ede36dbaf14bbab-2 (2025-08-22)
 
 ### Changes

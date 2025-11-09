@@ -42,7 +42,7 @@
   notify:
     - validate monit
     - reload monit
-  when: (pod_kaspa_explorer_monitor_monit_state == True)
+  when: (pod_kaspa_explorer_monit_state == True)
   tags:
     - pod_kaspa_explorer
 
@@ -51,7 +51,7 @@
     state: absent
     path: "{{file_dst_pod_kaspa_explorer_kaspa_explorer_cfg}}"
   notify: reload monit
-  when: (pod_kaspa_explorer_monitor_monit_state == False)
+  when: (pod_kaspa_explorer_monit_state == False)
   tags:
     - pod_kaspa_explorer
 
