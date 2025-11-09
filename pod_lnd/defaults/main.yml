@@ -10,7 +10,7 @@ pod_lnd_lnd_version: '0.19.3-beta-3'
 
 pod_lnd_log_driver: 'journald'
 
-pod_lnd_monitor_monit_state: False
+pod_lnd_monit_state: False
 
 pod_lnd_nftables_filter_rule: |
   add rule ip filter INPUT ct state new tcp dport 9735 counter accept comment "lnd from any"

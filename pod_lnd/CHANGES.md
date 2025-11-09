@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 0.19.3-beta-4 (2025-11-09)
+
+### Changes
+
+- Rename parameter from `pod_lnd_monitor_monit_state` to `pod_lnd_monit_state`
+
 ## 0.19.3-beta-3 (2025-10-14)
 
 ### Features

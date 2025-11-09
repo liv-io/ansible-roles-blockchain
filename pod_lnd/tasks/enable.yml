@@ -43,7 +43,7 @@
   notify:
     - validate monit
     - reload monit
-  when: (pod_lnd_monitor_monit_state == True)
+  when: (pod_lnd_monit_state == True)
   tags:
     - pod_lnd
 
@@ -52,7 +52,7 @@
     state: absent
     path: "{{file_dst_pod_lnd_lnd_cfg}}"
   notify: reload monit
-  when: (pod_lnd_monitor_monit_state == False)
+  when: (pod_lnd_monit_state == False)
   tags:
     - pod_lnd
 

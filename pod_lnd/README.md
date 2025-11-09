@@ -161,9 +161,9 @@ consult the following sections.
       Examples: 'journald'
       None    : ''
 
-`pod_lnd_monitor_monit_state`
+`pod_lnd_monit_state`
 
-    Description: Control the 'pod_lnd_monitor_monit_state' option.
+    Description: Control the 'pod_lnd_monit_state' option.
     Required   : False
     Value      : Predetermined
     Type       : Boolean
