@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 29.2-2 (2025-11-09)
+
+### Changes
+
+- Rename parameter from `pod_bitcoin_core_monitor_monit_state` to `pod_bitcoin_core_monit_state`
+
 ## 29.2-1 (2025-10-14)
 
 ### Bugs
