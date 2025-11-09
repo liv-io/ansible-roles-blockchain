@@ -128,9 +128,9 @@ consult the following sections.
       Examples: 'journald'
       None    : ''
 
-`pod_kasvault_monitor_monit_state`
+`pod_kasvault_monit_state`
 
-    Description: Control the 'pod_kasvault_monitor_monit_state' option.
+    Description: Control the 'pod_kasvault_monit_state' option.
     Required   : False
     Value      : Predetermined
     Type       : Boolean

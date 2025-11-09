@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 1.0.0 (2025-11-09)
+
+### Changes
+
+- Rename parameter from `pod_kasvault_monitor_monit_state` to `pod_kasvault_monit_state`
+
 ## 0.3.0 (2025-08-22)
 
 ### Changes
