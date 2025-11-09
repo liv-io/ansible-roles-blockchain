@@ -10,7 +10,13 @@ The headers are:
 - enhancements
 - features
 
-## 25.05-2 (2025-10-17)
+## 25.09.1-2 (2025-11-09)
+
+### Changes
+
+- Rename parameter from `pod_lightning_monitor_monit_state` to `pod_lightning_monit_state`
+
+## 25.09.1-1 (2025-10-17)
 
 ### Bugs
 

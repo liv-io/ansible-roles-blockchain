@@ -42,7 +42,7 @@
   notify:
     - validate monit
     - reload monit
-  when: (pod_lightning_monitor_monit_state == True)
+  when: (pod_lightning_monit_state == True)
   tags:
     - pod_lightning
 
@@ -51,7 +51,7 @@
     state: absent
     path: "{{file_dst_pod_lightning_lightning_cfg}}"
   notify: reload monit
-  when: (pod_lightning_monitor_monit_state == False)
+  when: (pod_lightning_monit_state == False)
   tags:
     - pod_lightning
 
