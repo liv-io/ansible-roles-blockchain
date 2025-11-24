@@ -146,7 +146,7 @@ consult the following sections.
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : '0.19.3-beta-2'
+    Default    : '0.20.0-beta-1'
     Options    :
       Examples: ''
 

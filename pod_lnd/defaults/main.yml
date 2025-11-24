@@ -6,7 +6,7 @@ pod_lnd_lnd_environment_variables:
   LISTEN: '0.0.0.0:9735'
 
 pod_lnd_lnd_read_only_root_filesystem: True
-pod_lnd_lnd_version: '0.19.3-beta-3'
+pod_lnd_lnd_version: '0.20.0-beta-1'
 
 pod_lnd_log_driver: 'journald'
 
