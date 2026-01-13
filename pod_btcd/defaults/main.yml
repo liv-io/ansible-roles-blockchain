@@ -7,7 +7,7 @@ pod_btcd_btcd_environment_variables:
   RPCLISTEN: '127.0.0.1:8334'
 
 pod_btcd_btcd_read_only_root_filesystem: True
-pod_btcd_btcd_version: '0.24.2-1'
+pod_btcd_btcd_version: '0.25.0-1'
 
 pod_btcd_log_driver: 'journald'
 
