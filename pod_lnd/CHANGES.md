@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 0.21.0-beta-1-1 (2026-06-06)
+
+### Features
+
+- Update pod_lnd_lnd_version to 0.21.0-beta-1-1
+
 ## 0.20.1-beta-1-1 (2026-02-13)
 
 ### Features
