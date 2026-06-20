@@ -10,6 +10,12 @@ The headers are:
 - enhancements
 - features
 
+## 2.0.1-1 (2026-06-20)
+
+### Enhancements
+
+- Update pod_rusty_kaspa_rusty_kaspa_version from 2.0.0-1 to 2.0.1-1
+
 ## 2.0.0-1 (2026-06-08)
 
 ### Changes
