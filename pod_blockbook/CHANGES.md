@@ -10,6 +10,17 @@ The headers are:
 - enhancements
 - features
 
+## 0.5.0-2-1 (2025-11-09)
+
+### Changes
+
+- Change versioning
+
+### Enhancements
+
+- Update pod_blockbook_blockbook_version from 0.5.0-1 to 0.5.0-2
+- Improve monit connectivity checks
+
 ## 0.5.0-2 (2025-11-09)
 
 ### Changes
