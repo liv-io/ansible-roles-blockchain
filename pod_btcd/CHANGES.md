@@ -10,6 +10,16 @@ The headers are:
 - enhancements
 - features
 
+## 0.26.0-1-1 (2026-06-24)
+
+### Enhancements
+
+- Improve monit connectivity checks
+
+### Features
+
+- Update pod_btcd_btcd_version from 0.25.0-1 to 0.26.0-1
+
 ## 0.25.0-1-1 (2026-01-13)
 
 ### Changes
