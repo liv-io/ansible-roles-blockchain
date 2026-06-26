@@ -10,6 +10,16 @@ The headers are:
 - enhancements
 - features
 
+## 1.1.0 (2026-06-26)
+
+### Enhancements
+
+- Improve monit connectivity checks
+
+### Features
+
+- Update pod_kasvault_kasvault_version from 6c8c5c19f6fef33436c8275e2ad1e7b782e2e7e9-1 to 0fb8244202c5d3988d4967ab5ad01c21fe003465-1
+
 ## 1.0.0 (2025-11-09)
 
 ### Changes

@@ -4,7 +4,7 @@ pod_kasvault_state: 'enable'
 
 pod_kasvault_kasvault_environment_variables: {}
 pod_kasvault_kasvault_read_only_root_filesystem: True
-pod_kasvault_kasvault_version: '6c8c5c19f6fef33436c8275e2ad1e7b782e2e7e9-1'
+pod_kasvault_kasvault_version: '0fb8244202c5d3988d4967ab5ad01c21fe003465-1'
 
 pod_kasvault_log_driver: 'journald'
 
