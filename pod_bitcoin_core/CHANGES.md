@@ -10,13 +10,20 @@ The headers are:
 - enhancements
 - features
 
-## 31.0-1 (2025-04-20)
+## 31.1-1 (2026-07-11)
+
+### Enhancements
+
+- Update pod_bitcoin_core_bitcoin_core_version from 31.0-1 to 31.1-1
+- Improve monit connectivity checks
+
+## 31.0-1 (2026-04-20)
 
 ### Features
 
 - Update pod_bitcoin_core_bitcoin_core_version from 30.2-1 to 31.0-1
 
-## 30.2-1 (2025-01-13)
+## 30.2-1 (2026-01-13)
 
 ### Features
 

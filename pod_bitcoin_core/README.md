@@ -151,7 +151,7 @@ consult the following sections.
     Required   : False
     Value      : Arbitrary
     Type       : String
-    Default    : '31.0-1'
+    Default    : '31.1-1'
     Options    :
       Examples: ''
 
