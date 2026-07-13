@@ -10,6 +10,16 @@ The headers are:
 - enhancements
 - features
 
+## 26.06.2-1-1 (2026-07-13)
+
+### Bugs
+
+- Update pod_lightning_lightning_version from 26.06.1-1 to 26.06.2-1
+
+### Enhancements
+
+- Improve monit connectivity checks
+
 ## 26.06.1-1-1 (2026-06-06)
 
 ### Bugs
